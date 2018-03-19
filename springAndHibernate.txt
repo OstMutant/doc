@@ -1,0 +1,325 @@
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring Boot
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Spring Boot позволяет вам лекго создавать полноценные, производственного класса Spring-приложения, про которые можно сказать - "просто запусти". 
+	Мы включили Spring-платформу и сторонние библиотеки, чтобы вы могли запустить с минимум усилиями. Большинству Spring Boot приложениям требуется совсем маленькая Spring-конфигурация.
+		Создание полноценных Spring приложений
+		Встроенный Tomcat или Jetty (не требуется установки WAR файлов)
+		Обеспечивает 'начальные' POMs для упрощения вашей Maven конфигурации
+		Автоматическая конфигурирация Spring когда это возможно
+		Обеспечивает такими возможностями, как метрики, мониторинг состояниями и расширенная конфигурация
+		Абсолютно без генерации кода и без написания XML конфигурация
+	Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".
+		We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss. Most Spring Boot applications need very little Spring configuration.
+	Features (http://projects.spring.io/spring-boot/)
+		Create stand-alone Spring applications
+		Embed Tomcat, Jetty or Undertow directly (no need to deploy WAR files)
+		Provide opinionated 'starter' POMs to simplify your Maven configuration
+		Automatically configure Spring whenever possible
+		Provide production-ready features such as metrics, health checks and externalized configuration
+		Absolutely no code generation and no requirement for XML configuration 
+
+		
+		package hello;
+
+		import org.springframework.boot.*;
+		import org.springframework.boot.autoconfigure.*;
+		import org.springframework.stereotype.*;
+		import org.springframework.web.bind.annotation.*;
+
+		@Controller
+		@EnableAutoConfiguration
+		public class SampleController {
+
+			@RequestMapping("/")
+			@ResponseBody
+			String home() {
+				return "Hello World!";
+			}
+
+			public static void main(String[] args) throws Exception {
+				SpringApplication.run(SampleController.class, args);
+			}
+		}
+		
+		
+	What are the advantages of using Spring Boot?
+		It is very easy to develop Spring Based applications with Java or Groovy.
+		It reduces lots of development time and increases productivity.
+		It avoids writing lots of boilerplate Code, Annotations and XML Configuration.
+		It is very easy to integrate Spring Boot Application with its Spring Ecosystem like Spring JDBC, Spring ORM, Spring Data, Spring Security etc.
+		It follows “Opinionated Defaults Configuration” Approach to reduce Developer effort
+		It provides Embedded HTTP servers like Tomcat, Jetty etc. to develop and test our web applications very easily.
+		It provides CLI (Command Line Interface) tool to develop and test Spring Boot (Java or Groovy) Applications from command prompt very easily and quickly.
+		It provides lots of plugins to develop and test Spring Boot Applications very easily using Build Tools like Maven and Gradle
+		It provides lots of plugins to work with embedded and in-memory Databases very easily.		
+	(http://www.java2novice.com/java_interview_questions/spring-boot-pros-and-cons/)
+	Spring Boot Advantages 
+		Simplified & version conflict free dependency management through the starter POMs.
+		We can quickly setup and run standalone, web applications and micro services at very less time.
+		You can just assemble the jar artifact which comes with an embedded Tomact, Jetty or Undertow application server and you are ready to go.
+		Spring Boot provides HTTP endpoints to access application internals like detailed metrics, application inner working, health status, etc.
+		No XML based configurations at all. Very much simplified properties. The beans are initialized, configured and wired automatically.
+		The Spring Initializer provides a project generator to make you productive with the certain technology stack from the beginning. 
+			You can create a skeleton project with web, data access (relational and NoSQL datastores), cloud, or messaging support.
+	Spring Boot Disadvantages
+		Spring boot may unnecessarily increase the deployment binary size with unused dependencies.
+		If you are a control freak, I doubt Spring Boot would fit your needs.
+		Spring Boot sticks good with micro services. The Spring Boot artifacts can be deployed directly into Docker containers.
+		In a large and monolithic based applications, I would not encourage you to use Spring Boot.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring Framework
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	https://uk.wikipedia.org/wiki/Spring_Framework - IoC у вигляді принципу інверсії залежностей входить у п'ятірку принципів SOLID.
+
+	Spring IoC Container
+		Inversion of Control-контейнер: конфигурирование компонентов приложений и управление жизненным циклом Java-объектов.
+			Инверсия управления (англ. Inversion of Control, IoC) — важный принцип объектно-ориентированного программирования, используемый для уменьшения зацепления в компьютерных программах
+		Inversion of Control это механизм, который обеспечивает достижение слабой связности в зависимостях между объектами. 
+			Слабая связанность объектов достигается путем использования динамического связывания(инъекции) одного объекта с другим во время выполнения программы. 
+			Spring IoC контейнер является инструментом который вставляет(inject) зависимости в объект и тем самым делает его готовым к использованию.
+			Классы Spring Framework IoC контейнера являются частью org.springframework.beans и org.springframework.context пакетов.
+				BeanFactory — основной интерфейс контейнера Spring IoC.
+				ApplicationContext — расширяет интерфейс BeanFactory возможностями Spring AOP , интернационализации и другими инструментами.
+				The org.springframework.beans.factory.BeanFactory and the org.springframework.context.ApplicationContext interfaces acts as the IoC container. 
+					The ApplicationContext interface is built on top of the BeanFactory interface. 
+					It adds some extra functionality than BeanFactory such as simple integration with Spring's AOP, message resource handling (for I18N),
+						event propagation, application layer specific context (e.g. WebApplicationContext) for web application. So it is better to use ApplicationContext than BeanFactory.(https://www.javatpoint.com/ioc-container)
+			Inversion of Control (IoC) is a general concept, and it can be expressed in many different ways and Dependency Injection is merely one concrete example of Inversion of Control. (http://www.java2novice.com/java_interview_questions/dependency-injection/)
+				This concept says that you do not create your objects but describe how they should be created. 
+				You don't directly connect your components and services together in code but describe which services are needed by which components in a configuration file. A container is then responsible for hooking it all up.
+	
+	Dependency injection — имплементирует принцип “IoC” в приложении. 
+		(Внедрение зависимости — шаблон проектирования, в котором контейнер передает экземпляры объектов по их имени другим объектам с помощью конструктора, свойства или фабричного метода.)
+		(http://www.java2novice.com/java_interview_questions/dependency-injection/)
+		class Car{
+		  private Wheel wh= new NepaliRubberWheel();
+		  private Battery bt= new ExcideBattery();
+		  //rest
+		}
+		When using Dependency Injection, objects are given their dependencies at run time rather than compile time (car manufacturing time). 
+			So that we can now change the Wheel whenever we want. Here, the Dependency (Wheel) can be injected into Car at run time.
+		Spring supports 2 types of dependency injection, they are:(http://www.java2novice.com/java_interview_questions/spring-dependency-injection-types/)
+			1) Constructor-based dependency injection: It is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on other class.
+			2) Setter-based dependency injection: It is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+			
+			
+	Spring Bean
+		Любой объект в фреймворке Spring, который инициализируется через Spring IoC контейнер называется Spring Bean. Любой Java POJO класс может быть Spring бином если его сконфигурировать.
+		Spring Bean Scopes
+		Определено пять ограничений(scopes) для бинов(Spring Beans).
+			singleton — только один экземпляр бина будет создан для каждого контейнера.   Это ограничение установлено по умолчанию для бинов спринга.
+			prototype — при каждом запросе на получение бина будет возвращен новый экземпляр бина.
+			request — тоже самое что и prototype только для Web приложений. Новый экземпляр бина будет создан при каждом HTTP запросе.
+			session — новый экземпляр бина будет создан для каждой HTTP сессий.
+			global-session — используется для создания бина в глобальной сессии для портлет(Portlet) приложений.
+		Фреймворк Spring является расширяемым и мы можем создать собственные ограничения(scopes) для бина, но в большинстве случаев достаточно использовать стандартные ограничения(scope).
+
+	
+	Каковы различные способы настроить класс как Spring Bean?(http://javastudy.ru/interview/jee-spring-questions-answers/)
+		XML конфигурация, Annotation based конфигурация, Java based конфигурация.
+	Spring framework provides flexibility to configure beans in multiple ways such as XML, Annotations, and JavaConfig.
+	Если нам необходимо задать какое-либо действие при инициализации и уничтожении бина, то нужно воспользоваться методами init() и destroy(). 
+		Для этого можно использовать аннотации @PostConstruct и @PreDestroy().
+		
+	-------------------- Spring Annotations(https://www.journaldev.com/16966/spring-annotations, https://alexkosarev.name/2016/05/26/spring-framework-and-beans-initialization/,https://dzone.com/refcardz/spring-annotations?chapter=2)
+			Spring framework implements and promotes the principle of control inversion (IOC) or dependency injection (DI) and is in fact an IOC container.
+			Traditionally, Spring allows a developer to manage bean dependencies by using XML-based configuration.
+			There is an alternative way to define beans and their dependencies. This method is a Java-based configuration.
+			Unlike the XML approach, Java-based configuration allows you to manage bean components programmatically. That’s why Spring annotations were introduced.
+	
+		-- Spring Annotations List
+			@Configuration: Used to indicate that a class declares one or more @Bean methods. These classes are processed by the Spring container to generate bean definitions and service requests for those beans at runtime.
+			@Bean: Indicates that a method produces a bean to be managed by the Spring container. This is one of the most used and important spring annotation. @Bean annotation also can be used with parameters like name, initMethod and destroyMethod.
+				name – allows you give name for bean
+				initMethod – allows you to choose method which will be invoked on context register
+				destroyMethod – allows you to choose method which will be invoked on context shutdown
+			@PreDestroy and @PostConstruct are alternative way for bean initMethod and destroyMethod. It can be used when the bean class is defined by us
+			@ComponentScan: Configures component scanning directives for use with @Configuration classes. Here we can specify the base packages to scan for spring components.
+			@Component: Indicates that an annotated class is a “component”. Such classes are considered as candidates for auto-detection when using annotation-based configuration and classpath scanning.
+			@PropertySource: provides a simple declarative mechanism for adding a property source to Spring’s Environment. There is a similar annotation for adding an array of property source files i.e @PropertySources.
+			@Service: Indicates that an annotated class is a “Service”. This annotation serves as a specialization of @Component, allowing for implementation classes to be autodetected through classpath scanning.	
+			@Repository: Indicates that an annotated class is a “Repository”. This annotation serves as a specialization of @Component and advisable to use with DAO classes.		
+			@Autowired: Spring @Autowired annotation is used for automatic injection of beans. Spring @Qualifier annotation is used in conjunction with Autowired to avoid confusion when we have two of more bean configured for same type.			
+			
+		-- Spring MVC Annotations
+			Some of the important Spring MVC annotations are:
+			@Controller
+			@RequestMapping
+			@PathVariable
+			@RequestParam
+			@ModelAttribute
+			@RequestBody and @ResponseBody
+			@RequestHeader and @ResponseHeader
+	
+		-- Spring Boot Annotations
+			@SpringBootApplication
+			@EnableAutoConfiguration
+	
+	-------------------- Spring Web model-view-controller (MVC)
+	Фреймворк Spring Web model-view-controller (MVC) или по нашему модель-представление-контроллер построен вокруг DispatcherServlet, который распределяет запросы по обработчикам.
+		В нём настраивается мэппинг запросов, локали, временные зоны и многое другое. Обработчик по умолчанию строится на аннотациях @Controller и @RequestMapping, 
+			которые предоставляют широкий набор гибких методов для обработки запросов. 
+		После версии Spring 3.0. механизм @Controller так же позволяет создавать RESTful веб сайты и приложения, используя аннотацию @PathVariable и другие возможности.
+ 
+	
+	Что такое контроллер в Spring MVC?(http://javastudy.ru/interview/jee-spring-questions-answers/)
+		Ключевым интерфейсом в Spring MVC является Controller. 
+		Контроллер обрабатывает запросы к действиям, осуществляемые пользователями в пользовательском интерфейсе, взаимодействуя с уровнем обслуживания,
+			обновляя модель и направляя пользователей на соответствующие представления в зависимости от результатов выполнения. Controller — управление, связь между моделью и видом.
+		Основным контроллером в Spring MVC является org.springframework.web.servlet.DispatcherServlet. 
+		DispatcherServlet — сервлет диспетчера. Этот сервлет анализирует запросы и направляет их соответствующему контроллеру для обработки.
+		Задается аннотацией @Controller и часто используется с аннотацией @RequestMapping, которая указывает какие запросы будут обрабатываться этим контроллером.
+		@Component используется для указания класса в качестве компонента спринг. При использовании поиска аннотаций, такой класс будет сконфигурирован как spring bean.
+		@Controller специальный тип класса, применяемый в MVC приложениях. Обрабатывает запросы и часто используется с аннотацией @RequestMapping.
+		@Repository указывает, что класс используется для работы с поиском, получением и хранением данных. Аннотация может использоваться для реализации шаблона DAO.
+		@Service указывает, что класс является сервисом для реализации бизнес логики (на самом деле не отличается от Component, но просто помогает разработчику указать смысловую нагрузку класса).
+		ContextLoaderListener — слушатель при старте и завершении корневого класса Spring WebApplicationContext. 
+		Основным назначением является связывание жизненного цикла ApplicationContext и ServletContext, а так же автоматического создания ApplicationContext.
+		ViewResolver — распознаватель представлений. Интерфейс ViewResolver в Spring MVC (из пакета org.springframework.web.servlet) поддерживает распознавание представлений на основе логического имени, возвращаемого контроллером.
+		Интерфейс MultipartResolver используется для загрузки файлов. 
+		В Spring MVC интерфейс HandlerExceptionResolver (из пакета org.springframework.web.servlet) предназначен для работы с непредвиденными исключениями, возникающими во время выполнения обработчиков.
+			По умолчанию DispatcherServlet регистрирует класс DefaultHandlerExceptionResolver (из пакета org.springframework.web.servlet.mvc.support).
+			Этот распознаватель обрабатывает определенные стандартные исключения Spring MVC, устанавливая специальный код состояния ответа.
+	
+	Additional tags facilitating development (https://docs.spring.io/autorepo/docs/spring/3.2.x/spring-framework-reference/html/view.html)
+		Spring provides data binding of request parameters to command objects as described in earlier chapters. To facilitate the development of JSP pages in combination with those data binding features, 
+			Spring provides a few tags that make things even easier. All Spring tags have HTML escaping features to enable or disable escaping of characters.
+			The form tag library comes bundled in spring-webmvc.jar. The library descriptor is called spring-form.tld. <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+	
+	Spring Framework Overview(https://docs.spring.io/spring/docs/current/spring-framework-reference/overview.html)
+		Servlet API (JSR 340)
+		WebSocket API (JSR 356)
+		Concurrency Utilities (JSR 236)
+		JSON Binding API (JSR 367)
+		Bean Validation (JSR 303)
+		JPA (JSR 338)
+		JMS (JSR 914)
+		as well as JTA/JCA setups for transaction coordination, if necessary.
+	
+	-------------------- DI vs. DIP vs. IoC(http://sergeyteplyakov.blogspot.ru/2014/11/di-vs-dip-vs-ioc.html)
+	++ IoC – Inversion of Control (Инверсия управления)
+		Инверсия заключается в том, что в отличии от традиционного подхода не вы вызываете библиотечный код, а библиотечный код вызывает вас.
+	++ DI – Dependency Injection (Внедрение зависимостей)
+		Внедрение зависимостей (DI, Dependency Injection) – это механизм передачи классу его зависимостей. 
+		Существует несколько конкретных видов или паттернов внедрения зависимостей: внедрение зависимости через конструктор (Constructor Injection), через метод (Method Injection) и через свойство (Property Injection).
+	++ DIP – Dependency Inversion Principle (Принцип инверсии зависимостей)
+		дает рекомендации о том, какими должны быть зависимости. Это как раз то, что вы процитировали:
+		Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций.
+		Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring MVC Tiles
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
+	Spring provides integration support with apache tiles framework. So we can simply manage the layout of the spring mvc application by the help of spring tiles support.
+	
+	Advantage of Tiles(https://www.javatpoint.com/spring-mvc-tiles-example)
+		Reusability: We can reuse a single component in multiple pages like header and footer components.
+		Centralized control: We can control the layout of the page by a single template page only.
+		Easy to change the layout: By the help of single template page, we can change the layout of the page anytime. So your website can easily adapt new technologies such as bootstrap, jquery etc.
+		
+	Based upon the Composite pattern it is built to simplify the development of user interfaces.(http://www.codingpedia.org/ama/spring-mvc-and-apache-tiles-integration-example/)
+	Tiles allows authors to define page fragments which can be assembled into a complete pages at runtime. 
+		These fragments, or tiles, can be used as simple includes in order to reduce the duplication of common page elements or embedded within other tiles to develop a series of reusable templates. 
+		These templates streamline the development of a consistent look and feel across an entire application.
+	
+	A Composite design pattern is a type of structural pattern which composes objects into tree structures to represent whole-part hierarchies and this pattern treats individual objects and composition of objects uniformly.(http://www.baeldung.com/spring-mvc-apache-tiles) 
+		In other words, in Tiles, a page is built by assembling a composition of sub views called Tiles.
+		The advantages of this framework over other frameworks include: re-usability, ease in configuration, low performance overhead.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CRUD 4 базові функції управління даними «створення, зчитування, зміна і видалення».
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	CRUD — (англ. create read update delete) 
+		Створити   INSERT
+		Прочитати  SELECT
+		Оновити    UPDATE
+		Видалити   DELETE
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hibernate
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	HQL (Hibernate Query Language) – это объекто-ориентированный (далее – ОО) язык запросов, который крайне похож на SQL.
+		http://proselyte.net/tutorials/hibernate-tutorial/hibernate-query-language/
+		https://jsehelper.blogspot.nl/2016/03/object-relational-mapping-orm-hibernate.html
+
+
+	JPA (Java Persistence API) это спецификация Java EE и Java SE, описывающая систему управления сохранением java объектов в таблицы реляционных баз данных в удобном виде.
+	http://javastudy.ru/interview/jpa-questions-answers/
+
+	В JPA описаны два типа fetch стратегии:
+		1) LAZY — данные поля будут загружены только во время первого доступа к этому полю,
+		2) EAGER — данные поля будут загружены немедленно.
+
+
+	Какие типы связей (relationship) между Entity вы знаете
+		1. OneToOne (связь один к одному, то есть один объект Entity может связан не больше чем с один объектом другого Entity ),
+		2. OneToMany (связь один ко многим, один объект Entity может быть связан с целой коллекцией других Entity),
+		3. ManyToOne (связь многие к одному, обратная связь для OneToMany),
+		4. ManyToMany (связь многие ко многим)Каждую из которых можно разделить ещё на два вида:
+
+	Какие три типа стратегии наследования мапинга (Inheritance Mapping Strategies) описаны в JPA?
+		1) одна таблица на всю иерархию наследования (a single table per class hierarchy) 
+		2) объединяющая стратегия (joined subclass strategy) 
+		3) одна таблица для каждого класса (table per concrete class strategy)
+
+
+	Объект-сущность может находиться в одном из 3-х состояний (статусов):
+		transient object. Объекты в данном статусе — это заполненные экземпляры классов-сущностей. Могут быть сохранены в БД. 
+		  Не присоединены к сессии. Поле Id не должно быть заполнено, иначе объект имеет статус detached ;
+		persistent object. Объект в данном статусе — так называемая хранимая сущность, которая присоединена к конкретной сессии. 
+		   Только в этом статусе объект взаимодействует с базой данных. При работе с объектом данного типа в рамках транзакции все изменения объекта записываются в базу;
+		detached object. Объект в данном статусе — это объект, отсоединённый от сессии, может существовать или не существовать в БД.
+
+
+	У Entity объекта существует четыре статуса жизненного цикла: new, managed, detached, или removed. Их описание
+		1) new/transient — объект создан, но при этом ещё не имеет сгенерированных первичных ключей и пока ещё не сохранен в базе данных,
+		2) managed(persistent object) — объект создан, управляется JPA, имеет сгенерированные первичные ключи,
+		3) detached — объект был создан, но не управляется (или больше не управляется) JPA,
+		4) removed — объект создан, управляется JPA, но будет удален после commit’a транзакции.
+	https://howtodoinjava.com/hibernate/hibernate-entity-persistence-lifecycle-states/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+-------------------- POJO (англ. Plain Old Java Object) — „Простий старий Java-об'єкт“, простий Java-об'єкт,
+	не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
+	
+-------------------- Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов,
+	который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
+
+
+-- ------------------------------------------------ WEB Services (https://jsehelper.blogspot.com/2016/04/web-services.html)
+	Web Service (Веб служба) — это технология позволяющая предоставлять общий доступ к определённым данным системы.
+
+-- ------------------------------------------------ DAO Data access object
+https://uk.wikipedia.org/wiki/Data_access_object
+Об'єкт доступу до даних (англ. data access object) (DAO) - об'єкт що надає абстрактний інтерфейс до деяких видів баз даних чи механізмів персистентності реалізуючи певні операції без розкриття деталей бази даних. 
+Він надає відображення від програмних викликів до рівня персистентності. Така ізоляція розділює запити до даних в термінах предметної області та їх реалізацію засобами СКБД.
+
+
+https://uk.wikipedia.org/wiki/%D0%9F%D0%B5%D1%80%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BD%D1%82%D0%BD%D1%96%D1%81%D1%82%D1%8C
+Персистентність в програмуванні означає здатність стану існувати довше, ніж процес, що створив його. 
+Без цієї можливості, стан може існувати лише в оперативній пам'яті і втрачається, коли оперативна пам'ять вимикається, наприклад, при вимкненні комп'ютера.
+
+
+Data Transfer Object (DTO) — один из шаблонов проектирования, используется для передачи данных между подсистемами приложения. 
+Data Transfer Object, в отличие от business object или data access object не должен содержать какого-либо поведения.
+https://ru.wikipedia.org/wiki/DTO
+
+
+-- ------------------------------------------------ Серіалізація
+https://uk.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D1%96%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%8F
+Серіалізація (у програмуванні) — процес перетворення будь-якої структури даних у послідовність бітів. 
+Зворотною до операції серіалізації є операція десеріалізації — відновлення початкового стану структури даних із бітової послідовності.
+
+
+-- ------------------------------------------------ CGI (от англ. Common Gateway Interface — «общий интерфейс шлюза») — стандарт интерфейса, используемого для связи внешней программы с веб-сервером. 
+Программу, которая работает по такому интерфейсу совместно с веб-сервером, принято называть шлюзом, хотя многие предпочитают названия «скрипт» (сценарий) или «CGI-программа». 
+По сути позволяет использовать консоль ввода и вывода для взаимодействия с клиентом.
+
+
+
+

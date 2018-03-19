@@ -1,0 +1,14 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Глубже стек-трейсов, шире хип-дампов (https://www.youtube.com/watch?v=3A_djdEucnw)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+- Рекомендується називати Среди
+- Steck working API (java 9).
+
+
+-XX:+PrintConcurrentLocks (http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html)
+	Enables printing of java.util.concurrent locks after a Control+C event (SIGTERM). By default, this option is disabled. Mykhaylo Hrytsiv
+-XX:-OmitStackTraceInFastThrow (http://www.oracle.com/technetwork/java/javase/relnotes-139183.html#vm)
+	The compiler in the server VM now provides correct stack backtraces for all "cold" built-in exceptions. 
+	For performance purposes, when such an exception is thrown a few times, the method may be recompiled. 
+	After recompilation, the compiler may choose a faster tactic using preallocated exceptions that do not provide a stack trace. To disable completely the use of preallocated exceptions,
+	

@@ -1,0 +1,275 @@
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+
+		SQL stands for Structured Query Language , and it is used to communicate with the Database. 
+			This is a standard language used to perform tasks such as retrieval, updation, insertion and deletion of data from a database.
+
+		Database is nothing but an organized form of data for easy access, storing, retrieval and managing of data. 
+			This is also known as structured form of data which can be accessed in many ways.
+		
+		What is an Index?
+			An index is performance tuning method of allowing faster retrieval of records from the table. 
+			An index creates an entry for each value and it will be faster to retrieve data.
+		
+		What are tables and Fields?
+			A table is a set of data that are organized in a model with Columns and Rows. 
+			Columns can be categorized as vertical, and Rows are horizontal. A table has specified number of column called fields but can have any number of rows which is called record.
+		
+		What is a Cursor?
+			A database Cursor is a control which enables traversal over the rows or records in the table. 
+			This can be viewed as a pointer to one row in a set of rows. Cursor is very much useful for traversing such as retrieval, addition and removal of database records.
+		
+		What is a query?
+			A DB query is a code written in order to get the information back from the database. 
+			Query can be designed in such a way that it matched with our expectation of the result set. Simply, a question to the Database.
+		
+		Міжнародна організація зі стандартизації (англ. International Organization for Standardization, ISO)
+		Америка́нський націона́льний інститу́т станда́ртів (англ. American National Standards Institute, ANSI) — об'єднання американських промислових і ділових груп, що розробляє торгові і комунікаційні стандарти, член ISO.
+
+
+		SQL (Structured query language — мова структурованих запитів), складається з:
+			DDL (Data Definition Language) — робота зі структурою бази,
+							CREATE — створення об'єкта (наприклад, таблиці);
+							ALTER — зміна об'єкта (наприклад, додавання/зміна полів таблиці);
+							DROP — видалення об'єкта.
+			DML (Data Manipulation Language) — робота з рядочками,
+							INSERT — вставлення рядочка;
+							SELECT — вибірка;
+							UPDATE — зміна;
+							DELETE — видалення.
+			DCL (Data Control Language) — робота з правами,
+							GRANT — надання прав користувачу;
+							DENY — явна заборона для користувача;
+							REVOKE — відміна заборони/дозволу користувачу.
+			TCL (Transaction Control Language) — робота з транзакціями.
+							BEGIN TRANSACTION — почати транзакцію;
+							COMMIT — прийняти зміни прийняті в транзакції;
+							ROLLBACK — відкат.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CAP theorem(https://en.wikipedia.org/wiki/CAP_theorem)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Теорема CAP (известная также как теорема Брюера) — эвристическое утверждение о том, что в любой реализации распределённых вычислений возможно обеспечить не более двух из трёх следующих свойств:
+
+			согласованность данных (англ. consistency) — во всех вычислительных узлах в один момент времени данные не противоречат друг другу;
+			доступность (англ. availability) — любой запрос к распределённой системе завершается корректным откликом, однако без гарантии, что ответы всех узлов системы совпадают;
+			устойчивость к разделению (англ. partition tolerance) — расщепление распределённой системы на несколько изолированных секций не приводит к некорректности отклика от каждой из секций.
+			
+		The CAP theorem - that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees
+			Consistency - Every read receives the most recent write or an error
+			Availability - Every request receives a (non-error) response – without guarantee that it contains the most recent write
+			Partition tolerance - The system continues to operate despite an arbitrary number of messages being dropped (or delayed) by the network between nodes
+		CA - Розподілена система в якій забезпечена доступність та узгодженість даних не може забезпечувати стійкість до розділення.
+			Прикладом такої системи є програмне забезпечення що підтримує ACID вимоги, наприклад реляційні бази даних.
+		AP - Розподілена система в якій не гарантується цілісність результату, зате висока доступність і збереження працездатності при розділенні.
+			Звісно такі системи з'явилися значно раніше формулювання CAP теореми, як то наприклад DNS, але ріст популярності збігається з розповсюдженням даного принципу (зокрема деякі NoSQL системи не гарантують цілісність результату, посилаючись на дану теорему).
+		CP - Система що забезпечує цілісність даних на всіх вузлах і здатність працювати при розділенні, але не гарантує доступність і може не відповідати на запити.
+			Прикладами таких систем є розподілене програмне забезпечення фінансових систем, де узгодженість даних має найвищий пріоритет, це наприклад, мережа банкоматів.							
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Требования к транзакционной системе (https://ru.wikipedia.org/wiki/ACID)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		ACID - atomicity (атомарность), consistency (согласованность), isolation(изолированность), durability (устойчивость). 
+			Oписывает требования к транзакционной системе (например, к СУБД), обеспечивающие наиболее надёжную и предсказуемую её работу.
+			
+			atomicity (атомарность) -         Свойство атомарности гарантирует неделимость набора операторов, которые изменяют данные в базе данных и являются частью транзакции. Это означает, что
+				или выполняются все изменения данных в транзакции, или в случае любой ошибки все уже выполненные изменения отменяются.
+			consistency (согласованность) -         Согласованность гарантирует, что транзакция не даст возможности базе данных содержать несогласованные данные. 
+				Другими словами, трансформация данных в рамках одной транзакции переводит базу данных из одного согласованного
+				состояния в другое согласованное состояние.
+				Транзакция, достигающая своего нормального завершения (EOT — end of transaction, завершение транзакции) и, тем самым, фиксирующая свои результаты, сохраняет согласованность базы данных. 
+				Другими словами, каждая успешная транзакция по определению фиксирует только допустимые результаты. Это условие является необходимым для поддержки четвёртого свойства.
+			isolation(изолированность) -         Свойство изолированности разделяет все одновременно выполняющиеся транзакции. 
+				Другими словами, ни одна активная транзакция не может видеть изменения данных, выполненные в параллельной, но не завершенной транзакции.
+			durability (устойчивость) -         Устойчивость - после своего завершения транзакция сохраняется в системе, которую ничто не может вернуть в исходное (до начала транзакции) состояние, т.е. 
+				происходит фиксация транзакции, означающая, что ее действие постоянно даже при сбое системы.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Уровень изолированности транзакций. -- http://www.lessons-tva.info/edu/e-inf2/m2t4.html
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 				
+		Проблемы параллельного доступа с использованием транзакций
+			
+			-- потерянное обновление (англ. lost update) — при одновременном изменении одного блока данных разными транзакциями одно из изменений теряется;
+			-- «грязное» чтение (англ. dirty read) — чтение данных, добавленных или изменённых транзакцией, которая впоследствии не подтвердится (откатится);
+			-- неповторяющееся чтение (англ. non-repeatable read) — при повторном чтении в рамках одной транзакции ранее прочитанные данные оказываются изменёнными;
+			-- фантомное чтение (англ. phantom reads) — одна транзакция в ходе своего выполнения несколько раз выбирает множество строк по одним и тем же критериям. 
+				Другая транзакция в интервалах между этими выборками добавляет или удаляет строки или изменяет столбцы некоторых строк, используемых в критериях выборки первой транзакции, и успешно заканчивается. 
+				В результате получится, что одни и те же выборки в первой транзакции дают разные множества строк.
+				
+		Уровни изоляции (https://ru.wikipedia.org/wiki/%D0%A3%D1%80%D0%BE%D0%B2%D0%B5%D0%BD%D1%8C_%D0%B8%D0%B7%D0%BE%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8_%D1%82%D1%80%D0%B0%D0%BD%D0%B7%D0%B0%D0%BA%D1%86%D0%B8%D0%B9)
+			Под «уровнем изоляции транзакций» понимается степень обеспечиваемой внутренними механизмами СУБД (то есть не требующей специального программирования)
+				защиты от всех или некоторых видов вышеперечисленных несогласованностей данных, возникающих при параллельном выполнении транзакций. 
+			
+			Read uncommitted (чтение незафиксированных данных) Низший (первый) уровень изоляции. Он гарантирует только отсутствие потерянных обновлений
+			Read committed (чтение фиксированных данных) На этом уровне обеспечивается защита от чернового, «грязного» чтения, тем не менее,
+				в процессе работы одной транзакции другая может быть успешно завершена и сделанные ею изменения зафиксированы.
+				Реализация завершённого чтения может основываться на одном из двух подходов: блокировании или версионности.	
+			Repeatable read (повторяемость чтения) Уровень, при котором читающая транзакция «не видит» изменения данных, которые были ею ранее прочитаны. 
+				При этом никакая другая транзакция не может изменять данные, читаемые текущей транзакцией, пока та не окончена.
+			Serializable (упорядочиваемость) Самый высокий уровень изолированности; транзакции полностью изолируются друг от друга, каждая выполняется так, как будто параллельных транзакций не существует.
+				Только на этом уровне параллельные транзакции не подвержены эффекту «фантомного чтения».				
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Виды логической связи. -- http://www.lessons-tva.info/edu/e-inf2/m2t4.html
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  
+		Связь устанавливается между двумя общими полями (столбцами) двух таблиц. Существуют связи с отношением «один-к-одному», «один-ко-многим» и «многие-ко-многим».
+
+		Отношения, которые могут существовать между записями двух таблиц:
+		один – к - одному, каждой записи из одной таблицы соответствует одна запись в другой таблице;
+		один – ко - многим, каждой записи из одной таблицы соответствует несколько записей  другой таблице;
+		многие – к - одному, множеству записей из одной таблице соответствует одна запись в другой таблице;
+		многие – ко - многим, множеству записей из одной таблицы соответствует несколько записей в другой таблице.
+
+
+		Тип отношения в создаваемой связи зависит от способа определения связываемых полей:
+		Отношение «один-ко-многим» создается в том случае, когда только одно из полей является полем первичного ключа или уникального индекса.
+		Отношение «один-к-одному» создается в том случае, когда оба связываемых поля являются ключевыми или имеют уникальные индексы.
+		Отношение «многие-ко-многим» фактически является двумя отношениями «один-ко-многим» с третьей таблицей, первичный ключ которой состоит из полей внешнего ключа двух других таблиц
+
+		What is a relationship and what are they?
+			Database Relationship is defined as the connection between the tables in a database. There are various data basing relationships, and they are as follows:.
+			One to One Relationship.
+			One to Many Relationship.
+			Many to One Relationship.
+			Self-Referencing Relationship.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ключи.(https://career.guru99.com/top-50-sql-question-answers/  )
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                        
+       
+		What is a primary key?(https://career.guru99.com/top-50-sql-question-answers/)
+			A primary key is a combination of fields which uniquely specify a row. This is a special kind of unique key, and it has implicit NOT NULL constraint. It means, Primary key values cannot be NULL.
+	   
+	    What is a unique key?
+			A Unique key constraint uniquely identified each record in the database. This provides uniqueness for the column or set of columns.
+			A Primary key constraint has automatic unique constraint defined on it. But not, in the case of Unique Key.
+			There can be many unique constraint defined per table, but only one Primary key constraint defined per table.
+	   
+		What is a foreign key?
+			A foreign key is one table which can be related to the primary key of another table. 
+			Relationship needs to be created between two tables by referencing foreign key with the primary key of another table.
+			
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What is a join?. (https://career.guru99.com/top-50-sql-question-answers/, http://stevestedman.com/2015/05/tsql-join-types-poster-version-4-1/) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		 
+		 
+		This is a keyword used to query data from more tables based on the relationship between the fields of the tables. Keys play a major role when JOINs are used.
+		Inner join.
+			Inner join return rows when there is at least one match of rows between the tables.
+		Right Join.
+			Right join return rows which are common between the tables and all rows of Right hand side table. 
+			Simply, it returns all the rows from the right hand side table even though there are no matches in the left hand side table.
+		Left Join.
+			Left join return rows which are common between the tables and all rows of Left hand side table. Simply, it returns all the rows from Left hand side table even though there are no matches in the Right hand side table.
+		Full Join.
+			Full join return rows when there are matching rows in any one of the tables. This means, it returns all the rows from the left hand side table and all the rows from the right hand side table.
+
+		------------- FULL OUTER JOIN vs CROSS JOIN (http://stevestedman.com/2015/03/full-outer-join-vs-cross-join/)
+		The CROSS JOIN gives you the Cartesian product of the two tables, by matching every row from one table with every row from another table.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Индекс (базы данных). (https://habrahabr.ru/post/247373/) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+		The main difference between a Key and an Index is that the Key is part of the logical model, and an Index is part of the implementation.(https://discuss.fogcreek.com/joelonsoftware5/default.asp?cmd=show&ixPost=152398)
+			
+		From the discussion we find following differences between clustered and non-clustered indexes.(https://www.sqlshack.com/what-is-the-difference-between-clustered-and-non-clustered-indexes-in-sql-server/)
+			There can be only one clustered index per table. However, you can create multiple non-clustered indexes on a single table.
+			Clustered indexes only sort tables. Therefore, they do not consume extra storage. Non-clustered indexes are stored in a separate place from the actual table claiming more storage space.
+			Clustered indexes are faster than non-clustered indexes since they don’t involve any extra lookup step.
+			
+		What are all the different types of indexes?(https://career.guru99.com/top-50-sql-question-answers/)
+			There are three types of indexes -.
+				Unique Index.
+					This indexing does not allow the field to have duplicate values if the column is unique indexed. Unique index can be applied automatically when primary key is defined.
+				Clustered Index.
+					This type of index reorders the physical order of the table and search based on the key values. Each table can have only one clustered index.
+				NonClustered Index.
+					NonClustered Index does not alter the physical order of the table and maintains logical order of data. Each table can have 999 nonclustered indexes.
+		What is the difference between Cluster and Non-Cluster Index?
+			Clustered index is used for easy retrieval of data from the database by altering the way that the records are stored. Database sorts out rows by the column which is set to be clustered index.
+			A nonclustered index does not alter the way it was stored but creates a complete separate object within the table. It point back to the original table rows after searching.
+			
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
+The difference between SP and UDF is listed below:(https://stackoverflow.com/questions/1179758/function-vs-stored-procedure-in-sql-server)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		+---------------------------------+----------------------------------------+
+		| Stored Procedure (SP)           | Function (UDF - User Defined           |
+		|                                 | Function)                              |
+		+---------------------------------+----------------------------------------+
+		| SP can return zero , single or  | Function must return a single value    |
+		| multiple values.                | (which may be a scalar or a table).    |
+		+---------------------------------+----------------------------------------+
+		| We can use transaction in SP.   | We can't use transaction in UDF.       |
+		+---------------------------------+----------------------------------------+
+		| SP can have input/output        | Only input parameter.                  |
+		| parameter.                      |                                        |
+		+---------------------------------+----------------------------------------+
+		| We can call function from SP.   | We can't call SP from function.        |
+		+---------------------------------+----------------------------------------+
+		| We can't use SP in SELECT/      | We can use UDF in SELECT/ WHERE/       |
+		| WHERE/ HAVING statement.        | HAVING statement.                      |
+		+---------------------------------+----------------------------------------+
+		| We can use exception handling   | We can't use Try-Catch block in UDF.   |
+		| using Try-Catch block in SP.    |                                        |
+		+---------------------------------+----------------------------------------+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Логический порядок обработки инструкции SELECT
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		FROM - ON - JOIN - where -  GROUP BY -WITH CUBE или WITH ROLLUP - HAVING - SELECT - DISTINCT - ORDER BY - TOP
+		
+		Следующие действия демонстрируют логический порядок обработки или порядок привязки инструкции SELECT. 
+		Этот порядок определяет, когда объекты, определенные в одном шаге, становятся доступными для предложений в последующих шагах. 
+		Например, если обработчик запросов можно привязать (для доступа) к таблицам или представлениям, определенным в предложении FROM, эти объекты и их столбцы становятся доступными для всех последующих шагов.
+		И наоборот, поскольку предложение SELECT является шагом 8, любые псевдонимы столбцов или производных столбцов, определенные в этом предложении, не могут быть объектом для ссылки предыдущих предложений.
+		Вместе с тем к ним могут обращаться последующие предложения, например предложение ORDER BY. 
+		Обратите внимание, что фактическое физическое выполнение оператора определяется обработчиком запросов и порядок из этого списка может значительно отличаться.
+			
+		EXCEPT Возвращает все уникальные значения из запроса слева от оператора EXCEPT, которые не возвращены в результатах выполнения правого запроса.
+		INTERSECT Возвращает все различные значения, входящие в результаты выполнения запросов, указанных как слева, так и справа от оператора INTERSECT.
+        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL Constraints (https://www.w3schools.com/sql/sql_constraints.asp)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		NOT NULL - Ensures that a column cannot have a NULL value
+		UNIQUE - Ensures that all values in a column are different
+		PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+		FOREIGN KEY - Uniquely identifies a row/record in another table
+		CHECK - Ensures that all values in a column satisfies a specific condition
+		DEFAULT - Sets a default value for a column when no value is specified
+		INDEX - Used to create and retrieve data from the database very quickly
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Нормализация баз данных в MySQL
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Нормальные формы: Первая НФ: каждое поле должно быть неделимым (атомарным). 
+			Это означает, что не должно быть таких полей, которые можно логически как-то разбить на несколько других полей. 
+			Например, поле ФИО содержит запись "Иванов Сергей Петрович", его можно разбить на 3 поля: фамилия, имя, отчество.
+
+		Вторая НФ: каждая запись таблицы должна однозначно определяться значением первичного ключа. Это значит, что не должно быть повторяющихся записей в таблице.
+
+		Третья НФ: в таблице не должно быть полей, значения которых зависят от значений неключевых полей. 
+			Например, в таблице "Товар" есть поля "Цена", "Количество", "Стоимость"; здесь поле "Стоимость" зависит от значений первых двух полей,
+			поэтому его нужно удалить из таблицы: потом всегда можно будет сделать запрос с вычисляемым полем или добавить вычисляемое поле в набор данных.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Liquibase
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Liquibase - открытую (open source) систему для управления миграциями БД. Liquibase помогает организовать процесс внесения изменений в схему БД,
+			каждая миграция будет содержать описание изменений, необходимых для перехода от старой ревизии к новой.
+			При использовании Liquibase изменения структуры базы данных будут храниться в отдельных файлах (changelogs), поддерживаются форматы XML, YAML, JSON или SQL, что очень удобно.
+			В файлах-чейнджлогах изменения представляются в виде чейнджсетов (changesets). Чейнджсет может содержать одно или несколько изменений базы данных.
+ 
+-- ------------------------------------------------ Links
+https://habrahabr.ru/post/305926/ 
+https://uk.wikibooks.org/wiki/SQL
+https://docs.microsoft.com/ru-ru/sql/t-sql/language-elements/set-operators-except-and-intersect-transact-sql
+https://habrahabr.ru/post/305926/
+ 
+ -- ------------------------------------------------ Test
+ https://www.w3schools.com/sql/trysql.asp?filename=trysql_op_in
+SELECT * FROM Categories c Left join Products p on p.CategoryID = c.CategoryID
+delete from products where CategoryID=8

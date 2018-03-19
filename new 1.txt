@@ -1,0 +1,17 @@
+https://www.microsoft.com/en-us/store/p/microsoft-remote-desktop/9wzdncrfj3ps - ремоут доступ
+BUILDONE\FilipovV
+qwerty1!
+
+
+BidClerkCRM - database
+http://dev-crm.bidclerk.com/dashboard/home.html
+http://localhost:10080/dashboard/home.html
+http://localhost:9080/advanced-search-project.html
+
+
+
+
+vitalii_filipov@epam.com
+ROO9fIQ#
+
+com.bidclerk.commons.database.DatabaseCallHandler

@@ -1,0 +1,55 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Access
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	----------------------- single sign-on (SSO) (http://searchsecurity.techtarget.com/definition/single-sign-on)
+		Single sign-on (SSO) is a session and user authentication service that permits a user to use one set of login credentials (e.g., name and password) to access multiple applications.
+			The service authenticates the end user for all the applications the user has been given rights to and eliminates further prompts when the user switches applications during the same session.
+			On the back end, SSO is helpful for logging user activities as well as monitoring user accounts.
+		
+	----------------------- authentication (http://searchsecurity.techtarget.com/definition/authentication)
+		Authentication is the process of determining whether someone or something is, in fact, who or what it is declared to be.
+	
+	----------------------- authorization (http://searchsoftwarequality.techtarget.com/definition/authorization)
+		Authorization is the process of giving someone permission to do or have something. 
+			In multi-user computer systems, a system administrator defines for the system which users are allowed access to the system and what privileges of use (such as access to which file directories
+			, hours of access, amount of allocated storage space, and so forth). 
+			
+	----------------------- logon (or login) (http://searchsecurity.techtarget.com/definition/logon)
+		In general computer usage, logon is the procedure used to get access to an operating system or application, usually in a remote computer. 
+			Almost always a logon requires that the user have (1) a user ID and (2) a password. 
+	
+	----------------------- LDAP (Lightweight Directory Access Protocol) (http://searchmobilecomputing.techtarget.com/definition/LDAP)	
+		LDAP (Lightweight Directory Access Protocol) is a software protocol for enabling anyone to locate organizations, individuals, and other resources such as files and devices in a network
+			, whether on the public Internet or on a corporate intranet. 
+		An LDAP directory is organized in a simple "tree" hierarchy consisting of the following levels:
+			The root directory (the starting place or the source of the tree), which branches out to
+			Countries, each of which branches out to
+			Organizations, which branch out to
+			Organizational units (divisions, departments, and so forth), which branches out to (includes an entry for)
+			Individuals (which includes people, files, and shared resources such as printers)
+		Active Directory (https://uk.wikipedia.org/wiki/Active_Directory)
+			Active Directory — LDAP-сумісна реалізація інтелектуальної служби каталогів корпорації Microsoft для операційних систем родини Windows NT. 
+			Active Directory дозволяє адміністраторам використовувати групові політики (GPO) для забезпечення подібного налаштування користувацького робочого середовища
+			, розгортати ПЗ на великій кількості комп'ютерів (через групові політики або за допомогою Microsoft Systems Management Server 2003 (або System Center Configuration Manager))
+			, встановлювати оновлення ОС, прикладного та серверного ПЗ на всіх комп'ютерах в мережі (із використанням Windows Server Update Services (WSUS); Software Update Services (SUS) раніше).
+			Active Directory зберігає дані і налаштування середовища в централізованій базі данних. Мережі Active Directory можуть бути різного розміру: від кількох сотень до кількох мільйонів об'єктів.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSON Web Tokens (JWT)(https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec, https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		A JSON Web Token (JWT) is a JSON object that is defined in RFC 7519 as a safe way to represent a set of information between two parties. The token is composed of a header, a payload, and a signature.
+		Since JWT are signed and encoded only, and since JWT are not encrypted, JWT do not guarantee any security for sensitive data.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		OAuth (скорочення від англ. Open Authorization) — це відкритий стандарт авторизації, який дозволяє користувачам відкривати доступ до своїх приватних даних (фотографії, відео, списки контактів)
+			, що зберігаються на одному сайті, іншому сайту, без необхідності вводу імені користувача та паролю.
+		OAuth 2.0 — наступне покоління протоколу OAuth, зворотно не сумісне з OAuth 1.0. OAuth 2.0 фокусується на простоті розробки клієнтської частини
+			, забезпечуючи спеціальні потоки дозволу для веб-додатків, настільних додатків, мобільних телефонів. Специфікація розробляється в рамках робочої групи IETF OAuth
+		
+		OAuth is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords.
+			This mechanism is used by companies such as Amazon, Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.
+		OAuth 2.0 is not backwards compatible with OAuth 1.0. OAuth 2.0 provides specific authorization flows for web applications, desktop applications, mobile phones, and living room devices.
+			The specification and associated RFCs are developed by the IETF OAuth WG; the main framework was published in October 2012
+		

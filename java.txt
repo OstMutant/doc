@@ -1,0 +1,356 @@
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+XML(https://jsehelper.blogspot.com/2016/01/xml.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	XML(eXtensible Markup Language - расширяемый язык разметки) - текстовый форм предназначенный для хранения структурированных данных (взамен существующ файлов баз данных),
+		для обмена информацией между программами.
+	
+	Валидность XML-документа определяется наличием DTD или XML-схема(XSD) и соблюдением правил, которые там приведены.
+	XQuery - это универсальный язык запросов к XML-данным, содержащий средства для выборки, так и для трансформации XML-данных.(https://www.tutorialspoint.com/xquery/xquery_quick_guide.htm, https://www.w3schools.com/xml/xquery_intro.asp)
+		XQuery FLWOR Expressions
+			FLWOR (pronounced "flower") is an acronym for "For, Let, Where, Order by, Return".
+				For - selects a sequence of nodes
+				Let - binds a sequence to a variable
+				Where - filters the nodes
+				Order by - sorts the nodes
+				Return - what to return (gets evaluated once for every node)
+			XQuery Comparisons
+				1. General comparisons: =, !=, <, <=, >, >=  ($bookstore//book/@q > 10)
+				2. Value comparisons: eq, ne, lt, le, gt, ge  ($bookstore//book/@q gt 10)
+			XQuery Conditional Expressions
+				"If-Then-Else" expressions are allowed in XQuery.
+					for $x in doc("books.xml")/bookstore/book
+					return if ($x/@category="CHILDREN")
+					then <child>{data($x/title)}</child>
+					else <adult>{data($x/title)}</adult>
+	XPath (XML Path Language) - это язык запросов который предназначен произвольного обращения к частям XML или XHTML документа. 
+		Строка XPath - это фактически путь к элементу в дереве, где каждый уров разделяется косой чертой «/».
+	Изменение в XML можно сделать с помощью DOM и XPATH.
+	XPath can be used to navigate through elements and attributes in an XML document.(https://www.w3schools.com/xml/xpath_intro.asp)
+	
+	DOM, SAX, STAX АНАЛИЗАТОРЫ
+		DOM (Document Object Model - объектная модель документов) - платформен независимый программный интерфейс, позволяющий программами скрип
+			управлять содержимым документов HTML и XML, а также изменять их структур оформление. 
+		SAX (Simple API for XML) базируется на модели последовательной одноразової обработки и не создает внутренних деревьев.
+		StAX (Streaming API for XML) не создает дерево объектов в памяти, но, в отличие от SAX-парсера, за переход от одной вершины XML к другой отвечает приложен
+			которое запускает разбор документа.
+
+	XSL (eXtensible Stylesheet Language) is a styling language for XML.(https://www.w3schools.com/xml/xsl_intro.asp)
+		XSLT stands for XSL Transformations.
+	XSLT (eXtensible Stylesheet Language Transformations) - расширяемый язик преобразования листов стилей.
+		Язык XSLT служит транслятором, с помощью которого можно свободно модифицировать исходный текст.
+	
+	JAXP состоит из четырех пакетов. В них вы найдете интерфейсы и класи предназначенные для анализа и преобразования XML-данных.
+		javax.xml.parsers - общий интерфейс для анализаторов DOM и SAX.
+		org.w3c.dom - общий API для работы с DOM в Java.
+		org.xml.sax - определяет интерфейсы, использованные для анализаторов SAX.
+		javax.xml.transform - API XLST для преобразования XML в другие типы документов
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JAXB(https://jsehelper.blogspot.com/2016/01/xml.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Java Архітектура для XML Binding (JAXB) дозволяє розробникам відображати(ставити у відповідність) класи Java у XML файли.
+	JAXP (Java API for XML Processing) - набор абстрактных API, упрощающих обработку XML данных с помощью программ, написанных на Java.
+		Усиливает стандартние анализаторы SAX (Simple API for XML Parsing) и DOM (Document Object Model). 
+		Также поддерживает преобразования расширяемого языка таблиц стилей (XSLT стандарт, давая вам контроль над представлением данных и позволяя преобразов
+			данные в другие XML-документы или в другие форматы, такие как HTML.
+			
+------------------------------------------------------------------------
+	JAXB має дві основні властивості: здатність створювати класи Java з XML і навпаки - створювати XML файли з класів Java.
+	https://uk.wikipedia.org/wiki/JAXB
+	http://docs.oracle.com/javaee/5/api/index.html?javax/xml/bind/JAXBContext.html
+	http://devcolibri.com/3372
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSON (https://tproger.ru/translations/java-json-library-comparison/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	JSON.simple от Yidong Fang. Небольшая и легковесная библиотека для кодирования и декодирования JSON, несмотря на свою простоту, выполняет свою работу на высоком уровне.
+	GSON от Google. Библиотека, которая умеет конвертировать Java объекты в JSON и наоборот. Не требует специальным образом аннотировать классы, а также в качестве бонуса имеет полную поддержку Java Generics.
+	Отсутствие необходимости добавления аннотаций упрощает реализацию и даже может быть главным требованием, если вы собираетесь сериализовывать объекты, не имея для них исходного кода.
+	Jackson от FasterXML. Набор инструментов для обработки данных, основанный на потоковом JSON-парсере и генераторе. Предназначенная для Java библиотека умеет работать не только с JSON.
+	Имеет самый популярный JSON-парсер (исходя из статистики использования на GitHub).
+	JSONP от Oracle. API для работы с JSON, а именно для генерации и разбора потоковых JSON-текстов. Эталонная реализация JSR353 с открытым исходным кодом.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JDBC API в Java - обзор и туториал(http://www.javenue.info/post/java-jdbc-api, http://www.quizful.net/post/using-jdbc, http://proselyte.net/tutorials/jdbc/statements/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database.
+		It is Java based data access technology and used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. (https://en.wikipedia.org/wiki/Java_Database_Connectivity)
+
+	Основные сущности в JDBC API, с которыми вам предстоит работать, являются интерфейсами:
+		Connection; Statement; PreparedStatement; CallableStatement; ResultSet; Driver; DatabaseMetaData.
+	
+	З'єднання з базою даних описується класом, що реалізує інтерфейс java.sql.Connection.
+		Маючи з'єднання з базою даних, можна створювати об'єкти типу Statement, використовувані для здійснення запитів до бази даних на мові SQL.
+
+	Існують такі види типів Statement, що відрізняються своїм призначенням:
+
+		java.sql.Statement — Statement загального призначення;
+		java.sql.PreparedStatement — Statement, що служить для здійснення запитів, котрі містять підставні параметри (позначаються символом '?' у тілі запиту);
+		java.sql.CallableStatement — Statement, призначений для виклику збережених процедур.
+		
+	JDBC represents statements using one of the following classes:(https://en.wikipedia.org/wiki/Java_Database_Connectivity)
+		Statement – the statement is sent to the database server each and every time.
+		PreparedStatement – the statement is cached and then the execution path is pre-determined on the database server allowing it to be executed multiple times in an efficient manner.
+		CallableStatement – used for executing stored procedures on the database.
+		
+	Клас java.sql.ResultSet дозволяє легко обробляти результати запитів.
+	
+	Когда мы должны использовать PreparedStatement вместо Statement?(https://articles.javatalks.ru/articles/2)
+		запрос перезаписывается и компилируется сервером базы данных
+		защита от SQL-инъекций
+	
+	try (Connection conn = DriverManager.getConnection(
+		"jdbc:somejdbcvendor:other data needed by some jdbc vendor",
+		"myLogin",
+		"myPassword" ) ) {
+		/* you use the connection here */
+	}
+	
+	Benefits of Java Prepared Statement(http://javarevisited.blogspot.com/2012/03/why-use-preparedstatement-in-java-jdbc.html)
+		1. PreparedStatement allows you to write dynamic and parametric query.
+		2. PreparedStatement is faster than Statement in Java
+		3. PreparedStatement prevents SQL Injection attacks in Java
+		4. At last PreparedStatement queries are more readable and secure than cluttered string concatenated queries.
+		
+	There are two levels of potential reuse for a PreparedStatement.(http://tutorials.jenkov.com/jdbc/preparedstatement.html)
+		Reuse of PreparedStatement by the JDBC driver.
+		Reuse of PreparedStatement by the database.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--, https://habrahabr.ru/post/168195/, https://ru.stackoverflow.com/questions/308289/%D0%A0%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-hashcode-%D0%B2-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B5, https://parshinpn.pro/content/voprosy-i-otvety-na-sobesedovanii-po-teme-java-collection-framework-chast-2)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	The general contract of hashCode is:
+		Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, 
+			provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.
+		If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.
+		It is not required that if two objects are unequal according to the equals(java.lang.Object) method, then calling the hashCode method on each of the two objects must produce distinct integer results.
+			However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.
+
+	Класс HashMap реализован с использованием метода цепочек, т.е. каждой ячейке массива соответствует свой связный список и при возникновении коллизии осуществляется добавление нового элемента в этот список.
+
+	Метод equals() должен обеспечивать:
+		симметричность (для любых ненулевых ссылок x и y метод x.equals(y) должен возвращать true тогда и только тогда, когда y.equals(x) возвращает true);
+		рефлексивность (для любых ненулевых ссылок x метод x.equals(x) должен возвращать true.);
+		транзитивность (для любых ненулевых ссылок x, y и z, если x.equals(y) возвращает true и y.equals(z)возвращает true, тогда и x.equals(z) должен возвращать true).
+		Также есть ещё два свойства: постоянство и неравенство null.
+		It is reflexive: for any non-null reference value x, x.equals(x) should return true.
+		It is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.
+		It is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.
+		It is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false,
+			provided no information used in equals comparisons on the objects is modified.
+		For any non-null reference value x, x.equals(null) should return false.
+
+	http://commons.apache.org/proper/commons-lang/ - Lang provides a host of helper utilities for the java.lang API, notably String manipulation methods, 
+		basic numerical methods, object reflection, concurrency, creation and serialization and System properties. 
+		Additionally it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
+	
+	Класс IdentityHashMap является реализацией абстрактного класса AbstractMap. Его отличие от HashMap состоит в том, что при сравнении элементов используется сравнение ссылок, а не значений.
+	При сравнении не используется класс equals(). Этот класс обеспечивает постоянное время для операция добавления и получения элемента и формирует хэш-код с помощью метода Systen.identityHashCode(Object).
+	Реализация по умолчанию hashCode() возвращает значение, которое называется идентификационный хеш (identity hash code).
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Memory Management in Java 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	---Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
+	JVM memory is divided into separate parts. At broad level, JVM Heap memory is physically divided into two parts – Young Generation and Old Generation.
+	Young Generation is divided into three parts – Eden Memory and two Survivor Memory spaces.
+
+	---Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
+	Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Note that Perm Gen is not part of Java Heap memory.
+	When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
+	Трассировка стека – это список методов, которые были вызваны до момента, когда в приложении произошло исключение.
+
+	Garbage Collector is the program running in the background that looks into all the objects in the memory and find out objects that are not referenced by any part of the program. 
+
+	---- https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag
+	---Meta Space: This memory is out of heap memory and part of the native memory. As per the document by default the meta space doesn’t have an upper limit. 
+	In earlier versions of Java we called this “Perm Gen Space". This space is used to store the class definitions loaded by class loaders. 
+	This is designed to grow in order to avoid 0ut of memory errors. However, if it grows more than the available physical memory, then the operating system will use virtual memory. 
+	This will have an adverse effect on application performance, as swapping the data from virtual memory to physical memory and vice versa is a costly operation. 
+	We have JVM options to limit the Meta Space used by the JVM. In that case, we may get out of memory errors.
+
+
+	--- The Just-In-Time (JIT) compiler is a component of the Java™ Runtime Environment that improves the performance of Java applications at run time.
+	In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
+	(a program that contains instructions that must be interpreted) into instructions that can be sent directly to the processor. 
+	After you've written a Java program, the source language statements are compiled by the Java compiler into bytecode rather than into code that contains instructions that match a particular hardware platform's processor
+
+
+	----  http://ggenikus.github.io/blog/2014/05/04/gc
+	Существует два подхода к обнаружению мусора:
+	-- Tracing
+	В “Tracing” главная идея состоит в мысли: “Живые объект - те до которых мы можем добраться с корневых точек (GC Root: Локальные переменные и параметры методов, Java Потоки, Статические переменные, Ссылки из JNI)
+	В HotSpot VM реализовано четыре сборщика мусора основанных на идее “Generational Garbage Collection”: Serial GC, Parallel GC, CMS GC, G1 GC
+	-- Reference counting не використовується
+
+	VM SWITCH        			VM SWITCH DESCRIPTION
+	-Xms        				For setting the initial heap size when JVM starts
+	-Xmx        				For setting the maximum heap size.
+	-Xmn        				For setting the size of the Young Generation, rest of the space goes for Old Generation.
+	-XX:PermGen        			For setting the initial size of the Permanent Generation memory
+	-XX:MaxPermGen        		For setting the maximum size of Perm Gen
+	-XX:SurvivorRatio        	For providing ratio of Eden space and Survivor Space, for example if Young Generation size is 10m and VM switch is -XX:SurvivorRatio=2 then 5m will be reserved for Eden Space and 2.5m each for both the Survivor spaces. The default value is 8.
+	-XX:NewRatio        		For providing ratio of old/new generation sizes. The default value is 2.
+
+-- ------------------------------------------------ 4 типа ссылок на объекты
+В Java существует 4 типа ссылок на объекты:
+strong reference
+soft reference
+SoftReference<Rectangle> rect = new SoftReference<Rectangle>(new Rectangle());
+Это происходит в том случае, когда память вашей программы заполнена и появляется вероятность возникновения OutOfMemoryError, тогда сборщик мусора удаляет объекты на которые ссылаются мягкие ссылки. 
+Именно этот вид ссылок удобно использовать для кеширования объектов.
+weak reference
+WeakReference<Rectangle> rect = new WeakReference<Rectangle>(new Rectangle());
+Разница в том, что объект на который ссылается слабая ссылка может быть удален в любой момент при вызове cборщика мусора, т.е. для этого не обязательно условие нехватки памяти.
+phantom reference
+http://www.quizful.net/interview/java/reference-types
+https://habrahabr.ru/post/169883/
+
+
+-- ------------------------------------------------ There are three types of built-in ClassLoader in Java:
+
+Bootstrap Class Loader – It loads JDK internal classes, typically loads rt.jar and other core classes for example java.lang.* package classes
+Extensions Class Loader – It loads classes from the JDK extensions directory, usually $JAVA_HOME/lib/ext directory.
+System Class Loader – It loads classes from the current classpath that can be set while invoking a program using -cp or -classpath command line options.
+
+-- ------------------------------------------------ Java Enum
+Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
+
+-- ------------------------------------------------ Java Ternary Operator
+Java ternary operator is the only conditional operator that takes three operands.
+result = testStatement ? value1 : value2;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Модификаторы доступа(http://ocpj8.javastudyguide.com/ch01.html):
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		public: публичный, общедоступный класс или член класса. Поля и методы, объявленные с модификатором public, видны другим классам из текущего пакета и из внешних пакетов.
+		private: закрытый класс или член класса, противоположность модификатору public. Закрытый класс или член класса доступен только из кода в том же классе.
+		protected: такой класс или член класса доступен из любого места в текущем классе или пакете или в производных классах, даже если они находятся в других пакетах
+		Модификатор по умолчанию. Отсутствие модификатора у поля или метода класса предполагает применение к нему модификатора по умолчанию. Такие поля или методы видны всем классам в текущем пакете.
+
+		-- Accessors and Mutators(https://www.thoughtco.com/accessors-and-mutators-2034335):
+			Accessor method is used to return the value of a private field.
+			Mutator method is used to set a value of a private field. 
+				Why Use Accessors and Mutators? 
+					Change how the data is handled behind the scenes.
+					Impose validation on the values that the fields are being set to.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
+When to use LinkedList and when to use ArrayList?
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	1) As explained above the insert and remove operations give good performance (O(1)) in LinkedList compared to ArrayList(O(n)). 
+		Hence if there is a requirement of frequent addition and deletion in application then LinkedList is a best choice.
+	2) Search (get method) operations are fast in Arraylist (O(1)) but not in LinkedList (O(n)) so If there are less add and remove operations and more search operations requirement, ArrayList would be your best bet.
+
+-- ------------------------------------------------ LIFO и FIFO
+LIFO (акроним Last In, First Out, «последним пришёл — первым ушёл») 
+FIFO (акроним англ. First In, First Out – первым пришёл — первым ушёл)
+
+-- ------------------------------------------------ JNDI
+Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов, который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Generic.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Параметр T в угловых скобках называется универсальным параметром, так как вместо него можно подставить любой тип.
+			public interface List<E> {
+				E get(int i);
+				set(int i, E e);
+				add(E e);
+				Iterator<E> iterator();
+				…
+			}
+
+		The wildcard ? in Java is a special type parameter that controls the type safety of the use of generic (parameterized) types.
+			It can be used in variable declarations and instantiations as well as in method definitions, but not in the definition of a generic type.
+		
+		Мнемоника PECS (provider - extends, consumer - super)(https://ru.stackoverflow.com/questions/361807/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-wildcard-%D0%B2-generics-java)
+		"PECS" находится с точки сбора. Если вы только вытаскиваете предметы из общей коллекции, это производитель, и вы должны использовать extends;
+		если вы только набиваете предметы, это потребитель, и вы должны использовать super. Если вы делаете оба с одной и той же коллекцией, вы не должны использовать либо extends, либо super.
+
+		<? extends Number> подразумевается "любой тип, являющийся дочерним классом для Number". Плюс сам Number.
+		<? super Number> действительно подразумевает "любой тип, являющийся супер-классом для Number". Плюс сам Number.
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java provides three ways to create a thread programmatically.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+        Implementing the java.lang.Runnable interface.
+        Extending the java.lang.Thread class.
+        Implementing the java.util.concurrent.Callable interface.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Concurrency: Understanding Thread Pool and Executors
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors
+        
+        The Java Concurrency API supports the following types of thread pools:
+        -- Cached thread pool: keeps a number of alive threads and creates new ones as needed.
+        -- Fixed thread pool: limits the maximum number of concurrent threads. Additional tasks are waiting in a queue.
+        -- Single-threaded pool: keeps only one thread executing one task at a time.
+        -- Fork/Join pool: a special thread pool that uses the Fork/Join framework to take advantages of multiple processors to perform heavy work faster by breaking the work into smaller pieces recursively.
+        (https://www.youtube.com/watch?v=W82D9eUn6q8)
+        You can create an executor by using one of several factory methods provided by the Executors utility class. 
+        (java.util.concurrent.Executors(https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Executors.html)
+        newCachedThreadPool(), newFixedThreadPool(int n),newSingleThreadExecutor(),newScheduledThreadPool(int corePoolSize),newSingleThreadScheduleExecutor()
+
+
+        The Java Concurrency API defines the following 3 base interfaces for executors:
+        -- java.util.concurrent.Executor: is the super type of all executors. It defines only one method execute(Runnable).
+        -- java.util.concurrent.ExecutorService: is an Executor that allows tracking progress of value-returning tasks (Callable) via Future object, and manages the termination of threads.
+         Its key methods include submit() and shutdown().
+        -- ScheduledExecutorService: is an ExecutorService that can schedule tasks to execute after a given delay, or to execute periodically. 
+         Its key methods are schedule(), scheduleAtFixedRate() and scheduleWithFixedDelay().
+
+		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Асинхронное программирование Java (https://www.youtube.com/watch?v=yBF9VRiGkik)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Аннотация @Asynchronous появилась с выходом платформы Jаvа ЕЕ 6 и предоставила удобную возможность реализации асинхронного выполнения метода.
+		Asynchronous Computation in Java (http://www.baeldung.com/java-completablefuture)
+			Asynchronous computation is difficult to reason about. Usually we want to think of any computation as a series of steps. 
+			But in case of asynchronous computation, actions represented as callbacks tend to be either scattered across the code or deeply nested inside each other. 
+			Things get even worse when we need to handle errors that might occur during one of the steps.
+
+			The Future interface was added in Java 5 to serve as a result of an asynchronous computation, but it did not have any methods to combine these computations or handle possible errors.
+
+			In Java 8, the CompletableFuture class was introduced. Along with the Future interface, it also implemented the CompletionStage interface. 
+			This interface defines the contract for an asynchronous computation step that can be combined with other steps.
+
+			CompletableFuture is at the same time a building block and a framework with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Iterator In Java (Fail Fast and Fail Safe ) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
+        
+        Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
+        (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
+        Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Difference between URL and URI(http://www.baeldung.com/java-url-vs-uri)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		The difference between them is straightforward after knowing their definitions:
+			Uniform Resource Identifier (URI) − a sequence of characters that allows the complete identification of any abstract or physical resource
+			Uniform Resource Locator (URL) − a subset of URI that, in addition to identifying where a resource is available, describes the primary mechanism to access it
+		Now we can conclude that every URL is a URI, but the opposite is not true, as we’ll see later.
+		
+		Every URI, regardless if it’s a URL or not, follows a particular form:
+			scheme:[//authority][/path][?query][#fragment]
+			Where each part is described as follows:
+				scheme − for URLs, is the name of the protocol used to access the resource, for other URIs, is a name that refers to a specification for assigning identifiers within that scheme
+				authority − an optional part comprised of user authentication information, a host and an optional port
+				path − it serves to identify a resource within the scope of its scheme and authority
+				query − additional data that, along with the path, serves to identify a resource. For URLs, this is the query string
+				fragment − an optional identifier to a specific part of the resource
+				
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Embedded Databases(https://techshard.com/2017/04/01/3-embedded-databases-in-java/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	HSQLDB (HyperSQL Database)(https://ru.wikipedia.org/wiki/HSQLDB),
+	H2(https://ru.wikipedia.org/wiki/H2),
+	Apache Derby(https://ru.wikipedia.org/wiki/Apache_Derby)

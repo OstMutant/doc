@@ -1,0 +1,188 @@
+﻿java 8
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+Функціональне програмування
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+Що таке функціональне програмування? Якщо в двох словах, то функціональне програмування - це програмування, в якому функції є об'єктами, і їх можна присвоювати змінним,
+ передавати в якості аргументів інших функцій, повертати як результат від функцій і т. п. Переваги,
+ 
+Лямбда-выражение всегда являются реализацией того, что в терминологии Java 8 носит название функциональный интерфейс: класса interface, определяющего единственный абстрактный метод.
+Самое значимое нововведение в Java 8 - это лямбда-выражения. Если сказать вообщем, то под ними понимаются анонимные методы, которые при этом еще представляют из себя объект,
+ который можно присваивать переменной и передавать как аргумент в другие методы. 
+
+
+Одним из ключевых моментов в использовании лямбд является отложенное выполнение (deferred execution). 
+То есть мы определяем в одном месте программы лямбда-выражение и затем можем его вызывать при необходимости неопределенное количество раз в различных частях программы.
+https://stackoverflow.com/questions/32775164/lambda-expression-use-case-and-connection-with-functional-interface
+Выше мы рассмотрели лямбда-выражения, которые возвращают определенное значение. Но также могут быть и терминальные лямбды, которые не возвращают никакого значения.
+https://metanit.com/java/tutorial/9.1.php
+
+Default метод - это метод в интерфейсе с реализованной логикой, который не требуется обязательно определять в реализации этого интерфейса.Функциональные интерфейсы.
+
+Определив какой-нибудь принципиально новый ноу-хау прототип. 
+К чему бы это привело в Java < 8 версий? Вам пришлось бы перелопатить все классы, реализующие данный интерфейс, добавив соответствующую ноу-хау реализацию. 
+С дефолтными методами восьмерки вы сможете реализовать нужную функциональность в самом драйвере, не затронув при этом ничего лишнего. 
+
+Функциональный интерфейс - это тот интерфейс, который определяет только один абстрактный метод, как, например, java.lang.Runnable: добавлена аннотация @FunctionalInterface, 
+Заметим, интерфейс может включать сколько угодно default методов и при этом оставаться функциональным, потому что default методы - не абстрактные.
+Статические методы похожи на методы по умолчанию, за исключением того, что мы не можем переопределить их в классах, реализующих интерфейс.
+
+
+Java 8 ввела новый метод forEach() в интерфейс java.lang.Iterable
+        myList.forEach(new Consumer<Integer>() {
+            public void accept(Integer t) {
+                System.out.println(t);
+            }
+        });
+
+
+// Реализация метода forEach в Java 8
+default void forEach(Consumer<? super T> action) {
+    Objects.requireNonNull(action);
+    for (T t : this) {
+        action.accept(t);
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+functional programming (https://examples.javacodegeeks.com/core-java/java-9-functional-programming-tutorial/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		In computer science, functional programming is a programming paradigm, a style of building the structure and elements of computer programs,
+			that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data.
+			It is a declarative programming paradigm, which means programming is done with expressions.
+		Anonymous function (also function literal or lambda abstraction) is a function definition that is not bound to an identifier. 
+		
+		A lambda expression has three parts:(http://ocpj8.javastudyguide.com/ch09.html)
+			A list of parameters - A lambda expression can have zero (represented by empty parentheses), one or more parameters:
+			An arrow - Formed by the characters - and > to separate the parameters and the body.
+			A body - The body of the lambda expressions can contain one or more statements.
+		The signature of the abstract method of a functional interface provides the signature of a lambda expression (this signature is called a functional descriptor).	
+			This means that to use a lambda expression, you first need a functional interface.
+			
+		Invoke dynamic (http://surelogic.com/wiki/index.php/InvokeDynamic_and_Lambda_Expressions, https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
+			The invokedynamic instruction simplifies and potentially improves implementations of compilers and runtime systems for dynamic languages on the JVM
+		Динамический язык — язык программирования, который позволяет определять типы данных и осуществлять синтаксический анализ и компиляцию «на лету»,
+			на этапе выполнения программы. Динамические языки удобны для быстрой разработки приложений.
+			(https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
+		
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+OOP vs functional programming (https://www.developer.com/java/data/what-is-functional-programming-in-java.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even if we need only to implement the behaviour. 
+			This type of situation is the niche for functional programming, where we define only the behaviour through functions and not objects. 
+			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------           
+Method References (https://vertex-academy.com/tutorials/ru/java-8-ssylki-na-metody/, http://ocpj8.javastudyguide.com/ch11.html)				
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		We know that we can use lambda expressions instead of using an anonymous class. But sometimes, the lambda expression is really just a call to some method, for example:
+			Consumer<String> c = s -> System.out.println(s);
+		To make the code clearer, you can turn that lambda expression into a method reference:
+			Consumer<String> c = System.out::println;
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+java.util.function(https://metanit.com/java/tutorial/9.3.php, http://ocpj8.javastudyguide.com/ch10.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
+		В JDK 8 вместе с самой функциональностью лямбда-выражений также было добавлено некоторое количество встроенных функциональных интерфейсов, 
+		которые мы можем использовать в различных ситуациях и в различные API в рамках JDK 8
+		Predicate<T> - A predicate is a statement that may be true or false depending on the values of its variables.
+			@FunctionalInterface
+			public interface Predicate<T> {
+				boolean test(T t);
+				// Other default and static methods
+			}
+		Consumer<T> - A consumer is an operation that accepts a single input argument and returns no result; it just execute some operations on the argument.
+			@FunctionalInterface
+			public interface Consumer<T> {
+				 void accept(T t);
+				 // And a default method
+			}
+		Function<T,R> - A function represents an operation that takes an input argument of a certain type and produces a result of another type.
+			@FunctionalInterface
+			public interface Function<T, R> {
+				 R apply(T t);
+				 // Other default and static methods
+			}
+		Supplier<T> - A supplier does the opposite of a consumer, it takes no arguments and only returns some value.
+			@FunctionalInterface
+			public interface Supplier<T> {
+				 T get();
+			}
+		UnaryOperator<T> - UnaryOperator is just a specialization of the Function interface (in fact, this interface extends from it) for when the argument and the result are of the same type.
+			@FunctionalInterface
+			public interface UnaryOperator<T>
+					 extends Function<T, T> {
+				 // Just the identity
+				 // method is defined
+			}
+		BinaryOperator<T> - This interface is a specialization of the BiFunction interface (in fact, this interface extends from it) for when the arguments and the result are of the same type.
+			@FunctionalInterface
+			public interface BinaryOperator<T>
+						 extends BiFunction<T,T,T> {
+				 // Two static method are defined
+			}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		These are the characteristics of a stream (http://ocpj8.javastudyguide.com/ch12.html):
+			Streams work perfectly with lambdas. All streams operations take functional interfaces as arguments, so you can simplify the code with lambda expressions (and method references).
+			Streams don't store its elements. The elements are stored in a collection or generated on the fly. They are only carried from the source through a pipeline of operations.
+			Streams are immutable. Streams don't mutate their underlying source of elements. If, for example, an element is removed from the stream, a new stream with this element removed is created.
+			Streams are not reusable. Streams can be traversed only once. After a terminal operation is executed (we'll see what this means in a moment), you have to create another stream from the source to further process it.
+			Streams don't support indexed access to their elements. Again, streams are not collections or arrays. The most you can do is get their first element.
+			Streams are easily parallelizable. With the call of a method (and following certain rules), you can make a stream execute its operations concurrently, without having to write any multithreading code.
+			Stream operations are lazy when possible. Streams defer the execution of their operations either until the results are needed or until it's known how much data is needed.
+		
+		(https://examples.javacodegeeks.com/core-java/java-9-functional-programming-tutorial/) One of the many reasons you should use them is the Cascade pattern that Streams use. Streams are also immutable. 
+			So every time developers manipulate it, they create a new Stream. 
+			Another nice thing about them is that they respect the properties of functional programming.
+			If developers convert a Data Structure into a Stream and work on it, the original data structure won’t be changed. 
+		
+		Cascade Method pattern or Train Wreck pattern (https://dzone.com/articles/train-wreck-pattern-%E2%80%93-much)
+		
+		(http://ocpj8.javastudyguide.com/ch12.html)
+			Intermediate operations - You can easily identify intermediate operations; they always return a new stream. This allows the operations to be connected.
+			Terminal operations - You can also easily identify terminal operations, they always return something other than a stream.
+			After the terminal operation is performed, the stream pipeline is consumed, and can't be used anymore
+
+		complexity Big-O-Notation (https://stackoverflow.com/questions/31301471/big-o-complexity-of-java-util-stream-streamt-sorted, http://bigocheatsheet.com/)
+
+		Stream pipelining is the concept of chaining operations together.(http://www.java2novice.com/java_interview_questions/java-8-stream-pipelining/)
+			This is done by splitting the operations that can happen on a stream into two categories.
+			They are "intermediate operations" and "terminal operations". Each intermediate operation returns an instance of Stream itself when it runs, an arbitrary number of intermediate operations can,
+				therefore, be set up to process data forming a processing pipeline. There must then be a terminal operation which returns a final value and terminates the pipeline.
+		
+	
+		How Java-8 Streams differ from collections?	(http://www.java2novice.com/java_interview_questions/java-8-streams-vs-collection-framework/)	
+		First of all, please note that "Streams are not collections". java.util.stream is introduced to process elements in sequence.
+			Streams are wrappers for collections and arrays. They wrap an existing collection to support operations expressed with lambdas, so you specify what you want to do, not how to do it.
+		
+-- ------------------------------------------------ API для работы с датами
+Тип Clock предоставляет доступ к текущей дате и времени.
+Часовые пояса представлены типом ZoneId.
+Тип LocalTime представляет собой время с учетом часового пояса, например, 10pm или 17:30:15.
+Тип LocalDate представляет конкретную дату, например, 2014-03-11
+Тип LocalDateTime представляет собой комбинацию даты и времени.
+
+
+-- ------------------------------------------------ Java 8
+В Java 8 было добавлено много функций, наиболее значимые из них упомянуты ниже:
+Полноценная поддержка лямбда-выражений, которая добавляет функциональные
+возможности обработки данных для Java.
+Ключевое слово default в интерфейсах для поддержки функциональности по
+умолчанию(интерфейс может иметь реализацию метода по умолчанию).
+Ссылки на методы.
+Функциональные интерфейсы (предикаты, поставщики и т. д.)
+Потоки (stream) для работы с коллекциями
+Новое API для работы с датами
+Nashorn движок JavaScript, разрабатываемый полностью на Java компанией Oracle.
+
+
+Nashorn поставляется с cmd-утилитой jjs, которая позволяет исполнять JavaScript
+прямо в консоли. jjs принимает список JavaScript файлов исходного кода и запускает
+их. Чтобы запустить файл давайте передадим его как аргумент в jjs:
+jjs leName.js
+
+
+

@@ -1,0 +1,229 @@
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Programming paradigms (https://en.wikipedia.org/wiki/Programming_paradigm)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+        Programming paradigms are a way to classify programming languages based on their features. Languages can be classified into multiple paradigms.(https://en.wikipedia.org/wiki/Object-oriented_programming)
+ 
+		------------(https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms)
+		 Main paradigm approaches
+				Imperative programming – defines computation as statements that change a program state.
+				Procedural programming, structured programming – specifies the steps a program must take to reach a desired state.
+				Declarative programming – defines program logic, but not detailed control flow.
+				Functional programming – treats programs as evaluating mathematical functions and avoids state and mutable data
+				Object-oriented programming (OOP) – organizes programs as objects: data structures consisting of datafields and methods together with their interactions.
+				Event-driven programming – program control flow is determined by events, such as sensor inputs or user actions (mouse clicks, key presses) or messages from other programs or threads.
+				Automata-based programming – a program, or part, is treated as a model of a finite state machine or any other formal automaton.
+		-----------
+		-- Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods.
+ 
+        -- Declarative programming — a style of building the structure and elements of computer programs—that expresses the logic of a computation without describing its control flow.
+                Computation is any type of calculation that includes both arithmetical and non-arithmetical steps and follows a well-defined model understood and described as, for example, an algorithm.
+                Control flow (or flow of control) is the order in which individual statements, instructions or function calls of an imperative program are executed or evaluated. 
+                The emphasis on explicit control flow distinguishes an imperative programming language from a declarative programming language.
+                Common declarative languages include those of database query languages (e.g., SQL, XQuery), regular expressions, logic programming, functional programming, and configuration management systems.
+
+
+        -- Imperative programming is a programming paradigm that uses statements that change a program's state. 
+        In much the same way that the imperative mood in natural languages expresses commands, an imperative program consists of commands for the computer to perform. 
+        Imperative programming focuses on describing how a program operates.
+        
+        A function represents a unique association between elements of a domain (the input set) to the elements of a codomain (the output set). 
+				This means that applying the function to some input, you always get the same output.
+        Functional programming is a programming paradigm—a style of building the structure and elements 
+                of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. 
+                It is a declarative programming paradigm, which means programming is done with expressions or declarations instead of statements.
+        (http://olejka-dev.info/funkcionalnoe-programmirovanie-2016-luis-atensio-chast-1-dumaj-funkcionalno/)
+        Чистая функция, это функция, которая:
+                является детерминированной;
+                не обладает побочными эффектами.
+        
+                Функция является детерминированной, если для одного и того же набора входных значений она возвращает одинаковый результат.
+                В императивных языках некоторые функции в процессе выполнения своих вычислений могут модифицировать значения глобальных переменных, 
+                        осуществлять операции ввода-вывода, реагировать на исключительные ситуации, вызывая их обработчики. Такие функции называются функциями с побочными эффектами. 
+                        Другим видом побочных эффектов является модификация переданных в функцию параметров (переменных), когда в процессе вычисления выходного значения функции изменяется и значение входного параметра.
+        
+        Pure function if both of the following statements about the function hold:
+                The function always evaluates the same result value given the same argument value(s). 
+                        The function result value cannot depend on any hidden information or state that may change while program execution proceeds or between different executions of the program,
+                        nor can it depend on any external input from I/O devices (usually—see below).
+                Evaluation of the result does not cause any semantically observable side effect or output, such as mutation of mutable objects or output to I/O devices (usually—see below).
+
+
+        Referential transparency(Прозорість посилань) and referential opacity are properties of parts of computer programs. 
+                An expression is said to be referentially transparent if it can be replaced with its corresponding value without changing the program's behavior.
+                As a result, evaluating a referentially transparent function gives the same value for same arguments. 
+                Such functions are called pure functions. An expression that is not referentially transparent is called referentially opaque.
+        
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SOLID (об'єктно-орієнтоване програмування) https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        S        SRP         Принцип єдиного обов'язку (Single responsibility principle) Кожен об'єкт має виконувати лише один обов'язок.
+        O        OCP         Принцип відкритості/закритості (Open/closed principle) Програмні сутності повинні бути відкритими для розширення, але закритими для змін. 
+                Розширення певного класу/інтерфейсу може здійснюватись через його успадкування.
+        L        LSP         Принцип підстановки Лісков (Liskov substitution principle) Об'єкти в програмі можуть бути заміненими їх нащадками без зміни коду програми.
+        I        ISP         Принцип розділення інтерфейсу (Interface segregation principle) Багато спеціалізованих інтерфейсів краще за один універсальний. 
+                Інтерфейс може бути поділений на спеціалізовані ще на стадії проектування, заради майбутньої гнучкості програмних компонентів.
+        D        DIP         Принцип інверсії залежностей (Dependency inversion principle) Залежності всередині системи будуються на основі абстракцій, що не повинні залежати від деталей; 
+                навпаки, деталі мають залежати від абстракцій. Модулі вищих рівнів не мають залежати від модулів нижчих рівнів.
+        
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Взаимосвязи объектов классов
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Зависимость обозначает такое отношение между классами, что изменение спецификации класса-поставщика может повлиять на работу зависимого класса, но не наоборот.
+	Ассоциация показывает, что объекты одной сущности (класса) связаны с объектами другой сущности таким образом, что можно перемещаться от объектов одного класса к другому. Является общим случаем композиции и агрегации.
+	Агрегация — это разновидность ассоциации при отношении между целым и его частями. Как тип ассоциации агрегация может быть именованной. Одно отношение агрегации не может включать более двух классов (контейнер и содержимое).
+		Агрегация встречается, когда один класс является коллекцией или контейнером других. 
+		Причём по умолчанию, агрегацией называют агрегацию по ссылке, то есть когда время существования содержащихся классов не зависит от времени существования содержащего их класса. 
+		Если контейнер будет уничтожен, то его содержимое — нет.
+		Графически агрегация представляется пустым ромбом на блоке класса, и линией, идущей от этого ромба к содержащемуся классу.
+	Композиция
+		Композиция — более строгий вариант агрегации. Известна также как агрегация по значению.
+		Композиция имеет жёсткую зависимость времени существования экземпляров класса контейнера и экземпляров содержащихся классов. Если контейнер будет уничтожен, то всё его содержимое будет также уничтожено.
+		Графически представляется как и агрегация, но с закрашенным ромбиком.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+REST https://uk.wikipedia.org/wiki/REST(https://restfulapi.net/rest-architectural-constraints/, https://restfulapi.net/idempotent-rest-apis/,
+https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers#expires, 
+https://devcenter.heroku.com/articles/jax-rs-http-caching, 
+https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        REST (скор. англ. Representational State Transfer, «передача репрезентативного стану») 
+        Дані повинні передаватися у вигляді невеликої кількості стандартних форматів (наприклад, HTML, XML, JSON). 
+		Компоненти REST системи спілкуються передаючи один одному представлення ресурсу в форматі що обирається з оновлюваного набору стандартних форматів даних.
+			Формат обирається динамічно відповідно до бажань компонента-клієнта і можливостей сервера.
+        Будь-який REST протокол (HTTP в тому числі) повинен підтримувати кешування, не повинен залежати від мережевого прошарку, не повинен зберігати інформації про стан між парами «запит-відповідь».
+        Ресурс — це ключовий елемент даних в REST. Ресурсом може бути що завгодно що можна назвати: якийсь документ
+		Контрольні дані в представленні описують ціль повідомлення між компонентами, наприклад прохання про дію (створити, змінити видалити ресурс),
+			або значення відповіді (наприклад поточний стан ресурсу, чи значення якогось іншого ресурсу, наприклад опис помилки).
+        Для того, щоб посилатись на ресурси, використовуються ідентифікатори ресурсів.
+        Представлення (англ. representation) — це послідовність байтів та метадані представлення, для того щоб описати ці байти. Часто, представлення називають документом, файлом, повідомленням HTTP
+        Конектори надають інтерфейс для комунікації компонентів, приховуючи реалізації ресурсів та механізм комунікації.
+
+
+                GET - отримати представлення ресурсу
+                DELETE - знищити ресурс
+                POST - створити новий ресурс на місці даного використавши передане представлення
+                PUT - замінити стан поточного ресурсу станом що описується переданим представленням
+        Ці використовуються щоб дослідити API:
+                HEAD - отримати заголовки які б відсилались разом з представленням цього ресурсу, але не саме представлення.
+                OPTIONS - визначити список методів на які цей ресурс відповідає.
+                
+				CONNECT та TRACE використовуються лише для HTTP проксі
+        
+				PATCH - змінити лише частину цього ресурсу на основі даного представлення. Якщо якась частина ресурсу не згадується в переданому представленні - не чіпати її. 
+				
+        Методи GET, PUT та DELETE ідемпотентні, що означає що незалежно від того скільки разів ви виконаєте операцію яку вини просять - ви отримуєте той самий результат.
+        POST - не ідемпотентний, тобто відправивши POST на створення повідомлення кілька разів, ви отримаєте кілька повідомлень.
+
+	--(https://en.wikipedia.org/wiki/Representational_state_transfer)
+		REpresentational State Transfer (REST), or RESTful, web services provide interoperability between computer systems on the Internet. 
+			REST-compliant web services allow the requesting systems to access and manipulate textual representations of web resources by using a uniform and predefined set of stateless operations.
+		
+        Java API for RESTful Web Services (JAX-RS (defined in JSR 311)), is a set if APIs to developer REST service. JAX-RS is part of the Java EE6, and make developers to develop REST web application easily.
+
+
+-- REST Architectural Constraints
+        -- Uniform interface
+                All resources should be accessible through a common approach such as HTTP GET, and similarly modified using consistent approach.
+        -- Client–server
+                Client application and server application MUST be able to evolve separately without any dependency on each other. Client should know only resource URIs and that’s all. 
+        -- Stateless
+                Make all client-server interaction stateless. Server will not store anything about latest HTTP request client made. It will treat each and every request as new. No session, no history.
+        -- Cacheable
+                Caching shall be applied on resources when applicable and then these resources MUST declare themselves cacheable. Caching can be implemented on server or client side.
+        -- Layered system
+                REST allow you to use a layered system architecture where you deploy the APIs on server A, and store data on server B and authenticate requests in Server C, for example.
+        -- Code on demand (optional)
+                Well, this constraint is optional. Most of the time you will be sending the static representations of resources in form of XML or JSON. 
+                But when you need to, you are free to return executable code to support a part of your application e.g. clients may call your API to get a UI widget rendering code.
+
+-- Uniform interface (https://en.wikipedia.org/wiki/Representational_state_transfer, https://habrahabr.ru/post/319984/)
+		The uniform interface constraint is fundamental to the design of any REST service. It simplifies and decouples the architecture, which enables each part to evolve independently.
+			The four constraints for this uniform interface are:
+
+		Resource identification in requests
+			Individual resources are identified in requests, for example using URIs in Web-based REST systems. The resources themselves are conceptually separate from the representations that are returned to the client. 
+			For example, the server may send data from its database as HTML, XML or JSON, none of which are the server's internal representation.
+		Resource manipulation through representations
+			When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.
+		Self-descriptive messages
+			Each message includes enough information to describe how to process the message. For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type).[2]
+		Hypermedia as the engine of application state (HATEOAS)
+			Having accessed an initial URI for the REST application—analogous to a human Web user accessing the home page of a website—a REST client should then be able to use 
+			server-provided links dynamically to discover all the available actions and resources it needs. As access proceeds, the server responds with text that includes hyperlinks to other actions that are currently available.
+			There is no need for the client to be hard-coded with information regarding the structure or dynamics of the REST service.
+			
+-- Understanding Richardson REST maturity model (RMM)(https://blogs.sap.com/2017/08/13/understanding-richardson-rest-maturity-model/)
+		The Richardson maturity model is separated in four (not so tough) levels
+			Level 0 – RPC POX
+				The farthest level of a RESTful API and there is no standard type used here. 
+				Resources are not well defined, and are being used only to invoke remote mechanisms based on remote procedure call. 
+				The exchange messages at this level can be serialized in XML, JSON, text, and other formats. This level does not make an API RESTful.
+			Level 1 – Resources
+				At this level, we will start using features as a way to model and organize the RESTful API. 
+				Necessarily, we do not need to know the functionality attached in each method, but we should know how to identify resources.
+			Level 2 – HTTP verbs
+				On this moment, the HTTP verbs are begin to be used for which they were actually created. The most used verbs are GET, POST, PUT and DELETE.
+			Level 3 – HATEOAS
+				Also known as Hypermedia as the Engine of Application State, Roy Fielding describes HATEOAS as one of the necessary premises to consider an API as RESTful.
+				Its main element is the hypermedia representation, allowing a document to describe its current state, and its relationship with other elements or future states. 
+				Please, understand HATEOAS as the ability of a document to be relate with others.
+
+		Виклик віддалених процедур (англ. Remote procedure call, RPC) — протокол, що дозволяє програмі, запущеній на одному комп'ютері, звертатись до функцій (процедур) програми, що виконується на іншому комп'ютері,
+			подібно до того, як програма звертається до власних локальних функцій.
+				
+		Do not confuse REST with RESTful
+			There is a slightly difference between both REST and RESTful. The first one means about a set of best practices (Roy’s constraint), while RESTful is the implementation of those constraints in an API. 
+			It means, when an API is constructed based on those constraints, it automatically becomes RESTful.
+				
+		POX Plain Old XML(https://stackoverflow.com/questions/21554111/difference-between-rest-and-pox?answertab=active#tab-top)
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SOAP https://ru.wikipedia.org/wiki/SOAP
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Реактивный манифест (https://afedyanin.wordpress.com/2015/12/17/reactive-manifesto/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Отзывчивыми (Responsive) — система своевременно реагирует на события.
+		Устойчивыми (Resilient) — система остается отзывчивой в условиях сбоя
+		Эластичными (Elastic) — система остается отзывчивой при различной рабочей нагрузке
+		Ориентированными на обмен сообщениями (Message Driven)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patterns
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Creational Design Patterns
+        Singleton Pattern
+        Factory Pattern
+        Abstract Factory Pattern
+        Builder Pattern
+        Prototype Pattern
+	Structural Design Patterns
+        Adapter Pattern
+        Composite Pattern(https://dzone.com/articles/composite-design-pattern-java-0)
+			Composite design patten allows you to have a tree structure and ask each node in the tree structure to perform a task.You can take real life example of a organization.
+        Proxy Pattern
+        Flyweight Pattern
+        Facade Pattern
+        Bridge Pattern
+        Decorator Pattern
+	Behavioral Design Patterns
+        Template Method Pattern
+        Mediator Pattern
+        Chain of Responsibility Pattern
+        Observer Pattern
+        Strategy Pattern
+        Command Pattern
+        State Pattern
+        Visitor Pattern
+        Interpreter Pattern
+        Iterator Pattern
+        Memento Pattern
+
+-- ------------------------------------------------ Виды тестирования и подходы к их применению
+Блочное (Unit testing) — тестирование одного модуля в изоляции.
+Интеграционное (Integration Testing) — тестирование группы взаимодействующих модулей.
+Системное (System Testing) — тестирование системы в целом.
