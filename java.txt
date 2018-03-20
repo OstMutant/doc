@@ -308,21 +308,6 @@ Java Concurrency: Understanding Thread Pool and Executors
 		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Асинхронное программирование Java (https://www.youtube.com/watch?v=yBF9VRiGkik)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		Аннотация @Asynchronous появилась с выходом платформы Jаvа ЕЕ 6 и предоставила удобную возможность реализации асинхронного выполнения метода.
-		Asynchronous Computation in Java (http://www.baeldung.com/java-completablefuture)
-			Asynchronous computation is difficult to reason about. Usually we want to think of any computation as a series of steps. 
-			But in case of asynchronous computation, actions represented as callbacks tend to be either scattered across the code or deeply nested inside each other. 
-			Things get even worse when we need to handle errors that might occur during one of the steps.
-
-			The Future interface was added in Java 5 to serve as a result of an asynchronous computation, but it did not have any methods to combine these computations or handle possible errors.
-
-			In Java 8, the CompletableFuture class was introduced. Along with the Future interface, it also implemented the CompletionStage interface. 
-			This interface defines the contract for an asynchronous computation step that can be combined with other steps.
-
-			CompletableFuture is at the same time a building block and a framework with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Iterator In Java (Fail Fast and Fail Safe ) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
@@ -354,3 +339,4 @@ Java Embedded Databases(https://techshard.com/2017/04/01/3-embedded-databases-in
 	HSQLDB (HyperSQL Database)(https://ru.wikipedia.org/wiki/HSQLDB),
 	H2(https://ru.wikipedia.org/wiki/H2),
 	Apache Derby(https://ru.wikipedia.org/wiki/Apache_Derby)
+
