@@ -132,28 +132,6 @@ JSP : (https://www.journaldev.com/2110/jsp-interview-questions-and-answers?utm_s
 	Tags in JSP are like the HTML tags. These tags are used for doing specific tasks in a JSP page. (https://www.roseindia.net/jsp/jsp-tags.shtml)
 		Each tag has its own functionality. Tags in JSP, like the HTML tags, are written within the characters '<' and '>' however, different types of tags uses additional characters within '<' and '>' characters.
 	
--- ------------------------------------------------ Java Persistence API : https://ru.wikipedia.org/wiki/Java_Persistence_API
-Java Persistence API (JPA) — спецификация API Java EE, предоставляет возможность сохранять в удобном виде Java-объекты в базе данных
-Java Persistence Query Language (JPQL) — платформо-независимый объектно-ориентированный язык запросов являющийся частью спецификации Java Persistence API.
-JPQL используется для написания запросов к сущностям, хранящимся в реляционной базе данных. 
-JPQL во многом похож на SQL, но в отличие от последнего, оперирует запросами, составленными по отношению к сущностям JPA, в отличие от прямых запросов к таблицам базы данных.
-
-
-Entity
-Entity (Сущность) — POJO-класс, связанный с БД с помощью аннотации (@Entity) или через XML. К такому классу предъявляются следующие требования:
-
-
-Должен иметь пустой конструктор (public или protected)
-Не может быть вложенным, интерфейсом или enum
-Не может быть final и не может содержать final-полей/свойств
-Должен содержать хотя бы одно @Id-поле
-При этом entity может:
-
-
-Содержать непустые конструкторы
-Наследоваться и быть наследованным
-Содержать другие методы и реализовывать интерфейсы
-Entities могут быть связаны друг с другом (один-к-одному, один-ко-многим, многие-к-одному и многие-ко-многим)[4].
 
 
 -- ------------------------------------------------ Enterprise Java Bean : https://www.javatpoint.com/ejb-interview-questions
@@ -189,3 +167,19 @@ In PTP model, one message is delivered to one receiver only. Here, Queue is used
 The Queue is responsible to hold the message until receiver is ready.
 Publisher/Subscriber Messaging Domain
 In Pub/Sub model, one message is delivered to all the subscribers. It is like broadcasting. Here, Topic is used as a message oriented middleware that is responsible to hold and deliver messages.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Асинхронное программирование Java (https://www.youtube.com/watch?v=yBF9VRiGkik)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Аннотация @Asynchronous появилась с выходом платформы Jаvа ЕЕ 6 и предоставила удобную возможность реализации асинхронного выполнения метода.
+		Asynchronous Computation in Java (http://www.baeldung.com/java-completablefuture)
+			Asynchronous computation is difficult to reason about. Usually we want to think of any computation as a series of steps. 
+			But in case of asynchronous computation, actions represented as callbacks tend to be either scattered across the code or deeply nested inside each other. 
+			Things get even worse when we need to handle errors that might occur during one of the steps.
+
+			The Future interface was added in Java 5 to serve as a result of an asynchronous computation, but it did not have any methods to combine these computations or handle possible errors.
+
+			In Java 8, the CompletableFuture class was introduced. Along with the Future interface, it also implemented the CompletionStage interface. 
+			This interface defines the contract for an asynchronous computation step that can be combined with other steps.
+
+			CompletableFuture is at the same time a building block and a framework with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors.

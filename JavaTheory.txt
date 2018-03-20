@@ -193,6 +193,14 @@ SOAP https://ru.wikipedia.org/wiki/SOAP
 		Ориентированными на обмен сообщениями (Message Driven)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_language)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		A domain-specific language (DSL) is a computer language specialized to a particular application domain.
+			A domain is a field of study that defines a set of common requirements, terminology, and functionality for any software program constructed to solve a problem in the area of computer programming,
+				known as domain engineering. The word domain is also taken as a synonym of application domain.[1] It is also seen as a sphere of knowledge.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Creational Design Patterns
