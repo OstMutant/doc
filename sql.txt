@@ -69,6 +69,8 @@ CAP theorem(https://en.wikipedia.org/wiki/CAP_theorem)
 Требования к транзакционной системе (https://ru.wikipedia.org/wiki/ACID)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+		A transaction, in the context of a database, is a logical unit that is independently executed for data retrieval or updates(https://www.techopedia.com/definition/16455/transaction)
+
 		ACID - atomicity (атомарность), consistency (согласованность), isolation(изолированность), durability (устойчивость). 
 			Oписывает требования к транзакционной системе (например, к СУБД), обеспечивающие наиболее надёжную и предсказуемую её работу.
 			
