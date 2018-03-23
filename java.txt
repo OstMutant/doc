@@ -438,7 +438,15 @@ JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
 		MessageProducer – обьект, который, собственно, и посылает сообщения. В случае point-to-point модели это javax.jms.QueueSender, в случае pub-sub – javax.jms.TopicPublisher.
 		MessageConsumer – обьект, принимающий сообщения. В случае point-to-point модели это javax.jms.QueueReceiver, в случае pub-sub – javax.jms.TopicSubscriber.
 		Message– сообщение. О типах сообщений будет сказано ниже.
-	Существует два пути получения сообщений. Первый – синхронное затребование сообщений из queue, используя метод receive() интерфейса javax.jms.QueueReceiver. Второй – асинхронное получение сообщений как только они становятся доступны – используя интерфейс javax.jms.MessageListener.
+		
+	Существует два пути получения сообщений. 
+		Первый – синхронное затребование сообщений из queue, используя метод receive() интерфейса javax.jms.QueueReceiver. 
+		Второй – асинхронное получение сообщений как только они становятся доступны – используя интерфейс javax.jms.MessageListener.
+	Pub-sub модель кажется более элегантной, и у разработчика может возникнуть желание строить все Messaging Systems на основе этой модели. 
+		Но следует знать, что многие pub-subсистемы не гарантируют доставку сообщений в том порядке, в каком они были посланы (в отличие от point-to-point, где queueреализует принцип first-in/first-out).  
+		Задача сохранения порядка следования сообщений не тривиальна даже в случае одного topic. А уж если необходимо сохранение порядка доставки сообщений в случае множественных topics – то сложность возрастает экспоненциально. 
+		Поэтому в случае pub-sub модели следует по возможности избегать ситуаций, когда порядок следования сообщений важен (либо используя заголовки и раздел свойств сообщений для синхронизации – об этом будет сказано ниже).
+	
 	Типы сообщений
 		В JMX определены следующие стандартные типы сообщений:
 		StreamMessage – сообщение, содержащее сериализованный поток обьектов
@@ -486,13 +494,18 @@ JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
 		Первый подход заключается в использовании transacted sessions.
 			Session session = con.createQueueSession(
 				true,Session.AUTO_ACKNOWLEDGE);
-	Второй подход заключается в использовании JTA-транзакций совместно с JMS.  Этот подход позволяет разработчику включать в единую транзакцию как посылку сообщений, так и запрос к базе данных или EJB.
-		UserTransaction myTransaction =
-			(UserTransaction)ctx.lookup("MyUserTransaction");
-			myTransaction.begin();
-			sender.send(textMessage);
-			myStatement.executeUpdate(
-			"INSERT INTO testTable VALUES (100,'BILL')");
-			myTransaction.commit();
+		Второй подход заключается в использовании JTA-транзакций совместно с JMS.  Этот подход позволяет разработчику включать в единую транзакцию как посылку сообщений, так и запрос к базе данных или EJB.
+			UserTransaction myTransaction =
+				(UserTransaction)ctx.lookup("MyUserTransaction");
+				myTransaction.begin();
+				sender.send(textMessage);
+				myStatement.executeUpdate(
+				"INSERT INTO testTable VALUES (100,'BILL')");
+				myTransaction.commit();
 		При этом важно отметить, что JTA не может быть использован совместно с transacted session. Либо пироги, либо пряники. 
 			Если Вы попытаетесь совместить несовместимое, то увидите, что transacted session будет игнорировать вызовы commit() или rollback() интерфейса UserTransaction.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JTA(https://en.wikipedia.org/wiki/Java_Transaction_API)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	The Java Transaction API (JTA), one of the Java Enterprise Edition (Java EE) APIs, enables distributed transactions to be done across multiple X/Open XA resources in a Java environment.
