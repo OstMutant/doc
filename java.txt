@@ -248,9 +248,6 @@ When to use LinkedList and when to use ArrayList?
 LIFO (акроним Last In, First Out, «последним пришёл — первым ушёл») 
 FIFO (акроним англ. First In, First Out – первым пришёл — первым ушёл)
 
--- ------------------------------------------------ JNDI
-Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов, который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
-
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Generic.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -282,8 +279,27 @@ Java provides three ways to create a thread programmatically.
         Extending the java.lang.Thread class.
         Implementing the java.util.concurrent.Callable interface.
 
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java Concurrency: Understanding Thread Pool and Executors
+Threads
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------Understanding Deadlock, Livelock and Starvation with Code Examples in Java(http://www.codejava.net/java-core/concurrency/understanding-deadlock-livelock-and-starvation-with-code-examples-in-java)
+		Understanding Deadlock
+			Deadlock describes a situation where two more threads are blocked because of waiting for each other forever. 
+		Understanding Livelock
+			Livelock describes situation where two threads are busy responding to actions of each other. They keep repeating a particular code so the program is unable to make further progress:
+				Thread 1 acts as a response to action of thread 2
+				Thread 2 acts as a response to action of thread 1
+			Unlike deadlock, threads are not blocked when livelock occurs.
+		Understanding Starvation
+			Starvation describes a situation where a greedy thread holds a resource for a long time so other threads are blocked forever.
+	
+		- Deadlock:  All threads are blocked, the program hangs forever.
+		- Livelock: No threads blocked but they run into infinite loops. The program is still running but unable to make further progress.
+		- Starvation: Only one thread is running, and other threads are waiting forever.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/company/luxoft/blog/157273/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors
         
@@ -297,7 +313,7 @@ Java Concurrency: Understanding Thread Pool and Executors
         (java.util.concurrent.Executors(https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Executors.html)
         newCachedThreadPool(), newFixedThreadPool(int n),newSingleThreadExecutor(),newScheduledThreadPool(int corePoolSize),newSingleThreadScheduleExecutor()
 
-
+		An Executor is an object that is responsible for threads management and execution of Runnable tasks submitted from the client code. 
         The Java Concurrency API defines the following 3 base interfaces for executors:
         -- java.util.concurrent.Executor: is the super type of all executors. It defines only one method execute(Runnable).
         -- java.util.concurrent.ExecutorService: is an Executor that allows tracking progress of value-returning tasks (Callable) via Future object, and manages the termination of threads.
@@ -307,6 +323,30 @@ Java Concurrency: Understanding Thread Pool and Executors
 
 		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
 
+		
+		the Callable interface which defines only one method as follows:
+			public interface Callable<T> {
+				public T call();   
+			}
+		The ExecutorService interface defines a method that allows us to execute such kind of value-returning tasks: <T> Future<T>   submit(Callable<T> task)
+		Then you can invoke the Future’s get() method to obtain the result upon successful completion.
+		The Future interface defines the following method that allows you to cancel a task: boolean cancel(boolean mayInterruptIfRunning)
+		This method returns false if the task has already completed, has already been cancelled, or could not be cancelled for some other reason.
+		If this method returns true:
+			- The task will never run if it has not started.
+			- In case the task has already started, you can decide to interrupt the thread executing the task by specifying the flag mayInterruptIfRunning = true. Otherwise, the task continues until completes.		
+		
+		How does CopyOnWriteArrayList works?
+			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.
+			That means the read operations (get, iterator, listIterator, etc) work on a different copy.
+		
+		https://tproger.ru/translations/java8-concurrency-tutorial-2/; http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+		Класс ReentrantLock реализует то же поведение, что и обычные неявные блокировки. 
+		Интерфейс ReadWriteLock предлагает другой тип блокировок — отдельную для чтения, и отдельную для записи. 
+			Этот интерфейс был добавлен из соображения, что считывать данные (любому количеству потоков) безопасно до тех пор, пока ни один из них не изменяет переменную. 
+		В Java 8 появился новый тип блокировок — StampedLock. Так же, как и в предыдущих примерах, он поддерживает разделение на readLock() и writeLock(). 
+			Однако, в отличие от ReadWriteLock, метод блокировки StampedLock возвращает «штамп» — значение типа long.
+		Семафоры — отличный способ ограничить количество потоков, которые одновременно работают над одним и тем же ресурсом
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Iterator In Java (Fail Fast and Fail Safe ) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -340,3 +380,119 @@ Java Embedded Databases(https://techshard.com/2017/04/01/3-embedded-databases-in
 	H2(https://ru.wikipedia.org/wiki/H2),
 	Apache Derby(https://ru.wikipedia.org/wiki/Apache_Derby)
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов, который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
+	The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides naming and directory functionality to applications written using the Java™ programming language.
+		It is defined to be independent of any specific directory service implementation. Thus a variety of directories -new, emerging, and already deployed can be accessed in a common way.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	JMS API Architecture
+		A JMS provider is a messaging system that implements the JMS interfaces and provides administrative and control features. An implementation of the Java EE platform includes a JMS provider.
+		JMS clients are the programs or components, written in the Java programming language, that produce and consume messages. Any Java EE application component can act as a JMS client.
+		Messages are the objects that communicate information between JMS clients.
+		Administered objects are preconfigured JMS objects created by an administrator for the use of clients. 
+			The two kinds of JMS administered objects are destinations and connection factories, described in JMS Administered Objects.
+			
+	Point-to-Point Messaging Domain
+		Each message has only one consumer.
+		A sender and a receiver of a message have no timing dependencies. The receiver can fetch the message whether or not it was running when the client sent the message.
+		The receiver acknowledges the successful processing of a message.
+		
+	Publish/Subscribe Messaging Domain
+		In a publish/subscribe (pub/sub) product or application, clients address messages to a topic, which functions somewhat like a bulletin board. 
+			Publishers and subscribers are generally anonymous and can dynamically publish or subscribe to the content hierarchy. 
+			The system takes care of distributing the messages arriving from a topic’s multiple publishers to its multiple subscribers. 
+			Topics retain messages only as long as it takes to distribute them to current subscribers.
+		Pub/sub messaging has the following characteristics.
+			Each message can have multiple consumers.
+			Publishers and subscribers have a timing dependency. A client that subscribes to a topic can consume only messages published after the client has created a subscription, 
+				and the subscriber must continue to be active in order for it to consume messages.
+	Message Consumption
+		Messaging products are inherently asynchronous: There is no fundamental timing dependency between the production and the consumption of a message. 
+			However, the JMS specification uses this term in a more precise sense. Messages can be consumed in either of two ways:
+			Synchronously: A subscriber or a receiver explicitly fetches the message from the destination by calling the receive method. 
+				The receive method can block until a message arrives or can time out if a message does not arrive within a specified time limit.
+			Asynchronously: A client can register a message listener with a consumer. 
+				A message listener is similar to an event listener. Whenever a message arrives at the destination, the JMS provider delivers the message by calling the listener’s onMessage method,
+					which acts on the contents of the message.
+					
+	Message-Oriented Middleware (MOM) – это, грубо говоря, тот продукт, на основе которого и строится Messaging System.(http://www.javable.com/columns/serv_side/workshop/14/)
+	Существует две "основных" модели обмена сообщениями:
+		point-to-point
+		publish-subscribe (pub-sub)
+	Point-to-point модель применяется, когда одному или нескольким компонентам (так называемые senders) необходимо посать сообщение одному компоненту-адресату (receiver).
+	Publish-subscribe модель применима, когда одному или нескольким компонентам (publishers) необходимо послать сообщение одному или нескольким компонентам-адресатам (subscribers). Данная модель основана на понятии message topic.
+
+	Java Message Service (JMS) – это Java API (то есть набор интерфейсов и классов) для работы с Message-Oriented Middleware. Данный набор определен в пакете javax.jms в дереве пакетов J2EE.
+		ConnectionFactory – это, как нетрудно догадаться из названия, обьект, ответственный за создание JMS Connection. 
+			Администратор МОМ создает данный обьект и связывает его с деревом JNDI, так что клиент JMS может получить доступ к ConnectionFactory используя стандартный JNDI lookup-механизм. 
+			В случае point-to-point модели используется javax.jms.QueueConnectionFactory, в случае pub-sub модели – javax.jms.TopicConnectionFactory.
+		Connection – абстрактное представление реального соединения между клиентом JMS и MOM. В случае point-to-point модели используется javax.jms.QueueConnection, в случае pub-sub модели – javax.jms.TopicConnection.
+		Session – обьект, создаваемый JMS Connection и используемый клиентами для посылки и принятия сообщений. В случае point-to-point используется javax.jms.QueueSession, в случае pub-sub – javax.jms.TopicSession. 
+			Фактически, это главная "рабочая лошадка" JMS.
+		Destination – это либо queue, либо topic – в зависимости от используемой модели: javax.jms.Queue или javax.jms.Topic. Как и ConnectionFactory, destination связывается с деревом JNDI.
+		MessageProducer – обьект, который, собственно, и посылает сообщения. В случае point-to-point модели это javax.jms.QueueSender, в случае pub-sub – javax.jms.TopicPublisher.
+		MessageConsumer – обьект, принимающий сообщения. В случае point-to-point модели это javax.jms.QueueReceiver, в случае pub-sub – javax.jms.TopicSubscriber.
+		Message– сообщение. О типах сообщений будет сказано ниже.
+	Существует два пути получения сообщений. Первый – синхронное затребование сообщений из queue, используя метод receive() интерфейса javax.jms.QueueReceiver. Второй – асинхронное получение сообщений как только они становятся доступны – используя интерфейс javax.jms.MessageListener.
+	Типы сообщений
+		В JMX определены следующие стандартные типы сообщений:
+		StreamMessage – сообщение, содержащее сериализованный поток обьектов
+		MapMessage – сообщение, содержащее пары "ключ-значение"
+		TextMessage – сообщение, содержащее строку
+		ObjectMessage– сообщение, содержащее сериализованный обьект
+		ByteMessage – сообщение, содержащее поток байтов
+		XMLMessage – расширение TextMessage, используется для доставки XMLсообщений
+		Все типы сообщений являются подклассами javax.jms.Message.
+	Заголовки и разделы свойств сообщений
+		Сообщения соостоят из трех частей: заголовка сообщения, раздела свойств и собственно тела сообщения.
+		JMSDestination – содержит имя destination, в который посылается сообщение.
+		JMSDeliveryMode – определяет, является ли сообщение сохраняемым или нет. Если оно сохраняемо, то будет сохранено MOM в базе данных (или в файле), а потому оно переживет "гибель" системы, в отличие от несохраняемого сообщения.
+		JMSExpiration – определяет, когда сообщение устареет и будет удалено из системы. По умолчанию сообщение не устаревает никогда.
+		JMSPriority – как и следует из названия, определяет приоритет сообщения (от 0 до 9). По умолчанию равно 4.
+		JMSMessageID – уникальный идентификатор сообщения
+		JMSTimestamp – содержит информацию, когда именно MOM приняла сообщение от producer.
+		JMSCorrelationID – может быть использовано разработчиком для согласования сообщений: например, если вы хотите переслать ряд сообщений, обьединенных в одну логическую группу (такую как набор товаров в заказе, при этом в каждое сообщение о товаре вы можете добавить в данное поле заголовка номер заказа).
+		JMSReplyTo – может быть использовано разработчиком для того, чтобы consumer знал, кому (то есть в какой destination) при желании отсылать ответ.
+		JMSType – поле может быть использовано разработчиком для того, чтобы дать приложению информацию, как обращаться с данным сообщением. Тип здесь понимается как application-specific type, а не тот, что использован выше в разделе "типы сообщений".
+		JMSRedelivered – устанавливается, если сообщение не было доставлено с первой попытки – например, в случае, когда consumer не подтвердил получение сообщения (если он должен был подтвердить, конечно)
+		Раздел свойств содержит пары "ключ-значение", которые могут быть использованы для пересылки определенных данных между producer и consumer. 
+			В качестве значений могут быть использованы примитивные типы (boolean, byte, float, double, short, int, long), а так же строки (java.lang.String).
+		Устанавливаются и читаются они с помощью соответствующих set и getметодов. Например, для установки integer-свойства с ключом "MyProperty"  и значением равным 100:
+			textMessage.setIntProperty("MyProperty", 100);
+			Для чтения:
+			int value = textMessage.getIntProperty("MyProperty");
+			
+	Доставка сообщений
+		Сообщение может быть сохраняемым или несохраняемым. Если сообщение сохраняемо, то MOM сохранит его в базе данных или файле. 
+			textMessage.setText("It's my message");
+			sender.send(textMessage, DeliveryMode.NON_PERSISTENT,
+			messagePriority, messageTimeToLive);
+			
+	Подтверждение получения сообщения
+		JMS поддерживает три "основных" модели подтверждения получения сообщения.
+			AUTO_ACKNOWLEDGE – в случае синхронного получения сообщений, подтверждение получения будет произведено автоматически, когда метод receive() возвратит значение не вызвав никакой исключительной ситуации. 
+				В случае асинхронного получения сообщений, подтверждение получения будет произведено, когда метод onMessage() вернет значение.
+			DUPS_OK_ACKNOWLEDGE – работа по подтверждению получения сообщения перекладывается на Session. Сообщения будут вновь доставлены в случае возникновения ошибки или "гибели" системы.
+			CLIENT_ACKNOWLEDGE – клиент должен вызвать метод acknowledge() интерфейса javax.jms.Message для того, чтобы явно подтвердить получение сообщения. 
+				При вызове данного метода будет подтверждено получение текущего и всех предидущих полученных сообщений.
+				
+	Посылка сообщений как часть транзакции
+		Существует два подхода в использовании транзакций совместно с JMS. 
+		Первый подход заключается в использовании transacted sessions.
+			Session session = con.createQueueSession(
+				true,Session.AUTO_ACKNOWLEDGE);
+	Второй подход заключается в использовании JTA-транзакций совместно с JMS.  Этот подход позволяет разработчику включать в единую транзакцию как посылку сообщений, так и запрос к базе данных или EJB.
+		UserTransaction myTransaction =
+			(UserTransaction)ctx.lookup("MyUserTransaction");
+			myTransaction.begin();
+			sender.send(textMessage);
+			myStatement.executeUpdate(
+			"INSERT INTO testTable VALUES (100,'BILL')");
+			myTransaction.commit();
+		При этом важно отметить, что JTA не может быть использован совместно с transacted session. Либо пироги, либо пряники. 
+			Если Вы попытаетесь совместить несовместимое, то увидите, что transacted session будет игнорировать вызовы commit() или rollback() интерфейса UserTransaction.

@@ -70,7 +70,7 @@ CAP theorem(https://en.wikipedia.org/wiki/CAP_theorem)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 		A transaction, in the context of a database, is a logical unit that is independently executed for data retrieval or updates(https://www.techopedia.com/definition/16455/transaction)
-
+		ACID (Atomicity, Consistency, Isolation, Durability) is a set of properties of database transactions intended to guarantee validity even in the event of errors, power failures, etc.
 		ACID - atomicity (атомарность), consistency (согласованность), isolation(изолированность), durability (устойчивость). 
 			Oписывает требования к транзакционной системе (например, к СУБД), обеспечивающие наиболее надёжную и предсказуемую её работу.
 			
