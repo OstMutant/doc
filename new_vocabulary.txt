@@ -160,7 +160,6 @@ severe wrist pain - важкий біль у зап'ясті
 survey - обстеження, 
 strive - прагнути
 a survey ['sɜːveɪ] / to survey [səˈveɪ] - (соціологічне) опитування, анкетування/ опитувати
-evaluate, estimate - оцінити
 
 intention намір
 intent намір 
@@ -188,10 +187,6 @@ threat - загроза
 for while - поки що
 evidence свідчення
 complicate ускладнити, факти, докази
-
-exactly - точно
-explicitly - явно, точно
-precisely - точно
 
 to treat - розглядати, лікувати
 to consider - вважати, розглядати
@@ -427,21 +422,43 @@ tattling on each other, to tattle on sb, to snitch on sb, to turn sb in - tell s
 to mull over sth = to ponder = to reflect on - обдумати
 conceal, withhold - hide something carefully - приховувати
 preoccupation, concern with - the condition of thinking about only one thing - турбота
+get away with - cходити з рук
 
 ----------------------------------
 fudged - вигадувати(misrepresent, falsify - фальсифікувати)
 manipulate - підтасовувати
 bluff - блеф
-slippery slope - слизький шлях
+go down a slippery slope - стати на слизький шлях
 headed toward disaster - назустріч катастрофі
-to fess up, to admit - визнавати
+to fess up, to admit, to confess - визнавати
 a recipe for disaster - рецепт катастрофи
 failure - провал
 whopper, big lie- брехня
 jealous, envious - ревнивий, заздрісний
-two-faced - дволикий, лицемір
+two-faced, hypocritical, hypocrite - дволикий, лицемір
 deceptive, deceitful, misleading - оманливий
 chubby - пухнастий
 up front, honest - чесний
 to pull the wool over everyone's eyes - Замилити очі
 can’t stand, can’t bear погано переносити, не виносити щось 
+snap - easy task -  простий таск
+inconclusive - непереконливо
+to spot - визначити, помітити
+
+----------------------------------
+insist - наполягай
+to claim, to acclaim - cтверджувати, заявляти, вимога, претензія | проголошувати, повідомляти
+disclaimers - відмова від відповідальності
+excuse - вибачення
+missing - відсутній; зниклий; який загубився
+impeccable - бездоганний
+accurately, certain, exactly, explicitly, precisely - точно
+explicitly - явно, точно, precisely - точно
+contradiction - протиріччя
+
+----------------------------------
+elaborate | evaluate, estimate - розробити | оцінити
+suggest - запропонувати
+assumption - припущення
+prior - попередньо
+measurable - вимірюваний
