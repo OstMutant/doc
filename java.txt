@@ -347,6 +347,29 @@ Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/
 		В Java 8 появился новый тип блокировок — StampedLock. Так же, как и в предыдущих примерах, он поддерживает разделение на readLock() и writeLock(). 
 			Однако, в отличие от ReadWriteLock, метод блокировки StampedLock возвращает «штамп» — значение типа long.
 		Семафоры — отличный способ ограничить количество потоков, которые одновременно работают над одним и тем же ресурсом
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Collection Framework(http://www.quizful.net/post/Java-Collections)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort)
+		According to the Java 7 API doc for primitives:
+			Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. 
+			This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.
+			
+			Aлгоритм dual-pivot quicksort(https://habrahabr.ru/post/69424/)
+				Обычный quicksort делит массив на два отрезка, выбрав случайный элемент P. 
+				Потом сортирует массив так, чтобы все элементы меньше P попали в первый отрезок, а остальные — во второй. 
+				Затем алгоритм рекурсивно повторяется на первом и на втором отрезках.
+				
+		According to the Java 7 API doc for objects:
+			The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
+			in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
+			
+			Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort):
+				Шаг 1. Входной массив разделяется на подмассивы фиксированной длины, вычисляемой определённым образом.
+				Шаг 2. Каждый подмассив сортируется сортировкой вставками, сортировкой пузырьком или любой другой устойчивой сортировкой.
+				Шаг 3. Отсортированные подмассивы объединяются в один массив с помощью модифицированной сортировки слиянием.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Iterator In Java (Fail Fast and Fail Safe ) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -509,3 +532,26 @@ JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
 JTA(https://en.wikipedia.org/wiki/Java_Transaction_API)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	The Java Transaction API (JTA), one of the Java Enterprise Edition (Java EE) APIs, enables distributed transactions to be done across multiple X/Open XA resources in a Java environment.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+RMI(https://www.javatpoint.com/RMI)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in java. The RMI allows an object to invoke methods on an object running in another JVM.
+	The RMI provides remote communication between the applications using two objects stub and skeleton.
+	RMI uses stub and skeleton object for communication with the remote object.
+	A remote object is an object whose method can be invoked from another JVM. Let's understand the stub and skeleton objects:
+		The stub is an object, acts as a gateway for the client side. All the outgoing requests are routed through it. It resides at the client side and represents the remote object. 
+			When the caller invokes method on the stub object, it does the following tasks:
+			It initiates a connection with remote Virtual Machine (JVM),
+			It writes and transmits (marshals) the parameters to the remote Virtual Machine (JVM),
+			It waits for the result
+			It reads (unmarshals) the return value or exception, and
+			It finally, returns the value to the caller.
+		The skeleton is an object, acts as a gateway for the server side object. All the incoming requests are routed through it. When the skeleton receives the incoming request, it does the following tasks:
+			It reads the parameter for the remote method
+			It invokes the method on the actual remote object, and
+			It writes and transmits (marshals) the result to the caller.
+	Understanding requirements for the distributed applications
+		If any application performs these tasks, it can be distributed application.
+			The application need to locate the remote method
+			It need to provide the communication with the remote objects, and
+			The application need to load the class definitions for the objects.

@@ -13,6 +13,8 @@ JavaServer Faces (javax.faces.component.html)
 ++ Java Persistence API (javax.persistence)
 ++ JAX-RS Java API for RESTful Web Services (defined in JSR 311)
 
+JTA(Java Transaction API) https://en.wikipedia.org/wiki/Java_Transaction_API
+
 -- ------------------------------------------------ POJO (англ. Plain Old Java Object) 
 „Простий старий Java-об'єкт“, простий Java-об'єкт, не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
 
