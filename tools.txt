@@ -5,9 +5,94 @@ Jenkins — відкритий інструмент для безперервн�
 Перехід до неперервної (постійної) інтеграції дозволяє знизити трудомісткість інтеграції і зробити її передбачуванішою за рахунок найбільш раннього виявлення та усунення помилок і суперечностей.
 
 
--- ------------------------------------------------ Docker
-Docker — інструментарій для управління ізольованими Linux-контейнерами. Docker доповнює інструментарій LXC більш високорівневим API, що дозволяє керувати контейнерами на рівні ізоляції окремих процесів. 
-Зокрема, Docker дозволяє не переймаючись вмістом контейнера запускати довільні процеси в режимі ізоляції і потім переносити і клонувати сформовані для даних процесів контейнери на інші сервери, 
-беручи на себе всю роботу зі створення, обслуговування і підтримки контейнерів.
-LXC (англ. LinuX Containers) — система віртуалізації на рівні операційної системи для запуску декількох ізольованих примірників ОС Linux на одному комп'ютері. 
-LXC не використовує віртуальні машини, а створює віртуальне оточення з власним простором процесів і мережевим стеком. Усі примірники LXC використовують один примірник ядра ОС.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Docker(https://uk.wikipedia.org/wiki/Docker)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Docker — інструментарій для управління ізольованими Linux-контейнерами. Docker доповнює інструментарій LXC більш високорівневим API, що дозволяє керувати контейнерами на рівні ізоляції окремих процесів. 
+		Зокрема, Docker дозволяє не переймаючись вмістом контейнера запускати довільні процеси в режимі ізоляції і потім переносити і клонувати сформовані для даних процесів контейнери на інші сервери, 
+		беручи на себе всю роботу зі створення, обслуговування і підтримки контейнерів.
+		LXC (англ. LinuX Containers) — система віртуалізації на рівні операційної системи для запуску декількох ізольованих примірників ОС Linux на одному комп'ютері. 
+		LXC не використовує віртуальні машини, а створює віртуальне оточення з власним простором процесів і мережевим стеком. Усі примірники LXC використовують один примірник ядра ОС.
+
+-- ------------------------------------------------  Docker Registry(https://docs.docker.com/registry/)
+		The Registry is a stateless, highly scalable server side application that stores and lets you distribute Docker images.
+		Docker-реестр хранит образы. Есть публичные и приватные реестры, из которых можно скачать либо загрузить образы. Публичный Docker-реестр — это Docker Hub.
+
+-- ------------------------------------------------  Image(https://docs.docker.com/glossary/?term=container)
+		Образы(images) в Docker похожи на снимок виртуальной машины, но они более легковесны, существенно более легковесны (подробнее в следующем разделе).
+			У образов есть уникальный идентификатор и уникальная пара параметров - уникальное удобочитаемое название и тег.
+			Образ – базовый элемент каждого контейнера. В зависимости от образа, может потребоваться некоторое время для его создания.
+		Docker images are the basis of containers. 
+			An Image is an ordered collection of root filesystem changes and the corresponding execution parameters for use within a container runtime. 
+			An image typically contains a union of layered filesystems stacked on top of each other. An image does not have state and it never changes.
+-- ------------------------------------------------  Container(https://docs.docker.com/glossary/?term=container)
+		Kонтейнеры (containers) похожи на директории. В контейнерах содержится все, что нужно для работы приложения. Каждый контейнер создается из образа. Контейнеры могут быть созданы, запущены, остановлены, перенесены или удалены.
+		A container is a runtime instance of a docker image.
+			A Docker container consists of A Docker image, An execution environment, A standard set of instructions.
+		
+-- ------------------------------------------------ 
+		Тома (volumes) представляют собой механизм, позволяющий сохранять ваши данные между отдельными запусками вашего контейнера. 
+			Они представляют собой пространство внутри контейнера, но данные хранятся за его пределами, что позволяет уничтожать, заново собирать, изменять или отключать на лету ваш контейнер, сохраняя ваши данные не измененными. 
+		Ссылки (links) Всякий раз, когда контейнер запущен, ему назначается случайный приватный адрес IP, а другие контейнеры могут пользоваться этим адресом IP для соединения с данным контейнером. 
+			Это важно по двум причинам: во-первых, контейнерам предоставляется возможность обращаться друг к другу, во-вторых, у контейнеров есть общая локальная сеть.
+-- ------------------------------------------------ Комманди
+		docker build -t friendlyhello .  # Create image using this directory's Dockerfile
+		docker run -p 4000:80 friendlyhello  # Run "friendlyname" mapping port 4000 to 80
+		docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode
+		docker container ls                                # List all running containers
+		docker container ls -a             # List all containers, even those not running
+		docker container stop <hash>           # Gracefully stop the specified container
+		docker container kill <hash>         # Force shutdown of the specified container
+		docker container rm <hash>        # Remove specified container from this machine
+		docker container rm $(docker container ls -a -q)         # Remove all containers
+		docker image ls -a                             # List all images on this machine
+		docker image rm <image id>            # Remove specified image from this machine
+		docker image rm $(docker image ls -a -q)   # Remove all images from this machine
+		docker login             # Log in this CLI session using your Docker credentials
+		docker tag <image> username/repository:tag  # Tag <image> for upload to registry
+		docker push username/repository:tag            # Upload tagged image to registry
+		docker run username/repository:tag                   # Run image from a registry
+		
+		attach    Attach to a running container
+		build     Build an image from a Dockerfile
+		commit    Create a new image from a container's changes
+		cp        Copy files/folders between a container and the local filesystem
+		create    Create a new container
+		diff      Inspect changes on a container's filesystem
+		events    Get real time events from the server
+		exec      Run a command in a running container
+		export    Export a container's filesystem as a tar archive
+		history   Show the history of an image
+		images    List images
+		import    Import the contents from a tarball to create a filesystem image
+		info      Display system-wide information
+		inspect   Return low-level information on a container or image
+		kill      Kill a running container
+		load      Load an image from a tar archive or STDIN
+		login     Log in to a Docker registry
+		logout    Log out from a Docker registry
+		logs      Fetch the logs of a container
+		network   Manage Docker networks
+		pause     Pause all processes within a container
+		port      List port mappings or a specific mapping for the CONTAINER
+		ps        List containers
+		pull      Pull an image or a repository from a registry
+		push      Push an image or a repository to a registry
+		rename    Rename a container
+		restart   Restart a container
+		rm        Remove one or more containers
+		rmi       Remove one or more images
+		run       Run a command in a new container
+		save      Save one or more images to a tar archive
+		search    Search the Docker Hub for images
+		start     Start one or more stopped containers
+		stats     Display a live stream of container(s) resource usage statistics
+		stop      Stop a running container
+		tag       Tag an image into a repository
+		top       Display the running processes of a container
+		unpause   Unpause all processes within a container
+		update    Update configuration of one or more containers
+		version   Show the Docker version information
+		volume    Manage Docker volumes
+		wait      Block until a container stops, then print its exit code
+-- ------------------------------------------------ install java 8(https://newfivefour.com/docker-java8-auto-install.html)	
