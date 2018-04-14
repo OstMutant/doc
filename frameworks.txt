@@ -164,7 +164,21 @@ Solr (произносится «солар»[1]) — платформа пол�
 			В maven используется свой набор терминов и понятий. Ключевым понятием maven является артефакт (artifact) — это, по сути, любая библиотека, хранящаяся в репозитории, к которой можно отнести зависимость или плагин.
 			Зависимости (dependencies) представляют собой библиотеки, которые непосредственно используются в проекте для компиляции или тестирования кода.
 			При сборке проекта или для каких-то других целей (deploy, создание файлов проекта для Eclipse и др.) maven использует плагины (plugin).
-			
+	
+		Maven Phases
+		Although hardly a comprehensive list, these are the most common default lifecycle phases executed.
+			validate: validate the project is correct and all necessary information is available
+			compile: compile the source code of the project
+			test: test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed
+			package: take the compiled code and package it in its distributable format, such as a JAR.
+			integration-test: process and deploy the package if necessary into an environment where integration tests can be run
+			verify: run any checks to verify the package is valid and meets quality criteria
+			install: install the package into the local repository, for use as a dependency in other projects locally
+			deploy: done in an integration or release environment, copies the final package to the remote repository for sharing with other developers and projects.
+		There are two other Maven lifecycles of note beyond the default list above. They are
+			clean: cleans up artifacts created by prior builds
+			site: generates site documentation for this project
+	
 -- ------------------------------------------------ ANTLR(https://github.com/antlr/antlr4/blob/master/doc/index.md, https://ru.wikipedia.org/wiki/ANTLR)
 		ANTLR (ANother Tool for Language Recognition) is a powerful parser generator for reading, processing, executing, or translating structured text or binary files.
 			It's widely used to build languages, tools, and frameworks. From a grammar, ANTLR generates a parser that can build and walk parse trees.
@@ -270,3 +284,5 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 Terraform(https://www.terraform.io/intro/index.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
+		
+		
