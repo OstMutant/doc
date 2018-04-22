@@ -145,9 +145,18 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 		basic numerical methods, object reflection, concurrency, creation and serialization and System properties. 
 		Additionally it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
 	
-	Класс IdentityHashMap является реализацией абстрактного класса AbstractMap. Его отличие от HashMap состоит в том, что при сравнении элементов используется сравнение ссылок, а не значений.
+	Класс IdentityHashMap(https://jsehelper.blogspot.com/2016/01/java-collections-framework-3.html,http://proselyte.net/tutorials/java-core/collections-framework/identity-hashmap/) является реализацией абстрактного класса AbstractMap. Его отличие от HashMap состоит в том, что при сравнении элементов используется сравнение ссылок, а не значений.
 	При сравнении не используется класс equals(). Этот класс обеспечивает постоянное время для операция добавления и получения элемента и формирует хэш-код с помощью метода Systen.identityHashCode(Object).
 	Реализация по умолчанию hashCode() возвращает значение, которое называется идентификационный хеш (identity hash code).
+	
+	XX:hashCode=n(https://habrahabr.ru/post/165683/)
+	As we saw, this happens at get_next_hash. This function offers six methods based on the value of some hashCode variable. (https://srvaroa.github.io/jvm/java/openjdk/biased-locking/2017/01/30/hashCode.html)
+		0. A randomly generated number.
+		1. A function of memory address of the object.
+		2. A hardcoded 1 (used for sensitivity testing.)
+		3. A sequence.
+		4. The memory address of the object, cast to int.
+		5. Thread state combined with xorshift (https://en.wikipedia.org/wiki/Xorshift)
 	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 

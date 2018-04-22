@@ -462,3 +462,5 @@ suggest - запропонувати
 assumption - припущення
 prior - попередньо
 measurable - вимірюваний
+what's the harm? - що поганого
+expel - виганяти

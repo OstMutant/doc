@@ -97,3 +97,9 @@ Docker(https://uk.wikipedia.org/wiki/Docker)
 		volume    Manage Docker volumes
 		wait      Block until a container stops, then print its exit code
 -- ------------------------------------------------ install java 8(https://newfivefour.com/docker-java8-auto-install.html)	
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+GitLab https://docs.gitlab.com/ee/README.html
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+GitLab offers the most scalable Git-based fully integrated platform for software development, with flexible products and subscriptions. 
+https://docs.gitlab.com/ee/ci/quick_start/README.html - quick start
