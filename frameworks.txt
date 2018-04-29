@@ -259,6 +259,23 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 			You can create APIs that access AWS or other web services, as well as data stored in the AWS Cloud.
 			API Gateway can be considered a backplane in the cloud to connect AWS services and other public or private websites. 
 			It provides consistent RESTful application programming interfaces (APIs) for mobile and web applications to access AWS services.
+		
+		To deploy an API, you create an API deployment and associate it with a stage. Each stage is a snapshot of the API and is made available for the client to call.(https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html)
+		Lambda-Proxy vs Lambda Integration in AWS API Gateway(https://medium.com/@lakshmanLD/lambda-proxy-vs-lambda-integration-in-aws-api-gateway-3a9397af0e6d)
+		╔═════════════════════════════════════════════════════╦════════════════════════════════════════════════════════════╗
+		║                     Lambda-Proxy                    ║                           Lambda                           ║
+		╠═════════════════════════════════════════════════════╬════════════════════════════════════════════════════════════╣
+		║ This is a simple, but powerful integration. All the ║ This is complex, but offers more control over transmission ║
+		║ request to the APIGateway URL is forwarded          ║ data. The request can be modified before it is             ║
+		║ straight to the Lambda and the response is sent     ║ sent to lambda and the response can be modified            ║
+		║ from Lambda. i.e No modifications to the            ║ after it is sent from lambda. This can be done by          ║
+		║ request(query params, body, variables) and          ║ mapping templates which transforms the payload, as per     ║
+		║ response(status code, message) are done             ║ the user customisations. API Gateway uses Velocity         ║
+		║ by the APIGateway.                                  ║ Template Language (VTL) engine to process body             ║
+		║                                                     ║ mapping templates for the integration request              ║
+		║                                                     ║ and integration response.                                  ║
+		╚═════════════════════════════════════════════════════╩════════════════════════════════════════════════════════════╝
+			
 -- ------------------------------------------------ Amazon CloudWatch
 		Amazon CloudWatch(https://aws.amazon.com/ru/cloudwatch/?p=tile) – это сервис мониторинга облачных ресурсов AWS и приложений, которые вы запускаете с их помощью. 
 			Amazon CloudWatch можно использовать для сбора и отслеживания метрик, накопления и анализа файлов журналов, создания предупреждений, а также автоматического реагирования на изменения ресурсов AWS. 
@@ -284,5 +301,9 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 Terraform(https://www.terraform.io/intro/index.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
-		
+		Основные операции следующие:
+
+			terraform plan - показывает план выполнения. Это по сути diff из того что было в инфраструктуре и того что станет.
+			terraform apply - применяет план. Тут все просто, тула пойдет и по API начнет дергать все ручки и создавать заданные ресурсы.
+			terraform graph - рисует граф ресурсов, полезная штука для наглядного представления о структуре нашей инфраструктуры.
 		
