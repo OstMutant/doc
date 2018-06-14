@@ -223,6 +223,9 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 			a choice of operating systems; networking; and pre-loaded application software such as web servers, databases, CRM, etc. 
 			Each AWS system also virtualizes its console I/O (keyboard, display, and mouse), allowing AWS subscribers to connect to their AWS system using a modern browser.
 			
+		ARN Amazon Resource Names (ARNs) uniquely identify AWS resources. We require an ARN when you need to specify a resource unambiguously across all of AWS, such as in IAM policies, 
+			Amazon Relational Database Service (Amazon RDS) tags, and API calls.
+		
 -- ------------------------------------------------ Amazon EC2
 		Amazon Elastic Compute Cloud (Amazon EC2)(https://aws.amazon.com/ru/ec2/?p=tile) – это веб-сервис, предоставляющий безопасные масштабируемые вычислительные ресурсы в облаке. 
 			Он помогает разработчикам, облегчая проведение крупномасштабных вычислений в облаке.
@@ -279,7 +282,18 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 -- ------------------------------------------------ Amazon CloudWatch
 		Amazon CloudWatch(https://aws.amazon.com/ru/cloudwatch/?p=tile) – это сервис мониторинга облачных ресурсов AWS и приложений, которые вы запускаете с их помощью. 
 			Amazon CloudWatch можно использовать для сбора и отслеживания метрик, накопления и анализа файлов журналов, создания предупреждений, а также автоматического реагирования на изменения ресурсов AWS. 
--- ------------------------------------------------Amazon ElastiCach
+			
+		Metrics are the fundamental concept in CloudWatch. A metric represents a time-ordered set of data points that are published to CloudWatch. 
+		A dimension is a name/value pair that uniquely identifies a metric. You can assign up to 10 dimensions to a metric.
+		Statistics are metric data aggregations over specified periods of time. CloudWatch provides statistics based on the metric data points provided by your custom data or provided by other AWS services to CloudWatch.
+		Each statistic has a unit of measure. Example units include Bytes, Seconds, Count, and Percent.
+		A period is the length of time associated with a specific Amazon CloudWatch statistic. Each statistic represents an aggregation of the metrics data collected for a specified period of time.
+		Amazon CloudWatch aggregates statistics according to the period length that you specify when retrieving statistics.
+		A percentile indicates the relative standing of a value in a dataset. For example, the 95th percentile means that 95 percent of the data is lower than this value and 5 percent of the data is higher than this value.
+		You can use an alarm to automatically initiate actions on your behalf. 
+			An alarm watches a single metric over a specified time period, and performs one or more specified actions, based on the value of the metric relative to a threshold over time.
+			
+-- ------------------------------------------------Amazon ElastiCache
 		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/details/) – это веб-сервис, упрощающий развертывание и масштабирование в облаке хранилища или кэша в памяти, а также управление ими.
 		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/?nc2=h_m1) поддерживает два сервиса с открытым исходным кодом для размещения данных в памяти.
 			Redis – быстрое хранилище данных и кэш в памяти с открытым исходным кодом. 
