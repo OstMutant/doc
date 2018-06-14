@@ -13,6 +13,8 @@ punish - покарати
 engage - обручитися, залучати, вербувати
 to engage in - займатись(бути залученим)
 engagement - взаємодія
+enhance - покращити
+encourage - заохочувати
 disengage - розєднювати (I disengaged his hand from mine)
 disorder - розлад,
 adolescent - підіток
@@ -197,8 +199,6 @@ the process of thinking, improvising, brainstorming - noodling
 maintaining or adding content to a journal-like website - blogging
 She decided to go on a spending spree and ended up - flat broke
 
-consider/ regard розглядають
-regarding, regardless - відносно, незалежно
 certain - певний
 certainly - звичайно, певною мірою
 conjunction - звязок
@@ -225,7 +225,7 @@ deception - обман
 yet admit - все ж допускає 
 how common - як часто
 condensed version - стиснута версія
-exaggerate, hyperbolise - перебільшувати
+exaggerate, hyperbolize - перебільшувати
 get into - влаштовувати
 prestigious university - престижний університет
 claim - вимагати, заявляти
@@ -238,7 +238,7 @@ acceptable - прийнятний
 plagiarize - займатися плагіатом
 plagiarist - плагіатор
 plagiarism - плагіат
-tattling on each other, to tattle on sb, to snitch on sb, to turn sb in - tell something bad that another person has done - докладати, доносити
+tattling on each other, to tattle on sb, to snitch on sb, to turn sb in, to blow the whistle on a colleague - tell something bad that another person has done - докладати, доносити
 snitch,snow - сніг, доносити
 inflated, overrated, exaggerated, overly important - роздутий, переоцінений, перебільшувати, 
 veneer, facade - a cover that hides the way someone or something really is - обгортка, лоск
@@ -366,7 +366,6 @@ greatest  - найбільший
 complete - цілковитий, завершити
 adolescents - підлітки
 consequence ['kɔnsɪkwəns] - наслідок
-inferences,findings - висновки
 because of - тому що, внаслідок
 eliminate, exclude  виключити - виключити
 handkerchief - носові хустки
@@ -472,7 +471,7 @@ take into consideration - брати до уваги
 flip side - зворотна сторона
 volunteer - зголошуватися
 drug test - тест на наркотики
-cut cone - 
+to cut corners - to take the easy way out, usually by cheating
 intense - інтенсивний
 relentless pursuit - невтомне переслідування
 concern, anxiety, anxious, worried, - занепокоєння, тривога
@@ -486,3 +485,96 @@ are taken in academia - прийняті в академії
 to respond - відповісти
 to recall - згадувати
 caption- підпис
+to turn in a ... - здавати 
+to persuade, persuasive - переконувати, переконливий
+
+------------------------------------------------------------------------------------------------------------------ 3
+somewhat - дещо, трохи
+gatherings - зібрання
+trouble - біда, клопіт
+to dump, abandon sb - кидати, залишати, покидати когось (2)
+overcome - подолати
+natural - природний
+perceived or regarded - сприймається або розцінюється
+consider/ regard розглядають
+regarding, regardless - відносно, незалежно
+dimension - вимір
+determine - визначити
+consequence ['kɔnsɪkwəns] - наслідок
+inferences, findings - висновки
+end up - закінчити
+doubt - сумнів
+painfully - болісно
+public - громадкість
+surveyed - опитані
+undesirable - небажано
+ 
+turn ... ?
+
+
+adverse consequences - несприятливі наслідки
+intimate, intimacy - інтимний, близькість
+terrible syndrome of negative consequences - жахливий синдром негативних наслідків
+take heart - набратися хоробрості 
+to take heart = to start to feel more comfortable and encouraged
+numerous studies - численні дослідження
+figures - цифри
+fascinating - захоплююче
+notion - поняття
+relate - відноситесь
+wherever possible - скрізь де можливо
+lubrication - змащення
+awkwardness - незграбність
+more likely to be - більш імовірно
+momentary - миттєвий
+situational - ситуаційний
+
+dispositional shyness - диспозиційна сором'язливість
+situational shyness - ситуативна сором'язливість
+
+arousal - збудження
+tension - напруженість
+hump - горб на спині
+there is ready to emerge - готовий з'явитися
+draw them out - витягнути їх
+essentially - по суті
+presume - припустити
+break the ice - зрушити з мертвої точки
+make you feel - змушує вас відчувати себе
+to admit, to confess - зізнаватись, припускати
+dumb - німий
+
+assume, imagine - припустимо, уявіть собі
+in my opinion, I suppose, guess, consider, believe - на мій погляд
+
+to cause - спричиняти
+to cope - справитись
+diary ['daɪərɪ] - щоденник 
+to boost - прискорити, підняти
+to blossom - цвісти
+in other words - іншими словами
+shell,to shell - раковина, лущити
+hunchback - горбун
+---------------------------
+shyness - сором'язливістьп
+(bold, cheeky), impudent, arrogant - зухвало, безсоромний, зарозумілий
+bashful, shy, timid, self-conscious - сором'язливий, боязкий
+
+reticent,taciturn - unwilling to talk - мовчазний
+phobia - very strong fear, glossophobia - public-speaking phobia
+merit - value - заслуга
+extroverted - very sociable, (communicative, sociable, outgoing, gregarious - комунікабельний, товариський) - дуже товариський
+adverse - negative - несприятливий
+syndrome - condition - anxiety syndrome - тривожний синдром (anxiety - стурбованість, ancient - стародавнє, anxious - схвильований, стривожений)
+chronic - continual(in a medical sense) 
+
+kindred soul - people having similar traits
+misattribution - false assumption - помилкове припущення
+make misattribution - робити помилкове припущення
+handicap, disadvantage, obstacle - недолік, перешкода
+aloof - distant - на відстані, відчужений
+condescending - treating others as inferior(розглядаючи інших як нижчих) - поблажливо, зневажливий
+
+self-esteem - самооцінка
+to wind up - накручувати, навіювати
+shrinking violet - зморщена фіалка
