@@ -161,7 +161,8 @@ severe - важкий
 severe wrist pain - важкий біль у зап'ясті
 survey - обстеження, 
 strive - прагнути
-a survey ['sɜːveɪ] / to survey [səˈveɪ] - (соціологічне) опитування, анкетування/ опитувати
+a survey ['sɜːveɪ] / to survey [səˈveɪ] - (соціологічне) опитування, анкетування/ опитувати 
+to survive - виживати, уціліти
 
 intention намір
 intent намір 
@@ -493,7 +494,6 @@ somewhat - дещо, трохи
 gatherings - зібрання
 trouble - біда, клопіт
 to dump, abandon sb - кидати, залишати, покидати когось (2)
-overcome - подолати
 natural - природний
 perceived or regarded - сприймається або розцінюється
 consider/ regard розглядають
@@ -541,20 +541,28 @@ essentially - по суті
 presume - припустити
 break the ice - зрушити з мертвої точки
 make you feel - змушує вас відчувати себе
-to admit, to confess - зізнаватись, припускати
 dumb - німий
 
+to admit, to confess - зізнаватись, припускати
 assume, imagine - припустимо, уявіть собі
 in my opinion, I suppose, guess, consider, believe - на мій погляд
 
 to cause - спричиняти
+
 to cope - справитись
+overcome - подолати
+
 diary ['daɪərɪ] - щоденник 
 to boost - прискорити, підняти
 to blossom - цвісти
 in other words - іншими словами
 shell,to shell - раковина, лущити
 hunchback - горбун
+on the contrary - навпаки
+peer - одноліток
+
+to remind sb - нагадувати комусь
+to mention, to recall - згадати
 ---------------------------
 shyness - сором'язливістьп
 (bold, cheeky), impudent, arrogant - зухвало, безсоромний, зарозумілий
@@ -572,9 +580,27 @@ kindred soul - people having similar traits
 misattribution - false assumption - помилкове припущення
 make misattribution - робити помилкове припущення
 handicap, disadvantage, obstacle - недолік, перешкода
-aloof - distant - на відстані, відчужений
+aloof - distant, detached - на відстані, відчужений
 condescending - treating others as inferior(розглядаючи інших як нижчих) - поблажливо, зневажливий
 
 self-esteem - самооцінка
 to wind up - накручувати, навіювати
 shrinking violet - зморщена фіалка
+
+
+---------------------------
+run off - утекти
+worthwhile - цінного
+sour - кислий
+prickly - колючий
+that's for sure - це точно
+pleasing - приємний
+purchasing - покупка
+remain - залишатись
+vehicle - транспортний засіб
+unpersuaded - непідтверджений	
+to persuade - переконувати
+accept - приймати
+dissolve - розчиняється
+to commence [kə'mens] - роз(починати)
+butterflies - метелики
