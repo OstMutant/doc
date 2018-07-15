@@ -543,8 +543,9 @@ make you feel - змушує вас відчувати себе
 dumb - німий
 
 to admit, to confess - зізнаватись, припускати
-assume, imagine - припустимо, уявіть собі
+assume, suppose, imagine - припустимо, уявіть собі
 in my opinion, I suppose, guess, consider, believe - на мій погляд
+partitioned, separated - розділений, відокремлений
 
 to cause - спричиняти
 
@@ -602,22 +603,57 @@ scared stiff - petrified - зацепенівший від страху
 
 make lemonade out of lemons - з лимонів виготовити лимонад
 
-break the ice - зрушити з мертвої точки
-get carried away - захопитися
-draw out - витягати
-to fill the void - заповнити порожнечу
-grouchy = grumbling ['grʌmblɪŋ] - буркотливий
-mark - відзначати, мітити
-outlook on life - погляд на життя
-take things as - приймати речі як
-think of - думати про
-virtually - фактично, практично
+break the ice (get people socializing and enjoying themselves) - зняти напруження
+get carried away (overly excited - надмірно збуджений) - захопитися
+drawing out (encouraging) - розговорити
+to fill the void (overcome loneliness) - подолати самотність
+grouchy = grumbling ['grʌmblɪŋ], (in a bad mood) - буркотливий
+mark (label) - відзначати, мітити
+outlook on life,(point of view) - погляд на життя
+take things as (accept experience as) - приймати речі як
+think of (consider(suppose, guess, consider, believe)) - думати про
+virtually (almost) - фактично, практично
 widespread, pervasive - всепроникний
-to wind up - накручувати, навіювати
+to wind up (end up) - опинятись
 
+introvert ---
+bashful, shy, timid, self-conscious - сором'язливий, боязкий
+inhibited - загальмований
+scared stiff - petrified - зацепенівший від страху
+reticent, taciturn - unwilling to talk - мовчазний
+wallflower - дівчина без партнера дуже сумна
+shrinking violet - зморщена фіалка
+
+extrovert ---
+assertive - позитивний
+extroverted - very sociable, (communicative, sociable, outgoing, gregarious - комунікабельний, товариський) - дуже товариський
+social butterfly - поверхнева людина
+talk a blue streak (to talk until those come home) - говорити без зупину
+life of the party - душа компанії 
+
+pessimist ---
+killjoy - зануда
+negative - негативний
+gloomy, sad, dull - сумний, похмурий 
+whiny - плаксивий скиглій
+
+optimist ---
+upbeat - оптимістичний
+positive - позитивний
 
 
 --------------------------- !!! end
+overall - в цілому
+presence - наявність
+social lubrication - соціальна змазка
+standoffish - відвертий
+also at times - також часом
+reserved, secretive ['siːkrətɪv] - скритний, стриманий, замкнутий (2)
+play devil's advocate - грати адвоката диявола
+defend - захищати, відстоювати
+defend your options - захистити свої варіанти
+unfairly - несправедливо
+I just can't buy it - Я просто не ведуся
 natural - природній
 reach, rich - досягти, багатий
 wealth [welθ] / wealthy - багатство/ багатий, заможний 
@@ -698,7 +734,6 @@ to get on/along well with sb - лагодити з кимсь
 fetch - принеси
 shame - соромно
 pile -купа
-presence - наявність
 after the while - через деякий час
 peevish - грізний
 threatening - загрозливий
