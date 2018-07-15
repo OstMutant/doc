@@ -161,11 +161,12 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	---Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
+	--- (https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java)
+		Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
 	JVM memory is divided into separate parts. At broad level, JVM Heap memory is physically divided into two parts – Young Generation and Old Generation.
 	Young Generation is divided into three parts – Eden Memory and two Survivor Memory spaces.
 
-	---Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
+	--- Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
 	Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Note that Perm Gen is not part of Java Heap memory.
 	When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
 	Трассировка стека – это список методов, которые были вызваны до момента, когда в приложении произошло исключение.

@@ -36,6 +36,23 @@ Docker(https://uk.wikipedia.org/wiki/Docker)
 		Ссылки (links) Всякий раз, когда контейнер запущен, ему назначается случайный приватный адрес IP, а другие контейнеры могут пользоваться этим адресом IP для соединения с данным контейнером. 
 			Это важно по двум причинам: во-первых, контейнерам предоставляется возможность обращаться друг к другу, во-вторых, у контейнеров есть общая локальная сеть.
 -- ------------------------------------------------ Комманди
+		docker --version
+		sudo service docker start
+		sudo docker info
+		sudo docker container ls - shows only runs containers
+		sudo docker images
+		sudo usermod -aG docker ec2-user
+		docker search ubuntu
+		docker pull ubuntu
+		docker run ubuntu
+		docker run -it ubuntu
+			apt-get update
+			cat /etc/lsb-release - перевірити версію убунти
+		docker attach goofy_tereshkova - долучитись до запущеного контейнера
+		docker ps -a  -shows all containers
+		docker tag ubuntu_with_java ostmutant/ubuntu_with_java
+		docker login -u ostmutant
+-- ------------------------------------------------
 		docker build -t friendlyhello .  # Create image using this directory's Dockerfile
 		docker run -p 4000:80 friendlyhello  # Run "friendlyname" mapping port 4000 to 80
 		docker run -d -p 4000:80 friendlyhello         # Same thing, but in detached mode
