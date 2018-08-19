@@ -187,11 +187,21 @@ Memory Management in Java
 	We have JVM options to limit the Meta Space used by the JVM. In that case, we may get out of memory errors.
 
 
-	--- The Just-In-Time (JIT) compiler is a component of the Java™ Runtime Environment that improves the performance of Java applications at run time.
-	In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
-	(a program that contains instructions that must be interpreted) into instructions that can be sent directly to the processor. 
-	After you've written a Java program, the source language statements are compiled by the Java compiler into bytecode rather than into code that contains instructions that match a particular hardware platform's processor
+	--- The Just-In-Time (JIT) compiler (https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html) is a component of the Java™ Runtime Environment 
+		that improves the performance of Java applications at run time. In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
+		(a program that contains instructions that must be interpreted) into instructions that can be sent directly to the processor. 
+		After you've written a Java program, the source language statements are compiled by the Java compiler into bytecode rather than into code that contains instructions that match a particular hardware platform's processor
 
+	
+		Bytecode(https://en.wikipedia.org/wiki/Bytecode), also termed portable code or p-code, is a form of instruction set designed for efficient execution by a software interpreter. 
+			Unlike human-readable source code, bytecodes are compact numeric codes, constants, and references (normally numeric addresses) 
+			that encode the result of compiler parsing and performing semantic analysis of things like type, scope, and nesting depths of program objects.
+			
+		Interpreter(https://en.wikipedia.org/wiki/Interpreter_(computing)) is a computer program that directly executes, i.e. performs, instructions written in a programming or scripting language, 
+			without requiring them previously to have been compiled into a machine language program.
+			
+		Machine code(https://en.wikipedia.org/wiki/Machine_code) is a computer program written in machine language instructions that can be executed directly by a computer's central processing unit (CPU). 
+			Each instruction causes the CPU to perform a very specific task, such as a load, a jump, or an ALU operation on a unit of data in a CPU register or memory.
 
 	----  http://ggenikus.github.io/blog/2014/05/04/gc
 	Существует два подхода к обнаружению мусора:

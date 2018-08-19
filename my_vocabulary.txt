@@ -1,0 +1,44 @@
+equipment, equip, equipped - обладнання, обладнати, обладнаний
+natural, nature - природний, природа
+neutral - нейтральний
+consist, consistent - складаються, послідовний
+guaranty - гарантія
+uppercase, lowercase - великі літери, нижні регістри
+imply, it implies(it means) - мати на увазі, це означає
+determine - визначити
+gather - зібрати
+frequently - часто
+unpredictable - непередбачуваний
+unreachable - недосяжний
+Similarly - аналогічно
+lack - брак, недостача
+arise - виникає
+essentially - по суті
+specifically - конкретно
+purely - суто
+ahead - вперед
+iterate - ітерація
+to iterate over it - ітератувати над ним
+No doubt it will work - Без сумніву, це буде працювати
+forward traversal - прохід вперед
+for removal - для видалення
+nearly ['nɪəlɪ], almost ['ɔːlmoust] -  майже (2)
+
+traits - риси
+treat - трактувати
+threat - загроза
+thread - нитка
+
+presence - наявність
+smoothly - плавно
+omit - опустити
+
+to cope - справитись
+overcome - подолати
+to get over sth, to recover from sth - відходити, оговтатись від чогось (2)
+place - місце
+please - будь ласка
+
+piece - шматок
+peace - мир
+beautiful\miserable day - красивий\ мерзотний день
