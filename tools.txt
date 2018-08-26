@@ -36,9 +36,30 @@ Docker(https://uk.wikipedia.org/wiki/Docker)
 		Ссылки (links) Всякий раз, когда контейнер запущен, ему назначается случайный приватный адрес IP, а другие контейнеры могут пользоваться этим адресом IP для соединения с данным контейнером. 
 			Это важно по двум причинам: во-первых, контейнерам предоставляется возможность обращаться друг к другу, во-вторых, у контейнеров есть общая локальная сеть.
 -- ------------------------------------------------ Комманди
+		------------------------------------------------
 		docker --version
+		docker info                                 				Display system-wide information
+		
+		docker image ls -a                             				List all images on this machine
+		docker run ubuntu
+		docker rmi $(docker images -q)                              Delete all images
+		
+		docker container ls                         				List all running containers
+		docker container ls -a                      				List all containers, even those not running
+		docker container rm <hash>        							Remove specified container from this machine
+		docker container rm $(docker container ls -a -q)    		Remove all containers
+		docker rm $(docker ps -a -q)                                Delete all containers
+		
+		sudo service docker stop
 		sudo service docker start
-		sudo docker info
+		
+		docker container start ubuntu
+		docker run -i -t mlaccetti/docker-oracle-java8-ubuntu-16.04:latest /bin/bash
+		
+		docker pull mlaccetti/docker-oracle-java8-ubuntu-16.04
+		
+		------------------------------------------------
+		
 		sudo docker container ls - shows only runs containers
 		sudo docker images
 		sudo usermod -aG docker ec2-user
