@@ -248,6 +248,7 @@ finely honed - sharpened, perfected - відточений
 conceal, withhold - hide something carefully - приховувати
 concern, anxiety, anxious, worried, - занепокоєння, тривога
 consider - розглядати, вважати
+complain - скаржитись
 preoccupation, concern with - the condition of thinking about only one thing - турбота
 pervasive, widespread - existing or spreading everywhere - всепроникний
 trivial, insignificant, non essential - unimportant, of little value - незначний, несуттєвий
@@ -508,6 +509,7 @@ painfully - болісно
 public - громадкість
 surveyed - опитані
 undesirable - небажано
+desire - бажання, бажати
  
 turn ... ?
 
@@ -564,6 +566,8 @@ peer - одноліток
 to remain - залишатись
 to remind sb - нагадувати комусь
 to mention, to recall - згадати
+on the contrary - навпаки
+persist,remain - залишатися
 --------------------------- !!! begin
 shyness - сором'язливістьп
 (bold, cheeky), impudent, arrogant - зухвало, безсоромний, зарозумілий
@@ -589,7 +593,7 @@ to wind up - накручувати, навіювати
 shrinking violet - зморщена фіалка
 
 to wallow in one’s misery - упиватись горем
-blurred [blɜːd] vision - неяний зір
+blurred [blɜːd] vision - неясний зір
 grouchy = grumbling ['grʌmblɪŋ] - буркотливий
 cranky = irritable - дратівливий
 mascara [mæ'skɑːrə] - туш для вій 
@@ -614,7 +618,6 @@ take things as (accept experience as) - приймати речі як
 think of (consider(suppose, guess, consider, believe)) - думати про
 virtually (almost) - фактично, практично
 widespread, pervasive - всепроникний
-to wind up (end up) - опинятись
 
 introvert ---
 bashful, shy, timid, self-conscious - сором'язливий, боязкий
