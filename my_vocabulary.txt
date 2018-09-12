@@ -106,3 +106,15 @@ conquer - перемогти
 
  -- --------------------------
 tense - напружений
+adjust - налаштувати
+edge - краю
+corner - кут
+fringes - перефирія
+strip - жвава частина міста
+outskirts - околиці
+out of the grip - поза межами досяжності
+against the grain - проти шерсті
+withdrawn - замкнений
+
+ -- --------------------------
+ distinct - чіткий
