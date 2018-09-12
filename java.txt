@@ -183,6 +183,27 @@ Memory Management in Java
 		JVM memory is divided into separate parts. At broad level, JVM Heap memory is physically divided into two parts – Young Generation and Old Generation.
 		Young Generation is divided into three parts – Eden Memory and two Survivor Memory spaces.
 	
+	--- The off-heap memory is composed of:(https://allegro.tech/2016/09/CQK-TOP-10-gc.html)
+		--- 1. Metaspace — memory for class metadata.
+			--- Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Note that Perm Gen is not part of Java Heap memory.
+				When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
+				--- Method Area is part of space in the Perm Gen and used to store class structure (runtime constants and static variables) and code for methods and constructors.
+					--- Runtime constant pool is per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is the part of method area.
+				--- Memory Pools are created by JVM memory managers to create a pool of immutable objects, if implementation supports it. String Pool is a good example of this kind of memory pool. 
+					Memory Pool can belong to Heap or Perm Gen, depending on the JVM memory manager implementation.
+			--- Meta Space(https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag): This memory is out of heap memory and part of the native memory. As per the document by default the meta space doesn’t have an upper limit. 
+				In earlier versions of Java we called this “Perm Gen Space". This space is used to store the class definitions loaded by class loaders. 
+				This is designed to grow in order to avoid 0ut of memory errors. However, if it grows more than the available physical memory, then the operating system will use virtual memory. 
+				This will have an adverse effect on application performance, as swapping the data from virtual memory to physical memory and vice versa is a costly operation. 
+				We have JVM options to limit the Meta Space used by the JVM. In that case, we may get out of memory errors.
+		--- 2. Code cache — memory for the compiled code. (https://stackoverflow.com/questions/35840980/jvm-about-code-cache-area)
+			Code Cache: JVM has an interpreter to interpret the byte code and convert it into hardware dependent machine code. As part of JVM optimization, the Just In Time (JIT) compiler has been introduced.
+			The frequently accessed code blocks will be compiled to native code by the JIT and stored it in code cache. The JIT compiled code will not be interpreted.	
+		--- 3. Thread stacks — every thread preallocates memory for a call stack, by default it is 1MB on 64-bit systems.
+			--- Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method. 	
+				Трассировка стека – это список методов, которые были вызваны до момента, когда в приложении произошло исключение.
+		--- 4. Memory allocated with sun.misc.Unsafe#allocateMemory, it may be used e.g. by caches to limit time spent on GC. It is also used by NIO objects to speed up operations on files or sockets.
+	
 	--- Garbage Collector (https://dzone.com/articles/minor-gc-vs-major-gc-vs-full)
 		Garbage Collector is the program running in the background that looks into all the objects in the memory and find out objects that are not referenced by any part of the program. 
 		Minor GC for Young Generation(Since Young generation keeps short-lived objects, Minor GC is very fast), Major GC for Old Generation(Major GC takes longer time because it checks all the live objects)
@@ -192,23 +213,7 @@ Memory Management in Java
 			В “Tracing” главная идея состоит в мысли: “Живые объект - те до которых мы можем добраться с корневых точек (GC Root: Локальные переменные и параметры методов, Java Потоки, Статические переменные, Ссылки из JNI)
 			В HotSpot VM реализовано четыре сборщика мусора основанных на идее “Generational Garbage Collection”: Serial GC, Parallel GC, CMS GC, G1 GC
 			-- Reference counting не використовується
-		
-	--- Permanent Generation or “Perm Gen” contains the application metadata required by the JVM to describe the classes and methods used in the application. Note that Perm Gen is not part of Java Heap memory.
-		When stack memory is full, Java runtime throws java.lang.StackOverFlowError whereas if heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.
-		--- Method Area is part of space in the Perm Gen and used to store class structure (runtime constants and static variables) and code for methods and constructors.
-			--- Runtime constant pool is per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is the part of method area.
-			
-		--- Memory Pools are created by JVM memory managers to create a pool of immutable objects, if implementation supports it. String Pool is a good example of this kind of memory pool. 
-			Memory Pool can belong to Heap or Perm Gen, depending on the JVM memory manager implementation.
 
-	--- Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method. 	
-		Трассировка стека – это список методов, которые были вызваны до момента, когда в приложении произошло исключение.
-
-	--- Meta Space(https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag): This memory is out of heap memory and part of the native memory. As per the document by default the meta space doesn’t have an upper limit. 
-	In earlier versions of Java we called this “Perm Gen Space". This space is used to store the class definitions loaded by class loaders. 
-	This is designed to grow in order to avoid 0ut of memory errors. However, if it grows more than the available physical memory, then the operating system will use virtual memory. 
-	This will have an adverse effect on application performance, as swapping the data from virtual memory to physical memory and vice versa is a costly operation. 
-	We have JVM options to limit the Meta Space used by the JVM. In that case, we may get out of memory errors.
 
     ------------------- JIT(https://www.quora.com/What-is-JIT-Compiler-In-Java)
 	--- The Just-In-Time (JIT) compiler (https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html) is a component of the Java™ Runtime Environment 
@@ -224,10 +229,7 @@ Memory Management in Java
 			without requiring them previously to have been compiled into a machine language program.
 			
 		Machine code(https://en.wikipedia.org/wiki/Machine_code) is a computer program written in machine language instructions that can be executed directly by a computer's central processing unit (CPU). 
-			Each instruction causes the CPU to perform a very specific task, such as a load, a jump, or an ALU operation on a unit of data in a CPU register or memory.
-
-		Code Cache: JVM has an interpreter to interpret the byte code and convert it into hardware dependent machine code. As part of JVM optimization, the Just In Time (JIT) compiler has been introduced.
-			The frequently accessed code blocks will be compiled to native code by the JIT and stored it in code cache. The JIT compiled code will not be interpreted.		
+			Each instruction causes the CPU to perform a very specific task, such as a load, a jump, or an ALU operation on a unit of data in a CPU register or memory.	
 
 	------------------- There are three types of built-in ClassLoader in Java(https://www.baeldung.com/java-classloaders):
 		Bootstrap Class Loader – It loads JDK internal classes, typically loads rt.jar and other core classes for example java.lang.* package classes

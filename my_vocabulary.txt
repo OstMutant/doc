@@ -118,3 +118,8 @@ withdrawn - замкнений
 
  -- --------------------------
  distinct - чіткий
+ significant - значний
+ treshold - затримка
+ a certain treshold - певна затримка
+ threshold - поріг
+ benchmark - орієнтир
