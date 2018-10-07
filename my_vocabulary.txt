@@ -106,7 +106,7 @@ conquer - перемогти
 
  -- --------------------------
 tense - напружений
-adjust - налаштувати
+adjust - налаштувати, коригувати
 edge - краю
 corner - кут
 fringes - перефирія
@@ -119,7 +119,30 @@ withdrawn - замкнений
  -- --------------------------
  distinct - чіткий
  significant - значний
- treshold - затримка
- a certain treshold - певна затримка
  threshold - поріг
  benchmark - орієнтир
+to distinguish - розрізняти, вирізняти, відокремлювати
+substitute - замінити
+Overhead - Накладні витрати
+utilization - вживання
+idle - бездіяльний
+in spite - незважаючи
+More responsive programs - Більш адаптовані програми
+hence - отже
+demanding - вимагаючи
+exaggerating - перебільшувати
+
+snack, snake - закуски, змія
+contributes - сприяє
+to keep up - не відставати
+beforehand - заздалегіть
+therefore - отже
+thus - таким чином
+remain - залишитись
+remind - нагадаю
+to mention, to recall - згадати
+sequence - послідовність
+hieararchies - гієарархії
+propagate - розповсюджувати
+drawback - недолік
+sufficient - достатньо

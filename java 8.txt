@@ -69,15 +69,18 @@ functional programming (https://examples.javacodegeeks.com/core-java/java-9-func
 
 		invokedynamic is a bytecode instruction that facilitates the implementation of dynamic languages (for the JVM) through dynamic method invocation.
 		In a dynamic language, type-checking typically occurs at runtime.
-		java.lang.invoke API package to the standard class library.
+		java.lang.invoke API package to the standard class library.	
 		
+		A dynamic language (also known as a dynamically-typed language) is a high-level programming language whose type checking is usually performed at runtime, a feature known as dynamic typing. 
+		In contrast, a static language (also known as a statically-typed language) performs type checking at compile time, a feature known as static typing. 
+		Java is an example of a static language. 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 OOP vs functional programming (https://www.developer.com/java/data/what-is-functional-programming-in-java.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even if we need only to implement the behaviour. 
 			This type of situation is the niche for functional programming, where we define only the behaviour through functions and not objects. 
-			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.
-
+			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.	
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------           
 Method References (https://vertex-academy.com/tutorials/ru/java-8-ssylki-na-metody/, http://ocpj8.javastudyguide.com/ch11.html)				
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

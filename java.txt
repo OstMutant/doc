@@ -214,7 +214,6 @@ Memory Management in Java
 			В HotSpot VM реализовано четыре сборщика мусора основанных на идее “Generational Garbage Collection”: Serial GC, Parallel GC, CMS GC, G1 GC
 			-- Reference counting не використовується
 
-
     ------------------- JIT(https://www.quora.com/What-is-JIT-Compiler-In-Java)
 	--- The Just-In-Time (JIT) compiler (https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html) is a component of the Java™ Runtime Environment 
 		that improves the performance of Java applications at run time. In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
@@ -231,11 +230,22 @@ Memory Management in Java
 		Machine code(https://en.wikipedia.org/wiki/Machine_code) is a computer program written in machine language instructions that can be executed directly by a computer's central processing unit (CPU). 
 			Each instruction causes the CPU to perform a very specific task, such as a load, a jump, or an ALU operation on a unit of data in a CPU register or memory.	
 
-	------------------- There are three types of built-in ClassLoader in Java(https://www.baeldung.com/java-classloaders):
-		Bootstrap Class Loader – It loads JDK internal classes, typically loads rt.jar and other core classes for example java.lang.* package classes
+		-server and -client(https://blog.codecentric.de/en/2012/07/useful-jvm-flags-part-1-jvm-types-and-compiler-modes/)
+			
+	------------------- There are three types of built-in ClassLoader in Java(https://www.baeldung.com/java-classloaders, https://javarush.ru/groups/posts/646-kak-proiskhodit-zagruzka-klassov-v-jvm, http://www.640kb.club/post/classloader-I/):
+		Bootstrap Class Loader – It loads JDK internal classes, typically loads rt.jar and other core classes for example java.lang.* package classes(https://www.quora.com/What-is-rt-jar-in-Java)
 		Extensions Class Loader – It loads classes from the JDK extensions directory, usually $JAVA_HOME/lib/ext directory.
 		System Class Loader – It loads classes from the current classpath that can be set while invoking a program using -cp or -classpath command line options.	
 
+		(https://www.artima.com/insidejvm/ed2/lifetype.html)
+		The Java virtual machine makes types available to the running program through a process of loading, linking, and initialization. 
+		Loading is the process of bringing a binary form for a type into the Java virtual machine. Linking is the process of incorporating the binary type data into the runtime state of the virtual machine. 
+		Linking is divided into three sub-steps: verification, preparation, and resolution. Verification ensures the type is properly formed and fit for use by the Java virtual machine. 
+		Preparation involves allocating memory needed by the type, such as memory for any class variables. Resolution is the process of transforming symbolic references in the constant pool into direct references. 
+		Implementations may delay the resolution step until each symbolic reference is actually used by the running program. 
+		After verification, preparation, and (optionally) resolution are completed, the type is ready for initialization. During initialization, the class variables are given their proper initial values. 
+		
+	
 
 	VM SWITCH        			VM SWITCH DESCRIPTION
 	-Xms        				For setting the initial heap size when JVM starts
@@ -322,6 +332,14 @@ Generic.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Threads
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Multithreading Costs(http://tutorials.jenkov.com/java-concurrency/costs.html)
+			"context switch" - When a CPU switches from executing one thread to executing another, the CPU needs to save the local data, program pointer etc.
+				of the current thread, and load the local data, program pointer etc. of the next thread to execute. 
+		
+		Concurrency vs. Parallelism (http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html)
+			Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.
+			Concurrency means that an application is making progress on more than one task at the same time (concurrently).
+		
 ------------------- Java provides three ways to create a thread programmatically.
         Implementing the java.lang.Runnable interface.
         Extending the java.lang.Thread class.
@@ -430,6 +448,19 @@ Iterator In Java (Fail Fast and Fail Safe )
         (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
         Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
 		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrapping.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+-------------------		Multiple Exceptions in Java 7(http://tutorials.jenkov.com/java-exception-handling/catching-multiple-exceptions.html)
+			try {
+				// execute code that may throw 1 of the 3 exceptions below.
+			} catch(SQLException | IOException e) {
+				logger.log(e);
+			} catch(Exception e) {
+				logger.severe(e);
+			}
+			
+			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Difference between URL and URI(http://www.baeldung.com/java-url-vs-uri)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
