@@ -45,28 +45,33 @@ default void forEach(Consumer<? super T> action) {
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+OOP vs functional programming (https://www.developer.com/java/data/what-is-functional-programming-in-java.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even if we need only to implement the behaviour. 
+			This type of situation is the niche for functional programming, where we define only the behaviour through functions and not objects. 
+			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.	
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 functional programming (https://examples.javacodegeeks.com/core-java/java-9-functional-programming-tutorial/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------- Functional Programming Basics(http://tutorials.jenkov.com/java-functional-programming/index.html#no-side-effects)
+		Functional programming contains the following key concepts:
+			Functions as first class objects
+			Pure functions
+			Higher order functions
+		Pure functional programming has a set of rules to follow too:
+			No state
+			No side effects
+			Immutable variables
+			Favour recursion over looping
+
+
 		In computer science, functional programming is a programming paradigm, a style of building the structure and elements of computer programs,
 			that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data.
 			It is a declarative programming paradigm, which means programming is done with expressions.
 		Anonymous function (also function literal or lambda abstraction) is a function definition that is not bound to an identifier. 
-		
-		A lambda expression has three parts:(http://ocpj8.javastudyguide.com/ch09.html)
-			A list of parameters - A lambda expression can have zero (represented by empty parentheses), one or more parameters:
-			An arrow - Formed by the characters - and > to separate the parameters and the body.
-			A body - The body of the lambda expressions can contain one or more statements.
-		The signature of the abstract method of a functional interface provides the signature of a lambda expression (this signature is called a functional descriptor).	
-			This means that to use a lambda expression, you first need a functional interface.
-			
-		Invoke dynamic (http://surelogic.com/wiki/index.php/InvokeDynamic_and_Lambda_Expressions, https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
-			The invokedynamic instruction simplifies and potentially improves implementations of compilers and runtime systems for dynamic languages on the JVM
-		Динамический язык — язык программирования, который позволяет определять типы данных и осуществлять синтаксический анализ и компиляцию «на лету»,
-			на этапе выполнения программы. Динамические языки удобны для быстрой разработки приложений.
-			(https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
 
-------------- invokedynamic(https://www.javaworld.com/article/2860079/learn-java/invokedynamic-101.html)
-
+------------- INVOKEDYNAMIC(https://www.javaworld.com/article/2860079/learn-java/invokedynamic-101.html)
 		invokedynamic is a bytecode instruction that facilitates the implementation of dynamic languages (for the JVM) through dynamic method invocation.
 		In a dynamic language, type-checking typically occurs at runtime.
 		java.lang.invoke API package to the standard class library.	
@@ -74,25 +79,66 @@ functional programming (https://examples.javacodegeeks.com/core-java/java-9-func
 		A dynamic language (also known as a dynamically-typed language) is a high-level programming language whose type checking is usually performed at runtime, a feature known as dynamic typing. 
 		In contrast, a static language (also known as a statically-typed language) performs type checking at compile time, a feature known as static typing. 
 		Java is an example of a static language. 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
-OOP vs functional programming (https://www.developer.com/java/data/what-is-functional-programming-in-java.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even if we need only to implement the behaviour. 
-			This type of situation is the niche for functional programming, where we define only the behaviour through functions and not objects. 
-			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.	
 		
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------           
-Method References (https://vertex-academy.com/tutorials/ru/java-8-ssylki-na-metody/, http://ocpj8.javastudyguide.com/ch11.html)				
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------- A lambda expression has three parts:(http://ocpj8.javastudyguide.com/ch09.html)
+			A list of parameters - A lambda expression can have zero (represented by empty parentheses), one or more parameters:
+			An arrow - Formed by the characters - and > to separate the parameters and the body.
+			A body - The body of the lambda expressions can contain one or more statements.
+		The signature of the abstract method of a functional interface provides the signature of a lambda expression (this signature is called a functional descriptor).	
+			This means that to use a lambda expression, you first need a functional interface.
+		Lambda Expressions(https://www.baeldung.com/java-8-interview-questions)
+			In very simple terms, a lambda expression is a function that can be referenced and passed around as an object.
+			Lambda expressions introduce functional style processing in Java and facilitate the writing of compact and easy-to-read code.
+			Because of this, lambda expressions are a natural replacement for anonymous classes as method arguments. One of their main uses is to define inline implementations of functional interfaces.
+			A lambda expression consists of two parts: the parameter part and the expressions part separated by a forward arrow as below:
+				params -> expressions
+				Any lambda expression has the following characteristics:
+					Optional type declaration – when declaring the parameters on the left-hand side of the lambda, we don’t need to declare their types as the compiler can infer them from their values. 
+						So int param -> … and param ->… are all valid
+					Optional parentheses – when only a single parameter is declared, we don’t need to place it in parentheses. 
+						This means param -> … and (param) -> … are all valid. But when more than one parameter is declared, parentheses are required
+					Optional curly braces – when the expressions part only has a single statement, there is no need for curly braces. 
+						This means that param – > statement and param – > {statement;} are all valid. But curly braces are required when there is more than one statement
+					Optional return statement – when the expression returns a value and it is wrapped inside curly braces, then we don’t need a return statement. 
+						That means (a, b) – > {return a+b;} and (a, b) – > {a+b;} are both valid
+			
+		Invoke dynamic (http://surelogic.com/wiki/index.php/InvokeDynamic_and_Lambda_Expressions, https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
+			The invokedynamic instruction simplifies and potentially improves implementations of compilers and runtime systems for dynamic languages on the JVM
+		Динамический язык — язык программирования, который позволяет определять типы данных и осуществлять синтаксический анализ и компиляцию «на лету»,
+			на этапе выполнения программы. Динамические языки удобны для быстрой разработки приложений.
+			(https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F)
+          
+------------- Method References (https://vertex-academy.com/tutorials/ru/java-8-ssylki-na-metody/, http://ocpj8.javastudyguide.com/ch11.html)				
 		We know that we can use lambda expressions instead of using an anonymous class. But sometimes, the lambda expression is really just a call to some method, for example:
 			Consumer<String> c = s -> System.out.println(s);
 		To make the code clearer, you can turn that lambda expression into a method reference:
 			Consumer<String> c = System.out::println;
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-java.util.function(https://metanit.com/java/tutorial/9.3.php, http://ocpj8.javastudyguide.com/ch10.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
+			
+------------- Functional Interfaces (https://www.baeldung.com/java-8-interview-questions)
+		Functional interfaces provide target types for lambda expressions and method references.
+		A functional interface is an interface with no more, no less but one single abstract method (default methods do not count).
+		The arguments and return type of such expression directly match those of the single abstract method.
+		For instance, the Runnable interface is a functional interface, so instead of:
+		Thread thread = new Thread(new Runnable() {
+			public void run() {
+				System.out.println("Hello World!");
+			}
+		});
+		you could simply do:
+		Thread thread = new Thread(() -> System.out.println("Hello World!"));
+		Functional interfaces are usually annotated with the @FunctionalInterface annotation – which is informative and does not affect the semantics.
+
+------------- java.util.function(https://metanit.com/java/tutorial/9.3.php, http://ocpj8.javastudyguide.com/ch10.html)
 		В JDK 8 вместе с самой функциональностью лямбда-выражений также было добавлено некоторое количество встроенных функциональных интерфейсов, 
 		которые мы можем использовать в различных ситуациях и в различные API в рамках JDK 8
+		Function – it takes one argument and returns a result
+		Consumer – it takes one argument and returns no result (represents a side effect)
+		Supplier – it takes not argument and returns a result
+		Predicate – it takes one argument and returns a boolean
+		BiFunction – it takes two arguments and returns a result
+		BinaryOperator – it is similar to a BiFunction, taking two arguments and returning a result. The two arguments and the result are all of the same types
+		UnaryOperator – it is similar to a Function, taking a single argument and returning a result of the same type
+		
 		Predicate<T> - A predicate is a statement that may be true or false depending on the values of its variables.
 			@FunctionalInterface
 			public interface Predicate<T> {
@@ -130,6 +176,33 @@ java.util.function(https://metanit.com/java/tutorial/9.3.php, http://ocpj8.javas
 				 // Two static method are defined
 			}
 
+------------- Default Method(https://www.baeldung.com/java-8-interview-questions)
+		A default method is a method with an implementation – which can be found in an interface.
+		We can use a default method to add a new functionality to an interface while maintaining backward compatibility with classes that are already implementing the interface:
+		public interface Vehicle {
+			public void move();
+			default void hoot() {
+				System.out.println("peep!");
+			}
+		}
+		Usually, when a new abstract method is added to an interface, all implementing classes will break until they implement the new abstract method. In Java 8, this problem has been solved by the use of default method.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Optional (https://www.baeldung.com/java-optional)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		The purpose of the class is to provide a type-level solution for representing optional values instead of using null references.
+		(https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
+		empty() - Returns an empty Optional instance.
+		filter(Predicate<? super T> predicate) - If a value is present, and the value matches the given predicate, return an Optional describing the value, otherwise return an empty Optional.
+		flatMap(Function<? super T,Optional<U>> mapper) - If a value is present, apply the provided Optional-bearing mapping function to it, return that result, otherwise return an empty Optional.
+		get() - If a value is present in this Optional, returns the value, otherwise throws NoSuchElementException.
+		ifPresent(Consumer<? super T> consumer) - If a value is present, invoke the specified consumer with the value, otherwise do nothing.
+		isPresent() - Return true if there is a value present, otherwise false.
+		map(Function<? super T,? extends U> mapper) - If a value is present, apply the provided mapping function to it, and if the result is non-null, return an Optional describing the result.
+		of(T value) - Returns an Optional with the specified present non-null value.
+		ofNullable(T value) - Returns an Optional describing the specified value, if non-null, otherwise returns an empty Optional.
+		orElse(T other) - Return the value if present, otherwise return other.
+		orElseGet(Supplier<? extends T> other) - Return the value if present, otherwise invoke other and return the result of that invocation.
+		orElseThrow(Supplier<? extends X> exceptionSupplier) - Return the contained value, if present, otherwise throw an exception to be created by the provided supplier.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -167,14 +240,131 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 		First of all, please note that "Streams are not collections". java.util.stream is introduced to process elements in sequence.
 			Streams are wrappers for collections and arrays. They wrap an existing collection to support operations expressed with lambdas, so you specify what you want to do, not how to do it.
 
+		Performance With Java8 Streams(https://dzone.com/articles/performance-with-java8-streams)
+		Parallelism
+			Parallelism utilizes hardware capabilities at their best, as nowadays, more CPU cores are available on a computer, so it doesn't make sense to have a single thread in a multi-core system. 
+			In Java Streams, parallelism is achieved by using the  Fork-Join principle. As per the Fork-Join principle, it divides larger tasks into smaller sub-tasks (known as forking), 
+				and then processes the sub-tasks in parallel to utilize all the available hardware, then combines the results together (known as Join) to form an integrated result.
+			Note: Results may vary on different hardware.
+		Laziness.
+			As we know, Java8 Streams have two types of operations, known as Intermediate and Terminal. These two operations are meant for processing and providing the end results, respectively. 
+			In summary, intermediate operations just create another stream, but won't perform any processing until the terminal operation is called. Once the terminal operation is called, traversal of streams begins and the associated function is applied one by one. 
+			Intermediate operations are lazy operations, so Streams supports laziness.
+		Short-Circuit Behavior
+			This is another way of optimizing the Streams processing. Short-circuiting will terminate the processing once condition met. 
+			There are a number of short-circuiting operations available. For e.g. anyMatch, allMatch, findFirst, findAny, limit, etc.
+		Stateful Intermediate Operations
+			These intermediate operations need to store the state, and hence can cause bad performance of your applications, e.g. distinct(), sort(), limit(), etc.
+		Stateless Intermediate Operations
+			These intermediate operations can be processed independently as they don't need to remember the state, e.g. filter(), map(), etc.
+			
+		Intermediate and Terminal Operations(https://brushmyskills.com/java-8/intermediate-terminal-operations-stream-api-java-8/, https://stackify.com/streams-guide-java-8/)
+		Intermediate operations are composed forming a pipeline of a Stream execution and not executed in Stream unit some terminal operation is invoked. The intermediate operation can be added to a Stream pipeline by methods:
+			Stream<T>	filter(Predicate<? super T> predicate) - Returns a stream consisting of the elements of this stream that match the given predicate.
+			<R> Stream<R>	map(Function<? super T,? extends R> mapper) - Returns a stream consisting of the results of applying the given function to the elements of this stream.
+			<R> Stream<R>	flatMap(Function<? super T,? extends Stream<? extends R>> mapper) - Returns a stream consisting of the results of replacing each element of this stream with the contents of a mapped stream produced by applying the provided mapping function to each element.
+			Stream<T> distinct() - Returns a stream consisting of the distinct elements (according to Object.equals(Object)) of this stream.
+			Stream<T>	sorted() - Returns a stream consisting of the elements of this stream, sorted according to natural order. If the elements of this stream are not Comparable, a java.lang.ClassCastException may be thrown when the terminal operation is executed.
+			Stream<T>	peek(Consumer<? super T> action) - Returns a stream consisting of the elements of this stream, additionally performing the provided action on each element as elements are consumed from the resulting stream.
+			Stream<T>	skip(long n) - Returns a stream consisting of the remaining elements of this stream after discarding the first n elements of the stream.
+			All Intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.
+		Following are Terminal operations:
+			void	forEach(Consumer<? super T> action) - Performs an action for each element of this stream.
+			forEachOrdered()
+			Object[]	toArray() - Returns an array containing the elements of this stream.
+			Optional<T>	reduce(BinaryOperator<T> accumulator) - Performs a reduction on the elements of this stream, using an associative accumulation function, and returns an Optional describing the reduced value, if any.
+			<R,A> R	collect(Collector<? super T,A,R> collector) - Performs a mutable reduction operation on the elements of this stream using a Collector.
+			min() - Returns the minimum element of this stream according to the provided Comparator.
+			max() - Returns the maximum element of this stream according to the provided Comparator.
+			count() - Returns the count of elements in this stream.
+			boolean	anyMatch(Predicate<? super T> predicate) - checks if the predicate is true for any one element in the stream.
+			boolean	allMatch(Predicate<? super T> predicate) - checks if the predicate is true for all the elements in the stream.
+			boolean	noneMatch(Predicate<? super T> predicate) - checks if there are no elements matching the predicate. 
+			Optional<T>	findFirst() - returns an Optional for the first entry in the stream; the Optional can, of course, be empty
+			Optional<T> findAny() - Returns an Optional describing some element of the stream, or an empty Optional if the stream is empty
+		Each of these operations will trigger execution of all intermediate operations.
+		A reduction operation (also called as fold) takes a sequence of input elements and combines them into a single summary result by repeated application of a combining operation.
+		Collectors (https://www.baeldung.com/java-8-collectors)
+			Collectors.toList() ToList collector can be used for collecting all Stream elements into a List instance
+			Collectors.toSet() ToSet collector can be used for collecting all Stream elements into a Set instance. 
+			Collectors.toMap() ToMap collector can be used to collect Stream elements into a Map instance.
+			Collectors.joining() Joining collector can be used for joining Stream<String> elements.
+			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-API для работы с датами
+Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		CompletableFuture is an extension to Java’s Future API which was introduced in Java 5.
+------------- Limitations of Future
+		1. It cannot be manually completed
+		2. You cannot perform further action on a Future’s result without blocking
+		3. Multiple Futures cannot be chained together
+		4. You can not combine multiple Futures together
+		5. No Exception Handling
+
+------------- Creating a CompletableFuture
+		You can create a CompletableFuture simply by using the following no-arg constructor CompletableFuture<String> completableFuture = new CompletableFuture<String>();
+		The get() method blocks until the Future is complete. So, the above call will block forever because the Future is never completed. String result = completableFuture.get()
+		You can use CompletableFuture.complete() method to manually complete a Future completableFuture.complete("Future's Result")
+		If you want to run some background task asynchronously and don’t want to return anything from the task, then you can use CompletableFuture.runAsync() method.
+		CompletableFuture.supplyAsync()  takes a Supplier<T> and returns CompletableFuture<T> where T is the type of the value obtained by calling the given supplier
+		// Variations of runAsync() and supplyAsync() methods
+			static CompletableFuture<Void>  runAsync(Runnable runnable)
+			static CompletableFuture<Void>  runAsync(Runnable runnable, Executor executor)
+			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
+			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
+------------- Transforming and acting on a CompletableFuture
+		You can use thenApply() method to process and transform the result of a CompletableFuture when it arrives.
+		You can also write a sequence of transformations on the CompletableFuture by attaching a series of thenApply() callback methods.
+		If you don’t want to return anything from your callback function and just want to run some piece of code after the completion of the Future, then you can use thenAccept() and thenRun() methods. 
+			These methods are consumers and are often used as the last callback in the callback chain.
+		// thenApply() variants
+			<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)
+			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn)
+			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
+		// thenRun() example
+			CompletableFuture.supplyAsync(() -> {
+				// Run some computation  
+			}).thenRun(() -> {
+				// Computation Finished.
+			});
+------------- Combining two CompletableFutures together
+		Combine two dependent futures using thenCompose() 
+			So, Rule of thumb here - If your callback function returns a CompletableFuture, and you want a flattened result from the CompletableFuture chain (which in most cases you would), then use thenCompose().
+		Combine two independent futures using thenCombine() 
+			While thenCompose() is used to combine two Futures where one future is dependent on the other, thenCombine() is used when you want two Futures to run independently and do something after both are complete.
+			
+		CompletableFuture.allOf is used in scenarios when you have a List of independent futures that you want to run in parallel and do something after all of them are complete.
+		CompletableFuture.anyOf() as the name suggests, returns a new CompletableFuture which is completed when any of the given CompletableFutures complete, with the same result.
+		
+		The exceptionally() callback gives you a chance to recover from errors generated from the original Future. You can log the exception here and return a default value.
+		The API also provides a more generic method - handle() to recover from exceptions. It is called whether or not an exception occurs. 
+			If an exception occurs, then the res argument will be null, otherwise, the ex argument will be null.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+API для работы с датами (https://www.baeldung.com/java-8-date-time-intro)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
 	Тип Clock предоставляет доступ к текущей дате и времени.
 	Часовые пояса представлены типом ZoneId.
 	Тип LocalTime представляет собой время с учетом часового пояса, например, 10pm или 17:30:15.
 	Тип LocalDate представляет конкретную дату, например, 2014-03-11
 	Тип LocalDateTime представляет собой комбинацию даты и времени.
+	
+	The new Date and Time APIs introduced in Java 8 are immutable and thread safe.
+	The new Date/Time APIs is ISO centric and follows consistent domain models for date, time, duration and periods. There are a wide variety of utility methods that support the commonest operations.
+	new APIs, handling of timezone can be done with Local and ZonedDate/Time APIs.
+	The LocalDate represents a date in ISO format (yyyy-MM-dd) without time.
+	The LocalTime represents time without a date.
+	The LocalDateTime is used to represent a combination of date and time.
+	ZonedDateTime when we need to deal with time zone specific date and time. The ZoneId is an identifier used to represent different zones. 
+		There are about 40 different time zones and the ZoneId are used to represent them as follows.
+	The Period class is widely used to modify values of given a date or to obtain the difference between two dates.
+	the Duration class is use to deal with Time. In the following code we create a LocalTime of 6:30 am and then add a duration of 30 seconds to make a LocalTime of 06:30:30am:
+	Java 8 has added the toInstant() method which helps to convert existing Date and Calendar instance to new Date Time API as in the following code snippet:
+		LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+		LocalDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
+	Java 8 provides APIs for the easy formatting of Date and Time:
+	String localDateString = localDateTime.format(DateTimeFormatter.ISO_DATE);
+	
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 new in Java 8

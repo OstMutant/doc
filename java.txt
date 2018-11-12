@@ -176,6 +176,65 @@ Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in
 		Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
 	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generics-example-method-class-interface)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+	Java Generic Class
+	Java Generic Interface
+	Java Generic Type
+		Naming convention helps us understanding code easily and having a naming convention is one of the best practices of java programming language. 
+			So generics also comes with it’s own naming conventions. Usually type parameter names are single, uppercase letters to make it easily distinguishable from java variables. 
+			The most commonly used type parameter names are:
+			E – Element (used extensively by the Java Collections Framework, for example ArrayList, Set etc.)
+			K – Key (Used in Map)
+			N – Number
+			T – Type
+			V – Value (Used in Map)
+			S,U,V etc. – 2nd, 3rd, 4th types
+	Java Generic Method
+	Java Generics Bounded Type Parameters
+		Suppose we want to restrict the type of objects that can be used in the parameterized type, for example in a method that compares two objects and we want to make sure that the accepted objects are Comparables. 
+			To declare a bounded type parameter, list the type parameter’s name, followed by the extends keyword, followed by its upper bound, similar like below method.
+			public static <T extends Comparable<T>> int compare(T t1, T t2){
+				return t1.compareTo(t2);
+			}
+	Java Generics and Inheritance
+		We know that Java inheritance allows us to assign a variable A to another variable B if A is subclass of B. So we might think that any generic type of A can be assigned to generic type of B, but it’s not the case.
+			public class GenericsInheritance {
+				public static void main(String[] args) {
+					String str = "abc";
+					Object obj = new Object();
+					obj=str; // works because String is-a Object, inheritance in java
+					MyClass<String> myClass1 = new MyClass<String>();
+					MyClass<Object> myClass2 = new MyClass<Object>();
+					//myClass2=myClass1; // compilation error since MyClass<String> is not a MyClass<Object>
+					obj = myClass1; // MyClass<T> parent is Object
+				}
+				public static class MyClass<T>{}
+			}
+	Java Generic Classes and Subtyping
+		We can subtype a generic class or interface by extending or implementing it. 
+			The relationship between the type parameters of one class or interface and the type parameters of another are determined by the extends and implements clauses.
+		interface MyList<E,T> extends List<E>{
+		}
+	Java Generics Wildcards
+		Question mark (?) is the wildcard in generics and represent an unknown type. The wildcard can be used as the type of a parameter, field, or local variable and sometimes as a return type. 
+			We can’t use wildcards while invoking a generic method or instantiating a generic class. In following sections, we will learn about upper bounded wildcards, lower bounded wildcards, and wildcard capture.
+	Java Generics Upper Bounded Wildcard
+		Upper bounded wildcards are used to relax the restriction on the type of variable in a method. 
+			List<? extends Number> list
+	Java Generics Unbounded Wildcard
+		Sometimes we have a situation where we want our generic method to be working with all types, in this case unbounded wildcard can be used. Its same as using 
+			<? extends Object>.
+	Java Generics Lower bounded Wildcard
+		public static void addIntegers(List<? super Integer> list){
+			list.add(new Integer(50));
+		}
+	Java Generics Type Erasure
+		Generics in Java was added to provide type-checking at compile time and it has no use at run time, 
+			so java compiler uses type erasure feature to remove all the generics type checking code in byte code and insert type-casting if necessary. 
+			Type erasure ensures that no new classes are created for parameterized types; consequently, generics incur no runtime overhead.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	--- (https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java)
@@ -214,6 +273,9 @@ Memory Management in Java
 			В HotSpot VM реализовано четыре сборщика мусора основанных на идее “Generational Garbage Collection”: Serial GC, Parallel GC, CMS GC, G1 GC
 			-- Reference counting не використовується
 
+		JVM uses TWO different Garbage Collectors for Young and Old Generations. https://stackoverflow.com/questions/16549066/java-major-and-minor-garbage-collections
+		HotSpot(https://stackoverflow.com/questions/16568253/difference-between-jvm-and-hotspot) is an an implementation of the JVM concept. It was originally developed by Sun and now it is owned by Oracle. 
+			There are other implementations of the JVM specification, like JRockit, IBM J9, among many others.
     ------------------- JIT(https://www.quora.com/What-is-JIT-Compiler-In-Java)
 	--- The Just-In-Time (JIT) compiler (https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html) is a component of the Java™ Runtime Environment 
 		that improves the performance of Java applications at run time. In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
@@ -239,13 +301,15 @@ Memory Management in Java
 
 		(https://www.artima.com/insidejvm/ed2/lifetype.html)
 		The Java virtual machine makes types available to the running program through a process of loading, linking, and initialization. 
-		Loading is the process of bringing a binary form for a type into the Java virtual machine. Linking is the process of incorporating the binary type data into the runtime state of the virtual machine. 
-		Linking is divided into three sub-steps: verification, preparation, and resolution. Verification ensures the type is properly formed and fit for use by the Java virtual machine. 
-		Preparation involves allocating memory needed by the type, such as memory for any class variables. Resolution is the process of transforming symbolic references in the constant pool into direct references. 
-		Implementations may delay the resolution step until each symbolic reference is actually used by the running program. 
-		After verification, preparation, and (optionally) resolution are completed, the type is ready for initialization. During initialization, the class variables are given their proper initial values. 
-		
-	
+		Loading is the process of bringing a binary form for a type into the Java virtual machine. 
+		Linking is the process of incorporating the binary type data into the runtime state of the virtual machine. 
+			Linking is divided into three sub-steps: verification, preparation, and resolution. 
+				Verification ensures the type is properly formed and fit for use by the Java virtual machine. 
+				Preparation involves allocating memory needed by the type, such as memory for any class variables. 
+				Resolution is the process of transforming symbolic references in the constant pool into direct references. 
+			Implementations may delay the resolution step until each symbolic reference is actually used by the running program. 
+			After verification, preparation, and (optionally) resolution are completed, the type is ready for initialization. 
+		During initialization, the class variables are given their proper initial values. 
 
 	VM SWITCH        			VM SWITCH DESCRIPTION
 	-Xms        				For setting the initial heap size when JVM starts
@@ -256,6 +320,13 @@ Memory Management in Java
 	-XX:SurvivorRatio        	For providing ratio of Eden space and Survivor Space, for example if Young Generation size is 10m and VM switch is -XX:SurvivorRatio=2 then 5m will be reserved for Eden Space and 2.5m each for both the Survivor spaces. The default value is 8.
 	-XX:NewRatio        		For providing ratio of old/new generation sizes. The default value is 2.
 
+------------------- Memory Leaks (https://stackify.com/memory-leaks-java/)
+		Static Field Holding On to the Object Reference
+		Calling String.intern() on Long String
+		Unclosed Streams
+		Unclosed Connections
+		Adding Objects with no hashCode() and equals() into a HashSet
+	
 -- ------------------------------------------------ 4 типа ссылок на объекты
 В Java существует 4 типа ссылок на объекты:
 strong reference
@@ -345,13 +416,16 @@ Threads
         Extending the java.lang.Thread class.
         Implementing the java.util.concurrent.Callable interface.
 
-		Thread safety(https://www.journaldev.com/1061/thread-safety-in-java) in java is the process to make our program safe to use in multithreaded environment, there are different ways through which we can make our program thread safe.
+		Thread safety(https://www.journaldev.com/1061/thread-safety-in-java) in java is the process to make our program safe to use in multithreaded environment, 
+			there are different ways through which we can make our program thread safe.
 			Synchronization is the easiest and most widely used tool for thread safety in java.
 			Use of Atomic Wrapper classes from java.util.concurrent.atomic package. For example AtomicInteger
 			Use of locks from java.util.concurrent.locks package.
 			Using thread safe collection classes, check this post for usage of ConcurrentHashMap for thread safety.
 			Using volatile keyword with variables to make every thread read the data from memory, not read from thread cache.
 
+		The join() method allows one thread to wait for the completion of the other. (https://www.callicoder.com/java-multithreading-thread-and-runnable-tutorial/)
+			
 ------------------- Understanding Deadlock, Livelock and Starvation with Code Examples in Java(http://www.codejava.net/java-core/concurrency/understanding-deadlock-livelock-and-starvation-with-code-examples-in-java)
 		Understanding Deadlock
 			Deadlock describes a situation where two more threads are blocked because of waiting for each other forever. 
@@ -448,19 +522,124 @@ Iterator In Java (Fail Fast and Fail Safe )
         (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
         Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
 		
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Annotations(http://tutorials.jenkov.com/java/annotations.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		Java annotations are typically used for the following purposes:
+			Compiler instructions
+			Build-time instructions
+			Runtime instructions (These annotations can then be accessed via Java Reflection)
+		You can place Java annotations above classes, interfaces, methods, method parameters, fields and local variables.
+		Java comes with three built-in annotations which are used to give the Java compiler instructions. These annotations are:
+			@Deprecated is used to mark a class, method or field as deprecated, meaning it should no longer be used.
+			@Override is used above methods that override methods in a superclass.
+			@SuppressWarnings if a method calls a deprecated method, or makes an insecure type cast, the compiler may generate a warning. 
+				You can suppress these warnings by annotating the method containing the code with the @SuppressWarnings annotation.
+				
+		Annotations are defined in their own file, just like a Java class or interface. Here is custom Java annotation example:
+			@interface MyAnnotation {
+				String   value();
+			}
+		Own Annotations
+			@Retention
+				A retention policy determines at what point annotation should be discarded. (http://www.java2novice.com/java-annotations/retention-policy/)
+					Java defined 3 types of retention policies through java.lang.annotation.RetentionPolicy enumeration. It has SOURCE, CLASS and RUNTIME.
+					Annotation with retention policy SOURCE will be retained only with source code, and discarded during compile time.
+					Annotation with retention policy CLASS will be retained till compiling the code, and discarded during runtime.
+					Annotation with retention policy RUNTIME will be available to the JVM through runtime.
+					The retention policy will be specified by using java built-in annotation @Retention, and we have to pass the retention policy type.
+					The default retention policy type is CLASS.
+			@Target
+				You can specify which Java elements your custom annotation can be used to annotate. You do so by annotating your annotation definition with the @Target annotation. 
+					ElementType.ANNOTATION_TYPE
+					ElementType.CONSTRUCTOR
+					ElementType.FIELD
+					ElementType.LOCAL_VARIABLE
+					ElementType.METHOD
+					ElementType.PACKAGE
+					ElementType.PARAMETER
+					ElementType.TYPE
+			@Inherited
+				The @Inherited annotation signals that a custom Java annotation used in a class should be inherited by subclasses inheriting from that class.
+			@Documented
+				The @Documented annotation is used to signal to the JavaDoc tool that your custom annotation should be visible in the JavaDoc for classes using your custom annotation.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrapping.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
--------------------		Multiple Exceptions in Java 7(http://tutorials.jenkov.com/java-exception-handling/catching-multiple-exceptions.html)
+
+Finally
+	You can attach a finally-clause to a try-catch block. The code inside the finally clause will always be executed, even if an exception is thrown from within the try or catch block.
+Propagating Exceptions
+	You don't have to catch exceptions thrown from other methods. If you cannot do anything about the exception where the method throwing it is called, 
+		you can just let the method propagate the exception up the call stack to the method that called this method.
+    public void callDivide() throws BadNumberException{}
+Catching Exceptions
+	If a method calls another method that throws checked exceptions, the calling method is forced to either pass the exception on, or catch it. 
+		Catching the exception is done using a try-catch block.
+Throwing Exceptions
+	If a method needs to be able to throw an exception, it has to declare the exception(s) thrown in the method signature, and then include a throw-statement in the method.
+	public void callDivide() throws BadNumberException{
+		throw new BadNumberException("...");
+	}
+The Call Stack Explained
+	This text refers to the concept the "call stack" in several places. 
+		By the call stack is meant the sequence of method calls from the current method and back to the Main method of the program.
+Using Multiple Resources
+	You can use multiple resources inside a try-with-resources block and have them all automatically closed. 
+		private static void printFileJava7() throws IOException {
+			try(  FileInputStream     input         = new FileInputStream("file.txt");
+				  BufferedInputStream bufferedInput = new BufferedInputStream(input)
+			) {
+
+				int data = bufferedInput.read();
+				while(data != -1){
+					System.out.print((char) data);
+					data = bufferedInput.read();
+				}
+			}
+		}
+	When the try block finishes the FileInputStream will be closed automatically. 
+		This is possible because FileInputStream implements the Java interface java.lang.AutoCloseable. 
+		All classes implementing this interface can be used inside the try-with-resources construct.
+
+Catching Multiple Exceptions in Java 7
+	In Java 7 it was made possible to catch multiple different exceptions in the same catch block. This is also known as multi catch.
 			try {
-				// execute code that may throw 1 of the 3 exceptions below.
+				...
 			} catch(SQLException | IOException e) {
-				logger.log(e);
 			} catch(Exception e) {
-				logger.severe(e);
+			} finally {
+				...
 			}
 			
-			
+Explain Java Exception Hierarchy?
+	Java Exceptions are hierarchical and inheritance is used to categorize different types of exceptions. 
+		Throwable is the parent class of Java Exceptions Hierarchy and it has two child objects – Error and Exception. 
+		Exceptions are further divided into checked exceptions and runtime exception.
+	Errors are exceptional scenarios that are out of scope of application and it’s not possible to anticipate and recover from them, for example hardware failure, JVM crash or out of memory error.
+
+Checked or Unchecked Exceptions
+	In Java there are basically two types of exceptions: Checked exceptions and unchecked exceptions:
+		Checked exceptions must be explicitly caught or propagated as described in Basic try-catch-finally Exception Handling. 
+		Unchecked exceptions do not have this requirement. They don't have to be caught or declared thrown.
+		Checked exceptions in Java extend the java.lang.Exception class. 
+		Unchecked exceptions extend the java.lang.RuntimeException.		
+
+		Checked and unchecked exceptions are functionally equivalent. 
+		There is nothing you can do with checked exceptions that cannot also be done with unchecked exceptions, and vice versa.		
+What is Exception Wrapping?
+	Exception wrapping is a standard feature in Java since JDK 1.4. 
+	Most (if not all) of Java's built-in exceptions has constructors that can take a "cause" parameter. 
+	They also have a getCause() method that will return the wrapped exception.
+		    try{
+				...
+			} catch (SQLException sqlException) {
+				throw new MyException("error text", sqlException);
+			}
+Fail Safe Exception Handling
+	The last exception thrown in a try-catch-finally block is the exception that will be propagated up the call stack.
+	All earlier exceptions will disappear.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Difference between URL and URI(http://www.baeldung.com/java-url-vs-uri)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -492,148 +671,3 @@ JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
 	The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides naming and directory functionality to applications written using the Java™ programming language.
 		It is defined to be independent of any specific directory service implementation. Thus a variety of directories -new, emerging, and already deployed can be accessed in a common way.
 	
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	JMS API Architecture
-		A JMS provider is a messaging system that implements the JMS interfaces and provides administrative and control features. An implementation of the Java EE platform includes a JMS provider.
-		JMS clients are the programs or components, written in the Java programming language, that produce and consume messages. Any Java EE application component can act as a JMS client.
-		Messages are the objects that communicate information between JMS clients.
-		Administered objects are preconfigured JMS objects created by an administrator for the use of clients. 
-			The two kinds of JMS administered objects are destinations and connection factories, described in JMS Administered Objects.
-			
-	Point-to-Point Messaging Domain
-		Each message has only one consumer.
-		A sender and a receiver of a message have no timing dependencies. The receiver can fetch the message whether or not it was running when the client sent the message.
-		The receiver acknowledges the successful processing of a message.
-		
-	Publish/Subscribe Messaging Domain
-		In a publish/subscribe (pub/sub) product or application, clients address messages to a topic, which functions somewhat like a bulletin board. 
-			Publishers and subscribers are generally anonymous and can dynamically publish or subscribe to the content hierarchy. 
-			The system takes care of distributing the messages arriving from a topic’s multiple publishers to its multiple subscribers. 
-			Topics retain messages only as long as it takes to distribute them to current subscribers.
-		Pub/sub messaging has the following characteristics.
-			Each message can have multiple consumers.
-			Publishers and subscribers have a timing dependency. A client that subscribes to a topic can consume only messages published after the client has created a subscription, 
-				and the subscriber must continue to be active in order for it to consume messages.
-	Message Consumption
-		Messaging products are inherently asynchronous: There is no fundamental timing dependency between the production and the consumption of a message. 
-			However, the JMS specification uses this term in a more precise sense. Messages can be consumed in either of two ways:
-			Synchronously: A subscriber or a receiver explicitly fetches the message from the destination by calling the receive method. 
-				The receive method can block until a message arrives or can time out if a message does not arrive within a specified time limit.
-			Asynchronously: A client can register a message listener with a consumer. 
-				A message listener is similar to an event listener. Whenever a message arrives at the destination, the JMS provider delivers the message by calling the listener’s onMessage method,
-					which acts on the contents of the message.
-					
-	Message-Oriented Middleware (MOM) – это, грубо говоря, тот продукт, на основе которого и строится Messaging System.(http://www.javable.com/columns/serv_side/workshop/14/)
-	Существует две "основных" модели обмена сообщениями:
-		point-to-point
-		publish-subscribe (pub-sub)
-	Point-to-point модель применяется, когда одному или нескольким компонентам (так называемые senders) необходимо посать сообщение одному компоненту-адресату (receiver).
-	Publish-subscribe модель применима, когда одному или нескольким компонентам (publishers) необходимо послать сообщение одному или нескольким компонентам-адресатам (subscribers). Данная модель основана на понятии message topic.
-
-	Java Message Service (JMS) – это Java API (то есть набор интерфейсов и классов) для работы с Message-Oriented Middleware. Данный набор определен в пакете javax.jms в дереве пакетов J2EE.
-		ConnectionFactory – это, как нетрудно догадаться из названия, обьект, ответственный за создание JMS Connection. 
-			Администратор МОМ создает данный обьект и связывает его с деревом JNDI, так что клиент JMS может получить доступ к ConnectionFactory используя стандартный JNDI lookup-механизм. 
-			В случае point-to-point модели используется javax.jms.QueueConnectionFactory, в случае pub-sub модели – javax.jms.TopicConnectionFactory.
-		Connection – абстрактное представление реального соединения между клиентом JMS и MOM. В случае point-to-point модели используется javax.jms.QueueConnection, в случае pub-sub модели – javax.jms.TopicConnection.
-		Session – обьект, создаваемый JMS Connection и используемый клиентами для посылки и принятия сообщений. В случае point-to-point используется javax.jms.QueueSession, в случае pub-sub – javax.jms.TopicSession. 
-			Фактически, это главная "рабочая лошадка" JMS.
-		Destination – это либо queue, либо topic – в зависимости от используемой модели: javax.jms.Queue или javax.jms.Topic. Как и ConnectionFactory, destination связывается с деревом JNDI.
-		MessageProducer – обьект, который, собственно, и посылает сообщения. В случае point-to-point модели это javax.jms.QueueSender, в случае pub-sub – javax.jms.TopicPublisher.
-		MessageConsumer – обьект, принимающий сообщения. В случае point-to-point модели это javax.jms.QueueReceiver, в случае pub-sub – javax.jms.TopicSubscriber.
-		Message– сообщение. О типах сообщений будет сказано ниже.
-		
-	Существует два пути получения сообщений. 
-		Первый – синхронное затребование сообщений из queue, используя метод receive() интерфейса javax.jms.QueueReceiver. 
-		Второй – асинхронное получение сообщений как только они становятся доступны – используя интерфейс javax.jms.MessageListener.
-	Pub-sub модель кажется более элегантной, и у разработчика может возникнуть желание строить все Messaging Systems на основе этой модели. 
-		Но следует знать, что многие pub-subсистемы не гарантируют доставку сообщений в том порядке, в каком они были посланы (в отличие от point-to-point, где queueреализует принцип first-in/first-out).  
-		Задача сохранения порядка следования сообщений не тривиальна даже в случае одного topic. А уж если необходимо сохранение порядка доставки сообщений в случае множественных topics – то сложность возрастает экспоненциально. 
-		Поэтому в случае pub-sub модели следует по возможности избегать ситуаций, когда порядок следования сообщений важен (либо используя заголовки и раздел свойств сообщений для синхронизации – об этом будет сказано ниже).
-	
-	Типы сообщений
-		В JMX определены следующие стандартные типы сообщений:
-		StreamMessage – сообщение, содержащее сериализованный поток обьектов
-		MapMessage – сообщение, содержащее пары "ключ-значение"
-		TextMessage – сообщение, содержащее строку
-		ObjectMessage– сообщение, содержащее сериализованный обьект
-		ByteMessage – сообщение, содержащее поток байтов
-		XMLMessage – расширение TextMessage, используется для доставки XMLсообщений
-		Все типы сообщений являются подклассами javax.jms.Message.
-	Заголовки и разделы свойств сообщений
-		Сообщения соостоят из трех частей: заголовка сообщения, раздела свойств и собственно тела сообщения.
-		JMSDestination – содержит имя destination, в который посылается сообщение.
-		JMSDeliveryMode – определяет, является ли сообщение сохраняемым или нет. Если оно сохраняемо, то будет сохранено MOM в базе данных (или в файле), а потому оно переживет "гибель" системы, в отличие от несохраняемого сообщения.
-		JMSExpiration – определяет, когда сообщение устареет и будет удалено из системы. По умолчанию сообщение не устаревает никогда.
-		JMSPriority – как и следует из названия, определяет приоритет сообщения (от 0 до 9). По умолчанию равно 4.
-		JMSMessageID – уникальный идентификатор сообщения
-		JMSTimestamp – содержит информацию, когда именно MOM приняла сообщение от producer.
-		JMSCorrelationID – может быть использовано разработчиком для согласования сообщений: например, если вы хотите переслать ряд сообщений, обьединенных в одну логическую группу (такую как набор товаров в заказе, при этом в каждое сообщение о товаре вы можете добавить в данное поле заголовка номер заказа).
-		JMSReplyTo – может быть использовано разработчиком для того, чтобы consumer знал, кому (то есть в какой destination) при желании отсылать ответ.
-		JMSType – поле может быть использовано разработчиком для того, чтобы дать приложению информацию, как обращаться с данным сообщением. Тип здесь понимается как application-specific type, а не тот, что использован выше в разделе "типы сообщений".
-		JMSRedelivered – устанавливается, если сообщение не было доставлено с первой попытки – например, в случае, когда consumer не подтвердил получение сообщения (если он должен был подтвердить, конечно)
-		Раздел свойств содержит пары "ключ-значение", которые могут быть использованы для пересылки определенных данных между producer и consumer. 
-			В качестве значений могут быть использованы примитивные типы (boolean, byte, float, double, short, int, long), а так же строки (java.lang.String).
-		Устанавливаются и читаются они с помощью соответствующих set и getметодов. Например, для установки integer-свойства с ключом "MyProperty"  и значением равным 100:
-			textMessage.setIntProperty("MyProperty", 100);
-			Для чтения:
-			int value = textMessage.getIntProperty("MyProperty");
-			
-	Доставка сообщений
-		Сообщение может быть сохраняемым или несохраняемым. Если сообщение сохраняемо, то MOM сохранит его в базе данных или файле. 
-			textMessage.setText("It's my message");
-			sender.send(textMessage, DeliveryMode.NON_PERSISTENT,
-			messagePriority, messageTimeToLive);
-			
-	Подтверждение получения сообщения
-		JMS поддерживает три "основных" модели подтверждения получения сообщения.
-			AUTO_ACKNOWLEDGE – в случае синхронного получения сообщений, подтверждение получения будет произведено автоматически, когда метод receive() возвратит значение не вызвав никакой исключительной ситуации. 
-				В случае асинхронного получения сообщений, подтверждение получения будет произведено, когда метод onMessage() вернет значение.
-			DUPS_OK_ACKNOWLEDGE – работа по подтверждению получения сообщения перекладывается на Session. Сообщения будут вновь доставлены в случае возникновения ошибки или "гибели" системы.
-			CLIENT_ACKNOWLEDGE – клиент должен вызвать метод acknowledge() интерфейса javax.jms.Message для того, чтобы явно подтвердить получение сообщения. 
-				При вызове данного метода будет подтверждено получение текущего и всех предидущих полученных сообщений.
-				
-	Посылка сообщений как часть транзакции
-		Существует два подхода в использовании транзакций совместно с JMS. 
-		Первый подход заключается в использовании transacted sessions.
-			Session session = con.createQueueSession(
-				true,Session.AUTO_ACKNOWLEDGE);
-		Второй подход заключается в использовании JTA-транзакций совместно с JMS.  Этот подход позволяет разработчику включать в единую транзакцию как посылку сообщений, так и запрос к базе данных или EJB.
-			UserTransaction myTransaction =
-				(UserTransaction)ctx.lookup("MyUserTransaction");
-				myTransaction.begin();
-				sender.send(textMessage);
-				myStatement.executeUpdate(
-				"INSERT INTO testTable VALUES (100,'BILL')");
-				myTransaction.commit();
-		При этом важно отметить, что JTA не может быть использован совместно с transacted session. Либо пироги, либо пряники. 
-			Если Вы попытаетесь совместить несовместимое, то увидите, что transacted session будет игнорировать вызовы commit() или rollback() интерфейса UserTransaction.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JTA(https://en.wikipedia.org/wiki/Java_Transaction_API)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	The Java Transaction API (JTA), one of the Java Enterprise Edition (Java EE) APIs, enables distributed transactions to be done across multiple X/Open XA resources in a Java environment.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-RMI(https://www.javatpoint.com/RMI)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in java. The RMI allows an object to invoke methods on an object running in another JVM.
-	The RMI provides remote communication between the applications using two objects stub and skeleton.
-	RMI uses stub and skeleton object for communication with the remote object.
-	A remote object is an object whose method can be invoked from another JVM. Let's understand the stub and skeleton objects:
-		The stub is an object, acts as a gateway for the client side. All the outgoing requests are routed through it. It resides at the client side and represents the remote object. 
-			When the caller invokes method on the stub object, it does the following tasks:
-			It initiates a connection with remote Virtual Machine (JVM),
-			It writes and transmits (marshals) the parameters to the remote Virtual Machine (JVM),
-			It waits for the result
-			It reads (unmarshals) the return value or exception, and
-			It finally, returns the value to the caller.
-		The skeleton is an object, acts as a gateway for the server side object. All the incoming requests are routed through it. When the skeleton receives the incoming request, it does the following tasks:
-			It reads the parameter for the remote method
-			It invokes the method on the actual remote object, and
-			It writes and transmits (marshals) the result to the caller.
-	Understanding requirements for the distributed applications
-		If any application performs these tasks, it can be distributed application.
-			The application need to locate the remote method
-			It need to provide the communication with the remote objects, and
-			The application need to load the class definitions for the objects.

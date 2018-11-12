@@ -1,4 +1,13 @@
 ﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Реактивный манифест (https://afedyanin.wordpress.com/2015/12/17/reactive-manifesto/) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Отзывчивыми (Responsive) — система своевременно реагирует на события.
+		Устойчивыми (Resilient) — система остается отзывчивой в условиях сбоя
+		Эластичными (Elastic) — система остается отзывчивой при различной рабочей нагрузке
+		Ориентированными на обмен сообщениями (Message Driven)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Programming paradigms (https://en.wikipedia.org/wiki/Programming_paradigm)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
@@ -53,19 +62,6 @@ Programming paradigms (https://en.wikipedia.org/wiki/Programming_paradigm)
                 An expression is said to be referentially transparent if it can be replaced with its corresponding value without changing the program's behavior.
                 As a result, evaluating a referentially transparent function gives the same value for same arguments. 
                 Such functions are called pure functions. An expression that is not referentially transparent is called referentially opaque.
-        
-		
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SOLID (об'єктно-орієнтоване програмування) https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        S        SRP         Принцип єдиного обов'язку (Single responsibility principle) Кожен об'єкт має виконувати лише один обов'язок.
-        O        OCP         Принцип відкритості/закритості (Open/closed principle) Програмні сутності повинні бути відкритими для розширення, але закритими для змін. 
-                Розширення певного класу/інтерфейсу може здійснюватись через його успадкування.
-        L        LSP         Принцип підстановки Лісков (Liskov substitution principle) Об'єкти в програмі можуть бути заміненими їх нащадками без зміни коду програми.
-        I        ISP         Принцип розділення інтерфейсу (Interface segregation principle) Багато спеціалізованих інтерфейсів краще за один універсальний. 
-                Інтерфейс може бути поділений на спеціалізовані ще на стадії проектування, заради майбутньої гнучкості програмних компонентів.
-        D        DIP         Принцип інверсії залежностей (Dependency inversion principle) Залежності всередині системи будуються на основі абстракцій, що не повинні залежати від деталей; 
-                навпаки, деталі мають залежати від абстракцій. Модулі вищих рівнів не мають залежати від модулів нижчих рівнів.
         
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 Взаимосвязи объектов классов
@@ -170,38 +166,147 @@ https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html)
 				Its main element is the hypermedia representation, allowing a document to describe its current state, and its relationship with other elements or future states. 
 				Please, understand HATEOAS as the ability of a document to be relate with others.
 
+		The Richardson maturity model(https://restfulapi.net/richardson-maturity-model/)
+			Level Zero
+				Level zero of maturity does not make use of any of URI, HTTP Methods, and HATEOAS capabilities.
+				These services have a single URI and use a single HTTP method (typically POST). 
+				For example, most Web Services (WS-*)-based services use a single URI to identify an endpoint, and HTTP POST to transfer SOAP-based payloads, effectively ignoring the rest of the HTTP verbs.
+			Level One
+				Level one of maturity makes use of URIs out of URI, HTTP Methods, and HATEOAS.
+				These services employ many URIs but only a single HTTP verb – generally HTTP POST. 
+				They give each individual resource in their universe a URI. Every resource is separately identified by a unique URI – and that makes them better than level zero.
+			Level Two
+				Level two of maturity makes use of URIs and HTTP out of URI, HTTP Methods, and HATEOAS.
+				Level two services host numerous URI-addressable resources. Such services support several of the HTTP verbs on each exposed resource – Create, Read, Update and Delete (CRUD) services. 
+				Here the state of resources, typically representing business entities, can be manipulated over the network.
+			Level Three
+				Level three of maturity makes use of all three i.e. URIs and HTTP and HATEOAS.
+				This is the most mature level of Richardson’s model which encourages easy discoverability and makes it easy for the responses to be self-explanatory by using HATEOAS.
+		
+		Hypermedia, an extension of the term hypertext, is a nonlinear medium of information that includes graphics, audio, video, plain text and hyperlinks. (https://en.wikipedia.org/wiki/Hypermedia)
 		Виклик віддалених процедур (англ. Remote procedure call, RPC) — протокол, що дозволяє програмі, запущеній на одному комп'ютері, звертатись до функцій (процедур) програми, що виконується на іншому комп'ютері,
 			подібно до того, як програма звертається до власних локальних функцій.
-				
+		Remote Procedure Invocation(https://www.enterpriseintegrationpatterns.com/patterns/messaging/EncapsulatedSynchronousIntegration.html) applies the principle of encapsulation to integrating applications.
+			If an application needs some information that is owned by another application, it asks that application directly. 
+			If one application needs to modify the data of another, then it does so by making a call to the other application. Each application can maintain the integrity of the data it owns. 
+			Furthermore, each application can alter its internal data without having every other application be affected.
+		POX Plain Old XML(https://stackoverflow.com/questions/21554111/difference-between-rest-and-pox?answertab=active#tab-top)
+		
 		Do not confuse REST with RESTful
 			There is a slightly difference between both REST and RESTful. The first one means about a set of best practices (Roy’s constraint), while RESTful is the implementation of those constraints in an API. 
 			It means, when an API is constructed based on those constraints, it automatically becomes RESTful.
-				
-		POX Plain Old XML(https://stackoverflow.com/questions/21554111/difference-between-rest-and-pox?answertab=active#tab-top)
+		
+		Cons
+			great flexibility
+			lower maintenance costs
+			high scalability
+			simplicity
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SOAP https://ru.wikipedia.org/wiki/SOAP
+SOAP https://ru.wikipedia.org/wiki/SOAP (от англ. Simple Object Access Protocol — простой протокол доступа к объектам) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Реактивный манифест (https://afedyanin.wordpress.com/2015/12/17/reactive-manifesto/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		SOAP и веб-службы REST
+		Существует много различий между веб-службами SOAP и REST. Ниже приведены важные 10 различий между SOAP и REST:
+		SOAP - это протокол . REST - это архитектурный стиль.
+		SOAP означает Простой протокол доступа к объектам. REST означает REpresentational State Transfer.
+		SOAP не может использовать REST, потому что это протокол. REST может использовать веб-службы SOAP, потому что это концепция и может использовать любой протокол, такой как HTTP, SOAP.
+		SOAP использует интерфейсы служб для раскрытия бизнес-логики. REST использует URI для раскрытия бизнес-логики.
+		В Java JAX-WS используется Java-API для веб-сервисов SOAP. В Java JAX-RS - это API-интерфейс java для веб-служб RESTful.
+		SOAP определяет стандарты, строго соблюдаемые. REST не определяет слишком много стандартов, таких как SOAP.
+		SOAP требует больше полосы пропускания и ресурса, чем REST. REST требует меньше полосы пропускания и ресурса, чем SOAP.
+		SOAP определяет собственную безопасность. Веб-службы RESTful наследуют меры безопасности от основного транспорта.
+		SOAP разрешает только формат данных XML. REST позволяет использовать другой формат данных, например, обычный текст, HTML, XML, JSON и т.д.
+		SOAP менее предпочтительный, чем REST. REST более предпочтительный, чем SOAP.
 
-		Отзывчивыми (Responsive) — система своевременно реагирует на события.
-		Устойчивыми (Resilient) — система остается отзывчивой в условиях сбоя
-		Эластичными (Elastic) — система остается отзывчивой при различной рабочей нагрузке
-		Ориентированными на обмен сообщениями (Message Driven)
-
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_language)
+web service (https://en.wikipedia.org/wiki/Web_service)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
+		In a web service, the Web technology such as HTTP—originally designed for human-to-machine communication—is utilized for machine-to-machine communication, 
+			more specifically for transferring machine-readable file formats such as XML and JSON.	
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Greenfield/Brownfield (https://techterms.com/definition/greenfield, https://techterms.com/definition/brownfield)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		A domain-specific language (DSL) is a computer language specialized to a particular application domain.
-			A domain is a field of study that defines a set of common requirements, terminology, and functionality for any software program constructed to solve a problem in the area of computer programming,
-				known as domain engineering. The word domain is also taken as a synonym of application domain.[1] It is also seen as a sphere of knowledge.
+		In the IT world, greenfield describes a software project that is developed from scratch rather than built from an existing program.
+		Brownfield is a construction term that describes previously developed land. In the IT industry, it refers to previously developed software. 
+		Brownfield software development is software that is built from an existing program. It may be contrasted with "greenfield" development, which involves creating a software program from scratch.
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Patterns
+Functional vs Non Functional Requirements (https://reqtest.com/requirements-blog/functional-vs-non-functional-requirements/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		The official definition of ‘a functional requirement’ is that it essentially specifies something the system should do.
+		Some of the more typical functional requirements include:
+			Business Rules
+			Transaction corrections, adjustments and cancellations
+			Administrative functions
+			Authentication
+			Authorization levels
+			Audit Tracking
+			External Interfaces
+			Certification Requirements
+			Reporting Requirements
+			Historical Data
+			Legal or Regulatory Requirements
+		
+		Simply put, the difference is that non-functional requirements describe how the system works, while functional requirements describe what the system should do.
+		Some typical non-functional requirements are:
+			Performance – for example Response Time, Throughput, Utilization, Static Volumetric
+			Scalability
+			Capacity
+			Availability
+			Reliability
+			Recoverability
+			Maintainability
+			Serviceability
+			Security
+			Regulatory
+			Manageability
+			Environmental
+			Data Integrity
+			Usability
+			Interoperability
+
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+KISS principle(https://en.wikipedia.org/wiki/KISS_principle) (keep it small and simple) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		The KISS principle states that most systems work best if they are kept simple rather than made complicated; 
+			therefore simplicity should be a key goal in design, and that unnecessary complexity should be avoided.
+
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+YAGNI principle(https://en.wikipedia.org/wiki/KISS_principle) (You aren't gonna need it) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		"You aren't gonna need it"[1][2] (YAGNI)[3] is a principle of extreme programming (XP) that states a programmer should not add functionality until deemed necessary.[4] 
+			XP co-founder Ron Jeffries has written: "Always implement things when you actually need them, never when you just foresee that you need them."[5] 
+			Other forms of the phrase include "You aren't going to need it"[6][7] and "You ain't gonna need it"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DRY principle(https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't repeat yourself) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		In software engineering, don't repeat yourself (DRY) is a principle of software development aimed at reducing repetition of software patterns[1], 
+			replacing it with abstractions or using data normalization to avoid redundancy.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SOLID (об'єктно-орієнтоване програмування) https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        S        SRP         Принцип єдиного обов'язку (Single responsibility principle) Кожен об'єкт має виконувати лише один обов'язок.
+				a class should have only a single responsibility (i.e. changes to only one part of the software's specification should be able to affect the specification of the class).
+        O        OCP         Принцип відкритості/закритості (Open/closed principle) Програмні сутності повинні бути відкритими для розширення, але закритими для змін. 
+                Розширення певного класу/інтерфейсу може здійснюватись через його успадкування.
+				"software entities … should be open for extension, but closed for modification."
+        L        LSP         Принцип підстановки Лісков (Liskov substitution principle) Об'єкти в програмі можуть бути заміненими їх нащадками без зміни коду програми.
+				"objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program." See also design by contract.
+        I        ISP         Принцип розділення інтерфейсу (Interface segregation principle) Багато спеціалізованих інтерфейсів краще за один універсальний. 
+                Інтерфейс може бути поділений на спеціалізовані ще на стадії проектування, заради майбутньої гнучкості програмних компонентів.
+				"many client-specific interfaces are better than one general-purpose interface."[4]
+        D        DIP         Принцип інверсії залежностей (Dependency inversion principle) Залежності всередині системи будуються на основі абстракцій, що не повинні залежати від деталей; 
+                навпаки, деталі мають залежати від абстракцій. Модулі вищих рівнів не мають залежати від модулів нижчих рівнів.
+				one should "depend upon abstractions, [not] concretions."[4]
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patterns GOF(Design Patterns: Elements of Reusable Object-Oriented Software)(Gang of Four)(http://www.javenue.info/post/design-patterns-java)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Creational Design Patterns
         Singleton Pattern
@@ -231,6 +336,27 @@ Patterns
         Iterator Pattern
         Memento Pattern
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patterns GRASP(General Responsibility Assignment Software Patterns)(http://blogerator.org/page/oop-patterny-i-principy-grasp)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Information Expert (Информационные эксперт) ;
+		Creator (Создатель) ;
+		Controller (Контроллер) ;
+		Low Coupling (Слабая связанность) ;
+		High Cohesion (Высокая сцепленность) ;
+		Pure Fabrication (Чистая выдумка или чистое синтезирование) ;
+		Indirection (Посредник) ;
+		Protected Variations (Сокрытие реализации или защищенные изменения) ;
+		Polymorphism (Полиморфизм).
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_language)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		A domain-specific language (DSL) is a computer language specialized to a particular application domain.
+			A domain is a field of study that defines a set of common requirements, terminology, and functionality for any software program constructed to solve a problem in the area of computer programming,
+				known as domain engineering. The word domain is also taken as a synonym of application domain.[1] It is also seen as a sphere of knowledge.
+		
 -- ------------------------------------------------ Виды тестирования и подходы к их применению
 Блочное (Unit testing) — тестирование одного модуля в изоляции.
 Интеграционное (Integration Testing) — тестирование группы взаимодействующих модулей.

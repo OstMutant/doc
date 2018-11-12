@@ -1,0 +1,104 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Guice(https://www.baeldung.com/guice)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		The Module is the basic unit of definition of bindings
+		Guice has adopted a code-first approach for dependency injection and management so you won’t be dealing with a lot of XML out-of-the-box.
+		you define how Guice is going to inject dependencies into a class.
+		A binding is defined in an implementation of com.google.inject.AbstractModule
+		Another incarnation of this mechanism is the named binding. 
+		You can also inject a dependency that doesn’t have a default no-arg constructor using constructor binding:
+		Another approach to constructor-specific binding is the instance binding
+		Types of Dependency Injection
+			Field Injection
+			Method Injection
+			Constructor Injection
+			Implicit Injections
+		 Scoping in Guice
+			Singleton.  This singleton is lazily initiated by default.
+			Eager Singleton
+		
+---------- Dependency Injection Benefits(http://tutorials.jenkov.com/dependency-injection/dependency-injection-benefits.html)
+		These benefits are explained in
+			Reduced Dependencies
+			Reduced Dependency Carrying
+			More Reusable Code
+			More Testable Code
+			More Readable Code
+		Cons(https://gist.github.com/r00k/3105024)
+			It's harder to understand how a class works when reading just that class. You may have to track down its invocation to see what kind of components are passed in.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GraphQL(https://www.baeldung.com/guice)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. 
+			GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, 
+			makes it easier to evolve APIs over time, and enables powerful developer tools.
+		
+		What is GraphQL?
+			GraphQL is a query language created by Facebook in 2012 which provides a common interface between the client and the server for data fetching and manipulations.
+			The client asks for various data from the GraphQL server via queries. The response format is described in the query and defined by the client instead of the server: they are called client‐specified queries.
+			The structure of the data is not hardcoded as in traditional REST APIs - this makes retrieving data from the server more efficient for the client.
+		
+		Key concepts of the GraphQL query language are:
+			Hierarchical
+			Product‐centric
+			Strong‐typing
+			Client‐specified queries
+			Introspective
+			
+		Explain the main difference between REST and GraphQL
+			The main and most important difference between REST and GraphQL is that GraphQL is not dealing with dedicated resources, 
+				instead everything is regarded as a graph and therefore is connected and can be queried to app exact needs.
+				
+		How to do Server-side Caching?
+			One common concern with GraphQL, especially when comparing it to REST, are the difficulties to maintain server-side cache. 
+				With REST, it’s easy to cache the data for each endpoint, since it’s sure that the structure of the data will not change.
+			With GraphQL on the other hand, it’s not clear what a client will request next, so putting a caching layer right behind the API doesn’t make a lot of sense.
+			Server-side caching still is a challenge with GraphQL.
+		Disadvantages:
+			You need to learn how to set up GraphQL. The ecosystem is still rapidly evolving so you have to keep up.
+			You need to send the queries from the client, you can just send strings but if you want more comfort and caching you'll use a client library -> extra code in your client
+			You need to define the schema beforehand => extra work before you get results
+			You need to have a graphql endpoint on your server => new libraries that you don't know yet
+			Graphql queries are more bytes than simply going to a REST endpoint
+			The server needs to do more processing to parse the query and verify the parameters
+		
+		Common Questions (https://www.howtographql.com/advanced/5-common-questions/)
+			How to do Error Handling?
+			A successful GraphQL query is supposed to return a JSON object with a root field called "data". 
+			If the request fails or partially fails (e.g. because the user requesting the data doesn’t have the right access permissions), a second root field called "errors" is added to the response:
+			 {
+			  "data": { ... },
+			  "errors": [ ... ]
+			}
+			
+		GraphQL(https://medium.freecodecamp.org/so-whats-this-graphql-thing-i-keep-hearing-about-baf4d36c20cf)
+			GraphQL is a syntax that describes how to ask for data, and is generally used to load data from a server to a client. GraphQL has three main characteristics:
+				It lets the client specify exactly what data it needs.
+				It makes it easier to aggregate data from multiple sources.
+				It uses a type system to describe data.
+				
+			In practice, a GraphQL API is organized around three main building blocks: the schema, queries, and resolvers.
+			
+			The request you make to your GraphQL personal assistant is the query, and it looks something like this:
+				query getMyPost($id: String) {
+				  post(id: $id){
+					title
+					body
+					author{
+					  name
+					  avatarUrl
+					  profileUrl
+					}
+				  }
+				}
+			We’re declaring a new query using the query keyword, then asking for a field named stuff. The great thing about GraphQL queries is that they support nested fields, so we can go one level deeper:
+			
+			A resolver tells GraphQL how and where to fetch the data corresponding to a given field. For example, here’s what a resolver for the post field above could look like (using Apollo’s GraphQL-Tools schema generator):
+			Query: {
+			  post(root, args) {
+				return Posts.find({ id: args.id });
+			  }
+			}
+			

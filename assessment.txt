@@ -1,0 +1,385 @@
+Main
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Continuous Integration is a development practice that allows developers to integrate the new pieces of code several times per day and every check-in is automatically verified
+		and this allows you to detect the issues earlier.
+	Continuous Delivery is Continuous Integration plus automated testing and automated deployment. 
+	Unit Test - It's a code that can check that another code works as expected.
+	Code Quality 
+		1. Functional code quality (is about “the way the code is working”)
+		2. Structural code quality (is about “the way it was written”)
+	Code Review is the systematic examination of source code.
+	Code refactoring It is the process of changing source code without modifying its external behavior.
+	Coding standards
+		1. Code Style means having a set of rules or guidelines that are used when writing code.
+		2. Code Conventions are a set of guidelines for a specific programming language that recommend practices and methods for each aspect of program written in that language.
+	Automated Code Analysis is analyzing the program code against a predefined set of rules and best practices in a fully automated way.(Structural code quality)
+	A Code quality gate is a set of conditions - based on measure thresholds - against which projects are measured.
+		Unit test
+		Automated code analysis
+		Manual code review
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CI/CD (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/511a9b124cae487abf97c114e895af01/964c4c3d4c48493598ff9c6d109bb658/1, 
+https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/511a9b124cae487abf97c114e895af01/cd5c27dd95e4406bac466d74ce61827b/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		So what is Continuous Integration? Let us imagine that your work as developer on some project. 
+			You write some new piece of code that need to be integrated into the main line. 
+			We need to make sure that this piece of code is good and it does not affect any other work. 
+			So, for this purpose we build special process that automatically builds, tests your code and notifies if something is wrong. 
+			So, Continuous Integration is a development practice that requires developers to integrate code into a shared repository several times per day. 
+			And each code check-in is automatically verified, build, allowing teams to detect issues early. 
+			And the main CI principles are: - to create process this way so the code is verified as often as it can be, and - every change must be integrated, 
+				and - the automatic, static and integration testing must be included. So, this allows us to catch defects as early as possible.
+
+				
+		So what is Continuous Delivery itself? As we have already discussed, the Continuous Integration is a development practice that allows developers 
+			to integrate the new pieces of code several times per day and every check-in is automatically verified and this allows you to detect the issues earlier. 
+			And Continuous Delivery itself is a software engineering approach in which teams keep producing valuable software in short cycles and ensure 
+			that this software can be reliably released at any time. So, basically the Continuous Delivery is Continuous Integration plus automated testing and automated deployment. 
+			And Continuous Delivery usually follows the same principles as Continuous Integration. You create the development process, 
+			every change must be integrated and you need to be ready for release in anytime; 
+			the automatic, static and integration tests must be included and you need to catch defects as early as possible.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Unit Testing Best Practices (https://kb.epam.com/display/EJAVACC/Unit+Testing+Best+Practices)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		So, what is a Unit Test? It's a code that can check that another code works as expected. Among the important qualities of a Unit Test, we can mention the following:
+			* It tests the functionality of the elements of the smallest application – classes and functions.
+			* It's written by developers while working on production code. 
+			* It's easy to run right in IDE without having to set up an additional environment.
+			* It requires only a few minutes or even seconds to run.
+			* It can be easily integrated with CI because it does not require a full-scale environment.
+
+		Good Unit Tests follow five rules, which form the acronym F.I.R.S.T..
+			Fast – tests should be quick. They should run promptly. When tests run slowly, you don`t want to run them frequently. And if you don’t run them frequently, you won’t find problems early enough to fix them easily. You won’t feel as free to clean up the code. 
+			Independent (or Isolated) – tests should not depend on each other. One test should not set the conditions for the next test. You should be able to run tests in any order you like. When tests depend on each other, the first one to fail causes a cascade of downstream failures, making diagnosis difficult and hiding downstream defects.
+			Repeatable – tests should be repeatable in any environment: in the production environment, in the QA environment, and even on your laptop while heading home by subway without a network connection. Test results must be the same every time and at every location. 
+			Self-validating – tests should have a Boolean output. They either pass or fail. You should not have to read through a log file or compare different files to see whether the tests pass. If the tests aren’t self-validating, then failure can become subjective and running the tests can require a long manual evaluation. 
+			Timely - tests should be written at the proper time, immediately before production code. Testing post-facto requires developers to refactor working code and make additional effort to have tests fulfilling these FIRST principles. 
+		
+		Test piramid
+		vertical: cost, time, scope
+		horizontal: number of tests
+			UI tests
+			API tests
+			Integrational tests
+			Unit tests
+
+		TDD (https://en.wikipedia.org/wiki/Test-driven_development#TDD_and_ATDD, https://www.testingexcellence.com/pros-cons-test-driven-development/)
+		-!-TDD and ATDD
+			Test-driven development is related to, but different from acceptance test–driven development (ATDD).[26] 
+				TDD is primarily a developer's tool to help create well-written unit of code (function, class, or module) that correctly performs a set of operations. 
+				ATDD is a communication tool between the customer, developer, and tester to ensure that the requirements are well-defined. TDD requires test automation. 
+				ATDD does not, although automation helps with regression testing. Tests used in TDD can often be derived from ATDD tests, since the code units implement some portion of a requirement. 
+				ATDD tests should be readable by the customer. TDD tests do not need to be.
+
+		-!-TDD and BDD
+			BDD (behavior-driven development) combines practices from TDD and from ATDD.[27] 
+			It includes the practice of writing tests first, but focuses on tests which describe behavior, rather than tests which test a unit of implementation. 
+			Tools such as Mspec and Specflow provide a syntax which allow non-programmers to define the behaviors which developers can then translate into automated tests.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Naming standards for unit tests (http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html, https://dzone.com/articles/7-popular-unit-test-naming)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		The basic naming of a test comprises of three main parts: [UnitOfWork_StateUnderTest_ExpectedBehavior]
+			A unit of work is a use case in the system that startes with a public method and ends up with one of three types of results: a return value/exception, a state change to the system which changes its behavior, or a call to a third party (when we use mocks). so a unit of work can be a small as a method, or as large as a class, or even multiple classes. as long is it all runs in memory, and is fully under our control.
+
+		Examples: Public void Sum_NegativeNumberAs1stParam_ExceptionThrown()
+			Public void Sum_NegativeNumberAs2ndParam_ExceptionThrown ()
+			Public void Sum_simpleValues_Calculated ()
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Manual Code Review (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/2ea2669ef53d4a1fa94d1e17c1b55bd5/e2436017549a43abbc9fe3d8c5d19a3e/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------- Code Review is the systematic examination of source code.
+		So, what is Code Review? Code Review is the systematic examination of source code.
+			Its purpose is to find and fix overlooked mistakes, and to improve the overall quality and security of software.
+			Today we will learn about different aspects of Code Review:
+				The process
+				Roles
+				Review types
+				Best practices
+				Tools
+		-!- Fewer bugs, Knowledge-sharing
+		It’s cost-effective. A general analysis report says that if we do review at an earlier stage, the cost to fix this will be lower and thus it will reduce the overall cost of the application. 
+			Fewer bugs. Developers can continue making errors as usual, but code reviews will decrease the number of those bugs that make it to production.
+			Knowledge-sharing. Members of your team can learn from each other by reviewing each other’s Code Quality. 
+				Things like readability, efficiency, and maintainability of your code may not always directly affect your users but they are tremendously important for your project in the long run.
+		-!- Author, Reviewer, Moderator
+		In order to organize your Code Review process properly, you should have the following roles assigned in your project. 
+			The Author role and the Reviewer role are the roles which will be going into play during the peer reviews. 
+			When you submit your piece of code you’re playing the Author’s role; if you are reviewing someone’s code you’re playing the Reviewer’s role, and you review the code and make comments on it. 
+			And it’s your decision to accept or decline changes to the code base. An optional role is that of Moderator. 
+			This is the person who actually resolves any disputes and helps in those cases when you and your Reviewer might disagree on some points of your code.
+			The Author is responsible for bug fixing, in the event some bugs have been found.
+			The Reviewer makes the decision whether to accept or reject changes in the source code that have been made by the Author.
+			The Moderator is also responsible for closing the review.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Code Quality (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/6fa0bb6302cf4fcbbf444314155eb838/383728dc1822486ea2f40f5720b3be2e/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		We can divide code quality into two categories: -!-Functional code quality and -!-structural code quality.
+		Functional code quality is adhering to or meeting the functional requirements. So functional code quality is about “the way the code is working”. 
+		Activities like unit testing, functional testing will ensure functional code quality of the project.
+
+		Now, Structural code quality. This is the quality of the code that you have written. So structural code quality is about “the way it was written”. 
+		I am going to talk more about structural code quality during this session.
+
+		Here we have to understand the difference between written code and working code. We write code to serve a specific functionality or purpose. 
+		If it fulfils its purpose then it is “working code”. The code developed is “written code”.
+		Therefore, how can we say that code is of good quality? Well, if the code satisfies certain characteristics then we can say that the code is good quality code.
+		
+		Poor code quality leads to many issues in the project/product. Potentially these issues can become major risks for the project. The issues can include:
+			Understanding code takes more time and effort.
+			Modifying such code may lead to several new bugs or errors.
+			The code may perform very badly.
+			In addition, if you continue to write poor quality code it will result in more -!- “technical debt”.
+		Now, let us make a few general recommendations regarding code quality.
+
+		Following coding standards in the project will solve most issues and ensure code uniformity. Some examples for coding standards are:
+			Follow a naming convention
+			Use a descriptive name instead of an abbreviated name.
+			The next recommendation is to follow design principles such as KISS, SOLID etc. Code should be clear in logic and it should perform a single task. 
+			Break the code into different functions and components. Then it will be easy to read, understand and unit test.
+			The next thing is: Avoid redundancy. Do not repeat the same logic in different parts of your application. Instead, you can abstract them as functions/classes. 
+			These functions can be reused in the applications wherever you need.
+			Next: Code Reviews. As discussed previously, Code Review should ensure that you are following rules. It also helps to improve code quality by working on feedback.
+			Last is: give more importance to test automation. It makes your code robust and gives some confidence to refactor your code to keep its quality high. 
+			So test automation ensures both structural and functional code quality
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Code refactoring (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/87f4591fb6b14337baf30f7d76e0d623/80807b35b44e4c2b9cb59a3880ca1ab2/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		Code refactoring is an important practice that every developer needs to adopt.
+		It is the process of changing source code without modifying its external behavior. It refers to taking a second look at code and making changes so that it is:
+		•	Concisely implemented
+		•	More readable 
+		•	Extensible and Maintainable
+		It helps implement software with a proper design, which is maintainable, reusable and extensible. 
+		One such example is to replace constructor with builders. In this refactoring a constructor with telescopic parameters can be replaced into a builder design pattern by just a click in an IDE. 
+		Manually making change from a constructor to builder is error prone. This makes a developer immensely productive.
+		Rename refactoring’s allows you to rename symbols with all the references to them in the code corrected automatically.
+		Rename refactoring can also be used to rename classes. Such refactoring will automatically take care of:
+		•	Import statements
+		•	Qualified names of classes
+		•	Variables with the selected class type
+		•	Class inheritors.
+		To summarize:
+		•	Follow Standard Conventions: Start coding when you are clear about coding, architecture and design.
+		•	Boy Scout Rule: Which is "Leave the campground cleaner than you found it". Apply the same to codebase.
+		•	Root Cause Analysis: Always look for the root cause of a problem. Otherwise, it will get you again and again.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Coding Standards & Guidelines (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/87f4591fb6b14337baf30f7d76e0d623/80807b35b44e4c2b9cb59a3880ca1ab2/1,
+https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/87f4591fb6b14337baf30f7d76e0d623/80807b35b44e4c2b9cb59a3880ca1ab2/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------- Coding standards	
+		-!- Integrated Development Environment (IDE)
+		-!- SONAR
+		Various tools exist to enforce coding standards. First, an Integrated Development Environment (IDE) can be configured to enforce coding standards:
+		•	By configuring the IDE code style 
+		•	By integrating third party tools as plugins to IDE to enforce coding standard, for example: the SONAR plugin.
+		IntelliJ, or for that matter any good IDE, can allow one to configure the code style. These configurations can exist at the language level. As you can see in the screenshot multiple languages are supported. 
+		In this example we can see Java has been selected and we are currently configuring Blank lines. The preview section of the IDE immediately shows the result of using a code style.
+		Declarative code style implementations can be done directly in the IDE.
+
+---------- Coding standards		
+		In this slide we will discuss some Goals and Motivation for using Coding Standards. Coding standards are essential for every developer and project. 
+			We write code not simply in order to solve a business problem. The code we write should be readable to our fellow developers and colleagues. 
+			Therefore, everyone on the team should agree upon a standard before they set out to code. 
+		To summarize, the goals are to:
+			* Enhance code clarity
+			* Increase readability.
+		This will result in better support and maintainability.
+		We reduce software development risks and reduce complexity by making use of coding standards .
+		Now that we know why coding standards are important, let’s clarify what coding standards actually are. 
+
+---------- Style Guide
+		After getting a reasonable idea about what exactly coding standards are, we now break down coding standards into two main parts: Style Guide and Code Conventions. 
+			Let’s talk first about Style Guide. Having a project-wide Style Guide means having a set of rules or guidelines that are used when writing code. 
+			It is often stated that following a coding style helps programmers to read and understand code better. Some of the styling considered in a Style Guide are: 
+			1. Layout of source code
+			2. Indentation between code blocks
+			3. Use of white space around operators and keywords
+			4. Capitalization of classes of keywords and variable names
+			5. The style and spelling of user-defined identifiers such as functions, procedure and variable names
+			6. Styling for comments.
+---------- Code Conventions
+		Now, let's look at the second part of coding standards: Code Conventions. 
+			Coding conventions are a set of guidelines for a specific programming language that recommend practices and methods for each aspect of program written in that language. 
+			Conventions may be formalized in a documented set of rules that the entire team or company follows, which typically cover:
+			1. File organization
+			2. Project Layout structure
+			3. Commenting
+			4. Declarations of statements
+			5. Programming practices/principles
+			6. Architectural best practices, etc.
+		Now that we have looked at the coding standard components Style Guide and Code Conventions, let us list the advantages of having them:
+			1. These guidelines will ensure -!- software structural quality
+			2. Maintenance becomes easier
+			3. Code readability improves
+			4. [Right-shared conventions between peers and maintainers of a software project.]
+			Let's dive deeper into Style Guide in these next two sections.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Automated Code Analysis(https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/2ea2669ef53d4a1fa94d1e17c1b55bd5/0acae93f10c14c8bbe1b93f46c35466c/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		-!- Structured Code Quality
+		-!- Automated Code Analysis		
+		Automated Code Analysis is a tool for achieving Structured Code Quality in a row as Coding Standards and manual Code Reviews. 
+			The basic idea of Automated Code Analysis is analyzing the program code against a predefined set of rules and best practices in a fully automated way. 
+			It deals with different matters compared to manual Code Reviews and it can be done faster and more efficiently. Such tools find all violations for which they were configured, 
+			provide impersonal and objective feedback, and are scalable for many projects. We can use them to easily enforce a pre-set coding style, detect security issues, 
+			code duplications and other issues in the code. Automated Code Analyses can be done statically without executing the program, dynamically during runtime or in a combination of both. 
+			Static analysis collects information based on source code or sometimes object code. Dynamic analysis deals with runtime values and may collect more information, 
+			but it’s performed on a limited number of program flows and cannot cover all the paths programmed in the source code. 
+			For example, program profiling is a form of dynamic program analysis that measures the memory or time complexity of a program, the usage of particular instructions, 
+			or the frequency and duration of function calls. Essentially, static and dynamic analysis enhances code quality, which is the key to making the software live longer. 
+			Let’s review one of the tools that is widely used at EPAM.
+			
+		SonarQube (or formerly Sonar) is an open source platform for continuous inspection of code quality that delivers what is probably the best static code analyzer you can find on the market for Java. 
+			In addition, it has great data representation capabilities, such as full-scale historical reports and evolution graphs, and it can be integrated with many IDEs, 
+			Continuous Integration instruments and team collaboration tools such as Jira. What is most important: the SonarQube provides very deep code analyses, allowing it to calculate and manage the value of the Technical Dept. 
+			SonarQube defines three categories of Technical Debt: 
+			-!-	Code Smells;
+			-!-	Bugs; and 
+			-!-	Security Vulnerabilities.
+			We will review all of these in detail.
+			
+		Let us review Code Smells - one of the Technical Debt categories we mentioned with the previous slide.
+			According to Wikipedia and Robert C. Martin: “Code smell, also known as ‘bad smell’, in computer programming code, refers to any symptom in the source code of a program that possibly indicates a deeper problem.
+			” Code smells are usually not bugs — they are not technically incorrect and do not currently prevent the program from functioning. 
+			Instead, they indicate weaknesses in design that may be slowing down development or increasing the risk of bugs or failures in the future. 
+			Code smells can be an indicator of factors that contribute to technical debt.
+		Examples of Code Smells detected by SonarQube:
+			-	The Cognitive Complexity of functions should not be too high;
+			-	“Switch” statements should not be nested and should cover all cases;
+			-	“Goto” statements should not be used;
+			-	Methods should not have identical implementations;
+			-	Sections of code should not be commented out;
+			-	Magic numbers should not be used;
+			-	Exceptions should not be ignored.
+		The next technical debt category is Bugs. The SonarQube static analyzer can detect issues in the source code that can potentially result in bugs during runtime. 
+			Issues raised by SonarQube are on either demonstrably wrong code, or code that is more likely than not giving the intended behavior. 
+			Find the trickiest bugs by navigating easily through the code paths, while pointing out issues found in multiple locations. You can see an example of such navigation on the screenshot.
+			Examples of bugs detected by SonarQube:
+			-	Accessing closed resources;
+			-	Not releasing dynamically allocated objects;
+			-	Type-casting issues;
+			-	Use of non-initialized variables;
+			-	Etc.
+		Another category of Technical Dept that can be detected by the SonarQube static analyzer is Security Vulnerabilities. 
+			Security Vulnerability is a system flaw or weakness in an application that could be exploited to compromise the security of the application. 
+			Once an attacker has found a flaw, or vulnerability, and determined how to access it, the attacker potentially has the ability to exploit the application vulnerability and facilitate a cybercrime.
+			Examples of Security Vulnerabilities:
+			-	Buffer overflow during user input;
+			-	Credentials and IP addresses should not be hardcoded;
+			-	Cookies should be “secure”;
+			-	Badly managed errors.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Common Code Quality Gates (https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/6fa0bb6302cf4fcbbf444314155eb838/fb8212b3a4654cdfbdcf5943c3ef7571/1)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		A quality gate is a set of conditions - based on measure thresholds - against which projects are measured. For example: all unit tests pass and code coverage on new code is greater than 80%.
+		On this figure we can identify three quality gates:
+			-!- Unit test
+			-!- Automated code analysis
+			-!- Manual code review
+		The team might decide to introduce an additional quality gate, because they have strict performance requirements. They define the metrics and the set of conditions which should be fulfilled.
+		There are several special actions in this process:
+			- The first one is the moment when the change is sent to the version control system. This is the first moment when it is possible to execute quality checks on a remote machine.
+			- The other special action is merging the change to the mainline codebase so others will use it as a starting point.
+		Generally we define the location of the gate relative to these special actions. We may have a so-called pre-commit or post-commit manual code review according to this differentiation.
+		Unit testing is a software testing method by which individual units of source code (for example classes) are tested to determine whether they are fit for use. 
+			They test the correctness and the proper functionality of the code. They provide a strict, written contract that the piece of code must satisfy. Ideally, each test case is independent from the others.
+		In the next quality gate, automated code review software checks source code for compliance with a predefined set of rules or best practices. 
+			The review program or tool typically displays a list of warnings, which are violations of the predefined programming standards.
+		Peer reviews or manual code reviews consist of reading the source code line-by-line in an effort to identify potential issues.
+			They are very good for examining those cases which are difficult to test otherwise - for example rarely-traversed code paths.
+			Code reviews do not just improve code quality, they are a good opportunity for learning and knowledge-sharing across the team.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Effort Estimation (http://open-works.org/?e=effort-estimation-for-software-development)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Work Break-Down Structure
+			This seems to be the most common method. Using this method you break down the project to the small parts of works, tasks. Then, you estimate the effort for every task.
+			This is an Expert Judgement method and it comes with two flavours: Three Point System and Delphic Oracle.
+			Using the Three Point method an expert gives 3 estimations for every task. Best Case, Most Probable, Worst Case. 
+			The effort for every task is the outcome of a weighted average of the three estimations where the most probable effort gets a higher weight.
+			Delphic Oracle means that we get 3 different people to estimate the task effort. The final task effort is the average.
+		Analogy / Comparison
+			It is a Formal Estimation Method. With this method we are searching for projects with similar characteristics and we choose the closest to the one we are estimating.
+			Analogy based estimation is another technique for early life cycle macro-estimation. Analogy based estimation involves selecting one or two completed projects that most closely match the characteristics of your planned project. The chosen project is then used as the base for your new estimate.
+			Comparison based estimation involves considering the attributes of the project to be estimated, selecting projects with similar attributes and then using the median values for effort, duration etc. from the selected group of projects to produce an estimate of project effort.
+		Best Practices for Effort Estimation
+			Below I have summarized some of the best practices someone should follow for better effort estimation (at least what in my opinion should work better)
+			-If you use work break down structure, use both Three Point Estimation and Delphic oracle and see what works better for your organization.
+			-Identify the right people to do estimations. Some may prove pessimistic while others very optimistic.
+			-Use more than one methods and compare the results (assuming you have the time to do so).
+			-Usually the people that will have to develop the project will be pessimistic.
+			-People that will not have to work on the project are most of the times optimistic.
+			-Keep all your estimates and compare them with actual results in order to calibrate your models.
+			-Gather as much information about requirements as you can before you start estimation.
+			-Even if you have a requirements document, you may need to decompose the features into smaller features that can be compared to past experiences.
+			-Do not get into very little/tiny details. The further you go at early stage estimation, the more uncertainty will come and a less accurate estimation will arrive (overfitting).
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SDLC (https://stackify.com/what-is-sdlc/, https://en.wikipedia.org/wiki/Agile_software_development#cite_note-WhatIsAgile-2)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		SDLC or the Software Development Life Cycle is a process that produces software with the highest quality and lowest cost in the shortest time. 
+			SDLC includes a detailed plan for how to develop, alter, maintain, and replace a software system.
+		Stages and Best Practices of SDLC
+		Identify the current problems. “What don’t we want?” This stage of SDLC means getting input from all stakeholders, including customers, salespeople, industry experts, and programmers.
+			Learn the strengths and weaknesses of the current system with improvement as the goal.
+		Plan. “What do we want?” In this stage of SDLC, the team defines the requirements of the new software and determines the cost and resources required.
+			It also details the risks involved and provides sub-plans for softening those risks. In this stage, a Software Requirement Specification document is created.
+		Design. “How will we get what we want?” This phase of SDLC starts by turning the software specifications into a design plan called the Design Specification. 
+			All stakeholders then review this plan and offer feedback and suggestions. It’s crucial to have a plan for collecting and incorporating stakeholder input into this document. 
+			Failure at this stage will almost certainly result in cost overruns at best and total collapse of the project at worst.
+		Build. “Let’s create what we want.” This SDLC stage develops the software by generating all the actual code. If the previous steps have been followed with attention to detail, this is actually the least complicated step.
+		Test. “Did we get what we want?” In this stage, we test for defects and deficiencies. We fix those issues until the product meets the original specifications.
+		Deploy. “Let’s start using what we got.” Often, this part of the SDLC process happens in a limited way at first. Depending on feedback from end users, more adjustments can be made.
+		Maintain. “Let’s get this closer to what we want.” The plan almost never turns out perfect when it meets reality. Further, as conditions in the real world change, we need to update and advance the software to match.
+
+		Waterfall Model. This SDLC model is the oldest and most straightforward. With this methodology, we finish one phase and then start the next. 
+			Each phase has its own mini-plan and each phase “waterfalls” into the next. The biggest drawback of this model is that small details left incomplete can hold up the entire process.
+
+		Agile Model. The Agile SDLC model separates the product into cycles and delivers a working product very quickly. 
+			This methodology produces a succession of releases. Testing of each release feeds back info that’s incorporated into the next version. 
+			According to Robert Half, the drawback of this model is that the heavy emphasis on customer interaction can lead the project in the wrong direction in some cases.
+
+		Iterative Model. This SDLC model emphasizes repetition. Developers create a version very quickly and for relatively little cost, then test and improve it through rapid and successive versions. 
+			One big disadvantage here is that it can eat up resources fast if left unchecked.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Agile software development (https://en.wikipedia.org/wiki/Agile_software_development#cite_note-WhatIsAgile-2)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
+		Agile software development is an approach to software development under which requirements and solutions evolve through the collaborative effort of self-organizing 
+			and cross-functional teams and their customer(s)/end user(s).[1] It advocates adaptive planning, evolutionary development, early delivery, and continual improvement, 
+			and it encourages rapid and flexible response to change
+		
+		Agile software development principles
+			The Manifesto for Agile Software Development is based on twelve principles:
+				Customer satisfaction by early and continuous delivery of valuable software
+				Welcome changing requirements, even in late development
+				Working software is delivered frequently (weeks rather than months)
+				Close, daily cooperation between business people and developers
+				Projects are built around motivated individuals, who should be trusted
+				Face-to-face conversation is the best form of communication (co-location)
+				Working software is the primary measure of progress
+				Sustainable development, able to maintain a constant pace
+				Continuous attention to technical excellence and good design
+				Simplicity—the art of maximizing the amount of work not done—is essential
+				Best architectures, requirements, and designs emerge from self-organizing teams
+				Regularly, the team reflects on how to become more effective, and adjusts accordingly
+
+		Kanban vs. Scrum (https://www.atlassian.com/agile/kanban/kanban-vs-scrum)
+				
+		Story points and planning poker(https://www.atlassian.com/agile/project-management/estimation)
+			Teams starting out with story points use an exercise called planning poker. 
+			At Atlassian, planning poker is a common practice across the company. 
+			The team will take an item from the backlog, discuss it briefly, and each member will mentally formulate an estimate. 
+			Then everyone holds up a card with the number that reflects their estimate. If everyone is in agreement, great! 
+			If not, take some time (but not too much time–just couple minutes) to understand the rationale behind different estimates. 
+			Remember though, estimation should be a high level activity. If the team is too far into the weeds, take a breath, and up-level the discussion.

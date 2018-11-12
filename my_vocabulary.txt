@@ -143,6 +143,92 @@ remind - нагадаю
 to mention, to recall - згадати
 sequence - послідовність
 hieararchies - гієарархії
+hierarchy - Ієрархія
 propagate - розповсюджувати
 drawback - недолік
 sufficient - достатньо
+
+what is it used for - для чого вона використовується
+Because of this - Через це
+faith - віра
+God's grace - Божа благодать
+pagan - язичник
+priest - священик
+liturgy - Літургія
+facilitates - полегшує
+simplifies - спрощується
+similarities - подібності
+overlap - перекриття
+peek - заглянути
+particular - конкретно
+complexity - складність
+whereas - в той час як
+conciseness - лаконічність
+concise - лаконічний
+consisely - умовно
+handy - зручний
+Therefore - Тому
+comprehensive - всеосяжний
+It turns out - Виявляється
+
+
+----------------------------------- An Inconvenient Truth
+inevitably - неминуче
+inescapable - неминучий
+moral imperative - моральний обовязок
+the consciousness of humankind - свідомість людства
+the temperatures just keep on going up - температура просто продовжує підніматися
+upward - вгору
+a vast expanse of - Величезні простори
+glacier - льодовик
+that pump shut off - цей насос вимкнений.
+frustrating - розчарування
+It's extremely frustrating to me - Це надзвичайно засмучує мене
+frost - мороз
+that are affected - які постраждали
+the pine trees are being devastated - сосни руйнуються
+that have emerged - що виникли
+crevasses - тріщини
+refugees - біженці
+because it's so profitable. - тому що це так вигідно.
+-------------------------------- assessment
+thoroughly - ретельно 
+meticulous - ретельний
+deliverables - результати
+exact - точно
+measures - відміряти
+flaw - дефект
+facilitate - сприяти
+to enforce coding standards - щоб забезпечити стандарти кодування
+enforces - впроваджує, примушує
+adhering - дотримуватися
+redundancy - надмірність
+reliably - надійно
+Necessarily - Обов'язково
+slightly - трохи
+decouples - відокремити
+make use of - використовувати
+downside, drawbacks - недоліки
+several times per day - кілька разів на день
+suspicious - підозрілий
+embraces - 	використовувати, охоплює
+determines, define - визначає
+deficiencies - недоліки
+emphasis - акцент
+emerge - з'являються
+is utilized - використовується
+Preserves - Зберігає
+interfere - заважати
+enhancements - посилення
+inherent - властивий
+
+whether - чи то
+either - або
+applicable - застосовні
+provision - забезпечувати 
+subsequent - наступний
+compliance - відповідність
+allocate - виділити
+
+Essentially - По суті
+eventually - врешті-решт

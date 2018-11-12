@@ -185,3 +185,149 @@ In Pub/Sub model, one message is delivered to all the subscribers. It is like br
 			This interface defines the contract for an asynchronous computation step that can be combined with other steps.
 
 			CompletableFuture is at the same time a building block and a framework with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	JMS API Architecture
+		A JMS provider is a messaging system that implements the JMS interfaces and provides administrative and control features. An implementation of the Java EE platform includes a JMS provider.
+		JMS clients are the programs or components, written in the Java programming language, that produce and consume messages. Any Java EE application component can act as a JMS client.
+		Messages are the objects that communicate information between JMS clients.
+		Administered objects are preconfigured JMS objects created by an administrator for the use of clients. 
+			The two kinds of JMS administered objects are destinations and connection factories, described in JMS Administered Objects.
+			
+	Point-to-Point Messaging Domain
+		Each message has only one consumer.
+		A sender and a receiver of a message have no timing dependencies. The receiver can fetch the message whether or not it was running when the client sent the message.
+		The receiver acknowledges the successful processing of a message.
+		
+	Publish/Subscribe Messaging Domain
+		In a publish/subscribe (pub/sub) product or application, clients address messages to a topic, which functions somewhat like a bulletin board. 
+			Publishers and subscribers are generally anonymous and can dynamically publish or subscribe to the content hierarchy. 
+			The system takes care of distributing the messages arriving from a topic’s multiple publishers to its multiple subscribers. 
+			Topics retain messages only as long as it takes to distribute them to current subscribers.
+		Pub/sub messaging has the following characteristics.
+			Each message can have multiple consumers.
+			Publishers and subscribers have a timing dependency. A client that subscribes to a topic can consume only messages published after the client has created a subscription, 
+				and the subscriber must continue to be active in order for it to consume messages.
+	Message Consumption
+		Messaging products are inherently asynchronous: There is no fundamental timing dependency between the production and the consumption of a message. 
+			However, the JMS specification uses this term in a more precise sense. Messages can be consumed in either of two ways:
+			Synchronously: A subscriber or a receiver explicitly fetches the message from the destination by calling the receive method. 
+				The receive method can block until a message arrives or can time out if a message does not arrive within a specified time limit.
+			Asynchronously: A client can register a message listener with a consumer. 
+				A message listener is similar to an event listener. Whenever a message arrives at the destination, the JMS provider delivers the message by calling the listener’s onMessage method,
+					which acts on the contents of the message.
+					
+	Message-Oriented Middleware (MOM) – это, грубо говоря, тот продукт, на основе которого и строится Messaging System.(http://www.javable.com/columns/serv_side/workshop/14/)
+	Существует две "основных" модели обмена сообщениями:
+		point-to-point
+		publish-subscribe (pub-sub)
+	Point-to-point модель применяется, когда одному или нескольким компонентам (так называемые senders) необходимо посать сообщение одному компоненту-адресату (receiver).
+	Publish-subscribe модель применима, когда одному или нескольким компонентам (publishers) необходимо послать сообщение одному или нескольким компонентам-адресатам (subscribers). Данная модель основана на понятии message topic.
+
+	Java Message Service (JMS) – это Java API (то есть набор интерфейсов и классов) для работы с Message-Oriented Middleware. Данный набор определен в пакете javax.jms в дереве пакетов J2EE.
+		ConnectionFactory – это, как нетрудно догадаться из названия, обьект, ответственный за создание JMS Connection. 
+			Администратор МОМ создает данный обьект и связывает его с деревом JNDI, так что клиент JMS может получить доступ к ConnectionFactory используя стандартный JNDI lookup-механизм. 
+			В случае point-to-point модели используется javax.jms.QueueConnectionFactory, в случае pub-sub модели – javax.jms.TopicConnectionFactory.
+		Connection – абстрактное представление реального соединения между клиентом JMS и MOM. В случае point-to-point модели используется javax.jms.QueueConnection, в случае pub-sub модели – javax.jms.TopicConnection.
+		Session – обьект, создаваемый JMS Connection и используемый клиентами для посылки и принятия сообщений. В случае point-to-point используется javax.jms.QueueSession, в случае pub-sub – javax.jms.TopicSession. 
+			Фактически, это главная "рабочая лошадка" JMS.
+		Destination – это либо queue, либо topic – в зависимости от используемой модели: javax.jms.Queue или javax.jms.Topic. Как и ConnectionFactory, destination связывается с деревом JNDI.
+		MessageProducer – обьект, который, собственно, и посылает сообщения. В случае point-to-point модели это javax.jms.QueueSender, в случае pub-sub – javax.jms.TopicPublisher.
+		MessageConsumer – обьект, принимающий сообщения. В случае point-to-point модели это javax.jms.QueueReceiver, в случае pub-sub – javax.jms.TopicSubscriber.
+		Message– сообщение. О типах сообщений будет сказано ниже.
+		
+	Существует два пути получения сообщений. 
+		Первый – синхронное затребование сообщений из queue, используя метод receive() интерфейса javax.jms.QueueReceiver. 
+		Второй – асинхронное получение сообщений как только они становятся доступны – используя интерфейс javax.jms.MessageListener.
+	Pub-sub модель кажется более элегантной, и у разработчика может возникнуть желание строить все Messaging Systems на основе этой модели. 
+		Но следует знать, что многие pub-subсистемы не гарантируют доставку сообщений в том порядке, в каком они были посланы (в отличие от point-to-point, где queueреализует принцип first-in/first-out).  
+		Задача сохранения порядка следования сообщений не тривиальна даже в случае одного topic. А уж если необходимо сохранение порядка доставки сообщений в случае множественных topics – то сложность возрастает экспоненциально. 
+		Поэтому в случае pub-sub модели следует по возможности избегать ситуаций, когда порядок следования сообщений важен (либо используя заголовки и раздел свойств сообщений для синхронизации – об этом будет сказано ниже).
+	
+	Типы сообщений
+		В JMX определены следующие стандартные типы сообщений:
+		StreamMessage – сообщение, содержащее сериализованный поток обьектов
+		MapMessage – сообщение, содержащее пары "ключ-значение"
+		TextMessage – сообщение, содержащее строку
+		ObjectMessage– сообщение, содержащее сериализованный обьект
+		ByteMessage – сообщение, содержащее поток байтов
+		XMLMessage – расширение TextMessage, используется для доставки XMLсообщений
+		Все типы сообщений являются подклассами javax.jms.Message.
+	Заголовки и разделы свойств сообщений
+		Сообщения соостоят из трех частей: заголовка сообщения, раздела свойств и собственно тела сообщения.
+		JMSDestination – содержит имя destination, в который посылается сообщение.
+		JMSDeliveryMode – определяет, является ли сообщение сохраняемым или нет. Если оно сохраняемо, то будет сохранено MOM в базе данных (или в файле), а потому оно переживет "гибель" системы, в отличие от несохраняемого сообщения.
+		JMSExpiration – определяет, когда сообщение устареет и будет удалено из системы. По умолчанию сообщение не устаревает никогда.
+		JMSPriority – как и следует из названия, определяет приоритет сообщения (от 0 до 9). По умолчанию равно 4.
+		JMSMessageID – уникальный идентификатор сообщения
+		JMSTimestamp – содержит информацию, когда именно MOM приняла сообщение от producer.
+		JMSCorrelationID – может быть использовано разработчиком для согласования сообщений: например, если вы хотите переслать ряд сообщений, обьединенных в одну логическую группу (такую как набор товаров в заказе, при этом в каждое сообщение о товаре вы можете добавить в данное поле заголовка номер заказа).
+		JMSReplyTo – может быть использовано разработчиком для того, чтобы consumer знал, кому (то есть в какой destination) при желании отсылать ответ.
+		JMSType – поле может быть использовано разработчиком для того, чтобы дать приложению информацию, как обращаться с данным сообщением. Тип здесь понимается как application-specific type, а не тот, что использован выше в разделе "типы сообщений".
+		JMSRedelivered – устанавливается, если сообщение не было доставлено с первой попытки – например, в случае, когда consumer не подтвердил получение сообщения (если он должен был подтвердить, конечно)
+		Раздел свойств содержит пары "ключ-значение", которые могут быть использованы для пересылки определенных данных между producer и consumer. 
+			В качестве значений могут быть использованы примитивные типы (boolean, byte, float, double, short, int, long), а так же строки (java.lang.String).
+		Устанавливаются и читаются они с помощью соответствующих set и getметодов. Например, для установки integer-свойства с ключом "MyProperty"  и значением равным 100:
+			textMessage.setIntProperty("MyProperty", 100);
+			Для чтения:
+			int value = textMessage.getIntProperty("MyProperty");
+			
+	Доставка сообщений
+		Сообщение может быть сохраняемым или несохраняемым. Если сообщение сохраняемо, то MOM сохранит его в базе данных или файле. 
+			textMessage.setText("It's my message");
+			sender.send(textMessage, DeliveryMode.NON_PERSISTENT,
+			messagePriority, messageTimeToLive);
+			
+	Подтверждение получения сообщения
+		JMS поддерживает три "основных" модели подтверждения получения сообщения.
+			AUTO_ACKNOWLEDGE – в случае синхронного получения сообщений, подтверждение получения будет произведено автоматически, когда метод receive() возвратит значение не вызвав никакой исключительной ситуации. 
+				В случае асинхронного получения сообщений, подтверждение получения будет произведено, когда метод onMessage() вернет значение.
+			DUPS_OK_ACKNOWLEDGE – работа по подтверждению получения сообщения перекладывается на Session. Сообщения будут вновь доставлены в случае возникновения ошибки или "гибели" системы.
+			CLIENT_ACKNOWLEDGE – клиент должен вызвать метод acknowledge() интерфейса javax.jms.Message для того, чтобы явно подтвердить получение сообщения. 
+				При вызове данного метода будет подтверждено получение текущего и всех предидущих полученных сообщений.
+				
+	Посылка сообщений как часть транзакции
+		Существует два подхода в использовании транзакций совместно с JMS. 
+		Первый подход заключается в использовании transacted sessions.
+			Session session = con.createQueueSession(
+				true,Session.AUTO_ACKNOWLEDGE);
+		Второй подход заключается в использовании JTA-транзакций совместно с JMS.  Этот подход позволяет разработчику включать в единую транзакцию как посылку сообщений, так и запрос к базе данных или EJB.
+			UserTransaction myTransaction =
+				(UserTransaction)ctx.lookup("MyUserTransaction");
+				myTransaction.begin();
+				sender.send(textMessage);
+				myStatement.executeUpdate(
+				"INSERT INTO testTable VALUES (100,'BILL')");
+				myTransaction.commit();
+		При этом важно отметить, что JTA не может быть использован совместно с transacted session. Либо пироги, либо пряники. 
+			Если Вы попытаетесь совместить несовместимое, то увидите, что transacted session будет игнорировать вызовы commit() или rollback() интерфейса UserTransaction.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JTA(https://en.wikipedia.org/wiki/Java_Transaction_API)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	The Java Transaction API (JTA), one of the Java Enterprise Edition (Java EE) APIs, enables distributed transactions to be done across multiple X/Open XA resources in a Java environment.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+RMI(https://www.javatpoint.com/RMI)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in java. The RMI allows an object to invoke methods on an object running in another JVM.
+	The RMI provides remote communication between the applications using two objects stub and skeleton.
+	RMI uses stub and skeleton object for communication with the remote object.
+	A remote object is an object whose method can be invoked from another JVM. Let's understand the stub and skeleton objects:
+		The stub is an object, acts as a gateway for the client side. All the outgoing requests are routed through it. It resides at the client side and represents the remote object. 
+			When the caller invokes method on the stub object, it does the following tasks:
+			It initiates a connection with remote Virtual Machine (JVM),
+			It writes and transmits (marshals) the parameters to the remote Virtual Machine (JVM),
+			It waits for the result
+			It reads (unmarshals) the return value or exception, and
+			It finally, returns the value to the caller.
+		The skeleton is an object, acts as a gateway for the server side object. All the incoming requests are routed through it. When the skeleton receives the incoming request, it does the following tasks:
+			It reads the parameter for the remote method
+			It invokes the method on the actual remote object, and
+			It writes and transmits (marshals) the result to the caller.
+	Understanding requirements for the distributed applications
+		If any application performs these tasks, it can be distributed application.
+			The application need to locate the remote method
+			It need to provide the communication with the remote objects, and
+			The application need to load the class definitions for the objects.

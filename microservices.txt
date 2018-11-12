@@ -1,0 +1,261 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Microservices (https://en.wikipedia.org/wiki/Microservices)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. 
+			In a microservices architecture, services are fine-grained and the protocols are lightweight. The benefit of decomposing an application into different smaller services is that it improves modularity. 
+			This makes the application easier to understand, develop, test, and become more resilient to architecture erosion. 
+			It parallelizes development by enabling small autonomous teams to develop, deploy and scale their respective services independently.
+			It also allows the architecture of an individual service to emerge through continuous refactoring.[3] Microservices-based architectures enable continuous delivery and deployment.
+			
+		Services in a microservice architecture (MSA) are often processes that communicate over a network to fulfill a goal using technology-agnostic protocols such as HTTP.
+		However, services might also use other kinds of inter-process communication mechanisms such as shared memory.[8] Services might also run within the same process as, for example, OSGI bundles.
+			Services in a microservice architecture are independently deployable.
+			The services are easy to replace.
+			Services are organized around capabilities, e.g., user interface front-end, recommendation, logistics, billing, etc.
+			Services can be implemented using different programming languages, databases, hardware and software environment, depending on what fits best.
+			Services are small in size, messaging enabled, bounded by contexts, autonomously developed, independently deployable, decentralized and built and released with automated processes.
+			
+		Cons and Challenges (https://blog.philipphauer.de/microservices-nutshell-pros-cons/)
+			Increased effort for operations, deployment and monitoring. Each service is a separate deployment units, which has to be released, tested and monitored.
+			For achieving independence, a team has to be enabled to cover the whole lifecycle of a microservice (technical decisions, conception, implementation, database, build, operations, monitoring, on standby). 
+			Increased configuration management. For each microservice we need to create a dedicated build and delivery pipeline. 
+			Unsafe distributed communication. Microservices run in a separated processes and communicate over the network and a dedicated mechanism (like REST calls or messaging). 
+				Hence, it’s more likely that something will go wrong (microservice not available, HTTP request or response gets lost) – especially in comparison to a programmatically API call.
+			Performance hit due to HTTP, (de)serialization (and network) overhead. Instead of programmatic API calls (in-process) you have to make HTTP calls (over the wire).
+			Transaction safety. It’s difficult to maintain transaction safety when dealing with independent processes.
+			Refactorings can be hard. Especially when moving code between services, you have to change all dependent services. 
+			Keeping dependent services compatible when updating a single service is tricky. 
+		
+		Defining Stateful vs Stateless Web Services (https://nordicapis.com/defining-stateful-vs-stateless-web-services/)
+		Stateful Web Services
+			With this in mind, what does a stateful web service looks like? Let’s say you log into a resource, and in doing so, you pass your password and username.
+				If the web server stores this data in a backend manner and uses it to identify you as a constantly connected client, the service is stateful.
+				All of these are significant issues, but they pale in comparison to the simple fact that sessions are not scalable.
+		Stateless
+				The answer to these issues is statelessness. Stateless is the polar opposite of stateful, in which any given response from the server is independent of any sort of state.
+			As a quick note, it must be said that REST is specifically designed to be functionally stateless. 
+		
+		Some of the biggest benefits of stateless applications is that the maintaining parties don't have the responsibility of managing the resident memory. 
+			Stateless applications can be less costly than a similar stateful application. 
+			They can also be less complex, as there’s no requirement to take in data and keep it on hand, to record it for use later. 
+			Every session is brand new and the same programming occurs.
+		The downside of stateless applications is that, as mentioned, they will not keep information about a particular user session. 
+			This issue is evident in the design of cookies to handle user session information on the internet. 
+			Generally speaking, using cookies is less efficient than any in-memory system would be. 
+			Webmasters have the responsibility of manipulating and maintaining the cookies. So stateless systems are inherently less capable.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Cloud computing is an information technology (IT) paradigm that enables ubiquitous access to shared pools of configurable system resources
+			and higher-level services that can be rapidly provisioned with minimal management effort, often over the Internet.
+		
+-- ------------------------------------------------ Service models
+		Software as a service (SaaS)
+			The capability provided to the consumer is to use the provider's applications running on a cloud infrastructure. 
+			The applications are accessible from various client devices through either a thin client interface, such as a web browser (e.g., web-based email), or a program interface. 
+			The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, storage, or even individual application capabilities,
+				with the possible exception of limited user-specific application configuration settings.
+		Platform as a service (PaaS)
+			The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming languages, libraries, services,
+				and tools supported by the provider. The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage,
+				but has control over the deployed applications and possibly configuration settings for the application-hosting environment.
+		Infrastructure as a service (IaaS)
+			"Infrastructure as a service" (IaaS) refers to online services that provide high-level APIs used to dereference various low-level details of underlying network infrastructure like physical computing resources,
+				location, data partitioning, scaling, security, backup etc.
+				
+-- ------------------------------------------------ Deployment models
+		Private cloud
+			Private cloud is cloud infrastructure operated solely for a single organization, whether managed internally or by a third-party, and hosted either internally or externally.
+		Public cloud
+			A cloud is called a "public cloud" when the services are rendered over a network that is open for public use. Public cloud services may be free.
+		Hybrid cloud
+			Hybrid cloud is a composition of two or more clouds (private, community or public) that remain distinct entities but are bound together, offering the benefits of multiple deployment models.
+			
+-- ------------------------------------------------ Amazon Web Services (AWS)(https://en.wikipedia.org/wiki/Amazon_Web_Services)
+		AWS Amazon Web Services (AWS) is a subsidiary of Amazon.com that provides on-demand cloud computing platforms to individuals, companies and governments, on a paid subscription basis. 
+			The technology allows subscribers to have at their disposal a full-fledged virtual cluster of computers, available all the time, through the Internet. 
+			AWS's version of virtual computers have most of the attributes of a real computer including hardware (CPU(s) & GPU(s) for processing, local/RAM memory, hard-disk/SSD storage); 
+			a choice of operating systems; networking; and pre-loaded application software such as web servers, databases, CRM, etc. 
+			Each AWS system also virtualizes its console I/O (keyboard, display, and mouse), allowing AWS subscribers to connect to their AWS system using a modern browser.
+			
+		ARN Amazon Resource Names (ARNs)(https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) uniquely identify AWS resources. 
+			We require an ARN when you need to specify a resource unambiguously across all of AWS, such as in IAM policies, 
+			Amazon Relational Database Service (Amazon RDS) tags, and API calls.
+
+-- ------------------------------------------------ CloudWatch(https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.html)
+		The terminology and concepts that are central to your understanding and use of CloudWatch Logs are described below.
+		Log Events
+			A log event is a record of some activity recorded by the application or resource being monitored. 
+			The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message. Event messages must be UTF-8 encoded.
+		Log Streams
+			A log stream is a sequence of log events that share the same source. 
+			More specifically, a log stream is generally intended to represent the sequence of events coming from the application instance or resource being monitored. 
+			For example, a log stream may be associated with an Apache access log on a specific host. When you no longer need a log stream, you can delete it using the aws logs delete-log-stream command. 
+			In addition, AWS may delete empty log streams that are over 2 months old.
+		Log Groups
+			Log groups define groups of log streams that share the same retention, monitoring, and access control settings. 
+			Each log stream has to belong to one log group. For example, 
+			if you have a separate log stream for the Apache access logs from each host, you could group those log streams into a single log group called MyWebsite.com/Apache/access_log.
+			There is no limit on the number of log streams that can belong to one log group.
+		Metric Filters
+			You can use metric filters to extract metric observations from ingested events and transform them to data points in a CloudWatch metric. 
+			Metric filters are assigned to log groups, and all of the filters assigned to a log group are applied to their log streams.
+		Retention Settings
+			Retention settings can be used to specify how long log events are kept in CloudWatch Logs. Expired log events get deleted automatically. 
+			Just like metric filters, retention settings are also assigned to log groups, and the retention assigned to a log group is applied to their log streams.
+			
+-- ------------------------------------------------ AWS Lambda
+		AWS Lambda(https://aws.amazon.com/ru/lambda/?p=tile) позволяет запускать программные коды без выделения серверов и управления ими. Вы платите только за фактическое время вычисления. 
+			Когда программы не выполняются, оплата не требуется.
+		AWS Lambda (https://docs.aws.amazon.com/lambda/index.html#lang/en_us), you can run code without provisioning or managing servers. You pay only for the compute time that you consume—there’s no charge when your code isn’t running. 
+			You can run code for virtually any type of application or backend service—all with zero administration. 
+			Just upload your code and Lambda takes care of everything required to run and scale your code with high availability. 
+			You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.
+		AWS Lambda (https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) is a compute service that lets you run code without provisioning or managing servers. 
+			AWS Lambda executes your code only when needed and scales automatically, from a few requests per day to thousands per second. 
+			You pay only for the compute time you consume - there is no charge when your code is not running. 
+		Java Lambda API (https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/index.html?com/amazonaws/services/lambda/AWSLambda.html)
+		Starting(https://aws.amazon.com/ru/lambda/?nc2=h_m1, https://aws.amazon.com/ru/lambda/resources/#Getting_Started)
+		
+		Understanding Scaling Behavior(http://docs.amazonaws.cn/en_us/lambda/latest/dg/scaling.html)
+			Concurrent executions refers to the number of executions of your function code that are happening at any given time. 
+				You can estimate the concurrent execution count, but the concurrent execution count will differ depending on whether or not your Lambda function is processing events from a poll-based event source.
+			If you create a Lambda function to process events from event sources that aren't poll-based (for example, Lambda can process every event from other sources, like Amazon S3 or API Gateway), 
+				each published event is a unit of work, in parallel, up to your account limits. Therefore, the number of events (or requests) these event sources publish influences the concurrency. 
+				You can use the this formula to estimate your concurrent Lambda function invocations:
+				events (or requests) per second * function duration
+			For example, consider a Lambda function that processes Amazon S3 events. Suppose that the Lambda function takes on average three seconds and Amazon S3 publishes 10 events per second. 
+				Then, you will have 30 concurrent executions of your Lambda function.
+				
+		AWS Lambda FAQs (https://www.amazonaws.cn/en/lambda/faqs/)
+		Each Lambda function receives 500MB of non-persistent disk space in its own /tmp directory.
+		
+		FaaS(https://blog.bitsrc.io/serverless-backend-using-aws-lambda-hands-on-guide-31806ceb735e)
+			Technologies like AWS Lambda and Microsoft Azure Functions fall under the FaaS category.
+			Here, the developers can implement their own backend logic and run them within the serverless framework. 
+			The vendor will handle the operation of the backend logic in a server, along with scalability, reliability, and security aspects.
+		a cold start(https://serverless.com/blog/keep-your-lambdas-warm/)
+		When running a serverless function, it will stay active (a.k.a., hot) as long as you're running it. Your container stays alive, ready and waiting for execution.
+		After a period of inactivity, your cloud provider will drop the container, and your function will become inactive, (a.k.a., cold).
+		
+		AWS Lambda console - UI for configuration
+		
+		What Is the AWS Command Line Interface?(https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
+			The AWS CLI is an open source tool that provides commands for interacting with AWS services. 
+			With minimal configuration, you can start using all of the functionality provided by the AWS Management Console from your favorite terminal program.
+				Linux shells – Use common shell programs such as Bash, Zsh, and tsch to run commands in Linux, macOS, or Unix.
+				Windows command line – On Microsoft Windows, run commands in either PowerShell or the Windows Command Processor.
+				Remotely – Run commands on Amazon EC2 instances through a remote terminal such as PuTTY or SSH, or with Amazon EC2 systems manager.
+			All IaaS (infrastructure as a service) AWS administration, management, and access functions in the AWS Management Console are available in the AWS API and CLI. 
+			New AWS IaaS features and services provide full AWS Management Console functionality through the API and CLI at launch or within 180 days of launch.
+		AWS SDK
+-- ------------------------------------------------ Amazon API Gateway
+		Amazon API Gateway(https://aws.amazon.com/ru/api-gateway/) – это полностью управляемый сервис для разработчиков, предназначенный для создания, публикации, обслуживания,
+			мониторинга и обеспечения безопасности API в любых масштабах.
+		
+		Amazon API Gateway(https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) is an AWS service that enables developers to create, publish, maintain, monitor, and secure APIs at any scale. 
+			You can create APIs that access AWS or other web services, as well as data stored in the AWS Cloud.
+			API Gateway can be considered a backplane in the cloud to connect AWS services and other public or private websites. 
+			It provides consistent RESTful application programming interfaces (APIs) for mobile and web applications to access AWS services.
+		
+		To deploy an API, you create an API deployment and associate it with a stage. Each stage is a snapshot of the API and is made available for the client to call.(https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html)
+		Lambda-Proxy vs Lambda Integration in AWS API Gateway(https://medium.com/@lakshmanLD/lambda-proxy-vs-lambda-integration-in-aws-api-gateway-3a9397af0e6d)
+		╔═════════════════════════════════════════════════════╦════════════════════════════════════════════════════════════╗
+		║                     Lambda-Proxy                    ║                           Lambda                           ║
+		╠═════════════════════════════════════════════════════╬════════════════════════════════════════════════════════════╣
+		║ This is a simple, but powerful integration. All the ║ This is complex, but offers more control over transmission ║
+		║ request to the APIGateway URL is forwarded          ║ data. The request can be modified before it is             ║
+		║ straight to the Lambda and the response is sent     ║ sent to lambda and the response can be modified            ║
+		║ from Lambda. i.e No modifications to the            ║ after it is sent from lambda. This can be done by          ║
+		║ request(query params, body, variables) and          ║ mapping templates which transforms the payload, as per     ║
+		║ response(status code, message) are done             ║ the user customisations. API Gateway uses Velocity         ║
+		║ by the APIGateway.                                  ║ Template Language (VTL) engine to process body             ║
+		║                                                     ║ mapping templates for the integration request              ║
+		║                                                     ║ and integration response.                                  ║
+		╚═════════════════════════════════════════════════════╩════════════════════════════════════════════════════════════╝
+		
+		Amazon API Gateway (https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html)
+		What is Amazon API Gateway?(https://www.amazonaws.cn/en/api-gateway/faqs/)
+			Amazon API Gateway is a fully managed service that makes it easy for developers to publish, maintain, monitor, and secure APIs at any scale. 
+			With a few clicks in the AWS Management Console, you can create an API that acts as a “front door” for applications to access data, business logic,
+			or functionality from your back-end services, such as applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application. 
+			Amazon API Gateway handles all of the tasks involved in accepting and processing up to hundreds of thousands of concurrent API calls, including traffic management, authorization and access control,
+			monitoring, and API version management. Amazon API Gateway has no minimum fees or startup costs. You pay only for the API calls you receive and the amount of data transferred out.
+			
+-- ------------------------------------------------ Amazon CloudWatch(https://aws.amazon.com/cloudwatch/faqs/)
+		Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. 
+			You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms. 
+			Amazon CloudWatch can monitor AWS resources such as Amazon EC2 instances, Amazon DynamoDB tables, and Amazon RDS DB instances, 
+			as well as custom metrics generated by your applications and services, and any log files your applications generate. 
+			You can use Amazon CloudWatch to gain system-wide visibility into resource utilization, application performance, and operational health. 
+			You can use these insights to react and keep your application running smoothly.
+
+		What can I use to access CloudWatch?
+            Amazon CloudWatch can be accessed via API, command-line interface, AWS SDKs, and the AWS Management Console.
+			
+			
+			
+		Amazon CloudWatch(https://aws.amazon.com/ru/cloudwatch/?p=tile) – это сервис мониторинга облачных ресурсов AWS и приложений, которые вы запускаете с их помощью. 
+			Amazon CloudWatch можно использовать для сбора и отслеживания метрик, накопления и анализа файлов журналов, создания предупреждений, а также автоматического реагирования на изменения ресурсов AWS. 
+			
+		Metrics are the fundamental concept in CloudWatch. A metric represents a time-ordered set of data points that are published to CloudWatch. 
+		A dimension is a name/value pair that uniquely identifies a metric. You can assign up to 10 dimensions to a metric.
+		Statistics are metric data aggregations over specified periods of time. CloudWatch provides statistics based on the metric data points provided by your custom data or provided by other AWS services to CloudWatch.
+		Each statistic has a unit of measure. Example units include Bytes, Seconds, Count, and Percent.
+		A period is the length of time associated with a specific Amazon CloudWatch statistic. Each statistic represents an aggregation of the metrics data collected for a specified period of time.
+		Amazon CloudWatch aggregates statistics according to the period length that you specify when retrieving statistics.
+		A percentile indicates the relative standing of a value in a dataset. For example, the 95th percentile means that 95 percent of the data is lower than this value and 5 percent of the data is higher than this value.
+		You can use an alarm to automatically initiate actions on your behalf. 
+			An alarm watches a single metric over a specified time period, and performs one or more specified actions, based on the value of the metric relative to a threshold over time.
+-- ------------------------------------------------ Amazon EC2
+		Amazon Elastic Compute Cloud (Amazon EC2)(https://aws.amazon.com/ru/ec2/?p=tile) – это веб-сервис, предоставляющий безопасные масштабируемые вычислительные ресурсы в облаке. 
+			Он помогает разработчикам, облегчая проведение крупномасштабных вычислений в облаке.
+		Amazon Elastic Compute Cloud (Amazon EC2)(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) provides scalable computing capacity in the Amazon Web Services (AWS) cloud.
+			Amazon EC2 provides the following features:
+				Virtual computing environments, known as instances
+				Preconfigured templates for your instances, known as Amazon Machine Images (AMIs), that package the bits you need for your server (including the operating system and additional software)
+				Various configurations of CPU, memory, storage, and networking capacity for your instances, known as instance types
+				Secure login information for your instances using key pairs (AWS stores the public key, and you store the private key in a secure place)
+				Storage volumes for temporary data that's deleted when you stop or terminate your instance, known as instance store volumes
+				Persistent storage volumes for your data using Amazon Elastic Block Store (Amazon EBS), known as Amazon EBS volumes
+				Multiple physical locations for your resources, such as instances and Amazon EBS volumes, known as regions and Availability Zones
+				A firewall that enables you to specify the protocols, ports, and source IP ranges that can reach your instances using security groups
+				Static IPv4 addresses for dynamic cloud computing, known as Elastic IP addresses
+				Metadata, known as tags, that you can create and assign to your Amazon EC2 resources
+				Virtual networks you can create that are logically isolated from the rest of the AWS cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)
+		
+		Elastic Load Balancing(https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
+		Elastic Load Balancing distributes incoming application traffic across multiple EC2 instances, in multiple Availability Zones. This increases the fault tolerance of your applications.				
+-- ------------------------------------------------Amazon ElastiCache
+		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/details/) – это веб-сервис, упрощающий развертывание и масштабирование в облаке хранилища или кэша в памяти, а также управление ими.
+		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/?nc2=h_m1) поддерживает два сервиса с открытым исходным кодом для размещения данных в памяти.
+			Redis – быстрое хранилище данных и кэш в памяти с открытым исходным кодом. 
+				Amazon ElastiCache для Redis – это совместимый с Redis сервис хранения и кэширования данных в памяти, который обеспечивает простоту использования и функциональность Redis,
+					а также доступность, надежность, масштабируемость и производительность, подходящие для самых требовательных приложений.
+			Redis(https://aws.amazon.com/ru/elasticache/what-is-redis/) – быстрое хранилище в памяти с открытым исходным кодом для структур данных «ключ-значение». 
+				Redis поставляется с набором разнообразных структур данных в памяти, что упрощает создание различных специальных приложений. 
+			Memcached – широко распространенная система кэширования объектов в памяти. 
+				Используемые в ElastiCache протоколы полностью совместимы с Memcached, поэтому все популярные инструменты, уже используемые в существующих средах Memcached, будут эффективно работать с этим сервисом.
+-- ------------------------------------------------Amazon S3
+		Amazon S3(https://aws.amazon.com/ru/s3/?p=tile) – это объектное хранилище, предназначенное для хранения и извлечения любых объемов данных из любых источников: веб-сайтов и мобильных приложений,
+			корпоративных приложений, а также данных с датчиков или устройств IoT. 
+-- ------------------------------------------------Amazon RDS
+		Amazon Relational Database Service (Amazon RDS)(https://aws.amazon.com/ru/rds/details/) позволяет легко настраивать, использовать и масштабировать реляционные базы данных в облаке.
+
+
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Terraform(https://www.terraform.io/intro/index.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions.
+		Основные операции следующие:
+
+			terraform plan - показывает план выполнения. Это по сути diff из того что было в инфраструктуре и того что станет.
+			terraform apply - применяет план. Тут все просто, тула пойдет и по API начнет дергать все ручки и создавать заданные ресурсы.
+			terraform graph - рисует граф ресурсов, полезная штука для наглядного представления о структуре нашей инфраструктуры.
+			
