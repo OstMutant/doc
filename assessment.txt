@@ -1,3 +1,25 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Introduction
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Hello Dear experts! My name is Ostap and today I would like to introduce myself. 
+The first thing that I would like to mention - this is my experience. Its more than 10 years in IT.
+
+At EPAM I have been working for more than 1 year. During that time, 
+I have been working on the project where the AWS stack is the main one.
+I have got a lot of theoretical and practical knowledge in AWS Lambda, API Gateway, CloudWatch, etc. 
+This project opened for me what does that mean the serverless architecture. 
+At this project I have used a lot of other skills that like GraphQL.
+
+The current team consistency allows me to be a key dev and if to talk about the challenges - this is the biggest one 
+as I am responsible partially for involving technical decisions, 
+close collaboration with customer and team by communication. 
+
+I would like to make such skills much stronger and 
+to grow from the technical perspective as well. 
+This is the main reason why I decided to pass the assessment. 
+
+Thank you. I'm ready to the further discussion.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Main
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
