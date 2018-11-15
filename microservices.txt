@@ -33,6 +33,13 @@ Serverless architectures (https://medium.com/@MarutiTech/what-is-serverless-arch
 Microservices (https://en.wikipedia.org/wiki/Microservices)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+-- ------------------------------------------------	What is the difference between microservices and monolithic architecture? (https://stackoverflow.com/questions/33041733/microservices-vs-monolithic-architecture)
+		codebase will be easier to manage
+		easier in the future to add new features
+		deploying the application is easier
+		easier to scale 
+
+
 -- ------------------------------------------------ What Are Microservices?(https://dzone.com/articles/java-microservices-code-examples-tutorials-and-more)
 		Microservices are a form of service-oriented architecture style (one of the most important skills for Java developers) wherein applications are built as a collection of different smaller services rather than one whole app. 
 		Instead of a monolithic app, you have several independent applications that can run on their own and may be created using different coding or programming languages. 

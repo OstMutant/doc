@@ -202,7 +202,6 @@ facilitate - сприяти
 to enforce coding standards - щоб забезпечити стандарти кодування
 enforces - впроваджує, примушує
 adhering - дотримуватися
-redundancy - надмірність
 reliably - надійно
 Necessarily - Обов'язково
 slightly - трохи
@@ -232,3 +231,4 @@ allocate - виділити
 
 Essentially - По суті
 eventually - врешті-решт
+redundancy - надмірність
