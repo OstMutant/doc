@@ -15,21 +15,7 @@ JavaServer Faces (javax.faces.component.html)
 
 JTA(Java Transaction API) https://en.wikipedia.org/wiki/Java_Transaction_API
 
--- ------------------------------------------------ POJO (англ. Plain Old Java Object) 
-„Простий старий Java-об'єкт“, простий Java-об'єкт, не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
 
--- ------------------------------------------------ What Are Microservices?(https://dzone.com/articles/java-microservices-code-examples-tutorials-and-more)
-Microservices are a form of service-oriented architecture style (one of the most important skills for Java developers) wherein applications are built as a collection of different smaller services rather than one whole app. 
-Instead of a monolithic app, you have several independent applications that can run on their own and may be created using different coding or programming languages. 
-Big and complicated applications can be made up of simpler and independent programs that are executable by themselves. These smaller programs are grouped together to deliver all the functionalities of the big, monolithic app.
-
-Seven micro-services architecture advantages http://eugenedvorkin.com/seven-micro-services-architecture-advantages/
-Small, easy to understand code base.
-Easy to scale.
-Easy to throw away.
-Easy to Deploy.
-Ability to use a different technology stack.
-System resilience
 
 -- ------------------------------------------------ Жизненный цикл сервлета состоит из следующих шагов:
 В случае отсутствия сервлета в контейнере.

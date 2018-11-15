@@ -289,6 +289,11 @@ DRY principle(https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) (Don't repe
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		In software engineering, don't repeat yourself (DRY) is a principle of software development aimed at reducing repetition of software patterns[1], 
 			replacing it with abstractions or using data normalization to avoid redundancy.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OOD (Object-oriented design) (https://en.wikipedia.org/wiki/Object-oriented_design)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
+		Object-oriented design is the process of planning a system of interacting objects for the purpose of solving a software problem. It is one approach to software design.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SOLID (об'єктно-орієнтоване програмування) https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

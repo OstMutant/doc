@@ -2,10 +2,55 @@
 Main
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. 
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Serverless architectures (https://medium.com/@MarutiTech/what-is-serverless-architecture-what-are-its-criticisms-and-drawbacks-928659f9899a)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		Serverless architectures refer to applications that significantly depend on third-party services (knows as Backend as a Service or “BaaS”) 
+			or on custom code that’s run in ephemeral containers (Function as a Service or “FaaS”), the best known vendor host of which currently is AWS Lambda.
+
+		Despite the name, it does not actually involve running code without servers. The name “serverless computing” is used because the business or person that owns the system does not have to purchase, 
+			rent or provision servers or virtual machines for the back-end code to run on.
+
+		Serverless code can be used in conjunction with code written in traditional server style, such as microservices. 
+			For example, part of a web application could be written as microservices and another part could be written as serverless code. Alternatively, an application could be written that uses no provisioned servers at all, being completely serverless.
+
+		FaaS provides a platform allowing the developers to execute code in response to events without the complexity of building and maintaining the infrastructure. 
+			The 3rd party apps or services would manage the server-side logic and state.
+		
+		Benefits of Serverless Architecture
+			Easier operational management
+			Faster innovation
+			Reduced operational costs
+		
+		Drawbacks of Serverless Architecture (https://www.marutitech.com/serverless-architecture-business-computing/)
+			Problems due to third-party API system
+			Lack of operational tools
+			Architectural complexity
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Microservices (https://en.wikipedia.org/wiki/Microservices)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+-- ------------------------------------------------ What Are Microservices?(https://dzone.com/articles/java-microservices-code-examples-tutorials-and-more)
+		Microservices are a form of service-oriented architecture style (one of the most important skills for Java developers) wherein applications are built as a collection of different smaller services rather than one whole app. 
+		Instead of a monolithic app, you have several independent applications that can run on their own and may be created using different coding or programming languages. 
+		Big and complicated applications can be made up of simpler and independent programs that are executable by themselves. These smaller programs are grouped together to deliver all the functionalities of the big, monolithic app.
+
+		Seven micro-services architecture advantages http://eugenedvorkin.com/seven-micro-services-architecture-advantages/
+		Small, easy to understand code base.
+		Easy to scale.
+		Easy to throw away.
+		Easy to Deploy.
+		Ability to use a different technology stack.
+		System resilience
+
+
+		A service-oriented architecture (SOA) is a style of software design where services are provided to the other components by application components, through a communication protocol over a network.
+			The basic principles of service-oriented architecture are independent of vendors, products and technologies.[1] 
+			A service is a discrete unit of functionality that can be accessed remotely and acted upon and updated independently, such as retrieving a credit card statement online.
+			
 		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. 
 			In a microservices architecture, services are fine-grained and the protocols are lightweight. The benefit of decomposing an application into different smaller services is that it improves modularity. 
 			This makes the application easier to understand, develop, test, and become more resilient to architecture erosion. 
@@ -48,6 +93,16 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 			This issue is evident in the design of cookies to handle user session information on the internet. 
 			Generally speaking, using cookies is less efficient than any in-memory system would be. 
 			Webmasters have the responsibility of manipulating and maintaining the cookies. So stateless systems are inherently less capable.
+			
+-- ------------------------------------------------ Microservices vs. Service-Oriented Architecture(https://dzone.com/articles/microservices-vs-soa-is-there-any-difference-at-al)
+		Conclusion
+			One cannot simply say that one architecture is better than the other. 
+				It mainly depends on the purpose of the application you are building. 
+				SOA is better suited for larger, complex enterprise application environments that require integration with many other applications. 
+				That being said, smaller applications are not a good fit for SOA as they don’t need a messaging middleware component. 
+				Microservices, on the other hand, are better suited for smaller and well-partitioned, web-based systems. 
+				Also, if you are developing a mobile or web application, then microservices give you much greater control as a developer. 
+				Finally, we can conclude that since they serve different purposes – microservices and SOA are indeed distinct types of architectures.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -198,8 +253,7 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		What can I use to access CloudWatch?
             Amazon CloudWatch can be accessed via API, command-line interface, AWS SDKs, and the AWS Management Console.
 			
-			
-			
+
 		Amazon CloudWatch(https://aws.amazon.com/ru/cloudwatch/?p=tile) – это сервис мониторинга облачных ресурсов AWS и приложений, которые вы запускаете с их помощью. 
 			Amazon CloudWatch можно использовать для сбора и отслеживания метрик, накопления и анализа файлов журналов, создания предупреждений, а также автоматического реагирования на изменения ресурсов AWS. 
 			

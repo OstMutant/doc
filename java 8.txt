@@ -289,6 +289,19 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 			Collectors.toSet() ToSet collector can be used for collecting all Stream elements into a Set instance. 
 			Collectors.toMap() ToMap collector can be used to collect Stream elements into a Map instance.
 			Collectors.joining() Joining collector can be used for joining Stream<String> elements.
+
+pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101/in-java-what-are-the-advantages-of-streams-over-loops)
+
+			Streams are a more declarative style.
+			Streams have a strong affinity with functions.
+			Streams encourage less mutability
+			Streams encourage looser coupling.
+			Streams can succinctly express quite sophisticated behaviour.
+			Streams provide scope for future efficiency gains. 
+		Disadvantages
+			Performance: A for loop through an array is extremely lightweight both in terms of heap and CPU usage. If raw speed and memory thriftiness is a priority, using a stream is worse.
+			Debuggers are improving, but even now, when you're stepping through stream code in a debugger, it can be harder work than the equivalent loop, 
+				because a simple loop is very close to the variables and code locations that a traditional debugger works with.
 			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/)

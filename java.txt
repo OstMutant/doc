@@ -175,6 +175,14 @@ Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in
 		Initialize all the fields via a constructor performing deep copy.
 		Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.
 	
+	Benefits of Programming with Immutable Objects in Java (https://www.linkedin.com/pulse/20140528113353-16837833-6-benefits-of-programming-with-immutable-objects-in-java/)
+		Immutable objects are thread-safe so you will not have any synchronization issues.
+		Immutable objects are good Map keys and Set elements, since these typically do not change once created.
+		Immutability makes it easier to write, use and reason about the code (class invariant is established once and then unchanged)
+		Immutability makes it easier to parallelize your program as there are no conflicts among objects.
+		The internal state of your program will be consistent even if you have exceptions.
+		References to immutable objects can be cached as they are not going to change.
+	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generics-example-method-class-interface)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -234,6 +242,29 @@ Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generic
 		Generics in Java was added to provide type-checking at compile time and it has no use at run time, 
 			so java compiler uses type erasure feature to remove all the generics type checking code in byte code and insert type-casting if necessary. 
 			Type erasure ensures that no new classes are created for parameterized types; consequently, generics incur no runtime overhead.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+		Параметр T в угловых скобках называется универсальным параметром, так как вместо него можно подставить любой тип.
+			public interface List<E> {
+				E get(int i);
+				set(int i, E e);
+				add(E e);
+				Iterator<E> iterator();
+				…
+			}
+
+		The wildcard ? in Java is a special type parameter that controls the type safety of the use of generic (parameterized) types.
+			It can be used in variable declarations and instantiations as well as in method definitions, but not in the definition of a generic type.
+		
+		Мнемоника PECS (provider - extends, consumer - super)(https://ru.stackoverflow.com/questions/361807/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-wildcard-%D0%B2-generics-java)
+		"PECS" находится с точки сбора. Если вы только вытаскиваете предметы из общей коллекции, это производитель, и вы должны использовать extends;
+		если вы только набиваете предметы, это потребитель, и вы должны использовать super. Если вы делаете оба с одной и той же коллекцией, вы не должны использовать либо extends, либо super.
+
+		<? extends Number> подразумевается "любой тип, являющийся дочерним классом для Number". Плюс сам Number.
+		<? super Number> действительно подразумевает "любой тип, являющийся супер-классом для Number". Плюс сам Number.
+ 
+			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -311,21 +342,37 @@ Memory Management in Java
 			After verification, preparation, and (optionally) resolution are completed, the type is ready for initialization. 
 		During initialization, the class variables are given their proper initial values. 
 
-	VM SWITCH        			VM SWITCH DESCRIPTION
-	-Xms        				For setting the initial heap size when JVM starts
-	-Xmx        				For setting the maximum heap size.
-	-Xmn        				For setting the size of the Young Generation, rest of the space goes for Old Generation.
-	-XX:PermGen        			For setting the initial size of the Permanent Generation memory
-	-XX:MaxPermGen        		For setting the maximum size of Perm Gen
-	-XX:SurvivorRatio        	For providing ratio of Eden space and Survivor Space, for example if Young Generation size is 10m and VM switch is -XX:SurvivorRatio=2 then 5m will be reserved for Eden Space and 2.5m each for both the Survivor spaces. The default value is 8.
-	-XX:NewRatio        		For providing ratio of old/new generation sizes. The default value is 2.
+		VM SWITCH        			VM SWITCH DESCRIPTION
+		-Xms        				For setting the initial heap size when JVM starts
+		-Xmx        				For setting the maximum heap size.
+		-Xmn        				For setting the size of the Young Generation, rest of the space goes for Old Generation.
+		-XX:PermGen        			For setting the initial size of the Permanent Generation memory
+		-XX:MaxPermGen        		For setting the maximum size of Perm Gen
+		-XX:SurvivorRatio        	For providing ratio of Eden space and Survivor Space, for example if Young Generation size is 10m and VM switch is -XX:SurvivorRatio=2 
+			then 5m will be reserved for Eden Space and 2.5m each for both the Survivor spaces. The default value is 8.
+		-XX:NewRatio        		For providing ratio of old/new generation sizes. The default value is 2.
 
+------------------- OutOfMemoryError in Java (https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html)
+		Types of OutOfMemoryError in Java
+		I have seen mainly two types of OutOfMemoryError in Java:
+
+		1) The java.lang.OutOfMemoryError: Java heap space
+		2) The java.lang.OutOfMemoryError: PermGen space
+	
+		How to solve java.lang.OutOfMemoryError: Java heap space	
+		1) An easy way to solve OutOfMemoryError in java is to increase the maximum heap size by using JVM options "-Xmx512M", this will immediately solve your OutOfMemoryError.
+
+Read more: https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html#ixzz5WqK4p07j
 ------------------- Memory Leaks (https://stackify.com/memory-leaks-java/)
 		Static Field Holding On to the Object Reference
 		Calling String.intern() on Long String
 		Unclosed Streams
 		Unclosed Connections
 		Adding Objects with no hashCode() and equals() into a HashSet
+	
+------------------- How does Java Garbage Collection work with Circular References? (https://stackoverflow.com/questions/1910194/how-does-java-garbage-collection-work-with-circular-references)
+		Java's GC considers objects "garbage" if they aren't reachable through a chain starting at a garbage collection root, so these objects will be collected. 
+			Even though objects may point to each other to form a cycle, they're still garbage if they're cut off from the root.
 	
 -- ------------------------------------------------ 4 типа ссылок на объекты
 В Java существует 4 типа ссылок на объекты:
@@ -376,29 +423,8 @@ When to use LinkedList and when to use ArrayList?
 LIFO (акроним Last In, First Out, «последним пришёл — первым ушёл») 
 FIFO (акроним англ. First In, First Out – первым пришёл — первым ушёл)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Generic.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-		Параметр T в угловых скобках называется универсальным параметром, так как вместо него можно подставить любой тип.
-			public interface List<E> {
-				E get(int i);
-				set(int i, E e);
-				add(E e);
-				Iterator<E> iterator();
-				…
-			}
-
-		The wildcard ? in Java is a special type parameter that controls the type safety of the use of generic (parameterized) types.
-			It can be used in variable declarations and instantiations as well as in method definitions, but not in the definition of a generic type.
-		
-		Мнемоника PECS (provider - extends, consumer - super)(https://ru.stackoverflow.com/questions/361807/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-wildcard-%D0%B2-generics-java)
-		"PECS" находится с точки сбора. Если вы только вытаскиваете предметы из общей коллекции, это производитель, и вы должны использовать extends;
-		если вы только набиваете предметы, это потребитель, и вы должны использовать super. Если вы делаете оба с одной и той же коллекцией, вы не должны использовать либо extends, либо super.
-
-		<? extends Number> подразумевается "любой тип, являющийся дочерним классом для Number". Плюс сам Number.
-		<? super Number> действительно подразумевает "любой тип, являющийся супер-классом для Number". Плюс сам Number.
- 
+-- ------------------------------------------------ POJO (англ. Plain Old Java Object) 
+„Простий старий Java-об'єкт“, простий Java-об'єкт, не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Threads
@@ -466,7 +492,6 @@ Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/
 
 		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
 
-		
 		the Callable interface which defines only one method as follows:
 			public interface Callable<T> {
 				public T call();   

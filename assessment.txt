@@ -40,6 +40,11 @@ https://courses.epam.com/courses/course-v1:epam+EB+14/courseware/511a9b124cae487
 			And Continuous Delivery usually follows the same principles as Continuous Integration. You create the development process, 
 			every change must be integrated and you need to be ready for release in anytime; 
 			the automatic, static and integration tests must be included and you need to catch defects as early as possible.
+			
+		Continuous deployment(https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd)
+			Continuous deployment goes one step further than continuous delivery.
+			With this practice, every change that passes all stages of your production pipeline is released to your customers. 
+			There's no human intervention, and only a failed test will prevent a new change to be deployed to production.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Unit Testing Best Practices (https://kb.epam.com/display/EJAVACC/Unit+Testing+Best+Practices)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -77,13 +82,23 @@ Unit Testing Best Practices (https://kb.epam.com/display/EJAVACC/Unit+Testing+Be
 			BDD (behavior-driven development) combines practices from TDD and from ATDD.[27] 
 			It includes the practice of writing tests first, but focuses on tests which describe behavior, rather than tests which test a unit of implementation. 
 			Tools such as Mspec and Specflow provide a syntax which allow non-programmers to define the behaviors which developers can then translate into automated tests.
-			
+		
+		(https://stackoverflow.com/questions/5357601/whats-the-difference-between-unit-tests-and-integration-tests)
+		A unit test is a test written by the programmer to verify that a relatively small piece of code is doing what it is intended to do. 
+			They are narrow in scope, they should be easy to write and execute, and their effectiveness depends on what the programmer considers to be useful. 
+			The tests are intended for the use of the programmer, they are not directly useful to anybody else, though, if they do their job, testers and users downstream should benefit from seeing fewer bugs.
+		
+		An integration test is done to demonstrate that different pieces of the system work together. Integration tests cover whole applications, and they require much more effort to put together. 
+			They usually require resources like database instances and hardware to be allocated for them. 
+			The integration tests do a more convincing job of demonstrating the system works (especially to non-programmers) than a set of unit tests can, at least to the extent the integration test environment resembles production.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Naming standards for unit tests (http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html, https://dzone.com/articles/7-popular-unit-test-naming)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 		The basic naming of a test comprises of three main parts: [UnitOfWork_StateUnderTest_ExpectedBehavior]
-			A unit of work is a use case in the system that startes with a public method and ends up with one of three types of results: a return value/exception, a state change to the system which changes its behavior, or a call to a third party (when we use mocks). so a unit of work can be a small as a method, or as large as a class, or even multiple classes. as long is it all runs in memory, and is fully under our control.
+			A unit of work is a use case in the system that startes with a public method and ends up with one of three types of results: a return value/exception, 
+			a state change to the system which changes its behavior, or a call to a third party (when we use mocks). 
+			so a unit of work can be a small as a method, or as large as a class, or even multiple classes. as long is it all runs in memory, and is fully under our control.
 
 		Examples: Public void Sum_NegativeNumberAs1stParam_ExceptionThrown()
 			Public void Sum_NegativeNumberAs2ndParam_ExceptionThrown ()
