@@ -97,6 +97,7 @@ judgements - судження
 perspective - вид
 to revolve about sb/sth - обертатися, вертітися довкола когось, чогось
 to get out - вийти
+
 go in - входити
 whatever - що завгодно, що б не було
 somewhat - дещо
@@ -123,7 +124,6 @@ withdrawn - замкнений
  benchmark - орієнтир
 to distinguish - розрізняти, вирізняти, відокремлювати
 substitute - замінити
-Overhead - Накладні витрати
 utilization - вживання
 idle - бездіяльний
 in spite - незважаючи
@@ -218,7 +218,6 @@ emerge - з'являються
 is utilized - використовується
 Preserves - Зберігає
 interfere - заважати
-enhancements - посилення
 inherent - властивий
 
 whether - чи то
@@ -229,6 +228,32 @@ subsequent - наступний
 compliance - відповідність
 allocate - виділити
 
-Essentially - По суті
+enhancements - посилення
+essentially - по суті
 eventually - врешті-решт
+essential - істотний, суттєвий
+efficient - ефективний
+encourage - заохочувати
+
 redundancy - надмірність
+mismatch - невідповідність
+spouse - подружжя
+confirm - підтвердити
+Compliance Brief - Короткий опис відповідності
+Vehicle - Автомобіль
+revisit - переглянути
+takes considerably less time - займає значно менше часу
+keep up - йти в ногу, слідкувати
+encourage - заохочувати
+persuade - переконати
+
+imply, it implies(it means) - мати на увазі, це означає
+overhead - Накладні витрати
+computation - обчислення
+competition - конкуренції
+relevant - відповідний
+assumption - припущення
+most likely - скоріш за все
+descriptive - описовий
+Despite - незважаючи на це
+snippet - фрагмент

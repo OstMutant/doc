@@ -510,6 +510,7 @@ public - громадкість
 surveyed - опитані
 undesirable - небажано
 desire - бажання, бажати
+desirable - бажаний
  
 turn ... ?
 
@@ -793,8 +794,8 @@ comprehensible - зрозумілий
 before long, soon - незабаром, скоро
 memorable, unforgettable - пам'ятний, незабутній
 --- 
-transmission, expert(passing of something from one person, place, or thing to another) - передача
-mavens(people who know a lot and talk a lot about a particular subject) - знавець
+transmission(passing of something from one person, place, or thing to another) - передача
+expert, mavens(people who know a lot and talk a lot about a particular subject) - знавець
 word-of-mouth(relating to people telling people) - поговір, молва 
 epidemic(large number of cases of an infectious disease occurring at the same time) - епідемія 
 generate(produce or create) - створювати, виробляти
@@ -856,8 +857,124 @@ turnstile ['tɜːnstaɪl] - турнікет
 contagious - заразний
 cues - сигнали
 insensitive - нечутливий
-litter - сміття
+litter, trash - сміття
 assault - штурм, атакувати
 raping - згвалтування
 decline - занепадати, занепад
 recycle - переробляти
+
+toll road - оплачувана дорога
+rumble - гуркіт
+to grumble about sth - бурчати про щось
+residential - житловий будинок
+residential street - житлова вулиця
+
+-----------------------------------------------------------------
+transmission, transferring, communication - передача
+transmit, transfer, transform, communicate - передавати
+transmittable, transferable, communicable - передача, передавати, передаваний
+
+generator, generation - генератор, покоління
+generate, engender, produce - генерувати
+generated - згенерований
+
+consumer, consumption - споживач, споживання
+power consumption - споживання енергії
+fuel(oil) consumption - витрата палива(нафти)
+consume - споживати
+consumed - споживаючий
+
+profile, sketch, outline - обвід, ескіз
+profile, caracterivise - окреслювати, охарактеризувати
+profiled - окреслений 
+
+root - корінь 
+root - укорінюватися
+root out, irredicate - викоренити
+rooted - вкорінений
+deep-rooted - закорінений
+
+contagion, infection - зараза(інфекція)
+contaminate, infect - заражати
+contagious, infectious - заразний
+
+trigger - спусковий гачок, курок, чинник, фактор
+trigger, activate, initiate - активувати
+triggered - спрацювавший
+
+vandal, barbarian, vandalism - вандал, варвар, вандалізм
+vandalize, destroy, ruin, damage - нівечити
+
+mess - безлад,
+mess - чинити безладдя, псувати
+mess up - облажатися
+messy, scruffy, untidy  - неохайний, неакуратний
+
+immunity, vaccination - імунітет
+high/low immunity - високий / низький імунітет
+immunace, vaccinate - набувати іммунітету
+immune - захищений
+resuscitate immunity - реанімований імунітет
+
+this issue generates serious controversy - це питання викликає серйозні суперечки
+pull the trigger - натиснути на гачок
+to contaminate food - забруднювати їжу
+the work of art was vandalised - творіння мистецтва було понівечено
+
+-----------------------------------------------------------------
+band-aid solution - тимчасове вирішення
+viral marketing - вірусний маркетинг
+a social epidemic - соціальна епідемія
+infected - інфікований
+be immune(resistant) to an idea - бути захищеним до ідеї
+contagious idea - заразна ідея
+
+float an idea - випробувати ідею
+a flood of ideas - повінь ідей
+make a splash - зробити сплеск, зробити фурор
+a ripple effect - хвильовий ефект 
+ripple - пульсація
+swim against the tide - пливти проти припливу
+tide - приплив
+the tide is turning - приплив повертається, події прийняли новий оберт
+wave - хвиля
+
+ridge - гребінь гори, вододіл
+experience - переживати
+wrestler - борець
+lifeguards - рятувальники
+advisors - радники
+mayor - міський голова
+wounds - рани
+unleashing - розв'язати
+to argue about sth - сперечатися про щось
+to argue - стверджуй
+witness - свідок, свідчити
+preference - перевага, вибір
+powerful - потужний
+virusworthy - вірусоподібний
+worthy - гідний
+secretaries - секретарі
+my pleasure - моє задоволення
+to explode - вибухати
+to get them to come around to a new idea - щоб змусити їх підійти до нової ідеї
+
+-----------------------------------------------------------------
+come around - 
+contagious - заразний
+epidemic(large number of cases of an infectious disease occurring at the same time) - епідемія 
+got a hold of(contacted; communicated with) - звязуватись, cхопитись за щось
+ideavirus - 
+immune - захищений
+infected - інфікований
+a ripple effect - хвильовий ефект 
+sneezers - той хто поширює вірусні ідеї, розноики
+spread - поширення
+transmit, transfer, transform, communicate - передавати
+trigger - спусковий гачок, курок, чинник, фактор
+viral marketing - вірусний маркетинг
+went a long way - пройшов довгий шлях, to be succeed
+went through the roof - пройти краєм
+witness - свідок, свідчити
+virusworthy - вірусоподібний
+special advisory committee - спеціальний консультативний комітет
