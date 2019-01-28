@@ -217,8 +217,9 @@ emphasis - акцент
 emerge - з'являються
 is utilized - використовується
 Preserves - Зберігає
-interfere - заважати
+interfere - заважати, встрявати, втручатися (It's their problem and I'm not going to interfere. I'd never interfere between (us with) a husband and wife. Interfering in other people's relationships is always a mistake.)
 inherent - властивий
+
 
 whether - чи то
 either - або
@@ -230,7 +231,7 @@ allocate - виділити
 
 enhancements - посилення
 essentially - по суті
-eventually - врешті-решт
+eventually - врешті-решт, зрештою
 essential - істотний, суттєвий
 efficient - ефективний
 encourage - заохочувати
@@ -257,3 +258,30 @@ most likely - скоріш за все
 descriptive - описовий
 Despite - незважаючи на це
 snippet - фрагмент
+mindset - мислення
+recent - останні, недавній
+recently - recently
+dummy - макет
+this post is worth the read - цей пост варто прочитати
+waste - марнувати
+you may be hearing - почути
+buzz - гул
+overheard - підслухав
+complement - доповнювати
+
+draw attention to - привернути увагу
+Erasure - Стирання
+accidentally - випадково
+Sorry for the inconvenience - Вибачте за незручності
+what's up - як справи
+personality - особистість
+excitement - хвилювання
+literally - буквально
+immense - величезний
+journey - подорож
+respond rapidly - швидко реагувати
+appropriate timely manner - відповідним чином
+reveal - розкривати
+
+permanently - постійно
+comprehensive - всеосяжний

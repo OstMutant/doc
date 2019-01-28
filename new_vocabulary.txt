@@ -772,13 +772,14 @@ preceding, previous - попередній
 murder - вбивство
 dramatic - хвилюючий
 contribute - внесок
-puppets - ляльки
+puppets - ляльки, маріонетки
 germs - мікроби
 sticky - липкий
 stickiness factor - коефіцієнт липкості
 flashy - вспалах, блиск
 puppie - щенята
-devoured - поглинув
+devour - поглинати, пожирати
+devoured - поглинати, пожирати
 intriguing - інтригує
 adheres, to stick to, to keep to - дотримується
 profitable performance - вигідна продуктивність
@@ -796,7 +797,7 @@ memorable, unforgettable - пам'ятний, незабутній
 --- 
 transmission(passing of something from one person, place, or thing to another) - передача
 expert, mavens(people who know a lot and talk a lot about a particular subject) - знавець
-word-of-mouth(relating to people telling people) - поговір, молва 
+word-of-mouth(relating to people telling people) - поговір, молва, з вуст в уста
 epidemic(large number of cases of an infectious disease occurring at the same time) - епідемія 
 generate(produce or create) - створювати, виробляти
 got a hold of(contacted; communicated with) - звязуватись
@@ -816,7 +817,7 @@ handful - жменька
 sociable ties - товариські зв'язки
 average score - середній бал
 immediate circle - найближче коло
-relentlessly social - невтомно соцыальний
+relentlessly social - невтомно соціальний
 incredible persuasive - неймовірний переконливий
 fascination - захоплення
 thinker - мислитель
@@ -877,6 +878,8 @@ transmittable, transferable, communicable - передача, передават
 generator, generation - генератор, покоління
 generate, engender, produce - генерувати
 generated - згенерований
+
+agenda - порядок денний
 
 consumer, consumption - споживач, споживання
 power consumption - споживання енергії
@@ -946,6 +949,7 @@ lifeguards - рятувальники
 advisors - радники
 mayor - міський голова
 wounds - рани
+unleash розв'язувати, спускати, спускати із швори
 unleashing - розв'язати
 to argue about sth - сперечатися про щось
 to argue - стверджуй
@@ -954,6 +958,8 @@ preference - перевага, вибір
 powerful - потужний
 virusworthy - вірусоподібний
 worthy - гідний
+worth - варто, вартість
+wealth [welθ] / wealthy - багатство/ багатий, заможний 
 secretaries - секретарі
 my pleasure - моє задоволення
 to explode - вибухати
@@ -978,3 +984,50 @@ went through the roof - пройти краєм
 witness - свідок, свідчити
 virusworthy - вірусоподібний
 special advisory committee - спеціальний консультативний комітет
+
+imminent, forthcoming - неминучий
+resistance - опір
+resistant - стійкий
+fierce resistance - запеклий опір
+fierce, violent - жорстокий, запеклий, лютий
+revolutionary - революціонер, революційний
+darkness - темрява
+blacksmith - коваль
+silversmith - майстер срібних виробів
+
+yawn - позіхати
+inoculate - щепити 
+tetanus - правець(стовбняк)
+
+patriot day - День патріота
+thrill - гострі відчуття
+saddle - сідло
+anthem - гімн
+gig - концерт
+muddy - брудний
+muddy river - каламутна річка
+
+proverb, proverbial - прислів'я, загальновідомий
+define, definition - визначати, визначення
+publicity - гласність
+realistic - реалістично 
+influential - впливовий
+apologetic - примирливий
+artificial - штучний
+transmission - передачі
+sensitivity - чутливість
+complicate - ускладнити, факти, докази
+complication - ускладнення
+comparison - зіставлення, подібність
+comprehensible - зрозумілий
+imaginative - образний
+primary - первинний
+syllable - склад
+one syllable in the word - один склад слова
+vowel - голосний звук
+stress - ставити наголос
+suffix - суфікс
+harmful- шкідливий
+
+accusation - звинувачення
+blame - звинувачувати

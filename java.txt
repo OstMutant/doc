@@ -186,28 +186,34 @@ Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generics-example-method-class-interface)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	Java Generic Class
-	Java Generic Interface
+	Generics was added in Java 5 to provide compile-time type checking and removing risk of ClassCastException that was common while working with collection classes. 
+	We use angle brackets (<>) to specify the type parameter.
 	Java Generic Type
 		Naming convention helps us understanding code easily and having a naming convention is one of the best practices of java programming language. 
-			So generics also comes with it’s own naming conventions. Usually type parameter names are single, uppercase letters to make it easily distinguishable from java variables. 
-			The most commonly used type parameter names are:
-			E – Element (used extensively by the Java Collections Framework, for example ArrayList, Set etc.)
-			K – Key (Used in Map)
-			N – Number
-			T – Type
-			V – Value (Used in Map)
-			S,U,V etc. – 2nd, 3rd, 4th types
-	Java Generic Method
-	Java Generics Bounded Type Parameters
-		Suppose we want to restrict the type of objects that can be used in the parameterized type, for example in a method that compares two objects and we want to make sure that the accepted objects are Comparables. 
-			To declare a bounded type parameter, list the type parameter’s name, followed by the extends keyword, followed by its upper bound, similar like below method.
-			public static <T extends Comparable<T>> int compare(T t1, T t2){
-				return t1.compareTo(t2);
+		So generics also comes with it’s own naming conventions. Usually type parameter names are single, uppercase letters to make it easily distinguishable from java variables. 
+		The most commonly used type parameter names are:
+			E – Element (used extensively by the Java Collections Framework, for example ArrayList, Set etc.) K – Key (Used in Map) N – Number T – Type V – Value (Used in Map) S,U,V etc. – 2nd, 3rd, 4th types
+	Java Generic Interface
+		public interface Comparable<T> {
+			public int compareTo(T o);
+		}
+	Java Generic Class 
+		public class GenericsType<T> {
+			private T t;
+			public T get(){
+				return this.t;
 			}
+			public void set(T t1){
+				this.t=t1;
+			}
+		}
+	Java Generic Method
+		public static <T> boolean isEqual(GenericsType<T> g1, GenericsType<T> g2){
+			return g1.get().equals(g2.get());
+		}
 	Java Generics and Inheritance
-		We know that Java inheritance allows us to assign a variable A to another variable B if A is subclass of B. So we might think that any generic type of A can be assigned to generic type of B, but it’s not the case.
+		We know that Java inheritance allows us to assign a variable A to another variable B if A is subclass of B. 
+		So we might think that any generic type of A can be assigned to generic type of B, but it’s not the case.
 			public class GenericsInheritance {
 				public static void main(String[] args) {
 					String str = "abc";
@@ -220,43 +226,28 @@ Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generic
 				}
 				public static class MyClass<T>{}
 			}
-	Java Generic Classes and Subtyping
-		We can subtype a generic class or interface by extending or implementing it. 
-			The relationship between the type parameters of one class or interface and the type parameters of another are determined by the extends and implements clauses.
-		interface MyList<E,T> extends List<E>{
-		}
+			
+	Using Wildcards with Generics(https://www.baeldung.com/java-generics)
+		Wildcards are represented by the question mark in Java “?” and they are used to refer to an unknown type. 
+		The wildcard ? in Java is a special type parameter that controls the type safety of the use of generic (parameterized) types.
+			It can be used in variable declarations and instantiations as well as in method definitions, but not in the definition of a generic type.
 	Java Generics Wildcards
 		Question mark (?) is the wildcard in generics and represent an unknown type. The wildcard can be used as the type of a parameter, field, or local variable and sometimes as a return type. 
 			We can’t use wildcards while invoking a generic method or instantiating a generic class. In following sections, we will learn about upper bounded wildcards, lower bounded wildcards, and wildcard capture.
 	Java Generics Upper Bounded Wildcard
-		Upper bounded wildcards are used to relax the restriction on the type of variable in a method. 
-			List<? extends Number> list
+		List<? extends Number> list  - Upper bounded wildcards are used to relax the restriction on the type of variable in a method. 
 	Java Generics Unbounded Wildcard
-		Sometimes we have a situation where we want our generic method to be working with all types, in this case unbounded wildcard can be used. Its same as using 
-			<? extends Object>.
+		<? extends Object> - Sometimes we have a situation where we want our generic method to be working with all types, in this case unbounded wildcard can be used. Its same as using 
 	Java Generics Lower bounded Wildcard
-		public static void addIntegers(List<? super Integer> list){
-			list.add(new Integer(50));
-		}
+	    <? super Integer> list
 	Java Generics Type Erasure
 		Generics in Java was added to provide type-checking at compile time and it has no use at run time, 
 			so java compiler uses type erasure feature to remove all the generics type checking code in byte code and insert type-casting if necessary. 
 			Type erasure ensures that no new classes are created for parameterized types; consequently, generics incur no runtime overhead.
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-		Параметр T в угловых скобках называется универсальным параметром, так как вместо него можно подставить любой тип.
-			public interface List<E> {
-				E get(int i);
-				set(int i, E e);
-				add(E e);
-				Iterator<E> iterator();
-				…
-			}
-
-		The wildcard ? in Java is a special type parameter that controls the type safety of the use of generic (parameterized) types.
-			It can be used in variable declarations and instantiations as well as in method definitions, but not in the definition of a generic type.
-		
+	Multiple Bounded Type Parameter
+		public abstract class Cage<T extends Animal & Comparable>
+--------------------
 		Мнемоника PECS (provider - extends, consumer - super)(https://ru.stackoverflow.com/questions/361807/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-wildcard-%D0%B2-generics-java)
 		"PECS" находится с точки сбора. Если вы только вытаскиваете предметы из общей коллекции, это производитель, и вы должны использовать extends;
 		если вы только набиваете предметы, это потребитель, и вы должны использовать super. Если вы делаете оба с одной и той же коллекцией, вы не должны использовать либо extends, либо super.
@@ -264,7 +255,11 @@ Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generic
 		<? extends Number> подразумевается "любой тип, являющийся дочерним классом для Number". Плюс сам Number.
 		<? super Number> действительно подразумевает "любой тип, являющийся супер-классом для Number". Плюс сам Number.
  
-			
+		Бриллиантовая операция (Diamond operator)(https://urvanov.ru/2016/04/28/java-8-%D0%BE%D0%B1%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D1%8F/)
+		Начиная с Java 7 существует также бриллиантовая операция (--[diamond operator]--), которая позволяет указывать пустые аргументы типа <>  там, где компилятор может вывести тип из контекста: 
+			Lair<Goblin> goblinLair = new Lair<>();
+		Сырой тип (--[raw type]--) — это имя обобщённого класса или интерфейса без аргументов типа (type arguments).
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
