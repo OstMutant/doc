@@ -53,7 +53,7 @@ overwhelmed - переповнений, пригнічений
 overwhelmed with information - переповнений інформацією
 in a way - в деякій мірі, у певному сенсі
 by the way - до речі
-withdrawal - відвикання, залкжність
+withdrawal - відвикання, залежність
 drawal - розрив
 
 he go cold turkey - він має ломку
@@ -508,9 +508,6 @@ doubt - сумнів
 painfully - болісно
 public - громадкість
 surveyed - опитані
-undesirable - небажано
-desire - бажання, бажати
-desirable - бажаний
  
 turn ... ?
 
@@ -755,12 +752,11 @@ get rid - позбутись
 fairer - чесний
 swallow - проковтнути
 from the waist down - від талії вниз
-persuade - переконувати
 dare - наважитись
 revelling pointlessly - радіючи безглуздо
 pumpkin pie - гарбузовий пиріг
 enquire - запитати
-surely - напевне
+surely - напевне,безумовно
 we are horrified - в жаху
 
 Project ongoing - проект триває
@@ -966,7 +962,7 @@ to explode - вибухати
 to get them to come around to a new idea - щоб змусити їх підійти до нової ідеї
 
 -----------------------------------------------------------------
-come around - 
+come around - підійти, наблизитись
 contagious - заразний
 epidemic(large number of cases of an infectious disease occurring at the same time) - епідемія 
 got a hold of(contacted; communicated with) - звязуватись, cхопитись за щось
@@ -1011,13 +1007,13 @@ proverb, proverbial - прислів'я, загальновідомий
 define, definition - визначати, визначення
 publicity - гласність
 realistic - реалістично 
-influential - впливовий
 apologetic - примирливий
 artificial - штучний
 transmission - передачі
 sensitivity - чутливість
 complicate - ускладнити, факти, докази
 complication - ускладнення
+complicated - складний
 comparison - зіставлення, подібність
 comprehensible - зрозумілий
 imaginative - образний
@@ -1039,6 +1035,8 @@ obese - ожиріння
 
 
 --------------------------- !!! start 5
+We use 'this / that / these / those' to show which things or people we mean.
+
 estate agent - агент з продажу нерухомості
 estate developers - забудовники
 suggest(пропонувати), guess - припускати
@@ -1055,12 +1053,17 @@ dismiss,reject - відхилити, відкидати
 divine energy - Божественна енергія
 fish tank, aquarium - акваріум
 startled - вражений,остовпілий
+permeated - пронизана 
+odor,smell - запах
+acknowledge(admit), knowledge - визнати, знання
+crops - посіви
+power lines - ліній електропередач
 
 aligning (properly positioning) - ставити в ряд, вирівнювати
 to frown upon/on (disapproved of) - несхвалювати, насупувати брови
 anecdotes (personal stories) - випадки, епізоди
 hardbitten (taught, experienced), harsh - битий жук
-caught off guard (surprised), scared - застали зненацька, наляканий
+caught off guard (surprised), scared, startled - застали зненацька, наляканий, вражений
 transcendent (beyond the limits of ordinary experience) - позамежний
 circulates(moves, flows) - циркулювати
 abundance (a large quantity of something), wealth, excess - достаток, надлишок
@@ -1108,3 +1111,445 @@ partnership - партнерство
 marriage - шлюб
 talk somebody into - поговорити з кимось
 vitality - життєздатність
+
+advantage - перевага
+to advance - для просування
+in advance - заздалегіть, наперед
+to promote - сприяти
+adversely - негативно
+stagnant - застійний
+
+--------------------------------------------------------------------------------
+
+abundance (a large quantity of something), wealth, excess - достаток, надлишок
+lack - брак, недостача
+luck - удача
+to abound, to exceed - рясніти, бути багатим на щось, кишіти, буяти
+abundant in/with sth, excessive - надлишковий, рясний, надмірний
+this forest abounds with ants - цей ліс рясніє мурахами
+horn of abundance - ріг достатку
+our office abounds with rumors - наш оффіс рясніє плітками
+gossip - плітки/ rumor - чутки / to gossip - пліткувати 
+an abundant harvest - рясний урожай
+excessive weight - надмірна вага
+to take excessive interest in sth - проявляти зайвий інтерес до sth
+
+acuteness, acuity, sharpness - гострота, пронизливість
+acute, sharp - гострий, пронизливий, кмітливий
+mental acuteness - розумова гострота
+visual acuity - гострота зору
+sharp pain - гострий біль
+eyes sharp - гострий зір
+acute hearing - гострий слух
+acute mind - гострий розум
+
+alignment - вирівнювання, групування, розташування
+to align with sth - вирівнювати
+aligned - вирівняні
+alignment of forces - вирівнювання сил, розстановка сил
+domestic prices should be aligned with world market - внутрішні ціни повинні бути узгоджені з світовим ринком
+the desks are aligned in rows - Парти вирівняні рядами
+to quote from the main subject - цитувати з основної теми
+
+deviation, digression - відступ, відхилення
+to digress, to deviate - відступ
+digressive - дигресивний, що відхиляється
+
+management, governance - управління
+to menage, to run, to govern - керувати
+governing - управляємий
+governing class of politician - керівний клас політиків
+corrupt government - корумпований уряд
+
+quotation - цитата
+to quote - цитувати
+quoteble - цитуємий
+in quotes - в лапках
+many people quote of the bible - багато людей цитує Біблію
+quote\unquote - відкрити закрити лапки
+the most quotable proverb - найбільш цитуєме прислівя
+
+scholar\scientist - вчений(гуманітарій\науковець)
+scholastic,scholarly - академік\едукейшен ерудований\освідчений
+
+sense - глузд
+sense, sensation, perception - чуття, відчуття
+sensation - сенсація
+to perceive, feel, sense  - сприймати, відчувати
+persuade - переконувати
+to sensitize - робити чутливим
+sensible, reasonable - розсудливий
+sensual - чуттєвий
+susceptible - чутливий, вразливий
+sensitive - чуйний, чутливий
+to create sensation - створювати сенсацію
+visual, ordinary sensation - зорове сприйняття\сприйняття на слух
+to make more sensitive - зробити більш чутливим
+to sensitize the people to some facts - робити чутливими людей до деяких фактів
+sensual voice, music - чутливий голос\музика
+infinity transcends our perception - нескінченність виходить за межі нашого сприйняття
+
+sceptic, skepticism - розумний, скептицизм
+to skepticize - 
+skeptical - скептичний
+
+transcendence - позамежність
+to transcend, exceed - перевищувати
+transcendent, transcendental, extraordinary, - позамежний
+
+vitality, liveliness, viability, vitality - життєздатність, живучість
+to vitalize, revive - оживити, приводити до тями
+vital, essential - життэво важливий, життэво необхідний
+a matter of vital importance - питання життєвого значення
+
+anecdote - життєва історія (personal)
+tell an - 
+anecdotal - сюжетний(based on personal story)
+anecdotic,ironical,funny - анекдотичний
+har book of quote of anecdote - книга цитат з особистого життя
+
+---------------------------
+at heart(essentiality) - в серці (сутність)
+an artistic designer at heart(essentiality) - художній дизайнер в душі(в сутності)
+
+get into (become interested in) - проникатись(зацікавилися)
+astute, acute, sharp - кмітливий, хитрий
+the pleasure is mine - моє задоволення
+
+make a move, take action - зробити хід, вжити заходів
+
+in the midst of (involved in) - в розпал (залучений до)
+talk into, talk sb into, convince, persuade - переконати, вмовити
+work around(compensate for) - обійти(компенсувати)
+clean(simple) - простий
+hard-bitten(tough, experienced) - досвідчений
+huge(very popular) - дуже популярний
+rise and fall(succeed or fail) підніматися і опускатися(успіх або невдача)
+scare the heck out of (frightened) - відлякують, heck - чорт 
+ajustement - виправлення
+keep out(prevent from entering) - не допускати
+peppy(livelier) - бадьоріше, жвавіше
+puppy - щеня
+puppet - маріонетка
+catch off guard, startled - наляканий, вражений
+tease - дражнить
+can't hurt, can do no harm - не може зашкодити
+immovable - нерухомий
+
+cluttered arrangements - переповнене оформлення
+---------------------------
+file - файл
+fail - збій
+eager - нетерплячий, енергійний
+revive - оживити
+poorly - бідно, погано
+at first glance - на перший погляд
+smoothly - плавно
+throughout - через
+
+Contrast
+in contrast - у контрасті
+but - але
+however - однак
+on the other hand - з іншого боку
+
+Addition
+moreover, furthermore, besides - крім того
+plus - плюс
+in addition - в додаток
+on top of that - поверх цього
+
+Result
+consequently, therefore, so - отже, тому
+as a result - як результат
+finally - нарешті
+all in all - загалом
+
+surroundings,to surround - оточення, оточувати 
+dorm - гуртожиток
+emphatic - виразний, акцент
+emphatically - рішуче, підкреслено
+
+exclamation - вигук
+inversion - перестановка
+explanation - пояснення
+auxiliary - допоміжний
+Boy - used as an exclamation followed by an inversion, auxiliary then main verb
+I wouldn't say ..., but I would say ... - used to clarify the meaning
+... would no more ... than ... - followed by something obviously unreasonable
+talk about ... - followed by an explanation
+I'd have to say ... - used to emphasize a strong point
+------------------
+
+boost - підвищення magnify - збільшити
+instant - миттєво
+foster(to foster = to nurture ) - виховувати, пестити, nurture - виховання, natural, nature - природний, природа, neutral - нейтральний
+auspicious, favorable, conducive - сприятливий
+favourite - улюблений, unfavourite - непривабливий, favorable, auspicious, conducive - сприятливий, unfavorable, adverse, negative - несприятливий
+prosperity - процвітання
+decline - зниження
+
+------------------
+tackle - енергійно братися
+outraged - обурення
+esteemed, respected - шанований, поважний
+respectful - шанобливий
+
+shumbles - руїни
+in shambles - в руїнах
+withered - зів'яло
+withered flower beds - сухі квітники
+to wither ['wɪðə] = to fade - вянути, блякнути
+crumbling staircases - сходи що кришаться
+cracked walls - стіни в тріщинах
+stain - пляма
+water-stained - заплямовані водою
+water-stained ceilings - заплямовані водою стелі 
+brown lawns - коричневі газони
+neglect - знехтувати, neglected - занедбаний
+devastating earthquakes - руйнівні землетруси
+devastate - зруйнувати, devastated - спустошений
+desperate - відчайдушний
+on the inside - зсередини
+to flee (fled, fled) = to escape, vanish - тікати, втеча, зникають
+plummeting - падіння
+enroll - зареєструватися
+enrollment, recruiting - рекрутинг, реєстрація
+world-renowned - всесвітньо відомий
+pledge, swear - присягнув, клястися
+descent, origin - походження
+heritage - спадщина
+glory, fame - слава
+glory days - дні слави
+support - підтримка, підтримувати
+supporting, supportive - сприятливий, підтримуючий
+stark - різкий
+in stark contrast - в різкому контрасті
+advocate - відстоювати
+richness - багатство
+creativity - творчості
+superstition - марновірство,забобони, superstitious - забобонний 
+
+controversial practice - суперечлива практика
+adamantly(categorically) opposed - категорично проти, adamant - непохитний
+
+emphasize - підкреслити, outline - відтіняти, окреслювати
+vote on - голосувати
+
+mere - просто
+presence - присутність
+willingness - готовність
+permitt, permitted - дозвіл, дозволено
+permeated - пронизана, проникати 
+shelter - притулок, захищає
+undergo - пройти, піддаємось
+large, larger - численний, більший(Численніший)
+burnt (burn, burned, burnt - палити) - спалений
+whatever - що завгодно
+incline - нахил
+odor -запах
+
+pause - пауза
+
+relevance - актуальність, доречність
+obsession - фанатизм, одержимість
+
+edema - набряк
+general practitioner, therapist, physician - лікар загальної практикиогидний
+
+booked solid for, fully booked - повністю заброньовані
+tension - напруженість
+whether (... or ...)- чи то
+sneak in - підкрастися
+defend(protect, save) - захищати, відстоювати
+hideous - огидний
+falling apart - розвалюватися
+to afford [ə'fɔːd] sth - дозволяти собі щось
+
+
+
+--------------------------- !!! start 6
+retreat, seclusion, solitary - усамітнення, solitude - самотність
+renewal - відродження
+spiritual renewal - духовне оновлення, відродження
+intentionally remaining quiet - навмисно залишаючись спокійним
+mainstream - основний напрям
+withdraw from sth - виходити з
+occupy - займають
+vows - обіти
+boundary - кордону
+wandering monks - блукаючі ченці
+
+a dream come true - мрії збуваються
+sacred - священний, holy - святий
+no doubt - без сумніву
+self-denial - самозречення
+fog, mist, haze/ it’s foggy - туман / туманно
+presence - присутність
+silhouette - силует
+divine presence - божественна присутність
+feathery silhouette - пернаті силуети
+monasteries - монастирі
+monastic - чернечий
+preserve - зберегти
+by noon - опівдні
+I am stunned by the confusion and commotion - Я приголомшений бардаком і суєтою
+escape - Втеча
+thick, thin - товстий, тонкий
+chewy candies - жувальні цукерки
+endure - терпіти
+awe - благоговіння
+generosity - щедрість
+
+
+diverse, various - різноманітні
+vitally - життєво необхідний
+commitment - зобов'язання
+excel - відмінно, excelled - відзначатись
+shave their head - голити
+habits - ряса
+
+
+prophets - пророки
+foster(to foster = to nurture ) - виховувати, пестити, nurture - виховання, natural, nature - природний, природа, neutral - нейтральний
+
+hermit, recluse - відлюдник
+vocation, calling - покликання
+endure, bear, tolerate - витримати, терпіти
+
+ascetic, self-denial, self-sacrifice - living without any physical pleasures and comforts, especially for religious reasons - аскетичний 
+enact a law, introduce a law, allow a law - made a new official rule - приймати(впроваджувати) закон
+humility, humbleness - not being too proud - смирення, покірність
+will - determination - воля, will power - сила волі, resolution - дозвіл
+fasting - eating little or no food for special reason - голодування, fast - піст
+foster, nurture - develops - виховання
+vibrant - full of energy and life - жвавий
+gratitude - thankfulness - вдячність
+refrain from - not do something you want to do - утримуватись, to prevent from - для запобігання від
+well-being - a feeling of being happy, healthy, or satisfied - благополлуччя
+hectic - very busy; full of activity - неспокійний, метушливий, commotion - метушня
+divine - coming from God or god - божественний, divine presence - божественна присутність
+prophets, sacred - holy men - пророк
+replenish - renew and refill - поповнити, відновити
+
+foster humility - виховувати смиренність
+
+comparative - порівняльний, 
+competitiveness - конкурентоспроможність
+spirituality - духовність
+differences - відмінності
+Old testament - Старий завіт
+trace it back - простежити це назад
+trace - простежувати
+accomplishes - здійснює, accomplish - виконати, здійснити
+attachment - вкладення, прикріплення
+earthly - земний
+consumption - споживання
+certain amount - певна кількість
+rapid - швидкий
+revere - шанувати, поважати
+desire - бажання, бажати
+undoing - скасування
+put aside, postpone - відкласти
+over time - через деякий час
+pull back - потягнути назад
+rhythm - ритм
+strengthen(boost,intensivity) - зміцнювати
+humorous - жартівливий
+portray - зображувати
+withdraw, too tired - втомлений
+
+interfere with ,to impede sb/sth [ɪm'piːd] - перешкоджати sb
+deny oneself food - відмовити собі в їжі
+
+divinity school, theological seminary - семінарія
+Episcopalianism - англыканська церква
+
+took on - взяв на себе
+
+a fact-finding journey - to discovering some facts - подорож для виявлення фактів
+to draw sb out - витягнути на розмову
+a villager - селянин
+refugee = fugitive - біженець
+rigorous ['rɪg(ə)rəs] = severe = strict - строгий
+chant(ing) - чернечий спів
+in terms of sth - в термінах, з точки зору
+flattering - улестлевий
+a day tripper - персона що робить однодневну подорож
+suspicion/ suspicious/ suspect - підозрілість, підозрілий, підозрювати
+pilgrimage ['pɪlgrɪmɪʤ]/ pilgrim ['pɪlgrɪm] - паломництво, паломник
+a joy rider - гонщик для забави, красти
+peninsula - півострів
+notoriety [ˌnəutə'raɪətɪ] / notorious - горезвісний, з дурною славою
+to catch on - входити в моду
+revenue/ the royalties - дохід, авторський гонорар, excess revenue - надлишок доходу
+take revenge - помститися, revenge - помста, to get one’s revenge [rɪ'venʤ] - помститися
+
+certainly, certain - звичайно, певний
+gather - збиратися
+movement - рух
+fair - справедливий, fear - страх
+
+gained, gain - здобутий, виграш
+spiritual quest - духовні пошуки
+
+-----------------------------
+gradually - поступово, gradual - поступовий, grade - оцінка, ставити оцінки, graduated - закінчив/ла
+awakening - пробудження
+converted - навернувся, перетворився, conversion - навернення
+conventional - звичайний, convention - договір, контракт, unconventional - незвичайний
+
+enact(make a rule or law) - вводити в дію, постановляти
+caught on (become popular) - ставати популярним
+trace back(finds the origins of something) - простежувати
+notion of, concept(idea) - поняття, ідея
+took on (started)- взяв на себе
+quest(search) - пошук
+well-being (feeling of being happy, healthy, or satisfied) - благополлуччя
+hectic (very busy, full of activity) - метушливий
+royalties (money paid to a writer) - дохід
+refrain from (not do something you want to do) - утримуватись
+draw sb out (make someone willing to talk) - витягнути на розмову
+fostered (developed) - виховання, заохочення
+over time (gradually) - через деякий час
+pull back(withdraw, withdrew from) - вийшов з
+
+charity - благодійність ,charitable - благодійний
+accidentally - випадково
+transcript - стенограму
+imaginary - уявний
+influential - впливовий, influence - впливати, вплив
+electrocution - електричний струм
+greatly admire - дуже захоплюватися
+cancer - рак
+pass away - помирати
+restless - неспокійний
+settle down - осідати
+shipp off - відвантажувати
+gypsy - циганка
+immers - занурюватись
+confused - спантеличений
+deliberate - навмисний
+epiphany - Богоявлення
+faith - віра
+face - обличчя
+poverty-stricken - нужденний, убогий
+affect - впливати, effect - ефект
+profound - глибокий
+injustices - несправедливості
+civil rights movement - рух за громадянські права
+spite - зло, in spite - не зважаючи, in spite of - попри
+nagging - нудотний, набридливий
+spiritual emptiness - духовна порожнеча
+baffled - спантеличений
+do recall - пам'ятаю, згадую
+it takes great will - це потребує великої волі
+somber mood - похмурий настрій
+to bring out - примушувати говорити
+contemplation - споглядання
+besides - вдобавок, на додачу
+violence - насильство
+legislation - законодавство
+cure - ліки
+frenzied lives - шалене життя
+circumstances - обставини

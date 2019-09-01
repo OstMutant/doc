@@ -1,6 +1,4 @@
 equipment, equip, equipped - обладнання, обладнати, обладнаний
-natural, nature - природний, природа
-neutral - нейтральний
 consist, consistent - складаються, послідовний
 guaranty - гарантія
 uppercase, lowercase - великі літери, нижні регістри
@@ -63,7 +61,6 @@ campaign - кампанія
 prominent, outstanding - видатний
 tight - щільно
 unreasonable - надмірний, нерозумний
-insufficient - недостатньо
 principal - глава
 slightly - трохи
 uneasiness - неспокій
@@ -73,7 +70,7 @@ confinement,isolation - ув'язнення
 rigorous, severe [sɪ'vɪə], strict, harsh - строгий, суворий, жорсткий (3)
 conflicting, contradictory - суперечливий
 emphasize - підкреслити
-anxious - тривога
+
  -- --------------------------
 being anxiety dealing with mental illness - це тривога, пов'язана з психічними захворюваннями
 dealing - пов'язана 
@@ -89,6 +86,7 @@ conclusion - висновок
 conjunction - звязок
 conceal, withhold - hide something carefully - приховувати
 concern, anxiety, anxious, worried, - занепокоєння, тривога
+ancient - древній
 consider - розглядати, вважати
 complain - скаржитись
 to confess, to admit - зізнаватись (2)
@@ -146,7 +144,6 @@ hieararchies - гієарархії
 hierarchy - Ієрархія
 propagate - розповсюджувати
 drawback - недолік
-sufficient - достатньо
 
 what is it used for - для чого вона використовується
 Because of this - Через це
@@ -236,8 +233,6 @@ essential - істотний, суттєвий
 efficient - ефективний
 encourage - заохочувати
 
-redundancy - надмірність
-mismatch - невідповідність
 spouse - подружжя
 confirm - підтвердити
 Compliance Brief - Короткий опис відповідності
@@ -256,9 +251,7 @@ relevant - відповідний
 assumption - припущення
 most likely - скоріш за все
 descriptive - описовий
-Despite - незважаючи на це
 snippet - фрагмент
-mindset - мислення
 recent - останні, недавній
 recently - recently
 dummy - макет
@@ -296,8 +289,6 @@ hang out - тусуватися
 
 convenient - зручно
 convenience - зручність
-pleasant - приэмний
-pleased - задоволений
 smooth - гладкий
 
 shore - берег
@@ -323,5 +314,127 @@ avarice - жадоба
 plague [pleɪg] - чума
 briar - шипшина
 fever ['fiːvə] - лихоманка
-encourage - заохочувати 
-courage - мужність
+
+in spite - незважаючи
+admit - визнати
+admire - захоплююся
+
+diligence - старанність
+offended - ображений
+waste - відходи, марнувати
+waist - талія
+
+dagger - кинджал
+
+entertain - розважати
+entertainment - розваги
+
+repair - ремонт
+repeat, repear - повторити, повтор
+
+timeline - терміни
+stakeholder - зацікавлена сторона
+track down - відслідковувати
+even though - навіть якщо
+elder, younger - старша(старший), молодший(молодша)
+main interest - головний інтерес
+who were fond of you - які любили вас
+tease - дражнить
+prised, praised - цінувати, хвалили
+pleasing - приємний
+delightfully, delighted - чудово, в захваті
+nearby - поблизу
+disappoint - розчарувати
+convey - виражати,передати
+sly - хитро
+amusing - забавно
+enjoyable - приємним
+flatter - ласитися
+world-renowned - всесвітньо відомий
+
+mindset - мислення
+diversity - різноманітність
+never mind - не зважай
+I don’t mind - я не проти
+how does that sounds - як це звучить
+what was that - що це було
+let me confirm - дозвольте мені уточнити
+it's nice to see you - приємно бачити вас
+redundancy - надмірність
+mismatch - невідповідність
+strengths and weaknesses - сильні і слабкі сторони
+undesirable - небажано
+desire - бажання, бажати
+desirable - бажаний
+explicitly - явно, точно, precisely - точно
+
+courage, to encourage, to inspire - мужність, заохочувати, надихати
+to establish - засновувати, встановлювати, reestablish - відновити, establishment, institution - установа, заклад
+make sure - переконайтеся
+to provide - забезпечити
+aspire - прагнуть
+
+sincerely - щиро
+
+I am so hopeful - Я так сподіваюся
+differently - інакше
+recap - повторити
+
+vice versa [ˌvaɪsɪ'vɜːsə], conversely - навпаки 
+conceited - пихатий
+pleasant, pleased - приэмний, задоволений
+When all you have is a hammer, everything looks like a nail. - Коли все, що у вас є молоток, все виглядає як цвях.
+a pretty neat solution - досить акуратне рішення.
+overly - надмірно
+ensure - забезпечити, enforce - впроваджує, примушує
+Despite sth - незважаючи на це, Even though - Незважаючи на
+immediately [ɪ'miːdɪətlɪ], at once -негайно, відразу
+at least - принаймні
+
+disagreeable - неприємний, agreeable - приємний
+nearly a hundred rooms - майже сто кімнат
+It lasted all day - Це тривало весь день
+moor - болота
+than ever - ніж коли-небудь
+wander all over the house - блукати по всьому будинку
+
+conjunction - зв'язка
+alleviate - полегшити
+along - разом, alone - сам, одинокий
+accommodation - проживання, місця для проживання
+arrangement - домовленості
+inn - готель
+alert [ə'lɜːt] / watchful/ cautious ['kɔːʃəs] - пильний, обережний
+amount - обсяг, кількість
+rate - ставка
+interest rate - процентна ставка
+collocation - сполучення слів
+interleaving - переплетення
+straightforward - прямолінійний
+partial - частковий
+continuously - безперервно
+general, common - загальний
+sufficient - достатньо, insufficient - недостатньо
+
+exclaim - вигукнути
+dawn - світанок
+worthy man - гідна людина
+indeed - дійсно
+
+grab - захопити
+catch - захват, зловити
+sorrow mood - скорботний настрій
+frank - відвертий
+unfulfilled wish - нездійснене бажання
+remain restless - залишатися неспокійними
+honorable - почесний
+sake - користь
+rest in peace - спочивати у спокої
+I am honored - Мені честь
+complain - скаржитися
+insulted - ображено
+beheaded - обезголовлений
+narrate - розповідати
+
+urgency - терміновість, urgent - нагальний, urgently - терміново
+emergency - надзвичайна ситуація
