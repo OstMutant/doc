@@ -419,7 +419,6 @@ sufficient - достатньо, insufficient - недостатньо
 exclaim - вигукнути
 dawn - світанок
 worthy man - гідна людина
-indeed - дійсно
 
 grab - захопити
 catch - захват, зловити
@@ -438,3 +437,34 @@ narrate - розповідати
 
 urgency - терміновість, urgent - нагальний, urgently - терміново
 emergency - надзвичайна ситуація
+
+the river thought to herself - річка подумала собі
+sincerity - щирість
+needle - голка
+tough as steel - міцний, як сталь
+obey - підкорятися, disobey - непокора
+comrade - товариш
+deed - вчинок, indeed - дійсно
+get rid - позбутись
+mend - поправляти
+how dare you - як ти міг
+pluck - вищипувати
+enrage - гнів
+sneck - підкрався
+lament - плач, нарікати
+fates - долі, faith - віра
+eloquently - красномовно
+regrad - відновити
+spell of sage - заклинання мудреця
+hairy - волохатий
+
+do not despair - не впадайте у відчай
+miracle - диво, how weird - як дивно
+perceive - сприймати
+compassion - співчуття
+wisdom - мудрість
+weighing scale - ваги
+pretend - прикидатися
+relief - полегшення
+barely - ледве
+among - серед, поміж

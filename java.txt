@@ -165,7 +165,7 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 		5. Thread state combined with xorshift (https://en.wikipedia.org/wiki/Xorshift)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in-java)
+Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in-java, https://www.jworks.io/immutable-data-structures-in-java/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	To create immutable class in java, you have to do following steps.
 		Declare the class as final so it can’t be extended.
@@ -368,7 +368,8 @@ Read more: https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-p
 ------------------- How does Java Garbage Collection work with Circular References? (https://stackoverflow.com/questions/1910194/how-does-java-garbage-collection-work-with-circular-references)
 		Java's GC considers objects "garbage" if they aren't reachable through a chain starting at a garbage collection root, so these objects will be collected. 
 			Even though objects may point to each other to form a cycle, they're still garbage if they're cut off from the root.
-	
+References: https://javarevisited.blogspot.com/2011/04/garbage-collection-in-java.html
+			
 -- ------------------------------------------------ 4 типа ссылок на объекты
 В Java существует 4 типа ссылок на объекты:
 strong reference
@@ -382,7 +383,9 @@ WeakReference<Rectangle> rect = new WeakReference<Rectangle>(new Rectangle());
 phantom reference
 http://www.quizful.net/interview/java/reference-types
 https://habrahabr.ru/post/169883/
-
+So in brief: Soft references try to keep the reference. Weak references don’t try to keep the reference. Phantom references don’t free the reference until cleared.
+https://dou.ua/forums/topic/6267/, https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792
+https://www.logicbig.com/tutorials/core-java-tutorial/gc/phantom-reference.html
 
 -- ------------------------------------------------ Java Enum
 Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
