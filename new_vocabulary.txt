@@ -335,10 +335,7 @@ tend - схильний
 to tempt - спокушати
 absorbed - захоплений, absorb - поглинати
 confident - впевнений
-beneath - нижче, під
-beyond - далі
-beside - поруч
-behind - позаду
+beneath - нижче, під, beyond - далі, beside - поруч behind - позаду
 lacking a core - відсутність ядра
 ultimately - в кінцевому підсумку
 to be trapped - бути в пастці
@@ -953,7 +950,7 @@ witness - свідок, свідчити
 preference - перевага, вибір
 powerful - потужний
 virusworthy - вірусоподібний
-worthy - гідний
+worthy - гідний, unworthy - недостойний
 worth - варто, вартість
 wealth [welθ] / wealthy - багатство/ багатий, заможний 
 secretaries - секретарі
@@ -1501,7 +1498,7 @@ conventional - звичайний, convention - договір, контракт
 
 enact(make a rule or law) - вводити в дію, постановляти
 caught on (become popular) - ставати популярним
-trace back(finds the origins of something) - простежувати
+trace back(finds the origins of something) - простежувати, прослідковувати
 notion of, concept(idea) - поняття, ідея
 took on (started)- взяв на себе
 quest(search) - пошук
@@ -1511,7 +1508,7 @@ royalties (money paid to a writer) - дохід
 refrain from (not do something you want to do) - утримуватись
 draw sb out (make someone willing to talk) - витягнути на розмову
 fostered (developed) - виховання, заохочення
-over time (gradually) - через деякий час
+over time (gradually) - через деякий час, поступово
 pull back(withdraw, withdrew from) - вийшов з
 
 charity - благодійність ,charitable - благодійний
@@ -1528,11 +1525,9 @@ settle down - осідати
 shipp off - відвантажувати
 gypsy - циганка
 immers - занурюватись
-confused - спантеличений
 deliberate - навмисний
 epiphany - Богоявлення
-faith - віра
-face - обличчя
+faith - віра, face - обличчя
 poverty-stricken - нужденний, убогий
 affect - впливати, effect - ефект
 profound - глибокий
@@ -1541,15 +1536,65 @@ civil rights movement - рух за громадянські права
 spite - зло, in spite - не зважаючи, in spite of - попри
 nagging - нудотний, набридливий
 spiritual emptiness - духовна порожнеча
-baffled - спантеличений
+baffled - спантеличений, confused - спантеличений
 do recall - пам'ятаю, згадую
 it takes great will - це потребує великої волі
 somber mood - похмурий настрій
 to bring out - примушувати говорити
-contemplation - споглядання
-besides - вдобавок, на додачу
+contemplation - споглядання, contemplative - споглядальний, contemplate - споглядати
+besides - вдобавок, на додачу, beneath - нижче, під, beyond - далі, beside - поруч behind - позаду
 violence - насильство
 legislation - законодавство
 cure - ліки
 frenzied lives - шалене життя
 circumstances - обставини
+
+worn - зношений
+shred - клаптик
+ragged - рваний
+
+tatter - to make or become ragged or worn to shreds - лахміття
+to flood in – to overwhelm with large amounts - переповнювати
+ordination - the action of ordaining someone in holy orders - висвячення
+John the Cross, Teresa of Avila, Meister Eckhart, Teresa Lisieux
+contemplative - a person whose life is devoted primarily to prayer, esp. in a monastery
+Thomistic - the philosophical methods and principles used by Thomas Aquinas 
+an affair of the heart - a deep emotional relationship with no physical relationship - справа серця
+the bottom line – the most important point/ the gist - суть
+journal - diary
+to wrestle – to fight
+obscurity – vagueness - невідомість
+hermitage - the dwelling of a hermit/recluse - поселення ідлюдника
+flawed - imperfect  - недолік, недосконалий
+
+distraction - відволікання, distract - відволікати
+dire - страшний
+turmoil - смута
+remarkable respectful - неабиякий шанобливий
+a meaningful way of life - осмислений спосіб життя , meaningful - змістовне
+delight - захоплення, great delight - велике захоплення
+cherish, nurture - плекати
+outsiders - сторонні люди, outlanders - чужинці
+frenzied lives - шалене життя
+
+at odds with - disagreeing with - розходитись в чомусь
+out of touch with - not understanding - розходитись в чомусь
+stumbling block - problem or difficulty - stumbling stone - камінь спотикання, проблема або складність
+walks of life - position in society - прошарок суспільства
+in dire straits - in extremely difficult situation - Скрутний стан, у важкій ситуації
+inner turmoil - personal distress - disorder - внутрішня смута
+serenity - peacefulness - безтурботність, спокій
+in a rut - stuck in the same place - deadlock - в тупику, в колії
+gain insight - understand something - revelation - прозріння
+see eye to eye - adgee - сходитись в поглядах
+
+gratitude - вдясність
+humility - смиренність
+attorney - адвокат
+distribute - поширювати
+endure - терпіти
+emphasis - акцент, наголос
+impoverish - збідніти
+conviction - переконання
+deed - вчинок
+determination - рішучість, distribution - розповсюдження

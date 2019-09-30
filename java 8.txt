@@ -303,6 +303,24 @@ pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101
 			Debuggers are improving, but even now, when you're stepping through stream code in a debugger, it can be harder work than the equivalent loop, 
 				because a simple loop is very close to the variables and code locations that a traditional debugger works with.
 			
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Checked Exceptions and Streams (https://benjiweber.co.uk/blog/2014/03/22/checked-exceptions-and-streams/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Exception Handling Patterns
+		There are also a couple of very common exception handling patterns which we can make more concise.
+
+		Everything unchecked
+			This approach involves wrapping all checked exceptions in runtime exceptions. 
+			This can be useful in the case where we don’t have a good way to handle the checked exceptions thrown by code we are calling, nor is it important for anything higher up the callstack to handle them. 
+			It is also useful if you don’t wish to use checked exceptions at all.
+
+		Wrapping in domain specific exception
+			Another common pattern is catching all exceptions that may occur at a lower layer in the application and wrapping them in a more meaningful exception to consumers of your code.
+
+	SneakyThrow is a Java library to ignore checked exceptions.(https://github.com/rainerhahnekamp/sneakythrow) 
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	

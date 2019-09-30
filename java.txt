@@ -79,6 +79,21 @@ JSON (https://tproger.ru/translations/java-json-library-comparison/)
 	JSONP от Oracle. API для работы с JSON, а именно для генерации и разбора потоковых JSON-текстов. Эталонная реализация JSR353 с открытым исходным кодом.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSON vs XML (https://www.geeksforgeeks.org/difference-between-json-and-xml/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSON																				XML
+It is JavaScript Object Notation													It is Extensible markup language
+It is based on JavaScript language.													It is derived from SGML.
+It is a way of representing objects.												It is a markup language and uses tag structure to represent data items.
+It does not provides any support for namespaces.									It supports namespaces.
+It supports array.																	It doesn’t supports array.
+Its files are very easy to read as compared to XML.									Its documents are comparatively difficult to read and interpret.
+It doesn’t use end tag.																It has start and end tags.
+It is less secured.																	It is more secured than JSON.
+It doesn’t supports comments.														It supports comments.
+It supports only UTF-8 encoding.													It supports various encoding.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JDBC API в Java - обзор и туториал(http://www.javenue.info/post/java-jdbc-api, http://www.quizful.net/post/using-jdbc, http://proselyte.net/tutorials/jdbc/statements/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database.
