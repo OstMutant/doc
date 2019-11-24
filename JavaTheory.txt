@@ -119,7 +119,7 @@ https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html)
         Java API for RESTful Web Services (JAX-RS (defined in JSR 311)), is a set if APIs to developer REST service. JAX-RS is part of the Java EE6, and make developers to develop REST web application easily.
 
 
--- REST Architectural Constraints
+-- REST Architectural Constraints(https://www.dineshonjava.com/what-is-rest-and-rest-architecture-and-rest-constraints/)
         -- Uniform interface
                 All resources should be accessible through a common approach such as HTTP GET, and similarly modified using consistent approach.
         -- Client–server

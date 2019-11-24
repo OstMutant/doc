@@ -171,9 +171,10 @@ In Pub/Sub model, one message is delivered to all the subscribers. It is like br
 			This interface defines the contract for an asynchronous computation step that can be combined with other steps.
 
 			CompletableFuture is at the same time a building block and a framework with about 50 different methods for composing, combining, executing asynchronous computation steps and handling errors.
-			
+	
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JMS(https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
+JMS(Java Message Service) (https://docs.oracle.com/javaee/6/tutorial/doc/bncdx.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	JMS API Architecture
 		A JMS provider is a messaging system that implements the JMS interfaces and provides administrative and control features. An implementation of the Java EE platform includes a JMS provider.
@@ -295,7 +296,7 @@ JTA(https://en.wikipedia.org/wiki/Java_Transaction_API)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	The Java Transaction API (JTA), one of the Java Enterprise Edition (Java EE) APIs, enables distributed transactions to be done across multiple X/Open XA resources in a Java environment.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-RMI(https://www.javatpoint.com/RMI)
+RMI(Remote Method Invocation)(https://www.javatpoint.com/RMI)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	The RMI (Remote Method Invocation) is an API that provides a mechanism to create distributed application in java. The RMI allows an object to invoke methods on an object running in another JVM.
 	The RMI provides remote communication between the applications using two objects stub and skeleton.

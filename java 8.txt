@@ -248,7 +248,8 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 			Note: Results may vary on different hardware.
 		Laziness.
 			As we know, Java8 Streams have two types of operations, known as Intermediate and Terminal. These two operations are meant for processing and providing the end results, respectively. 
-			In summary, intermediate operations just create another stream, but won't perform any processing until the terminal operation is called. Once the terminal operation is called, traversal of streams begins and the associated function is applied one by one. 
+			In summary, intermediate operations just create another stream, but won't perform any processing until the terminal operation is called. Once the terminal operation is called, 
+			    traversal of streams begins and the associated function is applied one by one. 
 			Intermediate operations are lazy operations, so Streams supports laziness.
 		Short-Circuit Behavior
 			This is another way of optimizing the Streams processing. Short-circuiting will terminate the processing once condition met. 

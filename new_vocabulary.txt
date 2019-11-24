@@ -1306,9 +1306,9 @@ brown lawns - коричневі газони
 neglect - знехтувати, neglected - занедбаний
 devastating earthquakes - руйнівні землетруси
 devastate - зруйнувати, devastated - спустошений
-desperate - відчайдушний
+desperate - відчайдушний, deliberate - навмисний
 on the inside - зсередини
-to flee (fled, fled) = to escape, vanish - тікати, втеча, зникають
+to flee (fled, fled) = to escape, vanish - тікати, втеча, зникають, disappear - зникають
 plummeting - падіння
 enroll - зареєструватися
 enrollment, recruiting - рекрутинг, реєстрація
@@ -1333,7 +1333,7 @@ adamantly(categorically) opposed - категорично проти, adamant - 
 emphasize - підкреслити, outline - відтіняти, окреслювати
 vote on - голосувати
 
-mere - просто
+mere - просто, merely - просто
 presence - присутність
 willingness - готовність
 permitt, permitted - дозвіл, дозволено
@@ -1366,7 +1366,7 @@ to afford [ə'fɔːd] sth - дозволяти собі щось
 
 
 --------------------------- !!! start 6
-retreat, seclusion, solitary - усамітнення, solitude - самотність
+retreat - усамінюватись, retreat, seclusion, solitude - самотність, solitary - усамітнений
 renewal - відродження
 spiritual renewal - духовне оновлення, відродження
 intentionally remaining quiet - навмисно залишаючись спокійним
@@ -1382,21 +1382,18 @@ sacred - священний, holy - святий
 no doubt - без сумніву
 self-denial - самозречення
 fog, mist, haze/ it’s foggy - туман / туманно
-presence - присутність
-silhouette - силует
-divine presence - божественна присутність
-feathery silhouette - пернаті силуети
-monasteries - монастирі
-monastic - чернечий
+divine presence - божественна присутність, presence - присутність
+feathery silhouette - пернаті силуети, silhouette - силует
+monasteries - монастирі, monastic - чернечий
 preserve - зберегти
 by noon - опівдні
 I am stunned by the confusion and commotion - Я приголомшений бардаком і суєтою
 escape - Втеча
 thick, thin - товстий, тонкий
 chewy candies - жувальні цукерки
-endure - терпіти
 awe - благоговіння
 generosity - щедрість
+self denial - самозречення
 
 
 diverse, various - різноманітні
@@ -1406,8 +1403,6 @@ excel - відмінно, excelled - відзначатись
 shave their head - голити
 habits - ряса
 
-
-prophets - пророки
 foster(to foster = to nurture ) - виховувати, пестити, nurture - виховання, natural, nature - природний, природа, neutral - нейтральний
 
 hermit, recluse - відлюдник
@@ -1417,7 +1412,7 @@ endure, bear, tolerate - витримати, терпіти
 ascetic, self-denial, self-sacrifice - living without any physical pleasures and comforts, especially for religious reasons - аскетичний 
 enact a law, introduce a law, allow a law - made a new official rule - приймати(впроваджувати) закон
 humility, humbleness - not being too proud - смирення, покірність
-will - determination - воля, will power - сила волі, resolution - дозвіл
+will - determination(рішучість) - воля, will power - сила волі, resolution - дозвіл
 fasting - eating little or no food for special reason - голодування, fast - піст
 foster, nurture - develops - виховання
 vibrant - full of energy and life - жвавий
@@ -1525,13 +1520,13 @@ settle down - осідати
 shipp off - відвантажувати
 gypsy - циганка
 immers - занурюватись
-deliberate - навмисний
+deliberate - навмисний, desperate - відчайдушний
 epiphany - Богоявлення
 faith - віра, face - обличчя
 poverty-stricken - нужденний, убогий
 affect - впливати, effect - ефект
 profound - глибокий
-injustices - несправедливості
+injustices - несправедливості, justice - справедливості
 civil rights movement - рух за громадянські права
 spite - зло, in spite - не зважаючи, in spite of - попри
 nagging - нудотний, набридливий
@@ -1561,15 +1556,15 @@ contemplative - a person whose life is devoted primarily to prayer, esp. in a mo
 Thomistic - the philosophical methods and principles used by Thomas Aquinas 
 an affair of the heart - a deep emotional relationship with no physical relationship - справа серця
 the bottom line – the most important point/ the gist - суть
-journal - diary
+journal, diary - щоденник, dire - страшний
 to wrestle – to fight
-obscurity – vagueness - невідомість
+obscurity – vagueness - невідомість, obscure - незрозумілий, глухий, віддалений
 hermitage - the dwelling of a hermit/recluse - поселення ідлюдника
 flawed - imperfect  - недолік, недосконалий
 
 distraction - відволікання, distract - відволікати
-dire - страшний
 turmoil - смута
+dire - страшний
 remarkable respectful - неабиякий шанобливий
 a meaningful way of life - осмислений спосіб життя , meaningful - змістовне
 delight - захоплення, great delight - велике захоплення
@@ -1581,20 +1576,149 @@ at odds with - disagreeing with - розходитись в чомусь
 out of touch with - not understanding - розходитись в чомусь
 stumbling block - problem or difficulty - stumbling stone - камінь спотикання, проблема або складність
 walks of life - position in society - прошарок суспільства
-in dire straits - in extremely difficult situation - Скрутний стан, у важкій ситуації
-inner turmoil - personal distress - disorder - внутрішня смута
+in dire straits - in extremely difficult situation - Скрутний стан, у важкій ситуації, dire - страшний
+inner turmoil - personal distress - disorder - внутрішня смута, turmoil - смута
 serenity - peacefulness - безтурботність, спокій
 in a rut - stuck in the same place - deadlock - в тупику, в колії
 gain insight - understand something - revelation - прозріння
 see eye to eye - adgee - сходитись в поглядах
 
-gratitude - вдясність
-humility - смиренність
-attorney - адвокат
-distribute - поширювати
+gratitude - вдячність
+attorney - адвокат, повірений, 
+the power of attorney - довіреність
 endure - терпіти
 emphasis - акцент, наголос
-impoverish - збідніти
+impoverish - збідніти, збіднілийб
 conviction - переконання
-deed - вчинок
-determination - рішучість, distribution - розповсюдження
+deed - вчинок, perform good deeds - виконувати добрі справи
+determination - рішучість, determinate - визначити, distribution - розповсюдження, distribute - поширювати
+
+rebellious, seditious - крамольний, непокірний, бунтівний
+shave - голити
+lentils and turnips - сочевиця та ріпа
+upright - вертикально
+avalanches - лавини
+convent school - монастирська школа
+obedient - слухняний, disobedient, naughty - непокірний, mischievous - пустотливий
+
+naked awareness - гола обізнаність
+
+accomplish - виконати
+over time - через деякий час
+martial - бойовий, martial art - бойове мистецтво
+rehearse - репетирувати, repetition - повторення
+keep tally - тримати підрахунок
+gestures - жести
+
+natural - природний, nature - природа
+deal - угода, dealt - розібралися
+race - гонка, racial - расовий, racial equality - расова рівність
+line - рядок, linear - лінійний, linear equation - лінійне рівняння
+pervade - пронизувати, pervasive - всепроникний
+advise - радити, advisor - радник
+divide - ділити, division - поділ
+decide вирішувати, decision - рішення
+sane - здоровий, sanity - розум
+faith - віра, faithful, loyal - вірний
+skillfully - майстерно
+
+steal - красти, stealth - хитрість, прихованість
+please - будь ласка, pleasure - задоволення, pleasant - приємний
+explain - поясніть, explanatory - роз’яснювальна, explanation - пояснення
+rite - обряд, ritual - ритуал
+divine - божественний, divinity - божественність
+compete - змагатися, competitiveness - конкурентоспроможність
+
+were various enough - були досить різними
+unfold - розгортати, розгортати, fold - скласти
+to unfold for sb/ as the story unfolds - розгортатися за sb / як розгортається історія
+more or less - більш-менш
+gather - збирати
+approximately - приблизно
+
+to pull in an example - навести приклад
+living space/ quarters - житлова площа / квартали
+
+grounds - угіддя
+obscure - незрозумілий, глухий, віддалений
+awakening - пробудження, wake up - прокидатися
+manure, compost - гній
+hooded robes, habits - халати з капюшоном, hood - капюшон
+greet - вітати, grateful - вдячний, gratitude - вдячність
+gift shop - сувенірний магазин
+lunch is held - обід проводиться
+extreme heat - екстремальна спека, warm - теплий
+humidity, dampness - вологість, humid, damp - вологий, сирий клімат 
+humanely - гуманно, humility - смиренність
+outdated - застаріла, the chicken farm was outdated - куряча ферма застаріла
+gradual decline - поступовий занепад
+assumed leadership - взяв на себе лідерство, assumption - припущення, assume, suppose, imagine - припустимо, уявіть собі
+mission statement - статут, statement - заява
+well-established - налагоджений
+contribute - вносити contribution - внесок
+chapel - каплиця
+sleeping quarters - спальні квартали
+horticulturist - садівник
+vibrant garden - яскравий, жвавий сад
+cloud of controversy - хмара суперечок
+outstanding performance - видатні показники
+is catching on quickly - стає швидко популярним
+fundraising - збір коштів
+state-of-the-art - витвір мистецтва, modern - сучасний
+revenue-producing retirement community - пенсійна громада, яка приносить дохід
+aging community(retainments),  - старіння громади
+limited housing - обмежене житло
+resident - постійний мешканець
+construction - будівництво
+overdevelopment - перерозвиток
+pristine, virginal - незайманий, pristine landscape - незайманий пейзаж
+take on beer - взятися за пиво
+facility - об'єкт,  facilities - місця обслуговування, служби, fascinated - зачарований, facilitated - полегшено, facilitate - полегшити
+
+abbots - ігумен, abbey - абатство
+pull back on, draw back, retreat - відступати
+are urging - спонукати, to induce - спонукати, to urge - спонукати, urgent - терміново
+to take on - взяти на себе
+
+serene [sɪ'riːn] = calm - безтурботний
+columbarium = a place where urns of dead people are kept - місце, де зберігаються урни загиблих людей
+gracious = merciful - милостивий = милосердний
+ultimate - остаточний
+
+hike - похід
+
+crucible(тигель) ['kruːsəbl] = furnace(топка)
+praise (n,v) заслуга, оцінювати
+cocky(зухвалий) = arrogant (зарозумілий)
+overdriving)=exhausted=depleted - виснажений
+
+snowstorm, blizzard - хуртовина, avalanches - лавини
+vigils - бдіння, пильнування
+carves a crater - вирізає кратер
+carve, curve - вирізати, крива 
+carve out - вирізати
+defeating - перемігши, defeat - розбивати
+sufficient - достатньо, insufficient - недостатньо
+fellow - товариш
+crucial - вирішальне значення (критичний, поворотний)
+cliff - обрив
+relent - поступатись, relentless - невблаганна
+importance - важливість
+
+deplete - виснажувати
+perceptions - сприйняття
+consciously - свідомо
+narrow - вузький
+confide - довіряти
+concise - лаконічний, consists - складається
+verbally speak to them - усно розмовляти з ними
+edge - край
+consciousness - свідомість
+bulletproof - куленепроникний
+revelation - одкровення
+quietude, silence - тишина, тиша
+scientifically - науково
+drowsy - сонливий
+
+purification - очищення
+pace - темп, peace - мир

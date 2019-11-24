@@ -291,7 +291,8 @@ Memory Management in Java
 					--- Runtime constant pool is per-class runtime representation of constant pool in a class. It contains class runtime constants and static methods. Runtime constant pool is the part of method area.
 				--- Memory Pools are created by JVM memory managers to create a pool of immutable objects, if implementation supports it. String Pool is a good example of this kind of memory pool. 
 					Memory Pool can belong to Heap or Perm Gen, depending on the JVM memory manager implementation.
-			--- Meta Space(https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag): This memory is out of heap memory and part of the native memory. As per the document by default the meta space doesn’t have an upper limit. 
+			--- Meta Space(https://dzone.com/articles/understanding-the-java-memory-model-and-the-garbag): This memory is out of heap memory and part of the native memory. 
+				As per the document by default the meta space doesn’t have an upper limit. 
 				In earlier versions of Java we called this “Perm Gen Space". This space is used to store the class definitions loaded by class loaders. 
 				This is designed to grow in order to avoid 0ut of memory errors. However, if it grows more than the available physical memory, then the operating system will use virtual memory. 
 				This will have an adverse effect on application performance, as swapping the data from virtual memory to physical memory and vice versa is a costly operation. 
@@ -498,17 +499,19 @@ Java Collection Framework(http://www.quizful.net/post/Java-Collections)
 			The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
 			in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
 			
-			Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort):
+			Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort): 
 				Шаг 1. Входной массив разделяется на подмассивы фиксированной длины, вычисляемой определённым образом.
 				Шаг 2. Каждый подмассив сортируется сортировкой вставками, сортировкой пузырьком или любой другой устойчивой сортировкой.
 				Шаг 3. Отсортированные подмассивы объединяются в один массив с помощью модифицированной сортировки слиянием.
+				TimSort is a sorting algorithm based on Insertion Sort and Merge Sort.(https://www.geeksforgeeks.org/timsort/)
+					Insertion Sort is a simple sorting algorithm that works the way we sort playing cards in our hands.https://www.geeksforgeeks.org/insertion-sort/
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Iterator In Java (Fail Fast and Fail Safe ) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
         
         Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
-        (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
+            (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
         Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
 		
 		
@@ -602,7 +605,7 @@ Catching Multiple Exceptions in Java 7
 				...
 			}
 			
-Explain Java Exception Hierarchy?
+Explain Java Exception Hierarchy?(https://www.journaldev.com/2167/java-exception-interview-questions-and-answers)
 	Java Exceptions are hierarchical and inheritance is used to categorize different types of exceptions. 
 		Throwable is the parent class of Java Exceptions Hierarchy and it has two child objects – Error and Exception. 
 		Exceptions are further divided into checked exceptions and runtime exception.
@@ -660,3 +663,7 @@ JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
 	The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides naming and directory functionality to applications written using the Java™ programming language.
 		It is defined to be independent of any specific directory service implementation. Thus a variety of directories -new, emerging, and already deployed can be accessed in a common way.
 	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JMX (Java Management Extensions) (https://urvanov.ru/2018/05/05/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-jmx-%D0%B8-mbeans-%D0%B2-java/, https://www.codeflow.site/ru/article/java-management-extensions)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Java Management Extensions (JMX) — это технология, входящая в J2SE начиная с J2SE 5.0. JMX предназначен для контроля и управления приложениями, системными объектами, устройствами (например, принтерами) и компьютерными сетями.
