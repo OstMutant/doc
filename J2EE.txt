@@ -1,4 +1,40 @@
-﻿
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring(https://proselyte.net/tutorials/spring-tutorial-full-version/ioc-containers/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Ключевым элементов Spring Framework является Spring Container. Container создаёт объекты, связывает их вместе, настраивает и управляет ими от создания до момента уничтожения.
+		Spring Container получает инструкции какие объекты инстанциировать и как их конфигурировать через метаданные.
+			Метаданные могут быть получены 3 способами:
+				– XML
+				– Аннотации Java
+				– Java код
+
+			В Spring имеется 2 различных вида контейнеров:
+				1. Spring BeanFactory Container;
+				2. Spring ApplicationContext Container;
+					– FileSystemXmlApplicationContext Загружает данные о бине из XML файла.
+					– ClassPathXmlApplicationContext Этот контейнер также получает данные о бине из XML файла.
+					– WebXmlApplicationContext Эта реализация ApplicationContext получает необходимую информацию из веб-приложения.
+					
+		В Spring Framework имеются пять возможных значений свойства scope:
+			singleton Определяет один единственный бин для каждого контейнера Spring IoC (используется по умолчанию).
+			prototype Позволяет иметь любое количество экземпляров бина.
+			request Создаётся один экземпляр бина на каждый HTTP запрос. Касается исключительно ApplicationContext.
+			session Создаётся один экземпляр бина на каждую HTTP сессию. Касается исключительно ApplicationContext.
+			global-session Создаётся один экземпляр бина на каждую глобальную HTTP сессию. Касается исключительно ApplicationContext.
+		
+		Жизненный цикл бинов.
+			Для управления созданием и уничтожением бина у нас есть параметры init-method и destroy-method.
+			BeanPostProcessor имеет всего два метода:
+				– postProcessBeforeInitialization
+				– postProcessAfterInitialization
+				
+		Difference between @Bean and @Autowired(https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired)
+			@Bean tells Spring 'here is an instance of this class, please keep hold of it and give it back to me when I ask'.
+			@Autowired says 'please give me an instance of this class, for example, one that I created with an @Bean annotation earlier'.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 -- ------------------------------------------------ Java EE включає в себе стандарти наступних технологій:
 Актуальна версія Java EE має номер 8.0
 ++ Веб-сервіс

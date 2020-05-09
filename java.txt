@@ -633,12 +633,13 @@ Fail Safe Exception Handling
 	The last exception thrown in a try-catch-finally block is the exception that will be propagated up the call stack.
 	All earlier exceptions will disappear.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Difference between URL and URI(http://www.baeldung.com/java-url-vs-uri)
+Difference between URL and URI(https://prateekvjoshi.com/2014/02/22/url-vs-uri-vs-urn/, http://www.baeldung.com/java-url-vs-uri, https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		The difference between them is straightforward after knowing their definitions:
 			Uniform Resource Identifier (URI) − a sequence of characters that allows the complete identification of any abstract or physical resource
 			Uniform Resource Locator (URL) − a subset of URI that, in addition to identifying where a resource is available, describes the primary mechanism to access it
-		Now we can conclude that every URL is a URI, but the opposite is not true, as we’ll see later.
+			Uniform Resource Name(URN) - it identifies a resource by name in a given namespace. 
+		Now we can conclude that every URL is a URI and URN, but the opposite is not true, as we’ll see later.
 		
 		Every URI, regardless if it’s a URL or not, follows a particular form:
 			scheme:[//authority][/path][?query][#fragment]

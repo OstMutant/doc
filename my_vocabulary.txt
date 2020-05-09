@@ -105,12 +105,12 @@ conquer - перемогти
 
  -- --------------------------
 tense - напружений
-adjust - налаштувати, коригувати
+adjust - налаштувати, коригувати, adjustment - коригування
 edge - краю
 corner - кут
 fringes - перефирія
 strip - жвава частина міста
-outskirts - околиці
+outskirts - околиці, skirt - спідниця
 out of the grip - поза межами досяжності
 against the grain - проти шерсті
 withdrawn - замкнений
@@ -277,7 +277,7 @@ appropriate timely manner - відповідним чином
 reveal - розкривати
 
 permanently - постійно
-comprehensive - всеосяжний
+comprehensive - всеосяжний, всебічний
 
 beast - звір
 decide on an issue of - вирішити питання
@@ -429,7 +429,7 @@ honorable - почесний
 sake - користь
 rest in peace - спочивати у спокої
 I am honored - Мені честь
-complain - скаржитися
+complain - скаржитися, complaint - скарга
 insulted - ображено
 beheaded - обезголовлений
 narrate - розповідати
@@ -504,8 +504,7 @@ fence - паркан
 pauper - жабрак
 I beg - я прошу
 concern and compassion - турбота та співчуття
-fancies - фантазії
-whims - примхи
+fancies - фантазії, whims - примхи
 witty - дотепний
 stubborn - впертий
 
@@ -555,7 +554,7 @@ clay from a hares burrow - глина з зайця нори
  
  porridge - каша
  silly spell - дурне заклинання
- arrogant - зарозумілий
+ arrogant - зарозумілий, arrogance - зарозумілість
  poor and needy - бідні та нужденні
  beggar - жебрак
  deserve - заслуговують
@@ -654,10 +653,9 @@ get rid - позбутися
  set off - вирушити
  
  mean - підлий, жалюгідний
- miserly - скупий
  bounty - щедрість
  
- miser - скупий
+ miser - скупий,  miserly - скупий
  pauper - жабрак
  
  raven - ворон
@@ -674,3 +672,145 @@ get rid - позбутися
  restrict - обмежувати
   bounty - щедрість, bounty hunter - мисливець за головами
   never mind - не звертай уваги
+  
+beware - остерігайся
+offensive - образливий
+hostile - ворожий
+intimidation, bullying, threats, violence - залякування, знущання, погрози, насильство
+deliberate - навмисне
+retaliation - помста
+
+preserve, retain - зберегти
+cause - причина, because  - тому що (по причині), of course - звичайно
+
+shit - лайно
+betray - зрадити
+injustices - несправедливості, justice - справедливості, justify - обгрунтовувати, виправдати
+confirm - підтвердити, clarify - уточнити
+
+award - нагорода, admire - милуватися, admit - визнати
+discreet - стриманий
+announcement - Оголошення
+
+evade - ухилятися
+existence - існування, to exist - існувати
+wand - паличка
+grave - могила
+reluctantly - неохоче
+quarrel - сваритися, squabbles - сварки
+cloak - плащ
+
+considerable - чималий
+offering, bidding - пропонування
+peat - торф
+make out - розрізняти, виписувати
+cut it out - Кинь!
+porcupine - дикобраз
+all along - увесь час
+dungeon - підземелля
+slippers - тапочки
+furbulous - казковий
+mesmerize - зачаровувати 
+eagerly - нетерпляче, eager - нетерплячий, енергійний
+shepherdess - пастушка
+bread crusts - хлібні скоринки
+splendid - чудовий
+star-studded - зірчастий
+stud - шпилька
+within no time - в найкоротші терміни
+get it announced - повідомте про це
+defend - захищати, відстоювати, defeat - поразка, розгром
+retreat - відступ
+afterall - після всього
+unfairly - невдоволено, несправедливо
+as a token of our appreciation - як знак нашої вдячності
+solemn word - урочисте слово
+whosoever - 
+noblemens - дворяни, noble - благородний
+suitor - прохач
+dwindle - танути, опуститися
+astonishment - здивування, astonished - здивований. appreciation - вдячність
+sparkling - іскристий
+usurp - узурпувати
+forcefully - насильно
+vanquished - переможений
+jolly - веселий
+lush - пишні
+fertilizer - добриво
+compassion - співчуття, conspire - змовлятися, змова
+jealousy - ревнощі
+banish - виганяти, punish - карати
+wicked - злий
+proficient - досвідчений
+heir - спадкоємець
+altogether - взагалі
+flung - шпурляти
+distinctive - відмінний
+How delightful - Як приємно
+hereby declare - цим заявляю
+
+slightest - найменший, clue - підказки, slightest clue - найменша підказка
+assignment - доручення, anticipation - передчуття, apparently - мабуть, adorable - чарівні
+stricken - вражений
+
+savagery - дикості
+
+despite of - всупереч, despite - попри
+console - втішати
+we are done here - ми закінчили
+mockery - глузування
+
+regale - ласувати
+gorgeous - чудова
+auroch - похмілля
+akin - схожий
+learn to comb - навчитися розчісувати
+ assure - запевняти
+ solace - розрада
+ consonant - приголосний
+ vowel - голосний
+ frustrating - розчарування
+ speck - цятка
+ feat - подвиг
+ dejected - зневажений
+ mighty - могутній
+ ruckus - галас
+defy - протистояти
+feathers - пір’я, futher - далі, father - батько
+glowe - світіння
+ensconce - укладати
+leapt - стрибнув
+vulnerabilities - вразливості, violence - насильство
+prisoner - в’язень, take the prisoner - взяти в полон
+swarm - рій
+pure - чистий
+industrious youth - працьовита молодь
+concern - турбота, conscience - совість
+hail - привітати
+tenement halls - житлові зали
+initiative - ініціатива
+convince - переконати, вмовити
+lasted - тривало
+gleaming - блискучий
+dedicate - посвячувати, dedication - відданість
+tenderness - ніжність, делікатність
+fairness - справедливість
+kidnept - викрадений
+awakened - пробудився
+den - лігво
+I shall be obliged - Я буду зобов'язаний
+jeweler - ювелір
+revive - оживати
+simultaneously - одночасно
+evident - очевидно, evident, obvious - очевидний, evidence - докази
+intimidate - залякати
+ultimately - зрештою
+frankly - відверто
+make expose - зробити викриття
+preferences - уподобання
+appliance - прилад
+
+so forth - т.д
+provision - забезпечення
+perspective - перспектива 
+have to facilitate - повинні сприяти

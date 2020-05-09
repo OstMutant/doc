@@ -323,24 +323,43 @@ Patterns GOF(Design Patterns: Elements of Reusable Object-Oriented Software)(Gan
         Adapter Pattern
         Composite Pattern(https://dzone.com/articles/composite-design-pattern-java-0)
 			Composite design patten allows you to have a tree structure and ask each node in the tree structure to perform a task.You can take real life example of a organization.
-        Proxy Pattern
         Flyweight Pattern
         Facade Pattern
-        Bridge Pattern
+        Bridge Pattern (https://www.baeldung.com/java-bridge-pattern, https://howtodoinjava.com/design-patterns/structural/bridge-design-pattern/)
+			The official definition for the Bridge design pattern introduced by Gang of Four (GoF) is to decouple an abstraction from its implementation so that the two can vary independently.
+		Proxy Pattern
         Decorator Pattern
+		Proxy Pattern VS Decorator Pattern(https://www.javapedia.net/Design-Patterns/778, https://powerdream5.wordpress.com/2007/11/17/the-differences-between-decorator-pattern-and-proxy-pattern/)
+			Decorator pattern is used to implement functionality on already created object, while Proxy pattern is used for controlling access to object. 
+			Another difference between Decorator and Proxy design pattern is that, Decorator doesn't create object, instead it get object in it's constructor, while Proxy actually creates objects.
 	Behavioral Design Patterns
         Template Method Pattern
         Mediator Pattern
-        Chain of Responsibility Pattern
+        Chain of Responsibility Pattern(https://www.journaldev.com/1617/chain-of-responsibility-design-pattern-in-java, 
+										https://stackoverflow.com/questions/5039024/whats-the-difference-between-chain-of-responsibility-and-strategy-patterns, 
+										https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern, https://www.geeksforgeeks.org/chain-responsibility-design-pattern/)
+			Chain of responsibility pattern is used to achieve loose coupling in software design where a request from client is passed to a chain of objects to process them. 
+			  Then the object in the chain will decide themselves who will be processing the request and whether the request is required to be sent to the next object in the chain or not.
         Observer Pattern
-        Strategy Pattern
-        Command Pattern
-        State Pattern
         Visitor Pattern
         Interpreter Pattern
         Iterator Pattern
-        Memento Pattern
-
+        Memento Pattern(https://sourcemaking.com/design_patterns/memento,https://www.javacodegeeks.com/2015/09/memento-design-pattern.html)
+		    Intent
+                Without violating encapsulation, capture and externalize an object's internal state so that the object can be returned to this state later.
+                A magic cookie that encapsulates a "check point" capability.
+                Promote undo or rollback to full object status.
+            Problem Need to restore an object back to its previous state (e.g. "undo" or "rollback" operations).
+		State Pattern(https://www.programcreek.com/2011/07/java-design-pattern-state/, https://www.baeldung.com/java-state-design-pattern, https://sourcemaking.com/design_patterns/state)
+			The main idea of State pattern is to allow the object for changing its behavior without changing its class. 
+			Also, by implementing it, the code should remain cleaner without many if/else statements.
+		Strategy Pattern(https://dzone.com/articles/design-patterns-strategy, https://inneka.com/programming/java/difference-between-strategy-pattern-and-command-pattern/)
+			The Strategy pattern is known as a behavioural pattern - it's used to manage algorithms, relationships and responsibilities between objects. 
+			Defines a set of encapsulated algorithms that can be swapped to carry out a specific behaviour
+			--- java.util.Comparator#compare(), executed by among others Collections#sort().
+		Command Pattern (https://sourcemaking.com/design_patterns/memento,https://www.javacodegeeks.com/2015/09/memento-design-pattern.html)
+			Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations
+			--- All implementations of java.lang.Runnable
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns GRASP(General Responsibility Assignment Software Patterns)(http://blogerator.org/page/oop-patterny-i-principy-grasp)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
