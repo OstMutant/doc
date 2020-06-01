@@ -1,0 +1,151 @@
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/company/luxoft/blog/157273/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors
+        
+        The Java Concurrency API supports the following types of thread pools:
+        -- Cached thread pool: keeps a number of alive threads and creates new ones as needed.
+        -- Fixed thread pool: limits the maximum number of concurrent threads. Additional tasks are waiting in a queue.
+        -- Single-threaded pool: keeps only one thread executing one task at a time.
+        -- Fork/Join pool: a special thread pool that uses the Fork/Join framework to take advantages of multiple processors to perform heavy work faster by breaking the work into smaller pieces recursively.
+        (https://www.youtube.com/watch?v=W82D9eUn6q8)
+        You can create an executor by using one of several factory methods provided by the Executors utility class. 
+        (java.util.concurrent.Executors(https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Executors.html)
+        newCachedThreadPool(), newFixedThreadPool(int n),newSingleThreadExecutor(),newScheduledThreadPool(int corePoolSize),newSingleThreadScheduleExecutor()
+
+		An Executor is an object that is responsible for threads management and execution of Runnable tasks submitted from the client code. 
+        The Java Concurrency API defines the following 3 base interfaces for executors:
+        -- java.util.concurrent.Executor: is the super type of all executors. It defines only one method execute(Runnable).
+        -- java.util.concurrent.ExecutorService: is an Executor that allows tracking progress of value-returning tasks (Callable) via Future object, and manages the termination of threads.
+         Its key methods include submit() and shutdown().
+        -- ScheduledExecutorService: is an ExecutorService that can schedule tasks to execute after a given delay, or to execute periodically. 
+         Its key methods are schedule(), scheduleAtFixedRate() and scheduleWithFixedDelay().
+
+		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
+
+		the Callable interface which defines only one method as follows:
+			public interface Callable<T> {
+				public T call();   
+			}
+		The ExecutorService interface defines a method that allows us to execute such kind of value-returning tasks: <T> Future<T>   submit(Callable<T> task)
+		Then you can invoke the Future’s get() method to obtain the result upon successful completion.
+		The Future interface defines the following method that allows you to cancel a task: boolean cancel(boolean mayInterruptIfRunning)
+		This method returns false if the task has already completed, has already been cancelled, or could not be cancelled for some other reason.
+		If this method returns true:
+			- The task will never run if it has not started.
+			- In case the task has already started, you can decide to interrupt the thread executing the task by specifying the flag mayInterruptIfRunning = true. Otherwise, the task continues until completes.		
+		
+		https://www.baeldung.com/java-runnable-callable
+		The Callable interface is a generic interface containing a single call() method – which returns a generic value V:
+		The Runnable interface is a functional interface and has a single run() method which doesn't accept any parameters and does not return any values.
+		
+		
+		How does CopyOnWriteArrayList works?
+			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.
+			That means the read operations (get, iterator, listIterator, etc) work on a different copy.
+		
+		https://tproger.ru/translations/java8-concurrency-tutorial-2/; http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+		Класс ReentrantLock реализует то же поведение, что и обычные неявные блокировки. 
+		Интерфейс ReadWriteLock предлагает другой тип блокировок — отдельную для чтения, и отдельную для записи. 
+			Этот интерфейс был добавлен из соображения, что считывать данные (любому количеству потоков) безопасно до тех пор, пока ни один из них не изменяет переменную. 
+		В Java 8 появился новый тип блокировок — StampedLock. Так же, как и в предыдущих примерах, он поддерживает разделение на readLock() и writeLock(). 
+			Однако, в отличие от ReadWriteLock, метод блокировки StampedLock возвращает «штамп» — значение типа long.
+		Семафоры — отличный способ ограничить количество потоков, которые одновременно работают над одним и тем же ресурсом
+
+
+		https://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+		
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		executor.submit(() -> {
+			String threadName = Thread.currentThread().getName();
+			System.out.println("Hello " + threadName);
+		});
+
+
+work-stealing algorithm ( ForkJoinPool implements )
+wait-free algorithm ( Non-blocking algorithm )
+compare-and-swap (CAS)
+context switching
+Collections.synchronizedList
+	
+	
+========================================================================================
+
+1. ConcurrentModificationException:
+	Problem - If not concurrent collection ( like ArrayList ) will be changed ( remove or add new element) while some thread is traversing over it using iterator,
+			  the iterator.next() will throw ConcurrentModificationException.
+	Resolutions:
+		- Use concurrent collections ( like CopyOnWriteArrayList, ConcurrentHashMap ) but with cautious.
+		- Use for loop instead of iterator
+		
+2. java.util.concurrent
+	2.1 Concurrent Collections
+		2.1.1 CopyOnWriteArrayList, CopyOnWriteArraySet:
+			  How work: all changes (add, remove) causes new copy of array, no ConcurrentModificationException 
+			  When use: when write operations are very rare
+			  
+		2.2.2 ConcurrentHashMap
+			How work: Access to data is blocked by segments (hashcodes), no ConcurrentModificationException
+			
+	2.2 Queues
+		- Diff between non-blocking queues vs blocking - blocking queue suspend threads in case queue is empty or overloaded ( Producer/Consumer )
+		2.2.1 non-blocking queues: ConcurrentLinkedQueue, ConcurrentLinkedDeque 
+			  Concern: can cause problem ( like out of memory )if threads will not be able to handle a lot of data from queue
+			  Resolution: use blocking queue ( like ArrayBlockingQueue )
+			  
+		2.2.2 blocking queues: 
+				ArrayBlockingQueue
+				DelayQueue - use when need to take element from queue after specified time
+				LinkedBlockingQueue - first lock when add element, second lock when fetch element. good performance but need more memory
+				SynchronousQueue, TransferQueue - uses one element. When Producer put element then it blocks until Consumer takes it and vice versa.
+				
+	2.3 Synchronizers
+		2.3.1 Semaphore - use counter to allow access to resource. if counter = 0 then thread is allowed to access resource otherwise it will be blocked and will wait.
+		2.3.2 CountDownLatch - one or more threads wait until other threads will finish their operations and reduce counter to 0.
+		2.3.3 CyclicBarrier - when appropriate count of threads will achive barrier and after that all threads will proceed to execute code.
+		2.3.4 Exchanger - exchange objects between two threads
+		2.3.4 Phaser  - contains functionality of CyclicBarrier и CountDownLatch
+		
+	2.4 Executors
+		2.4.1 Future - interface with methods: cancel, get, isCancelled, isDone
+		2.4.2 FutureTask - implementation of Future interface
+		2.4.3 Executor, ExecutorService, ScheduledExecutorService - interfaces which accept Callable or Runnable and return Future
+		2.4.4 Executors - factory to create ThreadPoolExecutor, ScheduledThreadPoolExecutor.
+		2.4.5 ThreadPoolExecutor - used to run async tasks in thread pool. We need to create this pool using Executors class.
+		2.4.6 ScheduledThreadPoolExecutor - run tasks after appropriate delay
+		2.4.7 RejectedExecutionHandler - we can define task handler for tasks which could not executed using ThreadPoolExecutor by some reasons
+		2.4.7 Fork Join framework - intended to solve recursive tasks.
+				Так, за счет разбиения на части, можно добиться их параллельной обработки в разных потоках. 
+				Для решения этой задачи можно использовать и обычный ThreadPoolExecutor, 
+				но за счет частого переключения контекста и отслеживания контроля исполнения все это не очень эффективно работает. 
+				Тут то нам приходит на помощь Fork Join framework в основу которого используется work-stealing алгоритм. 
+				Наиболее хорошо раскрывает себя в системах с большим количеством процессоров. 
+				
+				ForkJoinPool - by default creates threads pool with count of threads equals to count of processors
+				ForkJoinTask - base class to execute tasks
+				
+	2.5 Locks
+		2.5.1 Condition - interface with functionality alternative to wait/notify/notifyAll. It has methods like await/signal/signalAll
+		2.5.2 ReentrantLock - only one thread can eneter into safe block
+		2.5.3 ReentrantReadWriteLock  - multiple readrs do read data in parallel and only one writer can write data
+		2.5.4 LockSupport - we can use insted of Thread.suspend() и Thread.resume()
+		2.5.5 StampedLock - return a stamp represented by a long value. You can use these stamps to either release a lock or to check if the lock is still valid
+		
+	2.6 Atomics
+		Those classes work faster then synchronized/volatile approach
+		2.6.1 AtomicReference - uses compare-and-swap operation.  
+		      compareAndSet() method which lets you compare the reference to an expected value (reference) and if they are equal, set a new reference inside the AtomicReference object
+		2.6.2 LongAdder - This class is usually preferable over atomic numbers when updates from multiple threads are more common than reads.
+		2.6.3 LongAccumulator - more generalized version of LongAdder. Instead of performing simple add operations it builds around a lambda expression of type LongBinaryOperator
+			  
+3. Arrays.sort vs Arrays.parallelSort
+		Arrays.parallelSort - uses Fork/Join framework. Sorts primites faster then Arrays.sort
+		
+4. Future vs CompletableFuture
+	- Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread 
+	  and notifying the main thread about its progress, completion or failure
+	Limitations of Future
+		1. It cannot be manually completed
+		2. You cannot perform further action on a Future’s result without blocking
+		3. Multiple Futures cannot be chained together
+		4. No Exception Handling
