@@ -310,15 +310,26 @@ SOLID (об'єктно-орієнтоване програмування) https:
         D        DIP         Принцип інверсії залежностей (Dependency inversion principle) Залежності всередині системи будуються на основі абстракцій, що не повинні залежати від деталей; 
                 навпаки, деталі мають залежати від абстракцій. Модулі вищих рівнів не мають залежати від модулів нижчих рівнів.
 				one should "depend upon abstractions, [not] concretions."[4]
+				
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns GOF(Design Patterns: Elements of Reusable Object-Oriented Software)(Gang of Four)(http://www.javenue.info/post/design-patterns-java)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Creational Design Patterns
-        Singleton Pattern
-        Factory Pattern
-        Abstract Factory Pattern
-        Builder Pattern
-        Prototype Pattern
+        Singleton Pattern(https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/)
+			Singleton pattern is a design solution where an application wants to have one and only one instance of any class, in all possible scenarios without any exceptional condition. 
+        Factory Pattern(https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/)
+			Factory pattern introduces loose coupling between classes which is the most important principle one should consider and apply while designing the application architecture.
+			Loose coupling can be introduced in application architecture by programming against abstract entities rather than concrete implementations. 
+			This not only makes our architecture more flexible but also less fragile.
+        Abstract Factory Pattern(https://howtodoinjava.com/design-patterns/creational/abstract-factory-pattern-in-java/)
+			you need another level of abstraction over a group of factories, you should consider using the abstract factory pattern. 
+			It is probably only difference between factory pattern vs abstract factory pattern.
+        Builder Pattern (https://howtodoinjava.com/design-patterns/creational/builder-pattern-in-java/, https://medium.com/@ajinkyabadve/builder-design-patterns-in-java-1ffb12648850)
+			The builder pattern is a design pattern that allows for the step-by-step creation of complex objects using the correct sequence of actions. 
+			The construction is controlled by a director object that only needs to know the type of object it is to create.
+        Prototype Pattern(https://howtodoinjava.com/design-patterns/creational/prototype-design-pattern-in-java/)
+			A prototype is a template of any object before the actual object is constructed. In java also, it holds the same meaning. 
+			Prototype design pattern is used in scenarios where application needs to create a number of instances of a class, which has almost same state or differs very little.
 	Structural Design Patterns
         Adapter Pattern
         Composite Pattern(https://dzone.com/articles/composite-design-pattern-java-0)
@@ -353,25 +364,35 @@ Patterns GOF(Design Patterns: Elements of Reusable Object-Oriented Software)(Gan
 		State Pattern(https://www.programcreek.com/2011/07/java-design-pattern-state/, https://www.baeldung.com/java-state-design-pattern, https://sourcemaking.com/design_patterns/state)
 			The main idea of State pattern is to allow the object for changing its behavior without changing its class. 
 			Also, by implementing it, the code should remain cleaner without many if/else statements.
-		Strategy Pattern(https://dzone.com/articles/design-patterns-strategy, https://inneka.com/programming/java/difference-between-strategy-pattern-and-command-pattern/)
+		Strategy Pattern(https://dzone.com/articles/design-patterns-strategy)
 			The Strategy pattern is known as a behavioural pattern - it's used to manage algorithms, relationships and responsibilities between objects. 
 			Defines a set of encapsulated algorithms that can be swapped to carry out a specific behaviour
 			--- java.util.Comparator#compare(), executed by among others Collections#sort().
-		Command Pattern (https://sourcemaking.com/design_patterns/memento,https://www.javacodegeeks.com/2015/09/memento-design-pattern.html)
-			Encapsulate a request as an object, thereby letting you parameterize clients with different requests, queue or log requests, and support undoable operations
-			--- All implementations of java.lang.Runnable
+		Command Pattern 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patterns GRASP(General Responsibility Assignment Software Patterns)(http://blogerator.org/page/oop-patterny-i-principy-grasp)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		Information Expert (Информационные эксперт) ;
-		Creator (Создатель) ;
-		Controller (Контроллер) ;
-		Low Coupling (Слабая связанность) ;
-		High Cohesion (Высокая сцепленность) ;
-		Pure Fabrication (Чистая выдумка или чистое синтезирование) ;
-		Indirection (Посредник) ;
-		Protected Variations (Сокрытие реализации или защищенные изменения) ;
-		Polymorphism (Полиморфизм).
+		В заключение — принципы GRASP не создают четкую структуру, которой мы должны следовать в коде. 
+		Это больше глубоко продуманное распределение ролей и ответственностей между всеми объектами, а также свойства, 
+		которыми эти объекты должны обладать для того, чтобы гармонично исполнять свои роли
+		
+		Information Expert (Информационные эксперт); Информационный эксперт или просто эксперт — это скорее ответственность. 
+			Что если объект владеет всей нужной информацией полностью для какой-то операции или функционала, то значит, 
+			что этот объект будет выполнять всё сам, либо получать делегировать выполнение этой операции от других.
+		Creator (Создатель); Creator или Создатель — суть ответственности такого объекта в том, что он создает другие объекты. (GOF Factory Pattern)
+		Controller (Контроллер); Контроллер отвечает на такой вопрос: «Как UI должен взаимодействовать с доменной логикой приложения?»
+		Low Coupling (Слабая связанность) Программируйте на основе абстракций (интерфейс, абстрактный класс и т.п.), а не реализаций; (SOLID Dependency Injection.)
+		High Cohesion (Высокая сцепленность); Основной вопрос на который дает ответ высокая сцепленность — «Как поддерживать объекты сфокусированными на одной ответственности, 
+			понятными, управляемыми и как побочный эффект иметь слабо связанный код?»
+		Pure Fabrication (Чистая выдумка или чистое синтезирование); Pure Fabrication или чистая выдумка, или чистое синтезирование. Здесь суть в выдуманном объекте. 
+			Вот такой себе принцип-хак! 
+			Но без него никак. Аналогом может быть шаблон Service (сервис) в парадигме DDD.
+		Indirection (Посредник) ; Indirection или посредник. Можно столкнуться с таким вопросом: 
+			«Как определить ответственность объекта и избежать сильной связанности между объектами,
+			даже если один класс нуждается в функционале (сервисах), который предоставляет другой класс?» Необходимо наделить ответственностью объект посредник.
+		Protected Variations (Сокрытие реализации или защищенные изменения) ; То есть суть этого принципа в том, чтобы определить места в системе,
+			где поведение может изменится и выделить абстракцию, на основе которой и будет происходить дальнейшее программирование с использованием этого объекта
+		Polymorphism (Полиморфизм). Polymorphism или полиморфизм. Тоже знакомо, не так ли? Так вот это об том же полиморфизме, который мы знаем из ООП.
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_language)
@@ -401,7 +422,17 @@ Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_la
 			thinking “from the outside in”, in other words implement only those behaviors which contribute most directly to these business outcomes, so as to minimize waste
 			describe behaviors in a single notation which is directly accessible to domain experts, testers and developers, so as to improve communication
 			apply these techniques all the way down to the lowest levels of abstraction of the software, paying particular attention to the distribution of behavior, so that evolution remains cheap
-			
+		
+		Domain-Driven Design (https://airbrake.io/blog/software-design/domain-driven-design)
+			domain is: “A sphere of knowledge or activity.”
+			domain logic, which may be better known to many developers as the business logic.
+			Initially introduced and made popular by programmer Eric Evans in his 2004 book, 
+				Domain-Driven Design: Tackling Complexity in the Heart of Software, domain-driven design is the expansion upon and application of the domainconcept, 
+				as it applies to the development of software. 
+				It aims to ease the creation of complex applications by connecting the related pieces of the software into an ever-evolving model. DDD focuses on three core principles:
+					Focus on the core domain and domain logic.
+					Base complex designs on models of the domain.
+					Constantly collaborate with domain experts, in order to improve the application model and resolve any emerging domain-related issues.
 -- ------------------------------------------------	Cucumber (https://cucumber.io/docs/guides/overview/)	
 		What is Cucumber?
 			Ok, now that you know that BDD is about discovery, collaboration and examples (and not testing), let’s take a look at Cucumber.

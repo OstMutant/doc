@@ -4,6 +4,26 @@ Jenkins — відкритий інструмент для безперервн�
 У звичайному проекті, де над різними частинами системи розробники працюють незалежно, стадія інтеграції є завершальною. Вона може непередбачувано затримати закінчення робіт. 
 Перехід до неперервної (постійної) інтеграції дозволяє знизити трудомісткість інтеграції і зробити її передбачуванішою за рахунок найбільш раннього виявлення та усунення помилок і суперечностей.
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+Kubernetes and Docker(https://containerjournal.com/topics/container-ecosystems/kubernetes-vs-docker-a-primer/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Docker is a standalone software that can be installed on any computer to run containerized applications. 
+			Containerization is an approach of running applications on an OS such that the application is isolated from the rest of the system. 
+			You create an illusion for your application that it is getting its very own OS instance, although there may be other containers running on same system. 
+			Docker is what enables us to run, create and manage containers on a single operating system.
+
+		Kubernetes turns it up to 11, so to speak. If you have Docker installed on a bunch of hosts (different operating systems), you can leverage Kubernetes. 
+			These nodes, or Docker hosts, can be bare-metal servers or virtual machines. 
+			Kubernetes can then allow you to automate container provisioning, networking, load-balancing, 
+			security and scaling across all these nodes from a single command line or dashboard. 
+			A collection of nodes that is managed by a single Kubernetes instance is referred to as a Kubernetes cluster.
+
+		Now, why would you need to have multiple nodes in the first place? The two main motivations behind it are:
+
+		To make the infrastructure more robust: Your application will be online, even if some of the nodes go offline, i.e, High availability.
+		To make your application more scalable: If workload increases, simply spawn more containers and/or add more nodes to your Kubernetes cluster.
+		Kubernetes automates the process of scaling, managing, updating and removing containers. In other words, it is a container orchestration platform. 
+		While Docker is at the heart of the containerization, it enables us to have containers in the first place.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 Docker(https://uk.wikipedia.org/wiki/Docker)

@@ -472,12 +472,19 @@ So in brief: Soft references try to keep the reference. Weak references don’t 
 https://dou.ua/forums/topic/6267/, https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792
 https://www.logicbig.com/tutorials/core-java-tutorial/gc/phantom-reference.html
 
--- ------------------------------------------------ Java Enum
-Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
+-- ------------------------------------------------ Java Enum (http://tutorials.jenkov.com/java/enums.html)
+		Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
+		A Java Enum is a special Java type used to define collections of constants. More precisely, a Java enum type is a special kind of Java class. 
+		An enum can contain constants, methods etc. Java enums were added in Java 5.
 
 -- ------------------------------------------------ Java Ternary Operator
-Java ternary operator is the only conditional operator that takes three operands.
-result = testStatement ? value1 : value2;
+		Java ternary operator is the only conditional operator that takes three operands.
+		result = testStatement ? value1 : value2;
+
+-- ------------------------------------------------ Lazy initialization(https://en.wikipedia.org/wiki/Lazy_initialization)
+		In computer programming, lazy initialization is the tactic of delaying the creation of an object, the calculation of a value, 
+			or some other expensive process until the first time it is needed. 
+			It is a kind of lazy evaluation that refers specifically to the instantiation of objects or other resources.
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 When to use LinkedList and when to use ArrayList?
