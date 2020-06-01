@@ -278,7 +278,7 @@ KISS principle(https://en.wikipedia.org/wiki/KISS_principle) (keep it small and 
 
 			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-YAGNI principle(https://en.wikipedia.org/wiki/KISS_principle) (You aren't gonna need it) 
+YAGNI principle(https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it) (You aren't gonna need it) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		"You aren't gonna need it"[1][2] (YAGNI)[3] is a principle of extreme programming (XP) that states a programmer should not add functionality until deemed necessary.[4] 
 			XP co-founder Ron Jeffries has written: "Always implement things when you actually need them, never when you just foresee that you need them."[5] 
@@ -382,6 +382,29 @@ Domain-specific language (DSL) (https://en.wikipedia.org/wiki/Domain-specific_la
 				known as domain engineering. The word domain is also taken as a synonym of application domain.[1] It is also seen as a sphere of knowledge.
 		
 -- ------------------------------------------------ Виды тестирования и подходы к их применению
-Блочное (Unit testing) — тестирование одного модуля в изоляции.
-Интеграционное (Integration Testing) — тестирование группы взаимодействующих модулей.
-Системное (System Testing) — тестирование системы в целом.
+		Блочное (Unit testing) — тестирование одного модуля в изоляции.
+		Интеграционное (Integration Testing) — тестирование группы взаимодействующих модулей.
+		Системное (System Testing) — тестирование системы в целом.
+
+		“Test-driven development” refers to a style of programming in which three activities are tightly interwoven: coding, testing (in the form of writing unit tests) and design (in the form of refactoring).
+		(https://www.agilealliance.org/glossary/tdd)
+			It can be succinctly described by the following set of rules:
+				write a “single” unit test describing an aspect of the program
+				run the test, which should fail because the program lacks that feature
+				write “just enough” code, the simplest possible, to make the test pass
+				“refactor” the code until it conforms to the simplicity criteria
+				repeat, “accumulating” unit tests over time
+				
+		Behaviour Driven Development (BDD) is a synthesis and refinement of practices stemming from Test Driven Development (TDD) and Acceptance Test Driven Development (ATDD). BDD augments TDD and ATDD with the following tactics:
+		(https://www.agilealliance.org/glossary/bdd)
+			Apply the “Five Why’s” principle to each proposed user story, so that its purpose is clearly related to business outcomes
+			thinking “from the outside in”, in other words implement only those behaviors which contribute most directly to these business outcomes, so as to minimize waste
+			describe behaviors in a single notation which is directly accessible to domain experts, testers and developers, so as to improve communication
+			apply these techniques all the way down to the lowest levels of abstraction of the software, paying particular attention to the distribution of behavior, so that evolution remains cheap
+			
+-- ------------------------------------------------	Cucumber (https://cucumber.io/docs/guides/overview/)	
+		What is Cucumber?
+			Ok, now that you know that BDD is about discovery, collaboration and examples (and not testing), let’s take a look at Cucumber.
+			
+		What is Gherkin?
+			Gherkin is a set of grammar rules that makes plain text structured enough for Cucumber to understand. The scenario above is written in Gherkin.

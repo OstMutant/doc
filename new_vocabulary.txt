@@ -1298,7 +1298,7 @@ withered - зів'яло
 withered flower beds - сухі квітники
 to wither ['wɪðə] = to fade - вянути, блякнути
 crumbling staircases - сходи що кришаться
-cracked walls - стіни в тріщинах
+cracked walls - стіни в тріщинах, crack - тріщини
 stain - пляма
 water-stained - заплямовані водою
 water-stained ceilings - заплямовані водою стелі 
@@ -1997,3 +1997,51 @@ catch up - наздогнати
 recital - сольний концерт
 jot down - коротко записати
 excerpt - уривок  except - крім
+
+kind of reasoning - вид міркувань
+firing - стрільба
+it is primed - вона грунтується
+turn out - вийти
+tend - прагнуть
+neural cells - нервові клітини
+setting out - викладаються
+
+infant ['ɪnfənt] = child
+circuit ['sɜːkɪt] /circuitry ['sɜːkɪtrɪ] (all circuits together) область
+a maze = labyrinth ['læbərɪnθ] / to solve mazes
+to prime sth = prepare
+to wire sth up (to connect to some equipment)/ bank wire = transfer
+peek-a-boo = a nursery game when hiding and suddenly reappearing  a nursery game - дитяча гра
+to blow up at sb (to lose one’s temper and shout)
+to scar sb = to traumatize ['trɔːmətaɪz] (to hurt psychologically with deep consequences)
+
+circuitry - область
+excel - перевершувати
+fell behind, to lag behind - відставати
+cellist - віолончеліст
+insist, intend, involve - наполягати, намір, залучати
+excel, outdoor, exceed - перевершувати, на відкритому повітрі, перевищувати
+
+worth living - варте того, щоб жити
+overblown - надмірно роздутий
+lack - брак, недостача
+string and brass instruments - струнні та духові інструменти
+timeless, eternal - позачасовий, вічний
+to go by the wayside (to be put off because of sth more important) - піти убік (відкласти через щось важливіше)
+short-sighted - недалекоглядний
+lustrous ['lʌstrəs],  brilliant (student) - блискучий (студент)
+fuse - запобіжник
+
+advancing, progressing - прогресуючий
+enhance, increase, boost - підсилювати, збільшувати, стимулювати
+entirely, as a whole - цілком, в цілому
+reached, caught up to, caught up with - досягли, догнали до, наздогнали
+prepared, primed - підготовлений, грунтується
+without considering, despite, regardless of -  не враховуючи, незважаючи на, незалежно від
+unfinished product, work in progress - незавершений продукт, в роботі
+benefited, did more for - дало виграш, зробили багато для
+didn't involve, had nothing to do with - не залучав, не мав нічого спільного
+got advantages, reaped benefits - отримали переваги, пожинали переваги
+concluded from data, did used, found - Висновок з даних, зроблено, знайдено
+improved, enhanced - вдосконалено, вдосконалено
+outstanding feature, hallmark  - видатний, ознака, особливість

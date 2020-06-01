@@ -1,5 +1,5 @@
 ﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-YAML(https://habr.com/post/238603/, https://dzone.com/articles/using-yaml-java-application)
+YAML(https://habr.com/post/238603/, https://dzone.com/articles/using-yaml-java-application, https://ru.wikipedia.org/wiki/YAML)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 YAML — человекочитаемый формат сериализации данных, концептуально близкий к языкам разметки, но ориентированный на удобство ввода-вывода типичных структур данных многих языков программирования.
 Yet Another Markup Language(«Ещё один язык разметки») 
@@ -52,21 +52,16 @@ XML(https://jsehelper.blogspot.com/2016/01/xml.html)
 		org.xml.sax - определяет интерфейсы, использованные для анализаторов SAX.
 		javax.xml.transform - API XLST для преобразования XML в другие типы документов
 		
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JAXB(https://jsehelper.blogspot.com/2016/01/xml.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	Java Архітектура для XML Binding (JAXB) дозволяє розробникам відображати(ставити у відповідність) класи Java у XML файли.
 	JAXP (Java API for XML Processing) - набор абстрактных API, упрощающих обработку XML данных с помощью программ, написанных на Java.
 		Усиливает стандартние анализаторы SAX (Simple API for XML Parsing) и DOM (Document Object Model). 
 		Также поддерживает преобразования расширяемого языка таблиц стилей (XSLT стандарт, давая вам контроль над представлением данных и позволяя преобразов
 			данные в другие XML-документы или в другие форматы, такие как HTML.
-			
-------------------------------------------------------------------------
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JAXB(https://uk.wikipedia.org/wiki/JAXB, http://docs.oracle.com/javaee/5/api/index.html?javax/xml/bind/JAXBContext.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	Java Архітектура для XML Binding (JAXB) дозволяє розробникам відображати(ставити у відповідність) класи Java у XML файли.
 	JAXB має дві основні властивості: здатність створювати класи Java з XML і навпаки - створювати XML файли з класів Java.
-	https://uk.wikipedia.org/wiki/JAXB
-	http://docs.oracle.com/javaee/5/api/index.html?javax/xml/bind/JAXBContext.html
-	http://devcolibri.com/3372
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JSON (https://tproger.ru/translations/java-json-library-comparison/)
@@ -129,6 +124,12 @@ JDBC API в Java - обзор и туториал(http://www.javenue.info/post/j
 		/* you use the connection here */
 	}
 	
+	JDBC - Transactions(https://www.tutorialspoint.com/jdbc/jdbc-transactions.htm)
+		Commit & Rollback
+			code the following to turn off auto-commit − conn.setAutoCommit(false);
+			Once you are done with your changes and you want to commit the changes then call commit() method on connection object as follows − conn.commit( );
+			Otherwise, to roll back updates to the database made using the Connection named conn, use the following code − conn.rollback( );
+	
 	Benefits of Java Prepared Statement(http://javarevisited.blogspot.com/2012/03/why-use-preparedstatement-in-java-jdbc.html)
 		1. PreparedStatement allows you to write dynamic and parametric query.
 		2. PreparedStatement is faster than Statement in Java
@@ -179,6 +180,74 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 		4. The memory address of the object, cast to int.
 		5. Thread state combined with xorshift (https://en.wikipedia.org/wiki/Xorshift)
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+OOP 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------- Polymorphism in Java (https://www.baeldung.com/java-interfaces, https://www.geeksforgeeks.org/overriding-in-java/, https://blog.udemy.com/polymorphism-in-java/)
+		We cover two core types of polymorphism: static or compile-time polymorphism and dynamic or runtime polymorphism. 
+			Static polymorphism is enforced at compile time while dynamic polymorphism is realized at runtime.
+			
+		The static polymorphism (also known as compile time polymorphism) is implemented via overloaded methods of a class.
+		Dynamic Polymorphism is implemented in Java using overridden methods. Method overrides refer to the process of providing the same method name but with different parameters.
+		
+		@Override (https://www.tutorialspoint.com/importance-of-override-annotation-in-java, https://beginnersbook.com/2014/07/override-annotation-in-java/)
+		The @Override annotation is one of a default Java annotation and it can be introduced in Java 1.5 Version. The @Override annotation indicates that the child class method is over-writing its base class method.
+			The @Override annotation can be useful for two reasons
+				It extracts a warning from the compiler if the annotated method doesn't actually override anything.
+				It can improve the readability of the source code.
+				
+----------------- Inheritance in Java (https://www.geeksforgeeks.org/inheritance-in-java/)				
+		Inheritance is an important pillar of OOP(Object Oriented Programming). It is the mechanism in java by which one class is allow to inherit the features(fields and methods) of another class.
+		Important terminology:
+		Super Class: The class whose features are inherited is known as super class(or a base class or a parent class).
+		Sub Class: The class that inherits the other class is known as sub class(or a derived class, extended class, or child class). 
+			The subclass can add its own fields and methods in addition to the superclass fields and methods.
+		Reusability: Inheritance supports the concept of “reusability”, i.e.
+			when we want to create a new class and there is already a class that includes some of the code that we want, we can derive our new class from the existing class. 
+			By doing this, we are reusing the fields and methods of the existing class.
+			
+
+----------------- Encapsulation in Java (https://www.geeksforgeeks.org/encapsulation-in-java/?ref=lbp)
+		Encapsulation is defined as the wrapping up of data under a single unit. It is the mechanism that binds together code and the data it manipulates.
+			Other way to think about encapsulation is, it is a protective shield that prevents the data from being accessed by the code outside this shield.
+			Technically in encapsulation, the variables or data of a class is hidden from any other class and can be accessed only through any member function of own class in which they are declared.
+			As in encapsulation, the data in a class is hidden from other classes using the data hiding concept which is achieved by making the members or methods of class as private and the class is exposed to the end user
+				or the world without providing any details behind implementation using the abstraction concept, so it is also known as combination of data-hiding and abstraction..
+			Encapsulation can be achieved by: Declaring all the variables in the class as private and writing public methods in the class to set and get the values of variables.
+
+		Модификаторы доступа(http://ocpj8.javastudyguide.com/ch01.html):
+			public: публичный, общедоступный класс или член класса. Поля и методы, объявленные с модификатором public, видны другим классам из текущего пакета и из внешних пакетов.
+			private: закрытый класс или член класса, противоположность модификатору public. Закрытый класс или член класса доступен только из кода в том же классе.
+			protected: такой класс или член класса доступен из любого места в текущем классе или пакете или в производных классах, даже если они находятся в других пакетах
+			Модификатор по умолчанию. Отсутствие модификатора у поля или метода класса предполагает применение к нему модификатора по умолчанию. Такие поля или методы видны всем классам в текущем пакете.
+
+			-- Accessors and Mutators(https://www.thoughtco.com/accessors-and-mutators-2034335):
+				Accessor method is used to return the value of a private field.
+				Mutator method is used to set a value of a private field. 
+					Why Use Accessors and Mutators? 
+						Change how the data is handled behind the scenes.
+						Impose validation on the values that the fields are being set to.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+What Are Interfaces in Java? (https://www.baeldung.com/java-interfaces)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	In Java, an interface is an abstract type that contains a collection of methods and constant variables. 
+		It is one of the core concepts in Java and is used to achieve abstraction, polymorphism and multiple inheritances.
+	
+	Rules for Creating Interfaces
+		In an interface, we're allowed to use:
+
+		constants variables
+		abstract methods
+		static methods
+		default methods
+		We also should remember that:
+
+		we can't instantiate interfaces directly
+		an interface can be empty, with no methods or variables in it
+		we can't use the final word in the interface definition, as it will result in a compiler error
+		all interface declarations should have the public or default access modifier; the abstract modifier will be added automatically by the compiler
+		an interface method can't be private, protected, or final
+		interface variables are public, static, and final by definition; we're not allowed to change their visibility
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in-java, https://www.jworks.io/immutable-data-structures-in-java/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -410,21 +479,6 @@ Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixe
 Java ternary operator is the only conditional operator that takes three operands.
 result = testStatement ? value1 : value2;
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Модификаторы доступа(http://ocpj8.javastudyguide.com/ch01.html):
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		public: публичный, общедоступный класс или член класса. Поля и методы, объявленные с модификатором public, видны другим классам из текущего пакета и из внешних пакетов.
-		private: закрытый класс или член класса, противоположность модификатору public. Закрытый класс или член класса доступен только из кода в том же классе.
-		protected: такой класс или член класса доступен из любого места в текущем классе или пакете или в производных классах, даже если они находятся в других пакетах
-		Модификатор по умолчанию. Отсутствие модификатора у поля или метода класса предполагает применение к нему модификатора по умолчанию. Такие поля или методы видны всем классам в текущем пакете.
-
-		-- Accessors and Mutators(https://www.thoughtco.com/accessors-and-mutators-2034335):
-			Accessor method is used to return the value of a private field.
-			Mutator method is used to set a value of a private field. 
-				Why Use Accessors and Mutators? 
-					Change how the data is handled behind the scenes.
-					Impose validation on the values that the fields are being set to.
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
 When to use LinkedList and when to use ArrayList?
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -442,6 +496,20 @@ FIFO (акроним англ. First In, First Out – первым пришёл
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Threads
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		wait, notify, notifyAll (https://java2blog.com/difference-between-sleep-and-wait-in/, https://javarush.ru/quests/lectures/questmultithreading.level01.lecture06)
+		synchronized(lockedObject) {   
+			lockedObject.wait(); // It releases the lock on lockedObject.
+				// So until we call notify() or notifyAll() from other thread,It will not wake up  
+			}
+			
+		(sleep) https://javarush.ru/quests/lectures/questmultithreading.level01.lecture06
+		synchronized(lockedObject) {   
+			Thread.sleep(1000); // It does not release the lock on lockedObject.
+			// So either after 1000 miliseconds, current thread will wake up, or after we call 
+			//t. interrupt() method.
+		}
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		Multithreading Costs(http://tutorials.jenkov.com/java-concurrency/costs.html)
 			"context switch" - When a CPU switches from executing one thread to executing another, the CPU needs to save the local data, program pointer etc.
@@ -482,10 +550,56 @@ Threads
 		- Starvation: Only one thread is running, and other threads are waiting forever.
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java Collection Framework(http://www.quizful.net/post/Java-Collections)
+Java Collection Framework(http://www.quizful.net/post/Java-Collections, https://www.bigocheatsheet.com/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------	Understanding Natural Ordering(https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator)
+			Natural ordering is the default ordering of objects of a specific type when they are sorted in an array or a collection. 
+			- The natural ordering of String objects is alphabetic order.
+			- The natural ordering of Integer objects is alphanumeric order.
+			- The natural ordering of Date objects is chronological order.
+
+			Remember these rules:
+			compare value = 0: two objects are equal.
+			compare value > 0: the first object (the current object) is greater than the second one.
+			compare value < 0: the first object is less than the second one.
+
+-------------------	Big-O (https://www.bigocheatsheet.com/)
+
+-------------------	Comparator vs Comparable (https://www.baeldung.com/java-comparator-comparable)
+		Comparable is an interface defining a strategy of comparing an object with other objects of the same type. This is called the class's “natural ordering”.
+		public class Player implements Comparable<Player> {
+			//...
+			@Override
+			public int compareTo(Player otherPlayer) {
+				return (this.getRanking() - otherPlayer.getRanking());
+			}
+		}
+		The Comparator interface defines a compare(arg1, arg2) method with two arguments which represent compared objects and works similarly to the Comparable.compareTo() method.
+		public class PlayerRankingComparator implements Comparator<Player> {
+			@Override
+			public int compare(Player firstPlayer, Player secondPlayer) {
+			   return (firstPlayer.getRanking() - secondPlayer.getRanking());
+			}
+		}
+		The Comparable interface is a good choice when used for defining the default ordering or, in other words, if it's the main way of comparing objects.
+			Then, we must ask ourselves why use a Comparator if we already have Comparable?
+			There are several reasons why:
+				Sometimes, we can't modify the source code of the class whose objects we want to sort, thus making the use of Comparable impossible
+				Using Comparators allows us to avoid adding additional code to our domain classes
+				We can define multiple different comparison strategies which isn't possible when using Comparable
+-------------------	HashMap (https://dzone.com/articles/hashmap-internal)
+		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
+		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
+
+		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
+			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
+				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
+				The hash will change from using a linked list to a balanced tree.
+			Above changes ensure the performance of O(log(n)) in worst case scenarios and O(1) with proper hashCode().
+			The alternative String hash function added in Java 7 has been removed.		
 	
-	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort)
+-------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort)
 		According to the Java 7 API doc for primitives:
 			Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. 
 			This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.
@@ -632,6 +746,20 @@ What is Exception Wrapping?
 Fail Safe Exception Handling
 	The last exception thrown in a try-catch-finally block is the exception that will be propagated up the call stack.
 	All earlier exceptions will disappear.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+String 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Java String Pool (https://www.baeldung.com/java-string-pool) — the special memory region where Strings are stored by the JVM. 
+		Palindrome (https://www.baeldung.com/java-palindrome)
+			A palindrome is a word, phrase, number, or other sequences of characters which reads the same backward as forward, such as “madam” or “racecar”.
+			public boolean isPalindromeUsingStringBuilder(String text) {
+				String clean = text.replaceAll("\\s+", "").toLowerCase();
+				StringBuilder plain = new StringBuilder(clean);
+				StringBuilder reverse = plain.reverse();
+				return (reverse.toString()).equals(clean);
+			}
+			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Difference between URL and URI(https://prateekvjoshi.com/2014/02/22/url-vs-uri-vs-urn/, http://www.baeldung.com/java-url-vs-uri, https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

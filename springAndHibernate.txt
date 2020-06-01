@@ -67,10 +67,48 @@ Spring Boot
 		If you are a control freak, I doubt Spring Boot would fit your needs.
 		Spring Boot sticks good with micro services. The Spring Boot artifacts can be deployed directly into Docker containers.
 		In a large and monolithic based applications, I would not encourage you to use Spring Boot.
-
+	
+	https://start.spring.io/ - spring initializr
+	https://coderlessons.com/tutorials/java-tekhnologii/learn-spring-boot/spring-boot-kratkoe-rukovodstvo - Spring Boot – Краткое руководство
+	https://spring.io/guides/gs/testing-web/ - Testing the Web Layer
+	https://dev-gang.ru/article/kak-sozdat-rest-api-s-pomosczu-spring-boot-ispolzuja-mysql-i-jpa-s0mrstf9hw/ - Как создать Rest API с помощью Spring Boot, используя MySQL и JPA
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Spring Framework
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		(https://proselyte.net/tutorials/spring-tutorial-full-version/ioc-containers/)
+		Ключевым элементов Spring Framework является Spring Container. Container создаёт объекты, связывает их вместе, настраивает и управляет ими от создания до момента уничтожения.
+		Spring Container получает инструкции какие объекты инстанциировать и как их конфигурировать через метаданные.
+			Метаданные могут быть получены 3 способами:
+				– XML
+				– Аннотации Java
+				– Java код
+
+			В Spring имеется 2 различных вида контейнеров:
+				1. Spring BeanFactory Container;
+				2. Spring ApplicationContext Container;
+					– FileSystemXmlApplicationContext Загружает данные о бине из XML файла.
+					– ClassPathXmlApplicationContext Этот контейнер также получает данные о бине из XML файла.
+					– WebXmlApplicationContext Эта реализация ApplicationContext получает необходимую информацию из веб-приложения.
+					
+		В Spring Framework имеются пять возможных значений свойства scope:
+			singleton Определяет один единственный бин для каждого контейнера Spring IoC (используется по умолчанию).
+			prototype Позволяет иметь любое количество экземпляров бина.
+			request Создаётся один экземпляр бина на каждый HTTP запрос. Касается исключительно ApplicationContext.
+			session Создаётся один экземпляр бина на каждую HTTP сессию. Касается исключительно ApplicationContext.
+			global-session Создаётся один экземпляр бина на каждую глобальную HTTP сессию. Касается исключительно ApplicationContext.
+		
+		Жизненный цикл бинов.
+			Для управления созданием и уничтожением бина у нас есть параметры init-method и destroy-method.
+			BeanPostProcessor имеет всего два метода:
+				– postProcessBeforeInitialization
+				– postProcessAfterInitialization
+				
+		Difference between @Bean and @Autowired(https://stackoverflow.com/questions/34172888/difference-between-bean-and-autowired)
+			@Bean tells Spring 'here is an instance of this class, please keep hold of it and give it back to me when I ask'.
+			@Autowired says 'please give me an instance of this class, for example, one that I created with an @Bean annotation earlier'.
+
+
+
 	https://uk.wikipedia.org/wiki/Spring_Framework - IoC у вигляді принципу інверсії залежностей входить у п'ятірку принципів SOLID.
 
 	Spring IoC Container
@@ -272,6 +310,60 @@ Entities могут быть связаны друг с другом (один-�
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Hibernate
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	ORM is an acronym for “object-related Mapping”. It is a philosophy that is aimed at making data manipulation and access as simple as possible. (https://www.bitdegree.org/tutorials/hibernate-interview-questions/)
+	The immediate answer would be that there are two main ways to do so – using XML and then the annotation provided by Java.
+	The configuration file contains a database of specific configurations and is used to initialize SessionFactory. 
+	Session.createCriteria - the syntax of adding a criterion into the SQL query
+	Be careful not mix it up with Session! SessionFactory is the thing that provides instances of Session. All of the data and information that isn’t default on Hibernate is kept in SessionFactory.
+	Persistent classes are Java classes that store their data (objects) within the tables of the Hibernate framework’s database. 
+		They are special in that they need a set constructor for them to function as normal. Proxies – some of the core Hibernate functions – are heavily dependant on the workflow of persistent classes.
+	One of the more expansive Hibernate interview questions, in total there are three object states – detached, persistent and transient.
+	The default cache of the Hibernate framework is the EHCache.
+	
+	Прежде всего Hibernate cache — это 3 уровня кеширования:(https://habr.com/ru/post/135176/)
+		Кеш первого уровня (First-level cache) привязан к объекту сессии;
+		Кеш второго уровня (Second-level cache) кеш второго уровня привязан к объекту-фабрике сессий;
+		Кеш запросов (Query cache);
+	Стратегии кеширования определяют поведения кеша в определенных ситуациях. Выделяют четыре группы:
+		Read-only
+		Read-write
+		Nonstrict-read-write
+		Transactional
+	
+	(https://www.java67.com/2016/02/top-20-hibernate-interview-questions.html)
+	Hibernate query language, HQL is an object-oriented extension to SQL. It allows you to query, store, update, and retrieve objects from a database without using SQL.
+	Though both save() and saveOrUpdate() method is used to store an object into Database, the key difference between them is that save can only INSERT records but saveOrUpdate() can either INSERT or UPDATE records.
+	Hibernate query language, HQL is an object-oriented extension to SQL. It allows you to query, store, update, and retrieve objects from a database without using SQL.
+	SessionFactory is both Immutable and thread-safe and it has just one single instance in Hibernate application.
+	Session object is not thread-safe in Hibernate and intended to be used with-in single thread in the application.
+
+	The N+1 SELECT problem is a result of lazy loading and load on demand fetching strategy. In this case, Hibernate ends up executing N+1 SQL queries to populate a collection of N elements.
+		For example, if you have a List of N Items where each Item has a dependency on a collection of Bid object. 
+		Now if you want to find the highest bid for each item then Hibernate will fire 1 query to load all items and N subsequent queries to load Bid for each item.
+	Here are some strategies to solve the N+1 problem:
+		1) pre-fetching in batches, this will reduce the N+1 problem to N/K + 1 problem where  K is the size of the batch
+		2) subselect fetching strategy
+		3) disabling lazy loading
+		
+	There are following differences between get() and load() methods.(https://www.tutorialspoint.com/hibernate/hibernate_interview_questions.htm)
+		get() returns null if no data is present where as load throws ObjectNotFoundException exception in such case.
+		get() always hits the database whereas load() method doesn't hit the database.
+		get() returns actual object whereas load() returns proxy object.
+	A central feature of Hibernate, proxies, depends upon the persistent class being either non-final, or the implementation of an interface that declares all public methods.
+	Following are the key components/objects of Hibernate −
+		Configuration − Represents a configuration or properties file required by the Hibernate.
+		SessionFactory − Configures Hibernate for the application using the supplied configuration file and allows for a Session object to be instantiated.
+		Session − Used to get a physical connection with a database.
+		Transaction − Represents a unit of work with the database and most of the RDBMS supports transaction functionality.
+		Query − Uses SQL or Hibernate Query Language (HQL) string to retrieve data from the database and create objects.
+		Criteria − Used to create and execute object oriented criteria queries to retrieve objects.
+
+	Difference between Set and Bag in Hibernate(https://stackoverflow.com/questions/13812283/difference-between-set-and-bag-in-hibernate)
+	Set - No duplicates and No order
+	Bag - Can contain Duplicates and No Order (Also called, Unordered List or Set with duplicates)
+	List - Can contain Duplicates but with Order preserved
+
+
 	HQL (Hibernate Query Language) – это объекто-ориентированный (далее – ОО) язык запросов, который крайне похож на SQL.
 		http://proselyte.net/tutorials/hibernate-tutorial/hibernate-query-language/
 		https://jsehelper.blogspot.nl/2016/03/object-relational-mapping-orm-hibernate.html

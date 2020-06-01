@@ -191,6 +191,10 @@ functional programming (https://examples.javacodegeeks.com/core-java/java-9-func
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Optional (https://www.baeldung.com/java-optional)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		According to the Oracle documentation, an Optional is a container object that may or may not contain a non-null value. It was introduced in Java 8 to cure the curse of NullPointerExceptions.
+		(https://dzone.com/articles/java-8-optional-usage-and-best-practices)
+
+
 		The purpose of the class is to provide a type-level solution for representing optional values instead of using null references.
 		(https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
 		empty() - Returns an empty Optional instance.
@@ -208,6 +212,9 @@ Optional (https://www.baeldung.com/java-optional)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		(https://labs.bluesoft.com.br/2017/01/10/java-8-advanced-streams/)
+			The order of the result might be surprising. A naive approach would be to execute the operations horizontally one after another on all elements of the stream. 
+				But instead each element moves along the chain vertically. The first string “h” passes filter then forEach, only then the second string “e” is processed.
 		
 		These are the characteristics of a stream (http://ocpj8.javastudyguide.com/ch12.html):
 			Streams work perfectly with lambdas. All streams operations take functional interfaces as arguments, so you can simplify the code with lambda expressions (and method references).

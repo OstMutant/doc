@@ -40,7 +40,7 @@ JSON Web Tokens (JWT)(https://medium.com/vandium-software/5-easy-steps-to-unders
 		Since JWT are signed and encoded only, and since JWT are not encrypted, JWT do not guarantee any security for sensitive data.
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth)
+OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth, https://www.digitalocean.com/community/tutorials/oauth-2-ru)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		OAuth (скорочення від англ. Open Authorization) — це відкритий стандарт авторизації, який дозволяє користувачам відкривати доступ до своїх приватних даних (фотографії, відео, списки контактів)
