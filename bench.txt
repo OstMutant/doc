@@ -1,0 +1,11 @@
+https://github.com/maryellenteaches/FirstSpringBootMicroservice
+
+(https://www.linkedin.com/learning/react-js-essential-training-3/create-robust-user-interfaces-with-react-js?u=2113185) - for logging
+https://www.linkedin.com/learning/creating-your-first-spring-boot-microservice/using-the-exercise-files?u=2113185
+
+LTS (long term support)
+
+https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa - Introduction to Spring Data JPA
+https://dev.karakun.com/java/2018/06/25/java-releases.html - Do I need to pay for Java now?
+https://www.baeldung.com/oracle-jdk-vs-openjdk - Differences Between Oracle JDK and OpenJDK
+https://en.wikipedia.org/wiki/Java_version_history - Java version history 

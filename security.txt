@@ -53,3 +53,9 @@ OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth, 
 		OAuth 2.0 is not backwards compatible with OAuth 1.0. OAuth 2.0 provides specific authorization flows for web applications, desktop applications, mobile phones, and living room devices.
 			The specification and associated RFCs are developed by the IETF OAuth WG; the main framework was published in October 2012
 		
+		Actors Involved in OAuth2:(https://dzone.com/articles/oauth-20-beginners-guide)
+		i) Resource Server: The server hosting user-owned resources that are protected by OAuth2. The resource server validates the access-token and serves the protected resources.
+		ii) Resource Owner: Typically, the user of the application is the resource owner. The resource owner has the ability to grant or deny access to their own data hosted on the resource server.
+		iii) Authorization Server: The authorization server gets consent from the resource owner and issues access tokens to clients for accessing protected resources hosted by a resource server.
+		iv) Client: An application making API requests to perform actions on protected resources on behalf of the resource owner. 
+			Before it may do so, it must be authorized by the resource owner, and the authorization must be validated by resource server/authorization server.

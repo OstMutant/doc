@@ -139,17 +139,47 @@ https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html)
 			The four constraints for this uniform interface are:
 
 		Resource identification in requests
-			Individual resources are identified in requests, for example using URIs in Web-based REST systems. The resources themselves are conceptually separate from the representations that are returned to the client. 
+			Individual resources are identified in requests, for example using URIs in Web-based REST systems. 
+			The resources themselves are conceptually separate from the representations that are returned to the client. 
 			For example, the server may send data from its database as HTML, XML or JSON, none of which are the server's internal representation.
 		Resource manipulation through representations
 			When a client holds a representation of a resource, including any metadata attached, it has enough information to modify or delete the resource.
 		Self-descriptive messages
-			Each message includes enough information to describe how to process the message. For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type).[2]
+			Each message includes enough information to describe how to process the message. 
+			For example, which parser to invoke may be specified by an Internet media type (previously known as a MIME type).[2]
 		Hypermedia as the engine of application state (HATEOAS)
 			Having accessed an initial URI for the REST application—analogous to a human Web user accessing the home page of a website—a REST client should then be able to use 
-			server-provided links dynamically to discover all the available actions and resources it needs. As access proceeds, the server responds with text that includes hyperlinks to other actions that are currently available.
+			server-provided links dynamically to discover all the available actions and resources it needs. 
+			As access proceeds, the server responds with text that includes hyperlinks to other actions that are currently available.
 			There is no need for the client to be hard-coded with information regarding the structure or dynamics of the REST service.
-			
+	
+		When Is an API Truly REST vs REST-Like? (https://nordicapis.com/when-is-an-api-truly-rest-vs-rest-like/)
+		Identification of Resources
+			The first constraint of uniform interface is how resources are identified. 
+			This means that REST APIs should enable clients to identify a resource by means of a URI contained within the request.
+			Some add that the representation of a resource returned to the client should be separate from the resource itself. 
+			In other words, the RESTful representation of a resource should not represent the service’s internal representation of that resource, assuming the two are different.
+		Manipulation of Resources Through Representations
+			The second constraint of uniform interface is the manipulation of resources through their representations. 
+			Specifically, given the representation of a resource and any metadata associated with it, the client should be able to modify or delete the resource.
+			In practice, this really just means of available HTTP methods. 
+			The DELETE method should enable clients to delete a resource having just its URI, 
+			while the PUT and PATCH methods should enable clients to modify a resource having its URI and representation.
+			This approach to manipulating resources does away with long, verb-based API endpoints (e.g. updateUserAddress), 
+			instead of providing a uniform alternative… hence it’s part of uniform interface!
+		Self-Descriptive Messages
+			The third constraint of uniform interface is that messages are self-descriptive. 
+			This means that the representation of a resource should be returned to the client along with information on how to process it.
+			With REST APIs, the HTTP Content-Type header should be used to tell the client what media type is being sent in the body. 
+			In the interests of standardization, this should ideally be an IANA-registered media type — such as application/json for a JSON response.
+			Non-IANA media types can also be used, but they must be agreed upon with clients.
+		Hypermedia as the Engine of Application State (HATEOAS)
+			The fourth and final constraint of uniform interface is that application state should be expressed dynamically through hypermedia (known in short as HATEOAS). 
+			This means that in addition to returning a representation of the resource in question, 
+			a request should also be met by instructions on how to further interact with the resource or API as a whole.
+			In particular, upon accessing a resource, the client should be provided with information as to what actions can be performed on that resource.
+			These actions should be accompanied by hyperlink references to relevant URIs.
+	
 -- Understanding Richardson REST maturity model (RMM)(https://blogs.sap.com/2017/08/13/understanding-richardson-rest-maturity-model/)
 		The Richardson maturity model is separated in four (not so tough) levels
 			Level 0 – RPC POX
