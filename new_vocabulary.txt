@@ -2013,17 +2013,17 @@ to prime sth = prepare
 to wire sth up (to connect to some equipment)/ bank wire = transfer
 peek-a-boo = a nursery game when hiding and suddenly reappearing  a nursery game - дитяча гра
 to blow up at sb (to lose one’s temper and shout)
-to scar sb = to traumatize ['trɔːmətaɪz] (to hurt psychologically with deep consequences)
+to scar sb = to traumatize ['trɔːmətaɪz] (to hurt psychologically with deep consequences) - травмувати
+scary - страшно
 
 circuitry - область
-excel - перевершувати
 fell behind, to lag behind - відставати
 cellist - віолончеліст
 insist, intend, involve - наполягати, намір, залучати
 excel, outdoor, exceed - перевершувати, на відкритому повітрі, перевищувати
 
 worth living - варте того, щоб жити
-overblown - надмірно роздутий
+overblown - надмірно роздутий, перестаратись
 lack - брак, недостача
 string and brass instruments - струнні та духові інструменти
 timeless, eternal - позачасовий, вічний
@@ -2057,3 +2057,8 @@ have to do with - мати щось спільне
 orchestrate, strategize - оркеструвати, стратегізувати
 without considering, despite, regardless of -  не враховуючи, незважаючи на, незалежно від
 windows, opportunity - можливість
+
+complement - доповнення
+causative - причинний
+strengthen - зміцнювати
+nevertheless - тим не менше
