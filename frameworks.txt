@@ -5,7 +5,8 @@ Salesforce(https://www.onlineinterviewquestions.com/salesforce-interview-questio
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	Salesforce is Customer relationship management (CRM) software that is available to users as a software as a service (SaaS) application.
-	In Salesforce an App is a group of tabs that work as a unit to provide functionality. Users can switch between multiple apps using the Force.com app drop-down menu at the top-right corner of every page.
+	In Salesforce an App is a group of tabs that work as a unit to provide functionality. 
+		Users can switch between multiple apps using the Force.com app drop-down menu at the top-right corner of every page.
 	Below are top benefits of using Salesforce CRM
 		It Ensures faster and better sales opportunity
 		Reducing cost and improving customer satisfaction level
@@ -15,7 +16,8 @@ Salesforce(https://www.onlineinterviewquestions.com/salesforce-interview-questio
 	There are two important relationships in Salesforce. They are
 		Lookup relationship
 		Master detail relationship
-			Master-Detail Relationship is the Parent child relationship. In which Master represents Parent and detail represents Child.In this relationship,if parent is deleted then Child also gets deleted.
+			Master-Detail Relationship is the Parent child relationship. In which Master represents Parent and detail represents Child.
+			In this relationship,if parent is deleted then Child also gets deleted.
 	There are three types of object realations are available in Salesforce , they are
 		One to many.
 		Many to many.
@@ -33,34 +35,43 @@ Salesforce(https://www.onlineinterviewquestions.com/salesforce-interview-questio
 	Standard Fields are predefined fields in Salesforce, cannot be deleted, can be removed from a page layout, and can have limited customizations: changing labels, adding help text, 
 		adding/editing values in picklists, adding/editing lookup filters, setting field history tracking, changing the format of auto-number fields.
 	
-	Field-Level Security defines user ability to view and edit fields in Salesforce, helps enforce data security, helps ensure that users view only relevant data. This affects list views, search results, and reports.
+	Field-Level Security defines user ability to view and edit fields in Salesforce, helps enforce data security, helps ensure that users view only relevant data. 
+		This affects list views, search results, and reports.
 	
 	Before and after changes are made to a record, the custom actions performed in Salesforce are called Triggers. 
-		These actions include insertions, updates or deletions. Triggers can be used to invoke Apex and a trigger is nothing but an Apex code that is executed before and after the following set of actions.
+		These actions include insertions, updates or deletions. Triggers can be used to invoke Apex and a trigger is nothing but an Apex code that is executed before 
+			and after the following set of actions.
 		
-	Trigger takes a programmatic approach but the workflow does not require coding. When you want to take some actions say for an email, outbound message, task or field update, then a point in click workflow is required.
+	Trigger takes a programmatic approach but the workflow does not require coding. When you want to take some actions say for an email, outbound message, task or field update, 
+		then a point in click workflow is required.
 	
 	Force.com is a Platform-as-a-Service (PaaS) but Salesforce.com is a Software-as-a-Service (SaaS).
 		Moreover, Salesforce.com comes as an out-of-the-box solution and comes along with three core products – Sales Cloud, Marketing Cloud, and Service Cloud. 
 		It is possible to buy Sales Cloud and access leads, opportunities and reports.
-	SOQL (Salesforce Object Query Language) only allows you to query, a single object at a time but SOSL (Salesforce Object Search Language) helps you in searching texts, emails and phone fields with various objects. 
+	SOQL (Salesforce Object Query Language) only allows you to query, a single object at a time but SOSL (Salesforce Object Search Language) helps you in searching texts, 
+		emails and phone fields with various objects. 
 		SOQL can be used in triggers and classes but SOSL only used in classes.
 	Profile is mandatory for all Salesforce users. No user can work in a Salesforce.org without a profile. It is for controlling the access to records in Salesforce.org for a specific user.
 		On the other hand, a role controls the level of access the users have for the data. People with a role have the view, edit or report rights for all data owned/shared by lower-level users.
 		
 	Apex is a strongly typed, object-oriented programming language that allows developers to extend the Salesforce platform by writing their own business logic into the platform. 
 		Apex looks similar to Java and can be launched through a variety of user-initiated events such as record updates, button clicks, triggers on objects, or external web service requests.
-	Batch class in salesforce is used to run large jobs (think thousands or millions of records!) that would exceed normal processing limits. Using Batch Apex, you can process records asynchronously in batches 
+	Batch class in salesforce is used to run large jobs (think thousands or millions of records!) that would exceed normal processing limits. Using Batch Apex, 
+		you can process records asynchronously in batches 
 		(hence the name, “Batch Apex”) to stay within platform limits. If you have a lot of records to process, for example, data cleansing or archiving, Batch Apex is probably your best solution.
 	An Apex transaction represents a set of operations that are executed as a single unit. These operations include DML operations that are responsible for querying records.
 		All the DML operations in a transaction either get completed successfully or get rolled back completely if an error occurs even in saving a single record.
 	There are three main types of collections…
-		Lists – A list is an ordered collection of elements that are distinguished by their indices. List elements can be of any data type—primitive types, collections, sObjects, user-defined types, and built-in Apex types.
-		Sets – A set is an unordered collection of elements that do not contain any duplicates. Set elements can be of any data type—primitive types, collections, sObjects, user-defined types, and built-in Apex types.
-		Maps – A map is a collection of key-value pairs where each unique key maps to a single value. Keys and values can be any data type—primitive types, collections, sObjects, user-defined types, and built-in Apex types.
+		Lists – A list is an ordered collection of elements that are distinguished by their indices. List elements can be of any data type—primitive types, collections, sObjects,
+			user-defined types, and built-in Apex types.
+		Sets – A set is an unordered collection of elements that do not contain any duplicates. Set elements can be of any data type—primitive types, collections, sObjects, 
+			user-defined types, and built-in Apex types.
+		Maps – A map is a collection of key-value pairs where each unique key maps to a single value. Keys and values can be any data type—primitive types, collections, sObjects, 
+			user-defined types, and built-in Apex types.
 	
 	Salesforce has a variety of API’s that let you interact with the system in different ways..
-		REST – The REST API lets you integrate with Force.com applications using simple HTTP methods in either XML or JSON formats, making this an idea API for developing mobile applications or external clients.
+		REST – The REST API lets you integrate with Force.com applications using simple HTTP methods in either XML or JSON formats,
+			making this an idea API for developing mobile applications or external clients.
 		Bulk – The Bulk API provides a programmatic access that lets you quickly load data into your Salesforce organisation.
 		Streaming – The Streaming API can be used to receive notifications for changes to Salesforce data that match a SOQL query you define. 
 			Streaming API is useful when you want notifications to be pushed from the server to the client based on criteria that you define.

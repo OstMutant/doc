@@ -14,7 +14,8 @@ Serverless architectures (https://medium.com/@MarutiTech/what-is-serverless-arch
 			rent or provision servers or virtual machines for the back-end code to run on.
 
 		Serverless code can be used in conjunction with code written in traditional server style, such as microservices. 
-			For example, part of a web application could be written as microservices and another part could be written as serverless code. Alternatively, an application could be written that uses no provisioned servers at all, being completely serverless.
+			For example, part of a web application could be written as microservices and another part could be written as serverless code. Alternatively, 
+			an application could be written that uses no provisioned servers at all, being completely serverless.
 
 		FaaS provides a platform allowing the developers to execute code in response to events without the complexity of building and maintaining the infrastructure. 
 			The 3rd party apps or services would manage the server-side logic and state.
@@ -49,9 +50,11 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 
 
 -- ------------------------------------------------ What Are Microservices?(https://dzone.com/articles/java-microservices-code-examples-tutorials-and-more)
-		Microservices are a form of service-oriented architecture style (one of the most important skills for Java developers) wherein applications are built as a collection of different smaller services rather than one whole app. 
+		Microservices are a form of service-oriented architecture style (one of the most important skills for Java developers) 
+			wherein applications are built as a collection of different smaller services rather than one whole app. 
 		Instead of a monolithic app, you have several independent applications that can run on their own and may be created using different coding or programming languages. 
-		Big and complicated applications can be made up of simpler and independent programs that are executable by themselves. These smaller programs are grouped together to deliver all the functionalities of the big, monolithic app.
+		Big and complicated applications can be made up of simpler and independent programs that are executable by themselves. 
+			These smaller programs are grouped together to deliver all the functionalities of the big, monolithic app.
 
 		Seven micro-services architecture advantages http://eugenedvorkin.com/seven-micro-services-architecture-advantages/
 		Small, easy to understand code base.

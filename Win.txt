@@ -5,3 +5,6 @@ Windows command
 	cmd - open terminal
 	terminal 
 		cls - You can also add the cls command in any batch file to clear screen.
+		
+
+POC (proof of concept)

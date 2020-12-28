@@ -9,3 +9,172 @@ https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa - Introducti
 https://dev.karakun.com/java/2018/06/25/java-releases.html - Do I need to pay for Java now?
 https://www.baeldung.com/oracle-jdk-vs-openjdk - Differences Between Oracle JDK and OpenJDK
 https://en.wikipedia.org/wiki/Java_version_history - Java version history 
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Introduction
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+My name is Ostap and I would like to introduce myself.
+The first thing that I would like to mention - this is my experience. It's more than 10 years in IT.
+At EPAM I have been working for more than 2 years.
+During this time I  have been  working as a java developer, as a key java developer in agile teams.
+Technologies and frameworks with which I had dealt it is mainly java 8, spring, salesforce, AWS, SQL, REST, servlets
+and a lot of different special java libs like:  lombok, google guice, GraphQL etc.
+In my last project I closely worked with serverless AWS modules like AWS lambda, AWS gateway, AWS cloudwatch.
+
+About my last project.
+A customer is a big company of tickets selling. They have an application with microservices architecture.
+And they needed to improve existing application adding the new layer with the possibility to collect information from different services on backend in order to present this information for the frontend.
+And it was achieved by using a serverless approach due AWS Lambda.
+AWS Lambda was used as a container for our code. AWS gateway was applied as a gateway into web. AWS cloudwatch - it is a log system.
+
+
+
+
+
+
+
+I am proactive, I am efficient team player
+Would you like me to speak about my last project
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring and Spring Boot
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.baeldung.com/java-thread-safety
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring and Spring Boot Cache
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://docs.spring.io/spring/docs/4.3.x/spring-framework-reference/html/cache.html
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring Vault - Reference Documentation
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.baeldung.com/vault
+https://docs.spring.io/spring-vault/docs/current/reference/html/
+https://www.baeldung.com/spring-vault
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring and Spring Boot WebClient
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.callicoder.com/spring-5-reactive-webclient-webtestclient-examples/ - Spring 5 WebClient and WebTestClient Tutorial with Examples
+
+https://www.baeldung.com/spring-5-webclient
+https://www.baeldung.com/spring-webclient-filters
+https://www.gitmemory.com/issue/spring-projects/spring-framework/24262/570245788
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring and Spring Boot logging
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.baeldung.com/logback
+https://tanzu.vmware.com/application-modernization-recipes/observability/request-response-logging-in-spring-boot
+https://www.briansdevblog.com/2019/12/spring-resttemplate-request-response-logging/
+https://stackoverflow.com/questions/59115578/httptrace-endpoint-of-spring-boot-actuator-doesnt-exist-anymore-with-spring-b
+https://howtodoinjava.com/spring-boot2/logging/configure-logging-application-yml/
+https://piotrminkowski.com/2019/10/15/reactive-logging-with-spring-webflux-and-logstash/
+https://www.baeldung.com/spring-boot-reactor-netty
+https://cloud.spring.io/spring-cloud-gateway/multi/multi__reactor_netty_access_logs.html
+https://mkyong.com/spring-boot/spring-boot-slf4j-logging-example/
+https://www.google.com/search?q=exchangestrategies+and+logging&rlz=1C1GCEU_enUA821UA821&oq=exchangestrategies+and+logg&aqs=chrome.1.69i57j33.7332j0j8&sourceid=chrome&ie=UTF-8
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring and Spring Boot Authentication 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://developer.salesforce.com/docs/atlas.en-us.196.0.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm
+
+
+https://codesilo.wordpress.com/2017/12/26/spring-boot-rest-api-integration-with-salesforce/ !
+
+https://ballardsoftware.com/understanding-oauth-2-0-web-server-flow-in-salesforce/
+
+https://stackoverflow.com/questions/53524595/spring-boot-add-additional-attribute-to-webclient-request-in-serveroauth2authori
+https://docs.spring.io/spring-security/site/docs/current/reference/html5/
+https://docs.spring.io/spring-security/site/docs/5.1.x/reference/html/webflux-oauth2.html
+https://www.baeldung.com/spring-oauth-login-webflux
+https://www.javacodegeeks.com/2018/02/securitycontext-securitycontextholder-spring-security.html
+https://www.baeldung.com/spring-webclient-oauth2
+https://dzone.com/articles/build-an-oauth-20-authorization-server-with-spring - Build an OAuth 2.0 Authorization Server With Spring Boot and Spring Security
+https://stackoverflow.com/questions/59455089/oauth-2-spring-resttemplate-login-with-refresh-token
+https://stackoverflow.com/questions/58982286/spring-security-5-replacement-for-oauth2resttemplate
+https://stackoverflow.com/questions/27864295/how-to-use-oauth2resttemplate 
+https://www.javatips.net/api/org.springframework.security.oauth2.client.oauth2resttemplate
+https://www.javatips.net/api/lti_starter-master/src/main/java/ltistarter/oauth/OAuthUtils.java
+https://github.com/spring-projects/spring-security/wiki/OAuth-2.0-Migration-Guide
+
+Authorization Service and Resource Service
+https://medium.com/@buddhiprabhath/spring-boot-oauth-2-0-separating-authorization-service-and-resource-service-1641ebced1f0
+https://medium.com/@buddhiprabhath/spring-boot-2-oauth2-get-access-token-minimal-config-example-27980319eca3
+https://projects.spring.io/spring-security-oauth/docs/oauth2.html#resource-server-configuration
+https://dzone.com/articles/implement-oauth-20-easily-with-spring-boot-and-spr
+
+https://stackoverflow.com/questions/58479258/refresh-oauth-token-in-spring-boot-oauth2restoperations
+https://spring.io/guides/tutorials/spring-boot-oauth2/
+https://www.baeldung.com/spring-oauth-login-webflux
+https://pattern-match.com/blog/2018/10/17/springboot2-with-oauth2-integration/
+https://howtodoinjava.com/spring-boot2/oauth2-auth-server/
+https://manhtai.github.io/posts/spring-webclient-oauth2-client-credentials/
+https://github.com/spring-projects/spring-boot/issues/14352
+https://issue.life/questions/53524595
+https://www.baeldung.com/spring-webclient-oauth2
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring 5 and Spring Boot 2
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://stackify.com/reactive-spring-5/ 
+https://www.baeldung.com/spring-5-webclient  - WebClient
+https://docs.spring.io/spring/docs/5.0.7.RELEASE/spring-framework-reference/web.html#web-reactive-client - Web on Servlet Stack
+https://springframework.guru/spring-5-webclient/ - Spring 5 WebClient 
+https://hellokoding.com/spring-webclient-tutorial-with-examples/ - WebClient
+https://hellokoding.com/spring-webclient-tutorial-with-examples/ - Spring WebClient Tutorial with Examples
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html - Web on Reactive Stack
+https://howtodoinjava.com/spring-webflux/spring-webflux-tutorial/ - Spring WebFlux Tutorial 
+https://medium.com/@kirill.sereda/reactive-programming-reactor-%D0%B8-spring-webflux-3f779953ed45 - Reactive Programming: Reactor и Spring WebFlux — часть 1
+
+
+https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html - WebFlux framework
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html - Web on Reactive Stack
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring tests
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockito-junit-example/
+https://www.springboottutorial.com/spring-boot-unit-testing-and-mocking-with-mockito-and-junit
+https://www.programcreek.com/java-api-examples/?api=com.squareup.okhttp.mockwebserver.MockResponse
+https://dzone.com/articles/spring-5-web-reactive-flux-and-mono
+https://docs.spring.io/spring/docs/current/spring-framework-reference/testing.html#webtestclient
+https://www.baeldung.com/spring-mocking-webclient
+https://github.com/eugenp/tutorials/tree/master/spring-5-reactive-client
+http://wiremock.org/docs/getting-started/
+https://dzone.com/articles/unit-tests-for-springs-webclient
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+java SSL
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://hc.apache.org/httpclient-3.x/sslguide.html
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Error Handling
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.baeldung.com/exception-handling-for-rest-with-spring
+https://www.baeldung.com/spring-webflux-errors
+https://www.baeldung.com/spring-webflux
+https://dzone.com/articles/error-handling-in-spring-webflux
+https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-client
+https://www.thetopsites.net/article/50492112.shtml
+https://programmer.help/blogs/webflux-rest-api-global-exception-handling-error-handling.html
+https://www.programmersought.com/article/6869648075/
+https://www.programmersought.com/article/24683118825/;jsessionid=C8671D68CBB4CFF2781F66CF0D87E778
+https://dzone.com/articles/global-exception-handling-using-spring-restcontrol
+https://www.programmersought.com/article/6869648075/
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Spring !
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://stackify.com/reactive-spring-5/
+https://projectreactor.io/docs/core/release/reference/#_from_imperative_to_reactive_programming
+https://dzone.com/articles/using-the-webclient-class-reactive-programming-in
+https://spring.io/blog/2019/12/13/flight-of-the-flux-3-hopping-threads-and-schedulers
+https://stackoverflow.com/questions/33744875/spring-boot-how-to-log-all-requests-and-responses-with-exceptions-in-single-pl
+
+
+
+https://stackoverflow.com/questions/5725430/http-test-server-accepting-get-post-requests
+
+Язык разметки SAML (Security Assertion Markup Language)  https://habr.com/ru/company/gemaltorussia/blog/322316/
+
+https://www.osp.ru/winitpro/2013/11/13038886/ - Что такое OAuth 2.0 и OpenID Connect?
