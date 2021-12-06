@@ -343,25 +343,94 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 				Virtual networks you can create that are logically isolated from the rest of the AWS cloud, and that you can optionally connect to your own network, known as virtual private clouds (VPCs)
 		
 		Elastic Load Balancing(https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html)
-		Elastic Load Balancing distributes incoming application traffic across multiple EC2 instances, in multiple Availability Zones. This increases the fault tolerance of your applications.				
--- ------------------------------------------------Amazon ElastiCache
-		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/details/) – это веб-сервис, упрощающий развертывание и масштабирование в облаке хранилища или кэша в памяти, а также управление ими.
+		Elastic Load Balancing distributes incoming application traffic across multiple EC2 instances, in multiple Availability Zones. This increases the fault tolerance of your applications.		
+
+-- ------------------------------------------------Amazon IAM(https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/introduction.html)
+		AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. 
+			You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.
+			
+			
+-- ------------------------------------------------AWS CLI(https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)		
+		The AWS Command Line Interface (AWS CLI) is an open source tool that enables you to interact with AWS services using commands in your command-line shell. 
+			With minimal configuration, the AWS CLI enables you to start running commands that implement functionality equivalent to that provided by the browser-based 
+			AWS Management Console from the command prompt in your terminal program:
+				Linux shells – Use common shell programs such as bash, zsh, and tcsh to run commands in Linux or macOS.
+				Windows command line – On Windows, run commands at the Windows command prompt or in PowerShell.
+				Remotely – Run commands on Amazon Elastic Compute Cloud (Amazon EC2) instances through a remote terminal program such as PuTTY or SSH, or with AWS Systems Manager.	
+			
+-- ------------------------------------------------Amazon ElastiCache and Redis
+		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/details/) – это веб-сервис, упрощающий развертывание и масштабирование в облаке хранилища или кэша в памяти, 
+			а также управление ими.
 		Amazon ElastiCache(https://aws.amazon.com/ru/elasticache/?nc2=h_m1) поддерживает два сервиса с открытым исходным кодом для размещения данных в памяти.
 			Redis – быстрое хранилище данных и кэш в памяти с открытым исходным кодом. 
-				Amazon ElastiCache для Redis – это совместимый с Redis сервис хранения и кэширования данных в памяти, который обеспечивает простоту использования и функциональность Redis,
+				Amazon ElastiCache для Redis – это совместимый с Redis сервис хранения и кэширования данных в памяти, 
+					который обеспечивает простоту использования и функциональность Redis,
 					а также доступность, надежность, масштабируемость и производительность, подходящие для самых требовательных приложений.
 			Redis(https://aws.amazon.com/ru/elasticache/what-is-redis/) – быстрое хранилище в памяти с открытым исходным кодом для структур данных «ключ-значение». 
 				Redis поставляется с набором разнообразных структур данных в памяти, что упрощает создание различных специальных приложений. 
-			Memcached – широко распространенная система кэширования объектов в памяти. 
-				Используемые в ElastiCache протоколы полностью совместимы с Memcached, поэтому все популярные инструменты, уже используемые в существующих средах Memcached, будут эффективно работать с этим сервисом.
--- ------------------------------------------------Amazon S3
-		Amazon S3(https://aws.amazon.com/ru/s3/?p=tile) – это объектное хранилище, предназначенное для хранения и извлечения любых объемов данных из любых источников: веб-сайтов и мобильных приложений,
-			корпоративных приложений, а также данных с датчиков или устройств IoT. 
--- ------------------------------------------------Amazon RDS
-		Amazon Relational Database Service (Amazon RDS)(https://aws.amazon.com/ru/rds/details/) позволяет легко настраивать, использовать и масштабировать реляционные базы данных в облаке.
-
-
+				Высочайшая производительность
+					Все данные Redis находятся в оперативной памяти сервера, в отличие от большинства систем управления базами данных, 
+					в которых данные хранятся на жестких дисках или твердотельных накопителях (SSD). Размещаемые в памяти базы данных, такие как Redis, 
+					не требуют доступа к дисковым накопителям, что позволяет избежать потерь времени на поиск. 
+				Структуры данных в памяти
+					Redis позволяет пользователям хранить ключи, привязанные к различным типам данных. 
+					Основной тип данных – это строка, которая может состоять из текстовых или двоичных данных размером до 512 МБ.
+			Single threaded nature of Redis (https://redis.io/topics/latency)
+				Redis uses a mostly single threaded design. This means that a single process serves all the client requests, using a technique called multiplexing. 
+				This means that Redis can serve a single request in every given moment, so all the requests are served sequentially.	
+			Redis Pipelining(https://redis.io/topics/pipelining)
+				A Request/Response server can be implemented so that it is able to process new requests even if the client hasn't already read the old responses.
+			Lua Script(https://medium.com/geekculture/how-to-delete-multiple-keys-from-redis-cache-252275a95579)
+			Atomicity of scripts(https://redis.io/commands/eval)
+				Redis uses the same Lua interpreter to run all the commands. Also Redis guarantees that a script is executed in an atomic way: 
+					no other script or Redis command will be executed while a script is being executed.
+			Redis has two atomicities: A single operation is atomic
+			Multiple operations also support transactions, that is, atomicity, throughMULTIandEXECEncapsulation of instructions
+				Atomic operations mean that they either succeed or fail completely. Use the real transfer metaphor to describe the most image. 
+				You either succeed or fail in transferring money. There is no transfer of your money, 
+					but the recipient does not receive half of the success or half of the failure.			
 			
+			Memcached – широко распространенная система кэширования объектов в памяти. 
+				Используемые в ElastiCache протоколы полностью совместимы с Memcached, поэтому все популярные инструменты, 
+				уже используемые в существующих средах Memcached, будут эффективно работать с этим сервисом.
+-- ------------------------------------------------Amazon S3
+		Amazon S3(https://aws.amazon.com/ru/s3/?p=tile) – это объектное хранилище, предназначенное для хранения и извлечения любых объемов данных из любых источников: 
+			веб-сайтов и мобильных приложений, корпоративных приложений, а также данных с датчиков или устройств IoT. 
+
+-- ------------------------------------------------Amazon DynamoDB(https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html)
+		Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. 
+			DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database so that you don't have to worry about hardware provisioning, 
+			setup and configuration, replication, software patching, or cluster scaling.
+
+		In DynamoDB, tables, items, and attributes are the core components that you work with. 
+			A table is a collection of items, and each item is a collection of attributes. 
+			DynamoDB uses primary keys to uniquely identify each item in a table and secondary indexes to provide more querying flexibility. 
+			You can use DynamoDB Streams to capture data modification events in DynamoDB tables.
+
+		--- Tables, Items, and Attributes
+		Tables – Similar to other database systems, DynamoDB stores data in tables. A table is a collection of data. 
+		Table is schemaless, which means that neither the attributes nor their data types need to be defined beforehand. Each item can have its own distinct attributes.
+		Most of the attributes are scalar, which means that they can have only one value. 
+		Items – Each table contains zero or more items. An item is a group of attributes that is uniquely identifiable among all of the other items. 
+		Attributes – Each item is composed of one or more attributes. An attribute is a fundamental data element, something that does not need to be broken down any further.
+		DynamoDB supports nested attributes up to 32 levels deep.
+		
+		--- Primary Key
+		When you create a table, in addition to the table name, you must specify the primary key of the table. 
+			The primary key uniquely identifies each item in the table, so that no two items can have the same key.
+		Partition key(hash attribute) – A simple primary key, composed of one attribute known as the partition key.
+		Partition key and sort key(range attribute) – Referred to as a composite primary key, this type of key is composed of two attributes.
+			The first attribute is the partition key, and the second attribute is the sort key.
+		
+		--- Secondary Indexes
+		You can create one or more secondary indexes on a table. A secondary index lets you query the data in the table using an alternate key, in addition to queries against the primary key. 
+		DynamoDB supports two kinds of indexes:
+			Global secondary index – An index with a partition key and sort key that can be different from those on the table.
+			Local secondary index – An index that has the same partition key as the table, but a different sort key.
+			
+-- ------------------------------------------------Amazon RDS
+		Amazon Relational Database Service (Amazon RDS)(https://aws.amazon.com/ru/rds/details/) позволяет легко настраивать, использовать и масштабировать реляционные базы данных в облаке.		
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 Terraform(https://www.terraform.io/intro/index.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
