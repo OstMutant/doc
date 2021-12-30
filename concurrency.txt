@@ -7,7 +7,8 @@ Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/
         -- Cached thread pool: keeps a number of alive threads and creates new ones as needed.
         -- Fixed thread pool: limits the maximum number of concurrent threads. Additional tasks are waiting in a queue.
         -- Single-threaded pool: keeps only one thread executing one task at a time.
-        -- Fork/Join pool: a special thread pool that uses the Fork/Join framework to take advantages of multiple processors to perform heavy work faster by breaking the work into smaller pieces recursively.
+        -- Fork/Join pool: a special thread pool that uses the Fork/Join framework to take advantages of multiple processors to perform 
+			heavy work faster by breaking the work into smaller pieces recursively.
         (https://www.youtube.com/watch?v=W82D9eUn6q8)
         You can create an executor by using one of several factory methods provided by the Executors utility class. 
         (java.util.concurrent.Executors(https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/Executors.html)

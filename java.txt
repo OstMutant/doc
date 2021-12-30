@@ -92,7 +92,8 @@ It supports only UTF-8 encoding.													It supports various encoding.
 JDBC API в Java - обзор и туториал(http://www.javenue.info/post/java-jdbc-api, http://www.quizful.net/post/using-jdbc, http://proselyte.net/tutorials/jdbc/statements/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	Java Database Connectivity (JDBC) is an application programming interface (API) for the programming language Java, which defines how a client may access a database.
-		It is Java based data access technology and used for Java database connectivity. It is part of the Java Standard Edition platform, from Oracle Corporation. (https://en.wikipedia.org/wiki/Java_Database_Connectivity)
+		It is Java based data access technology and used for Java database connectivity. 
+		It is part of the Java Standard Edition platform, from Oracle Corporation. (https://en.wikipedia.org/wiki/Java_Database_Connectivity)
 
 	Основные сущности в JDBC API, с которыми вам предстоит работать, являются интерфейсами:
 		Connection; Statement; PreparedStatement; CallableStatement; ResultSet; Driver; DatabaseMetaData.
@@ -108,7 +109,8 @@ JDBC API в Java - обзор и туториал(http://www.javenue.info/post/j
 		
 	JDBC represents statements using one of the following classes:(https://en.wikipedia.org/wiki/Java_Database_Connectivity)
 		Statement – the statement is sent to the database server each and every time.
-		PreparedStatement – the statement is cached and then the execution path is pre-determined on the database server allowing it to be executed multiple times in an efficient manner.
+		PreparedStatement – the statement is cached and then the execution path is pre-determined on the database server allowing 
+			it to be executed multiple times in an efficient manner.
 		CallableStatement – used for executing stored procedures on the database.
 		
 	Клас java.sql.ResultSet дозволяє легко обробляти результати запитів.
@@ -144,9 +146,11 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	The general contract of hashCode is:
 		Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, 
-			provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.
+			provided no information used in equals comparisons on the object is modified. 
+			This integer need not remain consistent from one execution of an application to another execution of the same application.
 		If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.
-		It is not required that if two objects are unequal according to the equals(java.lang.Object) method, then calling the hashCode method on each of the two objects must produce distinct integer results.
+		It is not required that if two objects are unequal according to the equals(java.lang.Object) method, 
+			then calling the hashCode method on each of the two objects must produce distinct integer results.
 			However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.
 
 	Класс HashMap реализован с использованием метода цепочек, т.е. каждой ячейке массива соответствует свой связный список и при возникновении коллизии осуществляется добавление нового элемента в этот список.
@@ -167,8 +171,10 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 		basic numerical methods, object reflection, concurrency, creation and serialization and System properties. 
 		Additionally it contains basic enhancements to java.util.Date and a series of utilities dedicated to help with building methods, such as hashCode, toString and equals.
 	
-	Класс IdentityHashMap(https://jsehelper.blogspot.com/2016/01/java-collections-framework-3.html,http://proselyte.net/tutorials/java-core/collections-framework/identity-hashmap/) является реализацией абстрактного класса AbstractMap. Его отличие от HashMap состоит в том, что при сравнении элементов используется сравнение ссылок, а не значений.
-	При сравнении не используется класс equals(). Этот класс обеспечивает постоянное время для операция добавления и получения элемента и формирует хэш-код с помощью метода Systen.identityHashCode(Object).
+	Класс IdentityHashMap(https://jsehelper.blogspot.com/2016/01/java-collections-framework-3.html,http://proselyte.net/tutorials/java-core/collections-framework/identity-hashmap/) 
+	является реализацией абстрактного класса AbstractMap. Его отличие от HashMap состоит в том, что при сравнении элементов используется сравнение ссылок, а не значений.
+	При сравнении не используется класс equals(). Этот класс обеспечивает постоянное время для операция добавления и получения элемента 
+	и формирует хэш-код с помощью метода Systen.identityHashCode(Object).
 	Реализация по умолчанию hashCode() возвращает значение, которое называется идентификационный хеш (identity hash code).
 	
 	XX:hashCode=n(https://habrahabr.ru/post/165683/)
@@ -443,6 +449,8 @@ Memory Management in Java
 		1) An easy way to solve OutOfMemoryError in java is to increase the maximum heap size by using JVM options "-Xmx512M", this will immediately solve your OutOfMemoryError.
 
 Read more: https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html#ixzz5WqK4p07j
+Video: https://www.youtube.com/watch?v=QHIWkwxs0AI, https://www.youtube.com/watch?v=QHKJ9VJHIuY
+
 ------------------- Memory Leaks (https://stackify.com/memory-leaks-java/)
 		Static Field Holding On to the Object Reference
 		Calling String.intern() on Long String
@@ -594,17 +602,7 @@ Java Collection Framework(http://www.quizful.net/post/Java-Collections, https://
 			There are several reasons why:
 				Sometimes, we can't modify the source code of the class whose objects we want to sort, thus making the use of Comparable impossible
 				Using Comparators allows us to avoid adding additional code to our domain classes
-				We can define multiple different comparison strategies which isn't possible when using Comparable
--------------------	HashMap (https://dzone.com/articles/hashmap-internal)
-		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
-		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
-
-		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
-			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
-				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
-				The hash will change from using a linked list to a balanced tree.
-			Above changes ensure the performance of O(log(n)) in worst case scenarios and O(1) with proper hashCode().
-			The alternative String hash function added in Java 7 has been removed.		
+				We can define multiple different comparison strategies which isn't possible when using Comparable	
 	
 -------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort)
 		According to the Java 7 API doc for primitives:
@@ -616,6 +614,9 @@ Java Collection Framework(http://www.quizful.net/post/Java-Collections, https://
 				Потом сортирует массив так, чтобы все элементы меньше P попали в первый отрезок, а остальные — во второй. 
 				Затем алгоритм рекурсивно повторяется на первом и на втором отрезках.
 				
+			As mentioned in the official JavaDoc, Arrays.sort uses dual-pivot Quicksort on primitives. It offers O(n log(n)) (https://www.baeldung.com/java-sorting)
+			Java 8 comes with a new API – parallelSort – with a similar signature to the Arrays.sort()
+			
 		According to the Java 7 API doc for objects:
 			The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
 			in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
@@ -626,6 +627,8 @@ Java Collection Framework(http://www.quizful.net/post/Java-Collections, https://
 				Шаг 3. Отсортированные подмассивы объединяются в один массив с помощью модифицированной сортировки слиянием.
 				TimSort is a sorting algorithm based on Insertion Sort and Merge Sort.(https://www.geeksforgeeks.org/timsort/)
 					Insertion Sort is a simple sorting algorithm that works the way we sort playing cards in our hands.https://www.geeksforgeeks.org/insertion-sort/
+					
+		https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html - visualisation
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Iterator In Java (Fail Fast and Fail Safe ) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -634,8 +637,19 @@ Iterator In Java (Fail Fast and Fail Safe )
         Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
             (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
         Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
-		
-		
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	HashMap (https://dzone.com/articles/hashmap-internal)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
+		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
+
+		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
+			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
+				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
+				The hash will change from using a linked list to a balanced tree.
+			Above changes ensure the performance of O(log(n)) in worst case scenarios and O(1) with proper hashCode().
+			The alternative String hash function added in Java 7 has been removed.		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Annotations(http://tutorials.jenkov.com/java/annotations.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	

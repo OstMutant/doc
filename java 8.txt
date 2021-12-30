@@ -47,9 +47,11 @@ default void forEach(Consumer<? super T> action) {
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 OOP vs functional programming (https://www.developer.com/java/data/what-is-functional-programming-in-java.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even if we need only to implement the behaviour. 
+		In OOP, everything is represented as an object; therefore, every solution to a problem must be defined as a scheme of classes and their properties even 
+			if we need only to implement the behaviour. 
 			This type of situation is the niche for functional programming, where we define only the behaviour through functions and not objects. 
-			This means in functional programming we directly implement a function rather than an class that contains a function. This is the basic difference between OOP and functional programming.	
+			This means in functional programming we directly implement a function rather than an class that contains a function. 
+			This is the basic difference between OOP and functional programming.	
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 functional programming (https://examples.javacodegeeks.com/core-java/java-9-functional-programming-tutorial/)
@@ -256,9 +258,10 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 				and then processes the sub-tasks in parallel to utilize all the available hardware, then combines the results together (known as Join) to form an integrated result.
 			Note: Results may vary on different hardware.
 		Laziness.
-			As we know, Java8 Streams have two types of operations, known as Intermediate and Terminal. These two operations are meant for processing and providing the end results, respectively. 
-			In summary, intermediate operations just create another stream, but won't perform any processing until the terminal operation is called. Once the terminal operation is called, 
-			    traversal of streams begins and the associated function is applied one by one. 
+			As we know, Java8 Streams have two types of operations, known as Intermediate and Terminal. 
+			These two operations are meant for processing and providing the end results, respectively. 
+			In summary, intermediate operations just create another stream, but won't perform any processing until the terminal operation is called.
+			Once the terminal operation is called, traversal of streams begins and the associated function is applied one by one. 
 			Intermediate operations are lazy operations, so Streams supports laziness.
 		Short-Circuit Behavior
 			This is another way of optimizing the Streams processing. Short-circuiting will terminate the processing once condition met. 
@@ -309,7 +312,8 @@ pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101
 			Streams can succinctly express quite sophisticated behaviour.
 			Streams provide scope for future efficiency gains. 
 		Disadvantages
-			Performance: A for loop through an array is extremely lightweight both in terms of heap and CPU usage. If raw speed and memory thriftiness is a priority, using a stream is worse.
+			Performance: A for loop through an array is extremely lightweight both in terms of heap and CPU usage. 
+			If raw speed and memory thriftiness is a priority, using a stream is worse.
 			Debuggers are improving, but even now, when you're stepping through stream code in a debugger, it can be harder work than the equivalent loop, 
 				because a simple loop is very close to the variables and code locations that a traditional debugger works with.
 			

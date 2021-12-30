@@ -10,7 +10,8 @@ Serverless architectures (https://medium.com/@MarutiTech/what-is-serverless-arch
 		Serverless architectures refer to applications that significantly depend on third-party services (knows as Backend as a Service or “BaaS”) 
 			or on custom code that’s run in ephemeral containers (Function as a Service or “FaaS”), the best known vendor host of which currently is AWS Lambda.
 
-		Despite the name, it does not actually involve running code without servers. The name “serverless computing” is used because the business or person that owns the system does not have to purchase, 
+		Despite the name, it does not actually involve running code without servers. 
+			The name “serverless computing” is used because the business or person that owns the system does not have to purchase, 
 			rent or provision servers or virtual machines for the back-end code to run on.
 
 		Serverless code can be used in conjunction with code written in traditional server style, such as microservices. 
@@ -65,18 +66,23 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 		System resilience
 
 
-		A service-oriented architecture (SOA) is a style of software design where services are provided to the other components by application components, through a communication protocol over a network.
-			The basic principles of service-oriented architecture are independent of vendors, products and technologies.[1] 
+		A service-oriented architecture (SOA) is a style of software design where services are provided to the other components by application components, 
+			through a communication protocol over a network.
+			The basic principles of service-oriented architecture are independent of vendors, products and technologies. 
 			A service is a discrete unit of functionality that can be accessed remotely and acted upon and updated independently, such as retrieving a credit card statement online.
 			
-		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures an application as a collection of loosely coupled services. 
-			In a microservices architecture, services are fine-grained and the protocols are lightweight. The benefit of decomposing an application into different smaller services is that it improves modularity. 
+		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures 
+			an application as a collection of loosely coupled services. 
+			In a microservices architecture, services are fine-grained and the protocols are lightweight.
+			The benefit of decomposing an application into different smaller services is that it improves modularity. 
 			This makes the application easier to understand, develop, test, and become more resilient to architecture erosion. 
 			It parallelizes development by enabling small autonomous teams to develop, deploy and scale their respective services independently.
-			It also allows the architecture of an individual service to emerge through continuous refactoring.[3] Microservices-based architectures enable continuous delivery and deployment.
+			It also allows the architecture of an individual service to emerge through continuous refactoring.[3] 
+			Microservices-based architectures enable continuous delivery and deployment.
 			
 		Services in a microservice architecture (MSA) are often processes that communicate over a network to fulfill a goal using technology-agnostic protocols such as HTTP.
-		However, services might also use other kinds of inter-process communication mechanisms such as shared memory.[8] Services might also run within the same process as, for example, OSGI bundles.
+		However, services might also use other kinds of inter-process communication mechanisms such as shared memory.[8]
+			Services might also run within the same process as, for example, OSGI bundles.
 			Services in a microservice architecture are independently deployable.
 			The services are easy to replace.
 			Services are organized around capabilities, e.g., user interface front-end, recommendation, logistics, billing, etc.
@@ -100,7 +106,8 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 				If the web server stores this data in a backend manner and uses it to identify you as a constantly connected client, the service is stateful.
 				All of these are significant issues, but they pale in comparison to the simple fact that sessions are not scalable.
 		Stateless
-				The answer to these issues is statelessness. Stateless is the polar opposite of stateful, in which any given response from the server is independent of any sort of state.
+				The answer to these issues is statelessness. Stateless is the polar opposite of stateful, 
+				in which any given response from the server is independent of any sort of state.
 			As a quick note, it must be said that REST is specifically designed to be functionally stateless. 
 		
 		Some of the biggest benefits of stateless applications is that the maintaining parties don't have the responsibility of managing the resident memory. 
@@ -168,18 +175,19 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		Cloud computing is an information technology (IT) paradigm that enables ubiquitous access to shared pools of configurable system resources
 			and higher-level services that can be rapidly provisioned with minimal management effort, often over the Internet.
 		
--- ------------------------------------------------ Service models
-		Software as a service (SaaS)
+-- ------------------------------------------------ Service models(https://www.bigcommerce.com/blog/saas-vs-paas-vs-iaas/#examples-of-saas-paas-and-iaas)
+		Software as a service (SaaS)(Salesforce)
 			The capability provided to the consumer is to use the provider's applications running on a cloud infrastructure. 
 			The applications are accessible from various client devices through either a thin client interface, such as a web browser (e.g., web-based email), or a program interface. 
-			The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, storage, or even individual application capabilities,
-				with the possible exception of limited user-specific application configuration settings.
-		Platform as a service (PaaS)
+			The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, storage, 
+				or even individual application capabilities, with the possible exception of limited user-specific application configuration settings.
+		Platform as a service (PaaS)(Heroku)
 			The capability provided to the consumer is to deploy onto the cloud infrastructure consumer-created or acquired applications created using programming languages, libraries, services,
 				and tools supported by the provider. The consumer does not manage or control the underlying cloud infrastructure including network, servers, operating systems, or storage,
 				but has control over the deployed applications and possibly configuration settings for the application-hosting environment.
-		Infrastructure as a service (IaaS)
-			"Infrastructure as a service" (IaaS) refers to online services that provide high-level APIs used to dereference various low-level details of underlying network infrastructure like physical computing resources,
+		Infrastructure as a service (IaaS)(IaaS)
+			"Infrastructure as a service" (IaaS) refers to online services that provide high-level APIs used to dereference various low-level details 
+				of underlying network infrastructure like physical computing resources,
 				location, data partitioning, scaling, security, backup etc.
 				
 -- ------------------------------------------------ Deployment models
@@ -200,28 +208,6 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		ARN Amazon Resource Names (ARNs)(https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) uniquely identify AWS resources. 
 			We require an ARN when you need to specify a resource unambiguously across all of AWS, such as in IAM policies, 
 			Amazon Relational Database Service (Amazon RDS) tags, and API calls.
-
--- ------------------------------------------------ CloudWatch(https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.html)
-		The terminology and concepts that are central to your understanding and use of CloudWatch Logs are described below.
-		Log Events
-			A log event is a record of some activity recorded by the application or resource being monitored. 
-			The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message. Event messages must be UTF-8 encoded.
-		Log Streams
-			A log stream is a sequence of log events that share the same source. 
-			More specifically, a log stream is generally intended to represent the sequence of events coming from the application instance or resource being monitored. 
-			For example, a log stream may be associated with an Apache access log on a specific host. When you no longer need a log stream, you can delete it using the aws logs delete-log-stream command. 
-			In addition, AWS may delete empty log streams that are over 2 months old.
-		Log Groups
-			Log groups define groups of log streams that share the same retention, monitoring, and access control settings. 
-			Each log stream has to belong to one log group. For example, 
-			if you have a separate log stream for the Apache access logs from each host, you could group those log streams into a single log group called MyWebsite.com/Apache/access_log.
-			There is no limit on the number of log streams that can belong to one log group.
-		Metric Filters
-			You can use metric filters to extract metric observations from ingested events and transform them to data points in a CloudWatch metric. 
-			Metric filters are assigned to log groups, and all of the filters assigned to a log group are applied to their log streams.
-		Retention Settings
-			Retention settings can be used to specify how long log events are kept in CloudWatch Logs. Expired log events get deleted automatically. 
-			Just like metric filters, retention settings are also assigned to log groups, and the retention assigned to a log group is applied to their log streams.
 			
 -- ------------------------------------------------ AWS Lambda
 		AWS Lambda(https://aws.amazon.com/ru/lambda/?p=tile) позволяет запускать программные коды без выделения серверов и управления ими. Вы платите только за фактическое время вычисления. 
@@ -259,15 +245,7 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		
 		AWS Lambda console - UI for configuration
 		
-		What Is the AWS Command Line Interface?(https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)
-			The AWS CLI is an open source tool that provides commands for interacting with AWS services. 
-			With minimal configuration, you can start using all of the functionality provided by the AWS Management Console from your favorite terminal program.
-				Linux shells – Use common shell programs such as Bash, Zsh, and tsch to run commands in Linux, macOS, or Unix.
-				Windows command line – On Microsoft Windows, run commands in either PowerShell or the Windows Command Processor.
-				Remotely – Run commands on Amazon EC2 instances through a remote terminal such as PuTTY or SSH, or with Amazon EC2 systems manager.
-			All IaaS (infrastructure as a service) AWS administration, management, and access functions in the AWS Management Console are available in the AWS API and CLI. 
-			New AWS IaaS features and services provide full AWS Management Console functionality through the API and CLI at launch or within 180 days of launch.
-		AWS SDK
+
 -- ------------------------------------------------ Amazon API Gateway
 		Amazon API Gateway(https://aws.amazon.com/ru/api-gateway/) – это полностью управляемый сервис для разработчиков, предназначенный для создания, публикации, обслуживания,
 			мониторинга и обеспечения безопасности API в любых масштабах.
@@ -325,6 +303,28 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		A percentile indicates the relative standing of a value in a dataset. For example, the 95th percentile means that 95 percent of the data is lower than this value and 5 percent of the data is higher than this value.
 		You can use an alarm to automatically initiate actions on your behalf. 
 			An alarm watches a single metric over a specified time period, and performs one or more specified actions, based on the value of the metric relative to a threshold over time.
+			
+		CloudWatch(https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.html)
+		The terminology and concepts that are central to your understanding and use of CloudWatch Logs are described below.
+		Log Events
+			A log event is a record of some activity recorded by the application or resource being monitored. 
+			The log event record that CloudWatch Logs understands contains two properties: the timestamp of when the event occurred, and the raw event message. Event messages must be UTF-8 encoded.
+		Log Streams
+			A log stream is a sequence of log events that share the same source. 
+			More specifically, a log stream is generally intended to represent the sequence of events coming from the application instance or resource being monitored. 
+			For example, a log stream may be associated with an Apache access log on a specific host. When you no longer need a log stream, you can delete it using the aws logs delete-log-stream command. 
+			In addition, AWS may delete empty log streams that are over 2 months old.
+		Log Groups
+			Log groups define groups of log streams that share the same retention, monitoring, and access control settings. 
+			Each log stream has to belong to one log group. For example, 
+			if you have a separate log stream for the Apache access logs from each host, you could group those log streams into a single log group called MyWebsite.com/Apache/access_log.
+			There is no limit on the number of log streams that can belong to one log group.
+		Metric Filters
+			You can use metric filters to extract metric observations from ingested events and transform them to data points in a CloudWatch metric. 
+			Metric filters are assigned to log groups, and all of the filters assigned to a log group are applied to their log streams.
+		Retention Settings
+			Retention settings can be used to specify how long log events are kept in CloudWatch Logs. Expired log events get deleted automatically. 
+			Just like metric filters, retention settings are also assigned to log groups, and the retention assigned to a log group is applied to their log streams.
 -- ------------------------------------------------ Amazon EC2
 		Amazon Elastic Compute Cloud (Amazon EC2)(https://aws.amazon.com/ru/ec2/?p=tile) – это веб-сервис, предоставляющий безопасные масштабируемые вычислительные ресурсы в облаке. 
 			Он помогает разработчикам, облегчая проведение крупномасштабных вычислений в облаке.
