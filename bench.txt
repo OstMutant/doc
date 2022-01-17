@@ -178,3 +178,4 @@ https://stackoverflow.com/questions/5725430/http-test-server-accepting-get-post-
 Язык разметки SAML (Security Assertion Markup Language)  https://habr.com/ru/company/gemaltorussia/blog/322316/
 
 https://www.osp.ru/winitpro/2013/11/13038886/ - Что такое OAuth 2.0 и OpenID Connect?
+
