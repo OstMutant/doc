@@ -1,7 +1,62 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/company/luxoft/blog/157273/)
+Threads
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors
+		wait, notify, notifyAll (https://java2blog.com/difference-between-sleep-and-wait-in/, https://javarush.ru/quests/lectures/questmultithreading.level01.lecture06)
+		synchronized(lockedObject) {   
+			lockedObject.wait(); // It releases the lock on lockedObject.
+				// So until we call notify() or notifyAll() from other thread,It will not wake up  
+			}
+			
+		(sleep) https://javarush.ru/quests/lectures/questmultithreading.level01.lecture06
+		synchronized(lockedObject) {   
+			Thread.sleep(1000); // It does not release the lock on lockedObject.
+			// So either after 1000 miliseconds, current thread will wake up, or after we call 
+			//t. interrupt() method.
+		}
+
+		join() method allows one thread to wait for the completion of the other. (https://www.callicoder.com/java-multithreading-thread-and-runnable-tutorial/)
+		
+------------------- Java provides three ways to create a thread programmatically.
+        Implementing the java.lang.Runnable interface.
+        Extending the java.lang.Thread class.
+        Implementing the java.util.concurrent.Callable interface.
+
+------------------- Thread safety(https://www.journaldev.com/1061/thread-safety-in-java) 
+		In java is the process to make our program safe to use in multithreaded environment, 
+		There are different ways through which we can make our program thread safe.
+			Synchronization is the easiest and most widely used tool for thread safety in java.
+			Use of Atomic Wrapper classes from java.util.concurrent.atomic package. For example AtomicInteger
+			Use of locks from java.util.concurrent.locks package.
+			Using thread safe collection classes, check this post for usage of ConcurrentHashMap for thread safety.
+			Using volatile keyword with variables to make every thread read the data from memory, not read from thread cache.
+			
+------------------- Understanding Deadlock, Livelock and Starvation with Code Examples in Java(http://www.codejava.net/java-core/concurrency/understanding-deadlock-livelock-and-starvation-with-code-examples-in-java)
+		Understanding Deadlock
+			Deadlock describes a situation where two more threads are blocked because of waiting for each other forever. 
+		Understanding Livelock
+			Livelock describes situation where two threads are busy responding to actions of each other. They keep repeating a particular code so the program is unable to make further progress:
+				Thread 1 acts as a response to action of thread 2
+				Thread 2 acts as a response to action of thread 1
+			Unlike deadlock, threads are not blocked when livelock occurs.
+		Understanding Starvation
+			Starvation describes a situation where a greedy thread holds a resource for a long time so other threads are blocked forever.
+	
+		- Deadlock:  All threads are blocked, the program hangs forever.
+		- Livelock: No threads blocked but they run into infinite loops. The program is still running but unable to make further progress.
+		- Starvation: Only one thread is running, and other threads are waiting forever.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Multithreading Costs(http://tutorials.jenkov.com/java-concurrency/costs.html)
+			"context switch" - When a CPU switches from executing one thread to executing another, the CPU needs to save the local data, program pointer etc.
+				of the current thread, and load the local data, program pointer etc. of the next thread to execute. 
+		
+		Concurrency vs. Parallelism (http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html)
+			Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.
+			Concurrency means that an application is making progress on more than one task at the same time (concurrently).
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Concurrency: Understanding Thread Pool and Executors (http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         
         The Java Concurrency API supports the following types of thread pools:
         -- Cached thread pool: keeps a number of alive threads and creates new ones as needed.
@@ -20,9 +75,7 @@ Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/
         -- java.util.concurrent.ExecutorService: is an Executor that allows tracking progress of value-returning tasks (Callable) via Future object, and manages the termination of threads.
          Its key methods include submit() and shutdown().
         -- ScheduledExecutorService: is an ExecutorService that can schedule tasks to execute after a given delay, or to execute periodically. 
-         Its key methods are schedule(), scheduleAtFixedRate() and scheduleWithFixedDelay().
-
-		https://github.com/evangelist64/java-concurrency/blob/master/Java%20concurrency%20in%20practice.pdf
+        Its key methods are schedule(), scheduleAtFixedRate() and scheduleWithFixedDelay().
 
 		the Callable interface which defines only one method as follows:
 			public interface Callable<T> {
@@ -40,7 +93,27 @@ Java Concurrency: Understanding Thread Pool and Executors (https://habrahabr.ru/
 		The Callable interface is a generic interface containing a single call() method – which returns a generic value V:
 		The Runnable interface is a functional interface and has a single run() method which doesn't accept any parameters and does not return any values.
 		
+------------------- Virtual threads (https://davidvlijmincx.com/posts/java-virtual-threads/, https://docs.oracle.com/en/java/javase/20/core/virtual-threads.html#GUID-15BDB995-028A-45A7-B6E2-9BA15C2E0501)
 		
+		Virtual threads are a new kind of thread added as a preview feature to Java 19. 
+		What makes them special is that you can have millions of them simultaneously, 
+		whereas the Threads we are used to from previous Java versions take up so much memory that we can only have 30 thousand of them before running out of memory. 
+		This all depends on the amount of memory available to the JVM.
+		
+		Runnable task = () -> System.out.println("Hello, world");
+		ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor();
+		executorService.execute(task);
+		
+
+General Interview Questions:
+https://howtodoinjava.com/interview-questions/java-concurrency-interview-questions/
+https://www.baeldung.com/java-concurrency-interview-questions
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+??????????????????????????????????????????
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+========================================================================================
 		How does CopyOnWriteArrayList works?
 			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.
 			That means the read operations (get, iterator, listIterator, etc) work on a different copy.
@@ -69,8 +142,9 @@ compare-and-swap (CAS)
 context switching
 Collections.synchronizedList
 	
-	
+
 ========================================================================================
+
 
 1. ConcurrentModificationException:
 	Problem - If not concurrent collection ( like ArrayList ) will be changed ( remove or add new element) while some thread is traversing over it using iterator,
