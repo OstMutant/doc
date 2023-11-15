@@ -1,15 +1,37 @@
 ﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 YAML(https://habr.com/post/238603/, https://dzone.com/articles/using-yaml-java-application, https://ru.wikipedia.org/wiki/YAML)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-YAML — человекочитаемый формат сериализации данных, концептуально близкий к языкам разметки, но ориентированный на удобство ввода-вывода типичных структур данных многих языков программирования.
-Yet Another Markup Language(«Ещё один язык разметки») 
-YAML: YAML Ain't Markup Language
+	YAML — человекочитаемый формат сериализации данных, концептуально близкий к языкам разметки, но ориентированный на удобство ввода-вывода типичных структур данных многих языков программирования.
+	Yet Another Markup Language(«Ещё один язык разметки») 
+	YAML: YAML Ain't Markup Language
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-XML(https://jsehelper.blogspot.com/2016/01/xml.html)
+JSON (https://tproger.ru/translations/java-json-library-comparison/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	JSON (англ. JavaScript Object Notation, укр. запис об'єктів JavaScript, вимовляється джéйсон)  https://uk.wikipedia.org/wiki/JSON
+		Як функціонально, так і синтаксично JSON є підмножиною мови YAML.
+	JSON.simple от Yidong Fang. Небольшая и легковесная библиотека для кодирования и декодирования JSON, несмотря на свою простоту, выполняет свою работу на высоком уровне.
+	GSON от Google. Библиотека, которая умеет конвертировать Java объекты в JSON и наоборот. Не требует специальным образом аннотировать классы, а также в качестве бонуса имеет полную поддержку Java Generics.
+		Отсутствие необходимости добавления аннотаций упрощает реализацию и даже может быть главным требованием, если вы собираетесь сериализовывать объекты, не имея для них исходного кода.
+	Jackson от FasterXML. Набор инструментов для обработки данных, основанный на потоковом JSON-парсере и генераторе. Предназначенная для Java библиотека умеет работать не только с JSON.
+		Имеет самый популярный JSON-парсер (исходя из статистики использования на GitHub).
+	JSONP от Oracle. API для работы с JSON, а именно для генерации и разбора потоковых JSON-текстов. Эталонная реализация JSR353 с открытым исходным кодом.
+	
+	----------  JSON Schema (https://json-schema.org/overview/what-is-jsonschema#json-schema-to-the-rescue)
+	JSON Schema is a declarative language that you can use to annotate and validate the structure, constraints, and data types of your JSON documents. 
+		It provides a way to standardize and define expectations for your JSON data.
+	https://json-schema.org/implementations#validators-java - може використовуватись разом з Jackson parser
+	https://github.com/erosb/everit-json-schema - lib for validate 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+XML(https://jsehelper.blogspot.com/2016/01/xml.html, https://aws.amazon.com/ru/what-is/xml/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	XML(eXtensible Markup Language - расширяемый язык разметки) - текстовый форм предназначенный для хранения структурированных данных (взамен существующ файлов баз данных),
 		для обмена информацией между программами.
+	
+	XSL (eXtensible Stylesheet Language) is a styling language for XML.(https://www.w3schools.com/xml/xsl_intro.asp)
+		XSLT stands for XSL Transformations.
+		XSLT (eXtensible Stylesheet Language Transformations) - расширяемый язик преобразования листов стилей.
+			Язык XSLT служит транслятором, с помощью которого можно свободно модифицировать исходный текст.
 	
 	Валидность XML-документа определяется наличием DTD или XML-схема(XSD) и соблюдением правил, которые там приведены.
 	XQuery - это универсальный язык запросов к XML-данным, содержащий средства для выборки, так и для трансформации XML-данных.(https://www.tutorialspoint.com/xquery/xquery_quick_guide.htm, https://www.w3schools.com/xml/xquery_intro.asp)
@@ -34,44 +56,33 @@ XML(https://jsehelper.blogspot.com/2016/01/xml.html)
 	Изменение в XML можно сделать с помощью DOM и XPATH.
 	XPath can be used to navigate through elements and attributes in an XML document.(https://www.w3schools.com/xml/xpath_intro.asp)
 	
-	DOM, SAX, STAX АНАЛИЗАТОРЫ
+	DOM, SAX, STAX АНАЛИЗАТОРЫ (https://www.baeldung.com/java-xml-libraries)
 		DOM (Document Object Model - объектная модель документов) - платформен независимый программный интерфейс, позволяющий программами скрип
 			управлять содержимым документов HTML и XML, а также изменять их структур оформление. 
 		SAX (Simple API for XML) базируется на модели последовательной одноразової обработки и не создает внутренних деревьев.
 		StAX (Streaming API for XML) не создает дерево объектов в памяти, но, в отличие от SAX-парсера, за переход от одной вершины XML к другой отвечает приложен
 			которое запускает разбор документа.
-
-	XSL (eXtensible Stylesheet Language) is a styling language for XML.(https://www.w3schools.com/xml/xsl_intro.asp)
-		XSLT stands for XSL Transformations.
-	XSLT (eXtensible Stylesheet Language Transformations) - расширяемый язик преобразования листов стилей.
-		Язык XSLT служит транслятором, с помощью которого можно свободно модифицировать исходный текст.
 	
 	JAXP состоит из четырех пакетов. В них вы найдете интерфейсы и класи предназначенные для анализа и преобразования XML-данных.
 		javax.xml.parsers - общий интерфейс для анализаторов DOM и SAX.
 		org.w3c.dom - общий API для работы с DOM в Java.
 		org.xml.sax - определяет интерфейсы, использованные для анализаторов SAX.
 		javax.xml.transform - API XLST для преобразования XML в другие типы документов
+		javax.xml.stream - Now, we are going to see how we could retrieve all elements from our root element using the Stax API. 
+			Stax is included in the JDK since Java 6 so you don’t need to add any dependencies.(https://docs.oracle.com/javase%2Ftutorial%2F/jaxp/stax/parser.html)
 		
 	JAXP (Java API for XML Processing) - набор абстрактных API, упрощающих обработку XML данных с помощью программ, написанных на Java.
 		Усиливает стандартние анализаторы SAX (Simple API for XML Parsing) и DOM (Document Object Model). 
 		Также поддерживает преобразования расширяемого языка таблиц стилей (XSLT стандарт, давая вам контроль над представлением данных и позволяя преобразов
 			данные в другие XML-документы или в другие форматы, такие как HTML.
-	
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JAXB(https://uk.wikipedia.org/wiki/JAXB, http://docs.oracle.com/javaee/5/api/index.html?javax/xml/bind/JAXBContext.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-	Java Архітектура для XML Binding (JAXB) дозволяє розробникам відображати(ставити у відповідність) класи Java у XML файли.
-	JAXB має дві основні властивості: здатність створювати класи Java з XML і навпаки - створювати XML файли з класів Java.
+			
+	JAXB(https://uk.wikipedia.org/wiki/JAXB, http://docs.oracle.com/javaee/5/api/index.html?javax/xml/bind/JAXBContext.html, https://www.baeldung.com/jaxb)
+		Java Архітектура для XML Binding (JAXB) дозволяє розробникам відображати(ставити у відповідність) класи Java у XML файли.
+		JAXB має дві основні властивості: здатність створювати класи Java з XML і навпаки - створювати XML файли з класів Java.
+		Marshalling – Converting Java Object to XML
+		Unmarshalling – Converting XML to Java Object
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JSON (https://tproger.ru/translations/java-json-library-comparison/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	JSON.simple от Yidong Fang. Небольшая и легковесная библиотека для кодирования и декодирования JSON, несмотря на свою простоту, выполняет свою работу на высоком уровне.
-	GSON от Google. Библиотека, которая умеет конвертировать Java объекты в JSON и наоборот. Не требует специальным образом аннотировать классы, а также в качестве бонуса имеет полную поддержку Java Generics.
-	Отсутствие необходимости добавления аннотаций упрощает реализацию и даже может быть главным требованием, если вы собираетесь сериализовывать объекты, не имея для них исходного кода.
-	Jackson от FasterXML. Набор инструментов для обработки данных, основанный на потоковом JSON-парсере и генераторе. Предназначенная для Java библиотека умеет работать не только с JSON.
-	Имеет самый популярный JSON-парсер (исходя из статистики использования на GitHub).
-	JSONP от Oracle. API для работы с JSON, а именно для генерации и разбора потоковых JSON-текстов. Эталонная реализация JSR353 с открытым исходным кодом.
+	Сравниваем Java-библиотеки для работы с JSON: JSON.simple, GSON, Jackson и JSONP: https://tproger.ru/translations/java-json-library-comparison
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JSON vs XML (https://www.geeksforgeeks.org/difference-between-json-and-xml/)
@@ -87,6 +98,8 @@ It doesn’t use end tag.																It has start and end tags.
 It is less secured.																	It is more secured than JSON.
 It doesn’t supports comments.														It supports comments.
 It supports only UTF-8 encoding.													It supports various encoding.
+
+	More info: https://appmaster.io/blog/json-vs-xml
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JDBC API в Java - обзор и туториал(http://www.javenue.info/post/java-jdbc-api, http://www.quizful.net/post/using-jdbc, http://proselyte.net/tutorials/jdbc/statements/)
@@ -126,7 +139,7 @@ JDBC API в Java - обзор и туториал(http://www.javenue.info/post/j
 		/* you use the connection here */
 	}
 	
-	JDBC - Transactions(https://www.tutorialspoint.com/jdbc/jdbc-transactions.htm)
+	JDBC - Transactions(https://www.tutorialspoint.com/jdbc/jdbc-transactions.htm, https://docs.oracle.com/javase/tutorial/jdbc/basics/transactions.html)
 		Commit & Rollback
 			code the following to turn off auto-commit − conn.setAutoCommit(false);
 			Once you are done with your changes and you want to commit the changes then call commit() method on connection object as follows − conn.commit( );
@@ -202,6 +215,10 @@ OOP
 				It extracts a warning from the compiler if the annotated method doesn't actually override anything.
 				It can improve the readability of the source code.
 				
+		Java @Override: Method Overriding And Runtime Polymorphism(https://www.softwaretestinghelp.com/java-override-and-runtime-polymorphism/)
+			A runtime polymorphism which is also known as dynamic polymorphism or Dynamic Method Dispatch is a technique in which an overridden method call is resolved dynamically at runtime.
+			Runtime polymorphism in Java is achieved by using “method overriding”. Method overriding is a technique by which a method in the parent class is redefined or overridden in the child class.
+		
 ----------------- Inheritance in Java (https://www.geeksforgeeks.org/inheritance-in-java/)				
 		Inheritance is an important pillar of OOP(Object Oriented Programming). It is the mechanism in java by which one class is allow to inherit the features(fields and methods) of another class.
 		Important terminology:
@@ -254,9 +271,29 @@ What Are Interfaces in Java? (https://www.baeldung.com/java-interfaces)
 		all interface declarations should have the public or default access modifier; the abstract modifier will be added automatically by the compiler
 		an interface method can't be private, protected, or final
 		interface variables are public, static, and final by definition; we're not allowed to change their visibility
+		
+		The most common use of interface default methods is to incrementally provide additional functionality to a given type without breaking down the implementing classes. (https://www.baeldung.com/java-static-default-methods) 
+		
+-- ------------------------------------------------ Static and Default Methods in Interfaces in Java(https://www.baeldung.com/java-static-default-methods)
+	Like regular interface methods, default methods are implicitly public; there’s no need to specify the public modifier.
+		Unlike regular interface methods, we declare them with the default keyword at the beginning of the method signature, and they provide an implementation.
+	What happens when a class implements several interfaces that define the same default methods.
+		the code simply won’t compile, as there’s a conflict caused by multiple interface inheritance
+		To solve this ambiguity, we must explicitly provide an implementation for the methods
+	In addition to declaring default methods in interfaces, Java 8 also allows us to define and implement static methods in interfaces.
+		Since static methods don’t belong to a particular object, they’re not part of the API of the classes implementing the interface; therefore, they have to be called by using the interface name preceding the method name.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in-java, https://www.jworks.io/immutable-data-structures-in-java/)
+Class and Operators(https://www.geeksforgeeks.org/java-ternary-operator-with-examples/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------ Upcasting and Downcasting in Java (https://www.javatpoint.com/upcasting-and-downcasting-in-java)
+	Typecasting is used to ensure whether variables are correctly processed by a function or not. 
+		In Upcasting and Downcasting, we typecast a child object to a parent object and a parent object to a child object simultaneously. 
+		We can perform Upcasting implicitly or explicitly, but downcasting cannot be implicitly possible.
+-- ------------------------------------------------ POJO (англ. Plain Old Java Object) 
+	„Простий старий Java-об'єкт“, простий Java-об'єкт, не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
+
+-- ------------------------------------------------ Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in-java, https://www.jworks.io/immutable-data-structures-in-java/)
 	To create immutable class in java, you have to do following steps.
 		Declare the class as final so it can’t be extended.
 		Make all fields private so that direct access is not allowed.
@@ -272,7 +309,189 @@ Immutable Class (https://www.journaldev.com/129/how-to-create-immutable-class-in
 		Immutability makes it easier to parallelize your program as there are no conflicts among objects.
 		The internal state of your program will be consistent even if you have exceptions.
 		References to immutable objects can be cached as they are not going to change.
+	Disadvantages of immutable objects(https://en.proft.me/2013/11/24/advantages-and-disadvantages-immutable-objects-jav/)
+		Creating an immutable class seems at first to provide an elegant solution. 
+		However, whenever you do need a modified object of that new type you must suffer the overhead of a new object creation, as well as potentially causing more frequent garbage collections. 
+		The only real disadvantage of immutable classes is that they require a separate object for each distinct value.
 	
+-- ------------------------------------------------ Java Enum (http://tutorials.jenkov.com/java/enums.html, https://www.javapedia.net/Enum#qanda1686)
+		Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
+		A Java Enum is a special Java type used to define collections of constants. More precisely, a Java enum type is a special kind of Java class. 
+		An enum can contain constants, methods etc. Java enums were added in Java 5.
+
+-- ------------------------------------------------ Java Ternary Operator (https://www.geeksforgeeks.org/java-ternary-operator-with-examples/)
+		Java ternary operator is the only conditional operator that takes three operands.
+		result = testStatement ? value1 : value2;
+
+-- ------------------------------------------------ Lazy initialization(https://en.wikipedia.org/wiki/Lazy_initialization)
+		In computer programming, lazy initialization is the tactic of delaying the creation of an object, the calculation of a value, 
+			or some other expensive process until the first time it is needed. 
+			It is a kind of lazy evaluation that refers specifically to the instantiation of objects or other resources.
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+String (https://www.digitalocean.com/community/tutorials/java-string-interview-questions-and-answers)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Java String Pool (https://www.baeldung.com/java-string-pool) — the special memory region where Strings are stored by the JVM. 
+		Palindrome (https://www.baeldung.com/java-palindrome)
+			A palindrome is a word, phrase, number, or other sequences of characters which reads the same backward as forward, such as “madam” or “racecar”.
+			public boolean isPalindromeUsingStringBuilder(String text) {
+				String clean = text.replaceAll("\\s+", "").toLowerCase();
+				StringBuilder plain = new StringBuilder(clean);
+				StringBuilder reverse = plain.reverse();
+				return (reverse.toString()).equals(clean);
+			}
+	Some Notes to Remember(https://muratakkan.medium.com/understanding-and-using-the-java-string-pool-in-java-d60d3176716)
+		String pool is an example of the Flyweight Design Pattern.
+		From Java 7 onwards, the Java String Pool is stored in the Heap space, which is garbage collected by the JVM. 
+			The advantage of this approach is the reduced risk of OutOfMemory error because unreferenced Strings will be removed from the pool, thereby releasing memory.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	Java Collections Interview Questions
+		https://jsehelper.blogspot.com/2016/01/java-collections-framework-1.html
+		https://www.javatpoint.com/java-collections-interview-questions
+		https://www.interviewbit.com/java-collections-interview-questions/
+		
+-- ------------------------------------------------	Big-O (https://www.bigocheatsheet.com/, https://www.geeksforgeeks.org/big-o-notation-interview-questions-answers/)
+	https://stackoverflow.com/questions/559839/big-o-summary-for-java-collections-framework-implementations
+	List implementations:
+							  get  add  contains next remove(0) iterator.remove
+		ArrayList             O(1) O(1) O(n)     O(1) O(n)      O(n)
+		LinkedList            O(n) O(1) O(n)     O(1) O(1)      O(1)
+		CopyOnWrite-ArrayList O(1) O(n) O(n)     O(1) O(n)      O(n)
+
+	Set implementations:
+							  add      contains next     notes
+		HashSet               O(1)     O(1)     O(h/n)   h is the table capacity
+		LinkedHashSet         O(1)     O(1)     O(1) 
+		CopyOnWriteArraySet   O(n)     O(n)     O(1) 
+		EnumSet               O(1)     O(1)     O(1) 
+		TreeSet               O(log n) O(log n) O(log n)
+		ConcurrentSkipListSet O(log n) O(log n) O(1)
+
+	Map implementations:
+							  get      containsKey next     Notes
+		HashMap               O(1)     O(1)        O(h/n)   h is the table capacity
+		LinkedHashMap         O(1)     O(1)        O(1) 
+		IdentityHashMap       O(1)     O(1)        O(h/n)   h is the table capacity 
+		EnumMap               O(1)     O(1)        O(1) 
+		TreeMap               O(log n) O(log n)    O(log n) 
+		ConcurrentHashMap     O(1)     O(1)        O(h/n)   h is the table capacity 
+		ConcurrentSkipListMap O(log n) O(log n)    O(1)
+	
+	Queue implementations:
+							  offer    peek poll     size
+		PriorityQueue         O(log n) O(1) O(log n) O(1)
+		ConcurrentLinkedQueue O(1)     O(1) O(1)     O(n)
+		ArrayBlockingQueue    O(1)     O(1) O(1)     O(1)
+		LinkedBlockingQueue   O(1)     O(1) O(1)     O(1)
+		PriorityBlockingQueue O(log n) O(1) O(log n) O(1)
+		DelayQueue            O(log n) O(1) O(log n) O(1)
+		LinkedList            O(1)     O(1) O(1)     O(1)
+		ArrayDeque            O(1)     O(1) O(1)     O(1)
+		LinkedBlockingDeque   O(1)     O(1) O(1)     O(1)
+	
+-- ------------------------------------------------  When to use LinkedList and when to use ArrayList?
+
+	1) As explained above the insert and remove operations give good performance (O(1)) in LinkedList compared to ArrayList(O(n)). 
+		Hence if there is a requirement of frequent addition and deletion in application then LinkedList is a best choice.
+	2) Search (get method) operations are fast in Arraylist (O(1)) but not in LinkedList (O(n)) so If there are less add and remove operations and more search operations requirement, ArrayList would be your best bet.
+	
+-- ------------------------------------------------	Comparator vs Comparable (https://www.baeldung.com/java-comparator-comparable)
+	Comparable is an interface defining a strategy of comparing an object with other objects of the same type. This is called the class's “natural ordering”.
+		public class Player implements Comparable<Player> {
+			//...
+			@Override
+			public int compareTo(Player otherPlayer) {
+				return (this.getRanking() - otherPlayer.getRanking());
+			}
+		}
+		The Comparator interface defines a compare(arg1, arg2) method with two arguments which represent compared objects and works similarly to the Comparable.compareTo() method.
+		public class PlayerRankingComparator implements Comparator<Player> {
+			@Override
+			public int compare(Player firstPlayer, Player secondPlayer) {
+			   return (firstPlayer.getRanking() - secondPlayer.getRanking());
+			}
+		}
+		The Comparable interface is a good choice when used for defining the default ordering or, in other words, if it's the main way of comparing objects.
+			Then, we must ask ourselves why use a Comparator if we already have Comparable?
+			There are several reasons why:
+				Sometimes, we can't modify the source code of the class whose objects we want to sort, thus making the use of Comparable impossible
+				Using Comparators allows us to avoid adding additional code to our domain classes
+				We can define multiple different comparison strategies which isn't possible when using Comparable	
+	
+-- ------------------------------------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort, https://betterprogramming.pub/5-basic-sorting-algorithms-you-must-know-9ef5b1f3949c)
+	According to the Java 7 API doc for primitives:
+		Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. 
+		This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.
+			
+		Aлгоритм dual-pivot quicksort(https://habrahabr.ru/post/69424/)
+			Обычный quicksort делит массив на два отрезка, выбрав случайный элемент P. 
+			Потом сортирует массив так, чтобы все элементы меньше P попали в первый отрезок, а остальные — во второй. 
+			Затем алгоритм рекурсивно повторяется на первом и на втором отрезках.
+				
+		As mentioned in the official JavaDoc, Arrays.sort uses dual-pivot Quicksort on primitives. It offers O(n log(n)) (https://www.baeldung.com/java-sorting)
+			Java 8 comes with a new API – parallelSort – with a similar signature to the Arrays.sort()
+			
+	According to the Java 7 API doc for objects:
+		The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
+		 in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
+			
+		Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort): 
+			Шаг 1. Входной массив разделяется на подмассивы фиксированной длины, вычисляемой определённым образом.
+			Шаг 2. Каждый подмассив сортируется сортировкой вставками, сортировкой пузырьком или любой другой устойчивой сортировкой.
+			Шаг 3. Отсортированные подмассивы объединяются в один массив с помощью модифицированной сортировки слиянием.
+			TimSort is a sorting algorithm based on Insertion Sort and Merge Sort.(https://www.geeksforgeeks.org/timsort/)
+				Insertion Sort is a simple sorting algorithm that works the way we sort playing cards in our hands.https://www.geeksforgeeks.org/insertion-sort/
+					
+		https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html - visualisation
+		
+-- ------------------------------------------------	Understanding Natural Ordering(https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator)
+	Natural ordering is the default ordering of objects of a specific type when they are sorted in an array or a collection. 
+		- The natural ordering of String objects is alphabetic order.
+		- The natural ordering of Integer objects is alphanumeric order.
+		- The natural ordering of Date objects is chronological order.
+
+	Remember these rules:
+		compare value = 0: two objects are equal.
+		compare value > 0: the first object (the current object) is greater than the second one.
+		compare value < 0: the first object is less than the second one.
+	
+-- ------------------------------------------------ LIFO и FIFO
+	LIFO (акроним Last In, First Out, «последним пришёл — первым ушёл») 
+	FIFO (акроним англ. First In, First Out – первым пришёл — первым ушёл)
+
+-- ------------------------------------------------ Iterator In Java (Fail Fast and Fail Safe ) http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
+        
+    Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
+        (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
+    Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
+
+-- ------------------------------------------------ Binary Search: https://in.indeed.com/career-advice/interviewing/binary-search-interview-questions
+		Binary search is a popular search technique. Its algorithm efficiently finds an element or an item from a list of items. 
+			Its working principle is that it divides the data in half and runs this process until it detects the desired value. It is also known as a logarithmic search.
+
+-- ------------------------------------------------ HashMap (https://dzone.com/articles/hashmap-internal)
+		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
+		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
+
+		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
+			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
+				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
+				The hash will change from using a linked list to a balanced tree.
+			Above changes ensure the performance of O(log(n)) in worst case scenarios and O(1) with proper hashCode().
+			The alternative String hash function added in Java 7 has been removed.		
+		A hash function turns keys into unique index, as if it were an array. (https://dev.to/tywenk/how-do-hash-tables-work-under-the-hood-4nff)
+			In psudeocode this would look like these two steps:
+				hashed_key = hash(key)
+				index = hashed_key % array_size
+			
+-- ------------------------------------------------ Exploring the World of Java Maps: HashMap, LinkedHashMap, and TreeMap (https://www.techiedelight.com/difference-between-hashmap-treemap-linkedhashmap-java/, https://medium.com/@AlexanderObregon/exploring-the-world-of-java-maps-hashmap-linkedhashmap-and-treemap-6c12297063f6)
+		A Self-Balancing Binary Search Tree is used to implement TreeSet (Red Black Tree). In Java, TreeSet is backed by TreeMap.
+	
+		HashMap: Suitable for most use cases, offers fast O(1) performance for get and put operations, but does not maintain any order.
+		LinkedHashMap: Combines the performance of HashMap with predictable iteration order, ideal for scenarios where insertion order is important.
+		TreeMap: Maintains key-value pairs in sorted order according to their keys, making it suitable for scenarios requiring sorted access to data, though at the cost of slower O(log n) performance for get and put operations.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generics-example-method-class-interface)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -337,6 +556,10 @@ Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generic
 
 	Multiple Bounded Type Parameter
 		public abstract class Cage<T extends Animal & Comparable>
+	
+	Interview questions:
+		https://www.javatpoint.com/java-generics-questions
+	
 --------------------
 		Мнемоника PECS (provider - extends, consumer - super)(https://ru.stackoverflow.com/questions/361807/%D0%98%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-wildcard-%D0%B2-generics-java)
 		"PECS" находится с точки сбора. Если вы только вытаскиваете предметы из общей коллекции, это производитель, и вы должны использовать extends;
@@ -350,6 +573,165 @@ Java Generics – Generics in Java (https://www.journaldev.com/1663/java-generic
 			Lair<Goblin> goblinLair = new Lair<>();
 		Сырой тип (--[raw type]--) — это имя обобщённого класса или интерфейса без аргументов типа (type arguments).
 		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Annotations(https://reflectoring.io/java-annotation-processing/,https://www.javatpoint.com/java-annotation)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		Java annotations are typically used for the following purposes:
+			Compiler instructions
+			Build-time instructions
+			Runtime instructions (These annotations can then be accessed via Java Reflection)
+		You can place Java annotations above classes, interfaces, methods, method parameters, fields and local variables.
+		Java comes with three built-in annotations which are used to give the Java compiler instructions. These annotations are:
+			@Deprecated is used to mark a class, method or field as deprecated, meaning it should no longer be used.
+			@Override is used above methods that override methods in a superclass.
+			@SuppressWarnings if a method calls a deprecated method, or makes an insecure type cast, the compiler may generate a warning. 
+				You can suppress these warnings by annotating the method containing the code with the @SuppressWarnings annotation.
+				
+		Annotations are defined in their own file, just like a Java class or interface. Here is custom Java annotation example:
+			@interface MyAnnotation {
+				String   value();
+			}
+		Own Annotations
+			@Retention
+				A retention policy determines at what point annotation should be discarded. (http://www.java2novice.com/java-annotations/retention-policy/)
+					Java defined 3 types of retention policies through java.lang.annotation.RetentionPolicy enumeration. It has SOURCE, CLASS and RUNTIME.
+					Annotation with retention policy SOURCE will be retained only with source code, and discarded during compile time.
+					Annotation with retention policy CLASS will be retained till compiling the code, and discarded during runtime.
+					Annotation with retention policy RUNTIME will be available to the JVM through runtime.
+					The retention policy will be specified by using java built-in annotation @Retention, and we have to pass the retention policy type.
+					The default retention policy type is CLASS.
+			@Target
+				You can specify which Java elements your custom annotation can be used to annotate. You do so by annotating your annotation definition with the @Target annotation. 
+					ElementType.ANNOTATION_TYPE
+					ElementType.CONSTRUCTOR
+					ElementType.FIELD
+					ElementType.LOCAL_VARIABLE
+					ElementType.METHOD
+					ElementType.PACKAGE
+					ElementType.PARAMETER
+					ElementType.TYPE
+			@Inherited
+				The @Inherited annotation signals that a custom Java annotation used in a class should be inherited by subclasses inheriting from that class.
+			@Documented
+				The @Documented annotation is used to signal to the JavaDoc tool that your custom annotation should be visible in the JavaDoc for classes using your custom annotation.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrapping.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+
+	Finally
+		You can attach a finally-clause to a try-catch block. The code inside the finally clause will always be executed, even if an exception is thrown from within the try or catch block.
+	Propagating Exceptions
+		You don't have to catch exceptions thrown from other methods. If you cannot do anything about the exception where the method throwing it is called, 
+			you can just let the method propagate the exception up the call stack to the method that called this method.
+		public void callDivide() throws BadNumberException{}
+	Catching Exceptions
+		If a method calls another method that throws checked exceptions, the calling method is forced to either pass the exception on, or catch it. 
+			Catching the exception is done using a try-catch block.
+	Throwing Exceptions
+		If a method needs to be able to throw an exception, it has to declare the exception(s) thrown in the method signature, and then include a throw-statement in the method.
+		public void callDivide() throws BadNumberException{
+			throw new BadNumberException("...");
+		}
+	The Call Stack Explained
+		This text refers to the concept the "call stack" in several places. 
+			By the call stack is meant the sequence of method calls from the current method and back to the Main method of the program.
+	Using Multiple Resources
+		You can use multiple resources inside a try-with-resources block and have them all automatically closed. 
+			private static void printFileJava7() throws IOException {
+				try(  FileInputStream     input         = new FileInputStream("file.txt");
+					  BufferedInputStream bufferedInput = new BufferedInputStream(input)
+				) {
+
+					int data = bufferedInput.read();
+					while(data != -1){
+						System.out.print((char) data);
+						data = bufferedInput.read();
+					}
+				}
+			}
+		When the try block finishes the FileInputStream will be closed automatically. 
+			This is possible because FileInputStream implements the Java interface java.lang.AutoCloseable. 
+			All classes implementing this interface can be used inside the try-with-resources construct.
+
+	Catching Multiple Exceptions in Java 7
+		In Java 7 it was made possible to catch multiple different exceptions in the same catch block. This is also known as multi catch.
+				try {
+					...
+				} catch(SQLException | IOException e) {
+				} catch(Exception e) {
+				} finally {
+					...
+				}
+				
+	Explain Java Exception Hierarchy?(https://www.journaldev.com/2167/java-exception-interview-questions-and-answers)
+		Java Exceptions are hierarchical and inheritance is used to categorize different types of exceptions. 
+			Throwable is the parent class of Java Exceptions Hierarchy and it has two child objects – Error and Exception. 
+			Exceptions are further divided into checked exceptions and runtime exception.
+		Errors are exceptional scenarios that are out of scope of application and it’s not possible to anticipate and recover from them, for example hardware failure, JVM crash or out of memory error.
+
+	Checked or Unchecked Exceptions
+		In Java there are basically two types of exceptions: Checked exceptions and unchecked exceptions:
+			Checked exceptions must be explicitly caught or propagated as described in Basic try-catch-finally Exception Handling. 
+			Unchecked exceptions do not have this requirement. They don't have to be caught or declared thrown.
+			Checked exceptions in Java extend the java.lang.Exception class. 
+			Unchecked exceptions extend the java.lang.RuntimeException.		
+
+			Checked and unchecked exceptions are functionally equivalent. 
+			There is nothing you can do with checked exceptions that cannot also be done with unchecked exceptions, and vice versa.		
+	What is Exception Wrapping?
+		Exception wrapping is a standard feature in Java since JDK 1.4. 
+		Most (if not all) of Java's built-in exceptions has constructors that can take a "cause" parameter. 
+		They also have a getCause() method that will return the wrapped exception.
+				try{
+					...
+				} catch (SQLException sqlException) {
+					throw new MyException("error text", sqlException);
+				}
+	Fail Safe Exception Handling
+		The last exception thrown in a try-catch-finally block is the exception that will be propagated up the call stack.
+		All earlier exceptions will disappear.
+
+	Java Exception Interview Questions 
+		https://www.digitalocean.com/community/tutorials/java-exception-interview-questions-and-answers
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Difference between URL and URI(https://prateekvjoshi.com/2014/02/22/url-vs-uri-vs-urn/, http://www.baeldung.com/java-url-vs-uri, https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		The difference between them is straightforward after knowing their definitions:
+			Uniform Resource Identifier (URI) − a sequence of characters that allows the complete identification of any abstract or physical resource
+			Uniform Resource Locator (URL) − a subset of URI that, in addition to identifying where a resource is available, describes the primary mechanism to access it
+			Uniform Resource Name(URN) - it identifies a resource by name in a given namespace. 
+		Now we can conclude that every URL is a URI and URN, but the opposite is not true, as we’ll see later.
+		
+		Every URI, regardless if it’s a URL or not, follows a particular form:
+			scheme:[//authority][/path][?query][#fragment]
+			Where each part is described as follows:
+				scheme − for URLs, is the name of the protocol used to access the resource, for other URIs, is a name that refers to a specification for assigning identifiers within that scheme
+				authority − an optional part comprised of user authentication information, a host and an optional port
+				path − it serves to identify a resource within the scope of its scheme and authority
+				query − additional data that, along with the path, serves to identify a resource. For URLs, this is the query string
+				fragment − an optional identifier to a specific part of the resource
+				
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Embedded Databases(https://techshard.com/2017/04/01/3-embedded-databases-in-java/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	HSQLDB (HyperSQL Database)(https://ru.wikipedia.org/wiki/HSQLDB),
+	H2(https://ru.wikipedia.org/wiki/H2),
+	Apache Derby(https://ru.wikipedia.org/wiki/Apache_Derby)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов, который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
+	The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides naming and directory functionality to applications written using the Java™ programming language.
+		It is defined to be independent of any specific directory service implementation. Thus a variety of directories -new, emerging, and already deployed can be accessed in a common way.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JMX (Java Management Extensions) (https://www.codeflow.site/ru/article/java-management-extensions, https://levelup.gitconnected.com/jmx-beans-mbeans-74db32d120af)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Java Management Extensions (JMX) — это технология, входящая в J2SE начиная с J2SE 5.0. JMX предназначен для контроля и управления приложениями, системными объектами, устройствами (например, принтерами) и компьютерными сетями.
+	
+	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -448,8 +830,8 @@ Memory Management in Java
 		How to solve java.lang.OutOfMemoryError: Java heap space	
 		1) An easy way to solve OutOfMemoryError in java is to increase the maximum heap size by using JVM options "-Xmx512M", this will immediately solve your OutOfMemoryError.
 
-Read more: https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html#ixzz5WqK4p07j
-Video: https://www.youtube.com/watch?v=QHIWkwxs0AI, https://www.youtube.com/watch?v=QHKJ9VJHIuY
+	Read more: https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html#ixzz5WqK4p07j
+	Video: https://www.youtube.com/watch?v=QHIWkwxs0AI, https://www.youtube.com/watch?v=QHKJ9VJHIuY
 
 ------------------- Memory Leaks (https://stackify.com/memory-leaks-java/)
 		Static Field Holding On to the Object Reference
@@ -461,304 +843,22 @@ Video: https://www.youtube.com/watch?v=QHIWkwxs0AI, https://www.youtube.com/watc
 ------------------- How does Java Garbage Collection work with Circular References? (https://stackoverflow.com/questions/1910194/how-does-java-garbage-collection-work-with-circular-references)
 		Java's GC considers objects "garbage" if they aren't reachable through a chain starting at a garbage collection root, so these objects will be collected. 
 			Even though objects may point to each other to form a cycle, they're still garbage if they're cut off from the root.
-References: https://javarevisited.blogspot.com/2011/04/garbage-collection-in-java.html
-			
--- ------------------------------------------------ 4 типа ссылок на объекты
-В Java существует 4 типа ссылок на объекты:
-strong reference
-soft reference
-SoftReference<Rectangle> rect = new SoftReference<Rectangle>(new Rectangle());
-Это происходит в том случае, когда память вашей программы заполнена и появляется вероятность возникновения OutOfMemoryError, тогда сборщик мусора удаляет объекты на которые ссылаются мягкие ссылки. 
-Именно этот вид ссылок удобно использовать для кеширования объектов.
-weak reference
-WeakReference<Rectangle> rect = new WeakReference<Rectangle>(new Rectangle());
-Разница в том, что объект на который ссылается слабая ссылка может быть удален в любой момент при вызове cборщика мусора, т.е. для этого не обязательно условие нехватки памяти.
-phantom reference
-http://www.quizful.net/interview/java/reference-types
-https://habrahabr.ru/post/169883/
-So in brief: Soft references try to keep the reference. Weak references don’t try to keep the reference. Phantom references don’t free the reference until cleared.
-https://dou.ua/forums/topic/6267/, https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792
-https://www.logicbig.com/tutorials/core-java-tutorial/gc/phantom-reference.html
-
--- ------------------------------------------------ Java Enum (http://tutorials.jenkov.com/java/enums.html)
-		Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
-		A Java Enum is a special Java type used to define collections of constants. More precisely, a Java enum type is a special kind of Java class. 
-		An enum can contain constants, methods etc. Java enums were added in Java 5.
-
--- ------------------------------------------------ Java Ternary Operator
-		Java ternary operator is the only conditional operator that takes three operands.
-		result = testStatement ? value1 : value2;
-
--- ------------------------------------------------ Lazy initialization(https://en.wikipedia.org/wiki/Lazy_initialization)
-		In computer programming, lazy initialization is the tactic of delaying the creation of an object, the calculation of a value, 
-			or some other expensive process until the first time it is needed. 
-			It is a kind of lazy evaluation that refers specifically to the instantiation of objects or other resources.
-
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------				
-When to use LinkedList and when to use ArrayList?
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-	1) As explained above the insert and remove operations give good performance (O(1)) in LinkedList compared to ArrayList(O(n)). 
-		Hence if there is a requirement of frequent addition and deletion in application then LinkedList is a best choice.
-	2) Search (get method) operations are fast in Arraylist (O(1)) but not in LinkedList (O(n)) so If there are less add and remove operations and more search operations requirement, ArrayList would be your best bet.
-
--- ------------------------------------------------ LIFO и FIFO
-LIFO (акроним Last In, First Out, «последним пришёл — первым ушёл») 
-FIFO (акроним англ. First In, First Out – первым пришёл — первым ушёл)
-
--- ------------------------------------------------ POJO (англ. Plain Old Java Object) 
-„Простий старий Java-об'єкт“, простий Java-об'єкт, не успадкований від якогось специфічного об'єкта і який не реалізує жодних службових інтерфейсів окрім тих, які потрібні для бізнес-моделі.
-		
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java Collection Framework(http://www.quizful.net/post/Java-Collections, https://www.bigocheatsheet.com/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
--------------------	Understanding Natural Ordering(https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator)
-			Natural ordering is the default ordering of objects of a specific type when they are sorted in an array or a collection. 
-			- The natural ordering of String objects is alphabetic order.
-			- The natural ordering of Integer objects is alphanumeric order.
-			- The natural ordering of Date objects is chronological order.
-
-			Remember these rules:
-			compare value = 0: two objects are equal.
-			compare value > 0: the first object (the current object) is greater than the second one.
-			compare value < 0: the first object is less than the second one.
-
--------------------	Big-O (https://www.bigocheatsheet.com/)
-
--------------------	Comparator vs Comparable (https://www.baeldung.com/java-comparator-comparable)
-		Comparable is an interface defining a strategy of comparing an object with other objects of the same type. This is called the class's “natural ordering”.
-		public class Player implements Comparable<Player> {
-			//...
-			@Override
-			public int compareTo(Player otherPlayer) {
-				return (this.getRanking() - otherPlayer.getRanking());
-			}
-		}
-		The Comparator interface defines a compare(arg1, arg2) method with two arguments which represent compared objects and works similarly to the Comparable.compareTo() method.
-		public class PlayerRankingComparator implements Comparator<Player> {
-			@Override
-			public int compare(Player firstPlayer, Player secondPlayer) {
-			   return (firstPlayer.getRanking() - secondPlayer.getRanking());
-			}
-		}
-		The Comparable interface is a good choice when used for defining the default ordering or, in other words, if it's the main way of comparing objects.
-			Then, we must ask ourselves why use a Comparator if we already have Comparable?
-			There are several reasons why:
-				Sometimes, we can't modify the source code of the class whose objects we want to sort, thus making the use of Comparable impossible
-				Using Comparators allows us to avoid adding additional code to our domain classes
-				We can define multiple different comparison strategies which isn't possible when using Comparable	
+	References: https://javarevisited.blogspot.com/2011/04/garbage-collection-in-java.html
 	
--------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort)
-		According to the Java 7 API doc for primitives:
-			Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. 
-			This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.
+	Interviews questions
+		https://www.digitalocean.com/community/tutorials/java-jvm-memory-model-memory-management-in-java
 			
-			Aлгоритм dual-pivot quicksort(https://habrahabr.ru/post/69424/)
-				Обычный quicksort делит массив на два отрезка, выбрав случайный элемент P. 
-				Потом сортирует массив так, чтобы все элементы меньше P попали в первый отрезок, а остальные — во второй. 
-				Затем алгоритм рекурсивно повторяется на первом и на втором отрезках.
-				
-			As mentioned in the official JavaDoc, Arrays.sort uses dual-pivot Quicksort on primitives. It offers O(n log(n)) (https://www.baeldung.com/java-sorting)
-			Java 8 comes with a new API – parallelSort – with a similar signature to the Arrays.sort()
-			
-		According to the Java 7 API doc for objects:
-			The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
-			in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
-			
-			Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort): 
-				Шаг 1. Входной массив разделяется на подмассивы фиксированной длины, вычисляемой определённым образом.
-				Шаг 2. Каждый подмассив сортируется сортировкой вставками, сортировкой пузырьком или любой другой устойчивой сортировкой.
-				Шаг 3. Отсортированные подмассивы объединяются в один массив с помощью модифицированной сортировки слиянием.
-				TimSort is a sorting algorithm based on Insertion Sort and Merge Sort.(https://www.geeksforgeeks.org/timsort/)
-					Insertion Sort is a simple sorting algorithm that works the way we sort playing cards in our hands.https://www.geeksforgeeks.org/insertion-sort/
-					
-		https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html - visualisation
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Iterator In Java (Fail Fast and Fail Safe ) 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html
-        
-        Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
-            (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
-        Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	HashMap (https://dzone.com/articles/hashmap-internal)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
-		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
-
-		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
-			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
-				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
-				The hash will change from using a linked list to a balanced tree.
-			Above changes ensure the performance of O(log(n)) in worst case scenarios and O(1) with proper hashCode().
-			The alternative String hash function added in Java 7 has been removed.		
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Annotations(http://tutorials.jenkov.com/java/annotations.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		Java annotations are typically used for the following purposes:
-			Compiler instructions
-			Build-time instructions
-			Runtime instructions (These annotations can then be accessed via Java Reflection)
-		You can place Java annotations above classes, interfaces, methods, method parameters, fields and local variables.
-		Java comes with three built-in annotations which are used to give the Java compiler instructions. These annotations are:
-			@Deprecated is used to mark a class, method or field as deprecated, meaning it should no longer be used.
-			@Override is used above methods that override methods in a superclass.
-			@SuppressWarnings if a method calls a deprecated method, or makes an insecure type cast, the compiler may generate a warning. 
-				You can suppress these warnings by annotating the method containing the code with the @SuppressWarnings annotation.
-				
-		Annotations are defined in their own file, just like a Java class or interface. Here is custom Java annotation example:
-			@interface MyAnnotation {
-				String   value();
-			}
-		Own Annotations
-			@Retention
-				A retention policy determines at what point annotation should be discarded. (http://www.java2novice.com/java-annotations/retention-policy/)
-					Java defined 3 types of retention policies through java.lang.annotation.RetentionPolicy enumeration. It has SOURCE, CLASS and RUNTIME.
-					Annotation with retention policy SOURCE will be retained only with source code, and discarded during compile time.
-					Annotation with retention policy CLASS will be retained till compiling the code, and discarded during runtime.
-					Annotation with retention policy RUNTIME will be available to the JVM through runtime.
-					The retention policy will be specified by using java built-in annotation @Retention, and we have to pass the retention policy type.
-					The default retention policy type is CLASS.
-			@Target
-				You can specify which Java elements your custom annotation can be used to annotate. You do so by annotating your annotation definition with the @Target annotation. 
-					ElementType.ANNOTATION_TYPE
-					ElementType.CONSTRUCTOR
-					ElementType.FIELD
-					ElementType.LOCAL_VARIABLE
-					ElementType.METHOD
-					ElementType.PACKAGE
-					ElementType.PARAMETER
-					ElementType.TYPE
-			@Inherited
-				The @Inherited annotation signals that a custom Java annotation used in a class should be inherited by subclasses inheriting from that class.
-			@Documented
-				The @Documented annotation is used to signal to the JavaDoc tool that your custom annotation should be visible in the JavaDoc for classes using your custom annotation.
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrapping.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-
-Finally
-	You can attach a finally-clause to a try-catch block. The code inside the finally clause will always be executed, even if an exception is thrown from within the try or catch block.
-Propagating Exceptions
-	You don't have to catch exceptions thrown from other methods. If you cannot do anything about the exception where the method throwing it is called, 
-		you can just let the method propagate the exception up the call stack to the method that called this method.
-    public void callDivide() throws BadNumberException{}
-Catching Exceptions
-	If a method calls another method that throws checked exceptions, the calling method is forced to either pass the exception on, or catch it. 
-		Catching the exception is done using a try-catch block.
-Throwing Exceptions
-	If a method needs to be able to throw an exception, it has to declare the exception(s) thrown in the method signature, and then include a throw-statement in the method.
-	public void callDivide() throws BadNumberException{
-		throw new BadNumberException("...");
-	}
-The Call Stack Explained
-	This text refers to the concept the "call stack" in several places. 
-		By the call stack is meant the sequence of method calls from the current method and back to the Main method of the program.
-Using Multiple Resources
-	You can use multiple resources inside a try-with-resources block and have them all automatically closed. 
-		private static void printFileJava7() throws IOException {
-			try(  FileInputStream     input         = new FileInputStream("file.txt");
-				  BufferedInputStream bufferedInput = new BufferedInputStream(input)
-			) {
-
-				int data = bufferedInput.read();
-				while(data != -1){
-					System.out.print((char) data);
-					data = bufferedInput.read();
-				}
-			}
-		}
-	When the try block finishes the FileInputStream will be closed automatically. 
-		This is possible because FileInputStream implements the Java interface java.lang.AutoCloseable. 
-		All classes implementing this interface can be used inside the try-with-resources construct.
-
-Catching Multiple Exceptions in Java 7
-	In Java 7 it was made possible to catch multiple different exceptions in the same catch block. This is also known as multi catch.
-			try {
-				...
-			} catch(SQLException | IOException e) {
-			} catch(Exception e) {
-			} finally {
-				...
-			}
-			
-Explain Java Exception Hierarchy?(https://www.journaldev.com/2167/java-exception-interview-questions-and-answers)
-	Java Exceptions are hierarchical and inheritance is used to categorize different types of exceptions. 
-		Throwable is the parent class of Java Exceptions Hierarchy and it has two child objects – Error and Exception. 
-		Exceptions are further divided into checked exceptions and runtime exception.
-	Errors are exceptional scenarios that are out of scope of application and it’s not possible to anticipate and recover from them, for example hardware failure, JVM crash or out of memory error.
-
-Checked or Unchecked Exceptions
-	In Java there are basically two types of exceptions: Checked exceptions and unchecked exceptions:
-		Checked exceptions must be explicitly caught or propagated as described in Basic try-catch-finally Exception Handling. 
-		Unchecked exceptions do not have this requirement. They don't have to be caught or declared thrown.
-		Checked exceptions in Java extend the java.lang.Exception class. 
-		Unchecked exceptions extend the java.lang.RuntimeException.		
-
-		Checked and unchecked exceptions are functionally equivalent. 
-		There is nothing you can do with checked exceptions that cannot also be done with unchecked exceptions, and vice versa.		
-What is Exception Wrapping?
-	Exception wrapping is a standard feature in Java since JDK 1.4. 
-	Most (if not all) of Java's built-in exceptions has constructors that can take a "cause" parameter. 
-	They also have a getCause() method that will return the wrapped exception.
-		    try{
-				...
-			} catch (SQLException sqlException) {
-				throw new MyException("error text", sqlException);
-			}
-Fail Safe Exception Handling
-	The last exception thrown in a try-catch-finally block is the exception that will be propagated up the call stack.
-	All earlier exceptions will disappear.
-	
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-String 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		Java String Pool (https://www.baeldung.com/java-string-pool) — the special memory region where Strings are stored by the JVM. 
-		Palindrome (https://www.baeldung.com/java-palindrome)
-			A palindrome is a word, phrase, number, or other sequences of characters which reads the same backward as forward, such as “madam” or “racecar”.
-			public boolean isPalindromeUsingStringBuilder(String text) {
-				String clean = text.replaceAll("\\s+", "").toLowerCase();
-				StringBuilder plain = new StringBuilder(clean);
-				StringBuilder reverse = plain.reverse();
-				return (reverse.toString()).equals(clean);
-			}
-			
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Difference between URL and URI(https://prateekvjoshi.com/2014/02/22/url-vs-uri-vs-urn/, http://www.baeldung.com/java-url-vs-uri, https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		The difference between them is straightforward after knowing their definitions:
-			Uniform Resource Identifier (URI) − a sequence of characters that allows the complete identification of any abstract or physical resource
-			Uniform Resource Locator (URL) − a subset of URI that, in addition to identifying where a resource is available, describes the primary mechanism to access it
-			Uniform Resource Name(URN) - it identifies a resource by name in a given namespace. 
-		Now we can conclude that every URL is a URI and URN, but the opposite is not true, as we’ll see later.
-		
-		Every URI, regardless if it’s a URL or not, follows a particular form:
-			scheme:[//authority][/path][?query][#fragment]
-			Where each part is described as follows:
-				scheme − for URLs, is the name of the protocol used to access the resource, for other URIs, is a name that refers to a specification for assigning identifiers within that scheme
-				authority − an optional part comprised of user authentication information, a host and an optional port
-				path − it serves to identify a resource within the scope of its scheme and authority
-				query − additional data that, along with the path, serves to identify a resource. For URLs, this is the query string
-				fragment − an optional identifier to a specific part of the resource
-				
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java Embedded Databases(https://techshard.com/2017/04/01/3-embedded-databases-in-java/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	HSQLDB (HyperSQL Database)(https://ru.wikipedia.org/wiki/HSQLDB),
-	H2(https://ru.wikipedia.org/wiki/H2),
-	Apache Derby(https://ru.wikipedia.org/wiki/Apache_Derby)
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Java Naming and Directory Interface (JNDI) — это набор Java API, организованный в виде службы каталогов, который позволяет Java-клиентам открывать и просматривать данные и объекты по их именам.
-	The Java Naming and Directory Interface™ (JNDI) is an application programming interface (API) that provides naming and directory functionality to applications written using the Java™ programming language.
-		It is defined to be independent of any specific directory service implementation. Thus a variety of directories -new, emerging, and already deployed can be accessed in a common way.
-	
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JMX (Java Management Extensions) (https://urvanov.ru/2018/05/05/%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-jmx-%D0%B8-mbeans-%D0%B2-java/, https://www.codeflow.site/ru/article/java-management-extensions)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Java Management Extensions (JMX) — это технология, входящая в J2SE начиная с J2SE 5.0. JMX предназначен для контроля и управления приложениями, системными объектами, устройствами (например, принтерами) и компьютерными сетями.
+-- ------------------------------------------------ 4 типа ссылок на объекты(https://samolisov.blogspot.com/2011/09/phantomreferences-java.html, https://www.geeksforgeeks.org/types-references-java/, https://www.baeldung.com/java-reference-types)
+	Платформа Java предоставляет несколько типов ссылок для связи между объектами(https://habrahabr.ru/post/169883/, https://dou.ua/forums/topic/6267/, https://medium.com/@ramtop/weak-soft-and-phantom-references-in-java-and-why-they-matter-c04bfc9dc792):
+		Жесткие ссылки (Strong References) - стандартные, известные нам ссылки. Если на объект есть хоть одна жесткая ссылка, то данный объект не будет утилизирован при сборке мусора.
+		Мягкие ссылки (Soft References) - создаются с помощью вызова new SoftReference<T>(T obj, ReferenceQueue<T> queue) или new SoftReference(T obj). 
+			Если на объект есть только мягкая ссылка, то будет выполнена попытка утилизации данного объекта при сборке мусора в случае, если приложению не хватает памяти.
+			Soft references can be used to make our code more resilient to errors connected to insufficient memory. For example, we could create a memory-sensitive cache that automatically evicts objects when memory is scarce.
+			We wouldn’t need to manage the memory manually, as the garbage collector would do it for us.
+		Слабые ссылки (WeakReferences) - создаются с помощью вызова new WeakReference<T>(T obj, ReferenceQueue<T> queue) или new WeakReference<T>(T obj). 
+			Если на объект есть только слабая ссылка, то будет выполнена попытка утилизации данного объекта при сборке мусора.
+		Фантомные ссылки (PhantomReferences) - создаются с помощью вызова new PhantomReference<T>(T obj, ReferenceQueue<T> queue). 
+			Если на объект есть только фантомная ссылка, то будет выполнена попытка утилизации данного объекта при сборке мусора. 
+			Сам объект при этом не будет удален из памяти до тех пор, пока на него существует фантомная ссылка или данная фантомная ссылка не очищена с помощью вызова метода clear(). 
+			Так же стоит заметить, что метод get() фантомной ссылки всегда возвращает null.
+			Phantom references are great if we need to implement some finalization logic, and they’re considerably more reliable and flexible than the finalize method.

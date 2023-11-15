@@ -346,7 +346,7 @@ SOLID (об'єктно-орієнтоване програмування) https:
 Patterns GOF(Design Patterns: Elements of Reusable Object-Oriented Software)(Gang of Four)(http://www.javenue.info/post/design-patterns-java)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Creational Design Patterns
-        Singleton Pattern(https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/)
+        Singleton Pattern(https://howtodoinjava.com/design-patterns/creational/singleton-design-pattern-in-java/, https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples)
 			Singleton pattern is a design solution where an application wants to have one and only one instance of any class, in all possible scenarios without any exceptional condition. 
         Factory Pattern(https://howtodoinjava.com/design-patterns/creational/implementing-factory-design-pattern-in-java/)
 			Factory pattern introduces loose coupling between classes which is the most important principle one should consider and apply while designing the application architecture.
