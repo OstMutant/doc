@@ -34,10 +34,16 @@ Access
 			, встановлювати оновлення ОС, прикладного та серверного ПЗ на всіх комп'ютерах в мережі (із використанням Windows Server Update Services (WSUS); Software Update Services (SUS) раніше).
 			Active Directory зберігає дані і налаштування середовища в централізованій базі данних. Мережі Active Directory можуть бути різного розміру: від кількох сотень до кількох мільйонів об'єктів.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JSON Web Tokens (JWT)(https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec, https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc)
+JSON Web Tokens (JWT)(https://habr.com/ru/articles/340146/, https://gist.github.com/zmts/802dc9c3510d79fd40f9dc38a12bccfc, https://uk.wikipedia.org/wiki/JSON_Web_Token)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		A JSON Web Token (JWT) is a JSON object that is defined in RFC 7519 as a safe way to represent a set of information between two parties. The token is composed of a header, a payload, and a signature.
 		Since JWT are signed and encoded only, and since JWT are not encrypted, JWT do not guarantee any security for sensitive data.
+		JWT состоит из трех отдельных частей, разделенных точкой (.)(https://habr.com/ru/articles/340146/):
+			Заголовок: содержит метаданные о токене и используемом криптографическом алгоритме, обычно это HMAC SHA256 или RSA.
+			Полезная нагрузка: фактические данные, которые содержит токен, хранятся здесь. Полезная нагрузка также известна как “утверждения” и может включать данные вроде информации о пользователе и дополнительных метаданных.
+			Подпись: криптографически защищенное доказательство (proof), которое подтверждает отправителя и гарантирует, что сообщение не было изменено во время передачи.
+			
+		JWT Vs. OAuth (https://www.wallarm.com/what/oauth-vs-jwt-detailed-comparison)
 		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth, https://www.digitalocean.com/community/tutorials/oauth-2-ru)
@@ -59,3 +65,6 @@ OAuth(https://en.wikipedia.org/wiki/OAuth, https://uk.wikipedia.org/wiki/OAuth, 
 		iii) Authorization Server: The authorization server gets consent from the resource owner and issues access tokens to clients for accessing protected resources hosted by a resource server.
 		iv) Client: An application making API requests to perform actions on protected resources on behalf of the resource owner. 
 			Before it may do so, it must be authorized by the resource owner, and the authorization must be validated by resource server/authorization server.
+		
+		https://habr.com/ru/companies/slurm/articles/690978/
+		https://habr.com/ru/companies/slurm/articles/690978/

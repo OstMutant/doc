@@ -211,6 +211,20 @@ Optional (https://www.baeldung.com/java-optional)
 		orElse(T other) - Return the value if present, otherwise return other.
 		orElseGet(Supplier<? extends T> other) - Return the value if present, otherwise invoke other and return the result of that invocation.
 		orElseThrow(Supplier<? extends X> exceptionSupplier) - Return the contained value, if present, otherwise throw an exception to be created by the provided supplier.
+		
+		Pros and Cons of using Optional Objects in Java(https://www.developer.com/java/java-optional-object/)
+			There are a few key pros and cons to using Optional that Java developers should be aware of. 
+			Optional can help to prevent NullPointerException errors by making it explicit when a variable may or may not contain a value. 
+			This can lead to cleaner and more readable code. Additionally, Optional provides several methods that can be used to safely work with data that may or may not be present. 
+			Another benefit of using Optional is that it can be used as an ordinary class, which means that there is no need for special syntax for invoking methods or accessing fields.
+
+			Despite these benefits, there are a few potential downsides to using Optional as well. 
+			For one, it can add significant overhead to code execution time, as the Optional wrapper must be created and checked each time a variable is accessed. 
+			Additionally, some developers find Optional confusing and difficult to work with, which can lead to more errors instead of fewer and more development time and effort than usual.	
+		
+		4 Reasons Why You Should Use Java Optional — or Not? (https://medium.com/javarevisited/4-reasons-why-you-should-use-java-optional-or-not-4e44d51a9645)
+		Java 8 Optional Usage and Best Practices (https://dzone.com/articles/java-8-optional-usage-and-best-practices)
+		Guide To Java 8 Optional(https://www.baeldung.com/java-optional)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -238,8 +252,6 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 			Intermediate operations - You can easily identify intermediate operations; they always return a new stream. This allows the operations to be connected.
 			Terminal operations - You can also easily identify terminal operations, they always return something other than a stream.
 			After the terminal operation is performed, the stream pipeline is consumed, and can't be used anymore
-
-		complexity Big-O-Notation (https://stackoverflow.com/questions/31301471/big-o-complexity-of-java-util-stream-streamt-sorted, http://bigocheatsheet.com/)
 
 		Stream pipelining is the concept of chaining operations together.(http://www.java2novice.com/java_interview_questions/java-8-stream-pipelining/)
 			This is done by splitting the operations that can happen on a stream into two categories.
@@ -302,8 +314,44 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 			Collectors.toSet() ToSet collector can be used for collecting all Stream elements into a Set instance. 
 			Collectors.toMap() ToMap collector can be used to collect Stream elements into a Map instance.
 			Collectors.joining() Joining collector can be used for joining Stream<String> elements.
+			
+			
+------------- 
+	Primitive Type Streams in Java (https://howtodoinjava.com/java/stream/primitive-type-streams/)
+			The stream API has inbuilt support for representing primitive streams using the following specialized classes. All these classes support the sequential and parallel aggregate operations on stream items.
+				IntStream : represents sequence of primitive int-valued elements.
+				LongStream : represents sequence of primitive long-valued elements.
+				DoubleStream : represents sequence of primitive double-valued elements.
+		All three classes, IntStream, LongStream and DoubleStream, consist of numerical values and it makes sense to provide built-in support for common aggregate operations on items of the stream.
+			These classes provide the following methods for these operations. The return types are corresponding to the type of the stream. The following methods are from IntStream class:
+				sum() – returns the sum of items in the stream.
+				average() – returns an OptionalDouble describing the arithmetic mean of items of the stream.
+				max() – returns an OptionalInt describing the maximum item of the stream.
+				min() – returns an OptionalInt describing the mimimum item of the stream.
+				count() – returns the count of items in the stream.
+		Another way to find the above statistical data is by using the summaryStatistics() method that returns one of the following classes:
+			IntSummaryStatistics
+			LongSummaryStatistics
+			DoubleSummaryStatistics
+		Now we can use its methods to get the required value.
+			getAverage()
+			getCount()
+			getMax()
+			getMin()
+			getSum()
+				IntSummaryStatistics summary = IntStream.of(10, 18, 12, 70, 5).summaryStatistics();
+				int max = summary.getMax();
+		Using the boxed() method, we can convert a primitive stream to an object stream of the corresponding type.
+			Stream<Integer> boxedStream1 = IntStream.of(1, 2, 3, 4, 5).boxed();
+			Stream<Long> boxedStream = LongStream.of(1, 2, 3, 4, 5).boxed();
+			Stream<Double> boxedStream2 = DoubleStream.of(1.0, 2.0, 3.0, 4.0, 5.0).boxed();
+			
+------------- StreamSupport (https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/StreamSupport.html)
+	This class is mostly for library writers presenting stream views of data structures; most static stream methods intended for end users are in the various Stream classes.
+		static DoubleStream	doubleStream(Supplier<? extends Spliterator.OfDouble> supplier, int characteristics, boolean parallel)	- Creates a new sequential or parallel DoubleStream from a Supplier of Spliterator.OfDouble.
+		intStream, longStream, stream
 
-pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101/in-java-what-are-the-advantages-of-streams-over-loops)
+-- ------------------------------------------------ pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101/in-java-what-are-the-advantages-of-streams-over-loops)
 
 			Streams are a more declarative style.
 			Streams have a strong affinity with functions.
@@ -317,10 +365,7 @@ pros and cons of Java 8 Stream API (https://stackoverflow.com/questions/44180101
 			Debuggers are improving, but even now, when you're stepping through stream code in a debugger, it can be harder work than the equivalent loop, 
 				because a simple loop is very close to the variables and code locations that a traditional debugger works with.
 			
-			
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Checked Exceptions and Streams (https://benjiweber.co.uk/blog/2014/03/22/checked-exceptions-and-streams/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ------------------------------------------------ Checked Exceptions and Streams (https://benjiweber.co.uk/blog/2014/03/22/checked-exceptions-and-streams/)
 
 	Exception Handling Patterns
 		There are also a couple of very common exception handling patterns which we can make more concise.
@@ -334,6 +379,15 @@ Checked Exceptions and Streams (https://benjiweber.co.uk/blog/2014/03/22/checked
 			Another common pattern is catching all exceptions that may occur at a lower layer in the application and wrapping them in a more meaningful exception to consumers of your code.
 
 	SneakyThrow is a Java library to ignore checked exceptions.(https://github.com/rainerhahnekamp/sneakythrow) 
+
+-- ------------------------------------------------ Java 14 Record Keyword (https://www.baeldung.com/java-record-keyword)
+	In many cases, this data is immutable, since immutability ensures the validity of the data without synchronization.
+		private, final field for each piece of data
+		getter for each field
+		public constructor with a corresponding argument for each field
+		equals method that returns true for objects of the same class when all fields match
+		hashCode method that returns the same value when all fields match
+		toString method that includes the name of the class and the name of each field and its corresponding value
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/)

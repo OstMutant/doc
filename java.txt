@@ -198,6 +198,14 @@ Java: hashCode, equals (https://docs.oracle.com/javase/8/docs/api/java/lang/Obje
 		3. A sequence.
 		4. The memory address of the object, cast to int.
 		5. Thread state combined with xorshift (https://en.wikipedia.org/wiki/Xorshift)
+		
+	Dictionary
+		== is the equality operator. This returns true if both the operands are referring to the same object, otherwise false.
+		!= is for non-equality operator. It returns true if both the operands are referring to the different objects, otherwise false.
+		< is less than operator.
+		> is greater than operator.
+		<= is less than or equal to operator.
+		>= is greater than or equal to operator.
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 OOP 
@@ -283,6 +291,12 @@ What Are Interfaces in Java? (https://www.baeldung.com/java-interfaces)
 	In addition to declaring default methods in interfaces, Java 8 also allows us to define and implement static methods in interfaces.
 		Since static methods don’t belong to a particular object, they’re not part of the API of the classes implementing the interface; therefore, they have to be called by using the interface name preceding the method name.
 
+-- ------------------------------------------------ Differences Between Abstraction and Encapsulation (https://www.baeldung.com/cs/abstraction-vs-encapsulation)
+	An abstract class is a class we can’t instantiate. We use abstraction to provide a common interface for related classes. 
+		Abstract classes can have both abstract and non-abstract methods. Abstract methods are those without an implementation. We implement them in the classes inheriting the abstract base class.
+	An interface is a collection of abstract methods and constants. They define a set of functionalities that a class must implement. 
+		So, an interface is like a contract a class agrees to fulfill so that other classes know how to use it and communicate with it. A class that implements an interface must implement all its methods.
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Class and Operators(https://www.geeksforgeeks.org/java-ternary-operator-with-examples/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -353,6 +367,11 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 		https://www.interviewbit.com/java-collections-interview-questions/
 		
 -- ------------------------------------------------	Big-O (https://www.bigocheatsheet.com/, https://www.geeksforgeeks.org/big-o-notation-interview-questions-answers/)
+	complexity Big-O-Notation (https://stackoverflow.com/questions/31301471/big-o-complexity-of-java-util-stream-streamt-sorted, http://bigocheatsheet.com/)
+		the stream is not parallel, and it delegates to Arrays.sort() (O(n log n))
+		the stream is parallel, and it delegates to Arrays.parallelSort() (O(n log n))
+		Binary Search Algorithm in Java (https://www.baeldung.com/java-binary-search) O(log n)
+
 	https://stackoverflow.com/questions/559839/big-o-summary-for-java-collections-framework-implementations
 	List implementations:
 							  get  add  contains next remove(0) iterator.remove
@@ -420,7 +439,9 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 				Using Comparators allows us to avoid adding additional code to our domain classes
 				We can define multiple different comparison strategies which isn't possible when using Comparable	
 	
--- ------------------------------------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort, https://betterprogramming.pub/5-basic-sorting-algorithms-you-must-know-9ef5b1f3949c)
+-- ------------------------------------------------	Java 7 uses Dual-Pivot Quicksort for primitives and TimSort for objects.(https://www.baeldung.com/java-sorting, 
+													https://stackoverflow.com/questions/4018332/is-java-7-using-tim-sort-for-the-method-arrays-sort,
+													https://betterprogramming.pub/5-basic-sorting-algorithms-you-must-know-9ef5b1f3949c)
 	According to the Java 7 API doc for primitives:
 		Implementation note: The sorting algorithm is a Dual-Pivot Quicksort by Vladimir Yaroslavskiy, Jon Bentley, and Joshua Bloch. 
 		This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to quadratic performance, and is typically faster than traditional (one-pivot) Quicksort implementations.
@@ -446,6 +467,19 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 					
 		https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html - visualisation
 		
+	Differences between Arrays.sort() and Arrays.parallelSort() method(https://www.techiedelight.com/difference-between-sort-parallelsort-arrays-java/)
+		Arrays.sort() and Arrays.parallelSort() are both useful methods to sort an array of objects or primitives in ascending order, but they have some differences and trade-offs that we must understand:
+		The Arrays.sort() is a sequential sorting method that uses a single thread to sort an array, whereas Arrays.parallelSort() is a parallel sorting method that uses multiple threads to sort an array.
+		The Arrays.sort() uses the Dual-Pivot Quicksort algorithm to sort an array, whereas Arrays.parallelSort() uses a parallel sort-merge algorithm to sort an array.
+		The Arrays.sort() works fast on smaller data sets but its performance degrades for large data sets, whereas Arrays.parallelSort() works faster than Arrays.sort() for large data sets but it may be slower than Arrays.sort() for smaller data sets.
+		The Arrays.sort() uses only one core of the system and does not utilize the parallelism of the machine, whereas Arrays.parallelSort() uses multiple cores of the system and utilizes the parallelism of the machine.
+		
+		
+-- ------------------------------------------------ Binary Search: https://in.indeed.com/career-advice/interviewing/binary-search-interview-questions
+		Binary search is a popular search technique. Its algorithm efficiently finds an element or an item from a list of items. 
+			Its working principle is that it divides the data in half and runs this process until it detects the desired value. It is also known as a logarithmic search.
+
+	
 -- ------------------------------------------------	Understanding Natural Ordering(https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator)
 	Natural ordering is the default ordering of objects of a specific type when they are sorted in an array or a collection. 
 		- The natural ordering of String objects is alphabetic order.
@@ -466,10 +500,6 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
     Fail fast iterator while iterating through the collection , instantly throws ConcurrentModificationException if there is structural modification  of the collection.(java.util.HashMap)
         (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
     Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
-
--- ------------------------------------------------ Binary Search: https://in.indeed.com/career-advice/interviewing/binary-search-interview-questions
-		Binary search is a popular search technique. Its algorithm efficiently finds an element or an item from a list of items. 
-			Its working principle is that it divides the data in half and runs this process until it detects the desired value. It is also known as a logarithmic search.
 
 -- ------------------------------------------------ HashMap (https://dzone.com/articles/hashmap-internal)
 		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.

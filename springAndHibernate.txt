@@ -1,4 +1,23 @@
 ﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AOP (https://www.baeldung.com/spring-aop-annotation)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	AOP stands for aspect orientated programming. Essentially, it is a way for adding behavior to existing code without modifying that code.
+	What Is Aspect-Oriented Programming (AOP)?
+		Aspects enable the modularization of cross-cutting concerns such as transaction management that span multiple types and objects by adding extra behavior to already existing code without modifying affected classes.
+	What Are Aspect, Advice, Pointcut and JoinPoint in AOP?(https://www.baeldung.com/spring-interview-questions#spring-aspect-oriented-programming)
+		Aspect – a class that implements cross-cutting concerns, such as transaction management
+		Advice – the methods that get executed when a specific JoinPoint with matching Pointcut is reached in the application
+		Pointcut – a set of regular expressions that are matched with JoinPoint to determine whether Advice needs to be executed or not
+		JoinPoint – a point during the execution of a program, such as the execution of a method or the handling of an exception
+		
+	AspectJ 
+		https://www.baeldung.com/spring-aop-pointcut-tutorial
+		A join point is a step of the program execution, such as the execution of a method or the handling of an exception. In Spring AOP, a join point always represents a method execution. 
+		A pointcut is a predicate that matches the join points, and the pointcut expression language is a way of describing pointcuts programmatically.
+		https://www.baeldung.com/spring-aop-pointcut-tutorial
+	@Timed 
+		https://bootcamptoprod.com/measure-api-response-time-spring-boot/
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Spring Boot
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Spring Boot позволяет вам лекго создавать полноценные, производственного класса Spring-приложения, про которые можно сказать - "просто запусти". 
@@ -73,6 +92,11 @@ Spring Boot
 	https://coderlessons.com/tutorials/java-tekhnologii/learn-spring-boot/spring-boot-kratkoe-rukovodstvo - Spring Boot – Краткое руководство
 	https://spring.io/guides/gs/testing-web/ - Testing the Web Layer
 	https://dev-gang.ru/article/kak-sozdat-rest-api-s-pomosczu-spring-boot-ispolzuja-mysql-i-jpa-s0mrstf9hw/ - Как создать Rest API с помощью Spring Boot, используя MySQL и JPA
+	https://www.geeksforgeeks.org/spring-boot-interview-questions/ 
+	
+	Docs
+		https://www.baeldung.com/spring-interview-questions
+		
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Spring Framework
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -108,6 +132,18 @@ Spring Framework
 			request Создаётся один экземпляр бина на каждый HTTP запрос. Касается исключительно ApplicationContext.
 			session Создаётся один экземпляр бина на каждую HTTP сессию. Касается исключительно ApplicationContext.
 			global-session Создаётся один экземпляр бина на каждую глобальную HTTP сессию. Касается исключительно ApplicationContext.
+			Spring Bean
+			
+		Любой объект в фреймворке Spring, который инициализируется через Spring IoC контейнер называется Spring Bean. Любой Java POJO класс может быть Spring бином если его сконфигурировать.
+		Spring Bean Scopes
+		Определено пять ограничений(scopes) для бинов(Spring Beans).
+			singleton — только один экземпляр бина будет создан для каждого контейнера.   Это ограничение установлено по умолчанию для бинов спринга.
+			prototype — при каждом запросе на получение бина будет возвращен новый экземпляр бина.
+			request — тоже самое что и prototype только для Web приложений. Новый экземпляр бина будет создан при каждом HTTP запросе.
+			session — новый экземпляр бина будет создан для каждой HTTP сессий.
+			global-session — используется для создания бина в глобальной сессии для портлет(Portlet) приложений.
+		Фреймворк Spring является расширяемым и мы можем создать собственные ограничения(scopes) для бина, но в большинстве случаев достаточно использовать стандартные ограничения(scope).
+		
 		
 ---------------------------- Жизненный цикл бинов.(https://reflectoring.io/spring-bean-lifecycle/)
 		Bean Creation Phases
@@ -178,17 +214,6 @@ Spring Framework
 			1) Constructor-based dependency injection: It is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on other class.
 			2) Setter-based dependency injection: It is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
 			
-			
-	Spring Bean
-		Любой объект в фреймворке Spring, который инициализируется через Spring IoC контейнер называется Spring Bean. Любой Java POJO класс может быть Spring бином если его сконфигурировать.
-		Spring Bean Scopes
-		Определено пять ограничений(scopes) для бинов(Spring Beans).
-			singleton — только один экземпляр бина будет создан для каждого контейнера.   Это ограничение установлено по умолчанию для бинов спринга.
-			prototype — при каждом запросе на получение бина будет возвращен новый экземпляр бина.
-			request — тоже самое что и prototype только для Web приложений. Новый экземпляр бина будет создан при каждом HTTP запросе.
-			session — новый экземпляр бина будет создан для каждой HTTP сессий.
-			global-session — используется для создания бина в глобальной сессии для портлет(Portlet) приложений.
-		Фреймворк Spring является расширяемым и мы можем создать собственные ограничения(scopes) для бина, но в большинстве случаев достаточно использовать стандартные ограничения(scope).
 
 	
 	Каковы различные способы настроить класс как Spring Bean?(http://javastudy.ru/interview/jee-spring-questions-answers/)
@@ -283,6 +308,72 @@ Spring Framework
 		дает рекомендации о том, какими должны быть зависимости. Это как раз то, что вы процитировали:
 		Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций.
 		Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций.
+		
+	Spring Boot - Interceptor https://www.tutorialspoint.com/spring_boot/spring_boot_interceptor.htm
+		You can use the Interceptor in Spring Boot to perform operations under the following situations −
+			Before sending the request to the controller
+			Before sending the response to the client
+		The following are the three methods you should know about while working on Interceptors −
+			preHandle() method − This is used to perform operations before sending the request to the controller. This method should return true to return the response to the client.
+			postHandle() method − This is used to perform operations before sending the response to the client.
+			afterCompletion() method − This is used to perform operations after completing the request and response.
+			
+	-------------------- Spring Exception Handling(https://www.digitalocean.com/community/tutorials/spring-mvc-exception-handling-controlleradvice-exceptionhandler-handlerexceptionresolver, https://www.tutorialspoint.com/spring_boot/spring_boot_exception_handling.htm)
+		Having a well defined exception handling approach is a huge plus point for any web application framework, 
+			that being said Spring MVC framework delivers well when it comes to exception and error handling in our web applications. 
+			Spring MVC Framework provides following ways to help us achieving robust exception handling.
+
+		Controller Based - We can define exception handler methods in our controller classes. 
+			All we need is to annotate these methods with @ExceptionHandler annotation. This annotation takes Exception class as argument. 
+			So if we have defined one of these for Exception class, then all the exceptions thrown by our request handler method will have handled. 
+			These exception handler methods are just like other request handler methods and we can build error response and respond with different error page. 
+			We can also send JSON error response, that we will look later on in our example. If there are multiple exception handler methods defined, then handler method that is closest to the Exception class is used. 
+			For example, if we have two handler methods defined for IOException and Exception and our request handler method throws IOException, then handler method for IOException will get executed.
+		Global Exception Handler - Exception Handling is a cross-cutting concern, it should be done for all the pointcuts in our application. 
+			We have already looked into Spring AOP and that’s why Spring provides @ControllerAdvice annotation that we can use with any class to define our global exception handler. 
+			The handler methods in Global Controller Advice is same as Controller based exception handler methods and used when controller class is not able to handle the exception.
+		HandlerExceptionResolver - For generic exceptions, most of the times we serve static pages. Spring Framework provides HandlerExceptionResolver interface that we can implement to create global exception handler. 
+			The reason behind this additional way to define global exception handler is that Spring framework also provides default implementation classes that we can define in our spring bean configuration file to get spring framework exception handling benefits. 
+			SimpleMappingExceptionResolver is the default implementation class, it allows us to configure exceptionMappings where we can specify which resource to use for a particular exception.
+			We can also override it to create our own global handler with our application specific changes, such as logging of exception messages.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Spring Boot Batch
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Spring Batch Introduction(https://docs.spring.io/spring-batch/docs/current/reference/html/index-single.html#transactions)
+	Many applications within the enterprise domain require bulk processing to perform business operations in mission-critical environments. These business operations include:
+		Automated, complex processing of large volumes of information that is most efficiently processed without user interaction. 
+			These operations typically include time-based events (such as month-end calculations, notices, or correspondence).
+		Periodic application of complex business rules processed repetitively across very large data sets (for example, insurance benefit determination or rate adjustments).
+		Integration of information that is received from internal and external systems that typically requires formatting, validation, and processing in a transactional manner into the system of record. 
+			Batch processing is used to process billions of transactions every day for enterprises.
+	Spring Batch is a lightweight, comprehensive batch framework designed to enable the development of robust batch applications that are vital for the daily operations of enterprise systems. 
+		Spring Batch builds upon the characteristics of the Spring Framework that people have come to expect (productivity, POJO-based development approach, and general ease of use), 
+		while making it easy for developers to access and use more advanced enterprise services when necessary. Spring Batch is not a scheduling framework. 
+		There are many good enterprise schedulers (such as Quartz, Tivoli, Control-M, and others) available in both the commercial and open source spaces. 
+		Spring Batch is intended to work in conjunction with a scheduler rather than replace a scheduler.
+	Spring Batch provides reusable functions that are essential in processing large volumes of records, including logging and tracing, transaction management, 
+		job processing statistics, job restart, skip, and resource management. It also provides more advanced technical services and features that enable extremely high-volume and high performance batch jobs through optimization and partitioning techniques. 
+		You can use Spring Batch in both simple use cases (such as reading a file into a database or running a stored procedure) and complex, 
+		high volume use cases (such as moving high volumes of data between databases, transforming it, and so on). 
+		High-volume batch jobs can use the framework in a highly scalable manner to process significant volumes of information.
+	
+	Functions to standardize process flow(https://terasoluna-batch.github.io/guideline/5.0.0.RELEASE/en/Ch02_SpringBatchArchitecture.html)
+		Tasket model
+			Simple process
+				It is a method to freely describe a process. It is used in a simple cases like issuing SQL once, issuing a command etc and the complex cases like performing processing while accessing multiple database or files,
+				which are difficult to standardize.
+
+	Chunk model
+		Efficient processing of large amount of data
+			A method to collectively input / process / output a fixed amount of data. Process flow of data input / processing and output is standardized and job can be implemented by implementing only a part of it.
+			
+	Docs: 
+		https://www.javainuse.com/spring/bootbatch
+		https://habr.com/ru/companies/usetech/articles/671196/
+		https://coderlessons.com/tutorials/java-tekhnologii/learn-spring-batch/spring-batch-kratkoe-rukovodstvo
+		https://www.baeldung.com/introduction-to-spring-batch
+		https://www.baeldung.com/spring-batch-tasklet-chunk
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Spring MVC Tiles

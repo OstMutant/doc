@@ -128,7 +128,12 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 				Microservices, on the other hand, are better suited for smaller and well-partitioned, web-based systems. 
 				Also, if you are developing a mobile or web application, then microservices give you much greater control as a developer. 
 				Finally, we can conclude that since they serve different purposes – microservices and SOA are indeed distinct types of architectures.
-				
+		Docs:
+			https://ua.talend.com/resources/microservices-vs-soa/
+			https://www.baeldung.com/cs/microservices-soa-differences
+			https://scoutapm.com/blog/soa-vs-microservices
+			https://www.outsystems.com/glossary/soa-vs-microservices/
+			https://dev.pro/insights/service-oriented-architecture-vs-microservices-what-is-the-best-systems-integration-approach/
 -- ------------------------------------------------  Patterns for distributed transactions within a microservices architecture (https://developers.redhat.com/blog/2018/10/01/patterns-for-distributed-transactions-within-a-microservices-architecture/)			
 		The problems above are important for microservice-based systems. Otherwise, there is no way to tell if a transaction has completed successfully.
 			The following two patterns can resolve the problem:
