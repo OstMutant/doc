@@ -70,6 +70,7 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 			through a communication protocol over a network.
 			The basic principles of service-oriented architecture are independent of vendors, products and technologies. 
 			A service is a discrete unit of functionality that can be accessed remotely and acted upon and updated independently, such as retrieving a credit card statement online.
+			Enterprise Service Bus (ESB) - сервісна шина підприємства.(https://stud.com.ua/138846/ekonomika/servis_oriyentovana_arhitektura_service_oriented_architecture)
 			
 		A microservice is a software development technique—a variant of the service-oriented architecture (SOA) architectural style that structures 
 			an application as a collection of loosely coupled services. 
@@ -134,7 +135,43 @@ Microservices (https://en.wikipedia.org/wiki/Microservices)
 			https://scoutapm.com/blog/soa-vs-microservices
 			https://www.outsystems.com/glossary/soa-vs-microservices/
 			https://dev.pro/insights/service-oriented-architecture-vs-microservices-what-is-the-best-systems-integration-approach/
--- ------------------------------------------------  Patterns for distributed transactions within a microservices architecture (https://developers.redhat.com/blog/2018/10/01/patterns-for-distributed-transactions-within-a-microservices-architecture/)			
+			
+-- ------------------------------------------------ Building Microservices with Event-Driven Architecture(https://betterjavacode.com/programming/microservices-event-driven-architecture,
+		https://www.javaguides.net/2022/07/what-is-event-driven-architecture.html, https://www.linkedin.com/pulse/building-microservices-using-event-driven-abhay-kumar/)
+		Event-Driven architecture is either through queues or the pub-sub model. 
+			In Pub/Sub model, a service publishes the event, and subscribed services consume that event. It is not much different from what queues and topics do.
+		Benefits of Event-Driven Architecture
+			Loose Coupling – Services don’t need to depend on other services. Considering the architecture is reactive, services can be independent of each other.
+			Asynchronous – A publishing service will publish the event. A subscribing service can consume the event whenever it is ready to consume. 
+				The major advantage of asynchronous architecture is that services don’t block resources.
+			Scaling – Since the services are independent, most services perform a single task. It becomes easier to scale as well to find out bottle-neck.
+		Drawbacks of Event-Driven Architecture
+			Every design is a trade-off. We do not have a perfect design in distributed systems. With event-driven architecture, one can easily over-engineer the solution by separating concerns.
+			Event-Driven architecture needs upfront investment. Since the data is not necessarily available immediately, it can cause some concerns with transactions. 
+				Eventual consistency can be hard to investigate if there are issues with data. There can be possibilities of duplicate events, resulting in duplicate data. Event-driven models do not support ACID transactions.
+				
+-- ------------------------------------------------ Архитектурный паттерн CQRS (https://www.linkedin.com/pulse/cqrs-%D0%BF%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%BD-oleksandr-lopatnov/?originalSubdomain=ru)
+		Архитектурный паттерн Command and Query Responsibility Segregation (CQRS) делит действия системы на команды и запросы. 
+		Command Query Separation (CQS) - разделение команд и запросов — это основная концепция, определяющая два типа операций, 
+			обрабатываемых в системе: команда, выполняющая задачу и запрос возвращающий информацию. Никогда не должно быть одной функции, выполняющей обе эти задачи. 
+			
+-- ------------------------------------------------ Circuit Breaker(https://www.baeldung.com/spring-cloud-circuit-breaker, https://dzone.com/articles/circuit-breaker-pattern, https://reflectoring.io/circuitbreaker-with-resilience4j/)
+		The basic idea behind the circuit breaker is very simple. You wrap a protected function call in a circuit breaker object, which monitors for failures. 
+			Once the failures reach a certain threshold, the circuit breaker trips, and all further calls to the circuit breaker return with an error or with some alternative service or default message, 
+			without the protected call being made at all. This will make sure system is responsive and threads are not waiting for an unresponsive call.
+		Different States of the Circuit Breaker
+			The circuit breaker has three distinct states: Closed, Open, and Half-Open:
+			Closed – When everything is normal, the circuit breaker remains in the closed state and all calls pass through to the services. 
+				When the number of failures exceeds a predetermined threshold the breaker trips, and it goes into the Open state.
+			Open – The circuit breaker returns an error for calls without executing the function.
+			Half-Open – After a timeout period, the circuit switches to a half-open state to test if the underlying problem still exists. 
+				If a single call fails in this half-open state, the breaker is once again tripped. If it succeeds, the circuit breaker resets back to the normal, closed state. 
+
+
+-- ------------------------------------------------  Patterns for distributed transactions within a microservices architecture (https://developers.redhat.com/blog/2018/10/01/patterns-for-distributed-transactions-within-a-microservices-architecture/, https://www.baeldung.com/cs/saga-pattern-microservices)			
+		What is a distributed transaction?
+			When a microservice architecture decomposes a monolithic system into self-encapsulated services, it can break transactions. 
+			This means a local transaction in the monolithic system is now distributed into multiple services that will be called in a sequence.
 		The problems above are important for microservice-based systems. Otherwise, there is no way to tell if a transaction has completed successfully.
 			The following two patterns can resolve the problem:
 				2pc (two-phase commit)
@@ -330,7 +367,7 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 		Retention Settings
 			Retention settings can be used to specify how long log events are kept in CloudWatch Logs. Expired log events get deleted automatically. 
 			Just like metric filters, retention settings are also assigned to log groups, and the retention assigned to a log group is applied to their log streams.
--- ------------------------------------------------ Amazon EC2
+-- ------------------------------------------------ Amazon EC2(https://www.techgeeknext.com/aws/amazon-ec2-interview-questions)
 		Amazon Elastic Compute Cloud (Amazon EC2)(https://aws.amazon.com/ru/ec2/?p=tile) – это веб-сервис, предоставляющий безопасные масштабируемые вычислительные ресурсы в облаке. 
 			Он помогает разработчикам, облегчая проведение крупномасштабных вычислений в облаке.
 		Amazon Elastic Compute Cloud (Amazon EC2)(https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) provides scalable computing capacity in the Amazon Web Services (AWS) cloud.
@@ -398,7 +435,7 @@ Cloud (https://en.wikipedia.org/wiki/Cloud_computing)
 			Memcached – широко распространенная система кэширования объектов в памяти. 
 				Используемые в ElastiCache протоколы полностью совместимы с Memcached, поэтому все популярные инструменты, 
 				уже используемые в существующих средах Memcached, будут эффективно работать с этим сервисом.
--- ------------------------------------------------Amazon S3
+-- ------------------------------------------------Amazon S3(https://www.techgeeknext.com/aws/aws-s3-interview-questions)
 		Amazon S3(https://aws.amazon.com/ru/s3/?p=tile) – это объектное хранилище, предназначенное для хранения и извлечения любых объемов данных из любых источников: 
 			веб-сайтов и мобильных приложений, корпоративных приложений, а также данных с датчиков или устройств IoT. 
 

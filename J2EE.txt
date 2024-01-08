@@ -1,4 +1,12 @@
-﻿
+﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Apache Tomcat Versions (https://tomcat.apache.org/whichversion.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Jakarta Servlet (https://en.wikipedia.org/wiki/Jakarta_Servlet)
+		Java Servlet 3.0 (Pluggability, Ease of development, Async Servlet, Security, File Uploading) Tomcat 7.0.x
+		Java Servlet 3.1 (Non-blocking I/O, HTTP protocol upgrade mechanism) Tomcat 8.0.x
+	Spring Boot Versions https://endoflife.date/spring-boot
+
+
 -- ------------------------------------------------ Java EE включає в себе стандарти наступних технологій:
 Актуальна версія Java EE має номер 8.0
 ++ Веб-сервіс

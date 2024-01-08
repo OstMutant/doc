@@ -21,6 +21,7 @@ JSON (https://tproger.ru/translations/java-json-library-comparison/)
 		It provides a way to standardize and define expectations for your JSON data.
 	https://json-schema.org/implementations#validators-java - може використовуватись разом з Jackson parser
 	https://github.com/erosb/everit-json-schema - lib for validate 
+	https://stackoverflow.com/questions/49999492/immutable-lombok-annotated-class-with-jackson - Immutable Lombok annotated class with Jackson
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 XML(https://jsehelper.blogspot.com/2016/01/xml.html, https://aws.amazon.com/ru/what-is/xml/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -366,6 +367,18 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 		https://www.javatpoint.com/java-collections-interview-questions
 		https://www.interviewbit.com/java-collections-interview-questions/
 		
+-- ------------------------------------------------	 Iterators In Java (https://www.tutorialspoint.com/iterators-in-java, https://coderlessons.com/articles/java/ispolzovanie-spliterator-v-java)
+	Enumeration − Enumeration is initial iterators introduced in jdk 1.0 and is only for older collections like vector or hashTables. Enumeration can be used for forward navigation only. 
+		Element can not be removed using Enumeration.
+	Iterator − Iterator is a universal iterator introduced in Jdk 1.2 and can be used for any collections. Iterator can b e used for forward navigation only. 
+		Element can be removed using iterator if remove method is supported.
+	ListIterator − ListIterator is a iterator for List type collections and supports bidirectional navigation.
+	
+	Spliterator (https://www.dariawan.com/tutorials/java/java-iterator-listiterator-and-spliterator/) -
+		A number of new language features were introduced during the release of Java 8, included lambda functions, streams and completable futures. Inline with these new features, 
+			the Spliterator interface added to package java.util, and the Collection interface also updated with a new spliterator() method which will return a Spliterator. 
+		Spliterator is an internal iterator that can work with both Collection and Stream API. It breaks the collection or stream into smaller parts which can be processed in parallel.
+		
 -- ------------------------------------------------	Big-O (https://www.bigocheatsheet.com/, https://www.geeksforgeeks.org/big-o-notation-interview-questions-answers/)
 	complexity Big-O-Notation (https://stackoverflow.com/questions/31301471/big-o-complexity-of-java-util-stream-streamt-sorted, http://bigocheatsheet.com/)
 		the stream is not parallel, and it delegates to Arrays.sort() (O(n log n))
@@ -411,6 +424,12 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 		LinkedBlockingDeque   O(1)     O(1) O(1)     O(1)
 	
 -- ------------------------------------------------  When to use LinkedList and when to use ArrayList?
+	ArrayList In Java (https://coderolls.com/arraylist-in-java/)
+		Unlike Array, we need not fix the length of ArrayList at the time of initialization. As we add or remove elements from the ArrayList, it can grow and shrink dynamically.
+			The load factor for the ArrayList is 0.75F.
+			The default initial capacity is 10.
+			Load factor = 0.75 * 10 = 7
+		So when we try to add the 7th element to the ArrayList, it will create a new array double the size of the old array i.e. 20. Also, it will copy the old array in the new array and then add the element in a new array.
 
 	1) As explained above the insert and remove operations give good performance (O(1)) in LinkedList compared to ArrayList(O(n)). 
 		Hence if there is a requirement of frequent addition and deletion in application then LinkedList is a best choice.
@@ -501,10 +520,14 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
         (Поведение означает, что при возникновении ошибки или состояния, которое может привести к ошибке, система немедленно прекращает дальнейшую работу и уведомляет об этом.)
     Fail Safe Iterator makes copy of the internal data structure (object array) and iterates over the copied data structure.(java.util.concurrent.ConcurrentHashMap)
 
--- ------------------------------------------------ HashMap (https://dzone.com/articles/hashmap-internal)
-		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
-		default size of an hashmap as 16 (always a power of 2) and the load factor as 0.75,	
+-- ------------------------------------------------ HashMap (https://dzone.com/articles/hashmap-internal, https://www.baeldung.com/java-hashmap-load-factor)
 
+		Java HashMap Terminologies (https://wilt.hashnode.dev/wilt-day-1-java-hashmap-ultra-deep-dive)
+			Default Capacity - The default size of the Java HashMap is initialized to 16 and is always defined as a power of 2 upto 2³⁰. This can be explicitly specified while creating the HashMap using the parameterized constructor.
+			Load Factor - Now this is basically used to control at what point exactly should the HashMap be resized. The threshold is determined by (Default Capacity * Load Factor).
+			The default value for the load factor is 0.75 so for the default scenario, the HashMap would be resized when there are (16*0.75 = 12) entries.
+
+		collision - when there are different keys with the same same hashcode, internally, we use a single linked list to store elements.
 		But Java 8 has come with the following new strategy for HashMap objects in case of high collisions.(https://www.dineshonjava.com/hashmap-performance-improvement-changes-in-java-8/)
 			To address this issue, Java 8 hash elements use balanced trees instead of linked lists after a certain threshold is reached. 
 				Which means HashMap starts with storing Entry objects in a linked list but after the number of items in a hash becomes larger than a certain threshold. 
@@ -759,7 +782,8 @@ JNDI(https://docs.oracle.com/javase/tutorial/jndi/overview/index.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JMX (Java Management Extensions) (https://www.codeflow.site/ru/article/java-management-extensions, https://levelup.gitconnected.com/jmx-beans-mbeans-74db32d120af)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Java Management Extensions (JMX) — это технология, входящая в J2SE начиная с J2SE 5.0. JMX предназначен для контроля и управления приложениями, системными объектами, устройствами (например, принтерами) и компьютерными сетями.
+	Java Management Extensions (JMX) — это технология, входящая в J2SE начиная с J2SE 5.0. 
+		JMX предназначен для контроля и управления приложениями, системными объектами, устройствами (например, принтерами) и компьютерными сетями.
 	
 	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -389,56 +389,7 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 		hashCode method that returns the same value when all fields match
 		toString method that includes the name of the class and the name of each field and its corresponding value
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
-		CompletableFuture is an extension to Java’s Future API which was introduced in Java 5.
-------------- Limitations of Future
-		1. It cannot be manually completed
-		2. You cannot perform further action on a Future’s result without blocking
-		3. Multiple Futures cannot be chained together
-		4. You can not combine multiple Futures together
-		5. No Exception Handling
-
-------------- Creating a CompletableFuture
-		You can create a CompletableFuture simply by using the following no-arg constructor CompletableFuture<String> completableFuture = new CompletableFuture<String>();
-		The get() method blocks until the Future is complete. So, the above call will block forever because the Future is never completed. String result = completableFuture.get()
-		You can use CompletableFuture.complete() method to manually complete a Future completableFuture.complete("Future's Result")
-		If you want to run some background task asynchronously and don’t want to return anything from the task, then you can use CompletableFuture.runAsync() method.
-		CompletableFuture.supplyAsync()  takes a Supplier<T> and returns CompletableFuture<T> where T is the type of the value obtained by calling the given supplier
-		// Variations of runAsync() and supplyAsync() methods
-			static CompletableFuture<Void>  runAsync(Runnable runnable)
-			static CompletableFuture<Void>  runAsync(Runnable runnable, Executor executor)
-			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
-			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
-------------- Transforming and acting on a CompletableFuture
-		You can use thenApply() method to process and transform the result of a CompletableFuture when it arrives.
-		You can also write a sequence of transformations on the CompletableFuture by attaching a series of thenApply() callback methods.
-		If you don’t want to return anything from your callback function and just want to run some piece of code after the completion of the Future, then you can use thenAccept() and thenRun() methods. 
-			These methods are consumers and are often used as the last callback in the callback chain.
-		// thenApply() variants
-			<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)
-			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn)
-			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
-		// thenRun() example
-			CompletableFuture.supplyAsync(() -> {
-				// Run some computation  
-			}).thenRun(() -> {
-				// Computation Finished.
-			});
-------------- Combining two CompletableFutures together
-		Combine two dependent futures using thenCompose() 
-			So, Rule of thumb here - If your callback function returns a CompletableFuture, and you want a flattened result from the CompletableFuture chain (which in most cases you would), then use thenCompose().
-		Combine two independent futures using thenCombine() 
-			While thenCompose() is used to combine two Futures where one future is dependent on the other, thenCombine() is used when you want two Futures to run independently and do something after both are complete.
-			
-		CompletableFuture.allOf is used in scenarios when you have a List of independent futures that you want to run in parallel and do something after all of them are complete.
-		CompletableFuture.anyOf() as the name suggests, returns a new CompletableFuture which is completed when any of the given CompletableFutures complete, with the same result.
-		
-		The exceptionally() callback gives you a chance to recover from errors generated from the original Future. You can log the exception here and return a default value.
-		The API also provides a more generic method - handle() to recover from exceptions. It is called whether or not an exception occurs. 
-			If an exception occurs, then the res argument will be null, otherwise, the ex argument will be null.
-			
+	
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 API для работы с датами (https://www.baeldung.com/java-8-date-time-intro)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			

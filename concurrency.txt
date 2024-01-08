@@ -16,6 +16,9 @@ Threads
 
 		join() method allows one thread to wait for the completion of the other. (https://www.callicoder.com/java-multithreading-thread-and-runnable-tutorial/)
 		
+		Задача мьютекса — обеспечить такой механизм, чтобы доступ к объекту в определенное время был только у одного потока. (https://javarush.com/groups/posts/1994-sinkhronizacija-potokov-operator-synchronized)
+		В чем разница между мьютексом, монитором и семафором (https://javarush.com/groups/posts/2174-v-chem-raznica-mezhdu-mjhjuteksom-monitorom-i-semaforom)
+		Difference Between Mutex and Semaphore (https://ssiddique.info/difference-between-mutex-and-semaphore)
 ------------------- Java provides three ways to create a thread programmatically.
         Implementing the java.lang.Runnable interface.
         Extending the java.lang.Thread class.
@@ -53,6 +56,88 @@ Threads
 		Concurrency vs. Parallelism (http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html)
 			Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.
 			Concurrency means that an application is making progress on more than one task at the same time (concurrently).
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	StampedLock vs ReentrantLock vs ReadWriteLock (https://javagyansite.com/2023/06/26/stampedlock-vs-reentrantlock-vs-readwritelock/, https://flex4java.blogspot.com/2015/02/lock-reentrantlock-reentrantreadwritelo.html)
+		Writing. Method writeLock() possibly blocks waiting for exclusive access, returning a stamp that can be used in method unlockWrite(long) to release the lock. Untimed and timed versions of tryWriteLock are also provided.
+		When the lock is held in write mode, no read locks may be obtained, and all optimistic read validations will fail.
+		Reading. Method readLock() possibly blocks waiting for non-exclusive access, returning a stamp that can be used in method unlockRead(long) to release the lock. Untimed and timed versions of tryReadLock are also provided.
+		Optimistic Reading. Method tryOptimisticRead() returns a non-zero stamp only if the lock is not currently held in write mode. 
+			Method validate(long) returns true if the lock has not been acquired in write mode since obtaining a given stamp. 
+			This mode can be thought of as an extremely weak version of a read-lock, that can be broken by a writer at any time. 
+			The use of optimistic mode for short read-only code segments often reduces contention and improves throughput. 
+			However, its use is inherently fragile. Optimistic read sections should only read fields and hold them in local variables for later use after validation. 
+			
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Atomic variables come with several benefits(https://andreibaptista.medium.com/taming-concurrency-understanding-atomic-variables-in-java-dc296424dd5d,
+	 https://ioflood.com/blog/java-volatile/, https://javarush.com/groups/posts/4151-kofe-breyk-240-chto-takoe-atomarnihe-peremennihe-v-java-intellij-idea-poleznihe-priemih-i-plagi, 
+	 https://itsobes.ru/JavaSobes/kak-ustroeny-atomiki/)
+		1. Performance: Atomic variables are more efficient than synchronized blocks or methods. 
+			This is because they rely on hardware-level support for atomicity (e.g., compare-and-swap (CAS) instructions) rather than expensive lock-based techniques.
+		2. Deadlock Safety: Since atomic variables don’t use locks, they are immune to deadlocks — a significant problem in multi-threaded programming.
+		3. Visibility: Atomic variables have built-in visibility features. When a variable is shared between multiple threads, changes made by one thread are immediately visible to other threads.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/, https://www.baeldung.com/java-completablefuture-threadpool)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+		CompletableFuture is an extension to Java’s Future API which was introduced in Java 5.
+------------- Limitations of Future
+		1. It cannot be manually completed
+		2. You cannot perform further action on a Future’s result without blocking
+		3. Multiple Futures cannot be chained together
+		4. You can not combine multiple Futures together
+		5. No Exception Handling
+
+------------- Creating a CompletableFuture
+		You can create a CompletableFuture simply by using the following no-arg constructor CompletableFuture<String> completableFuture = new CompletableFuture<String>();
+		The get() method blocks until the Future is complete. So, the above call will block forever because the Future is never completed. String result = completableFuture.get()
+		You can use CompletableFuture.complete() method to manually complete a Future completableFuture.complete("Future's Result")
+		If you want to run some background task asynchronously and don’t want to return anything from the task, then you can use CompletableFuture.runAsync() method.
+		CompletableFuture.supplyAsync()  takes a Supplier<T> and returns CompletableFuture<T> where T is the type of the value obtained by calling the given supplier
+		// Variations of runAsync() and supplyAsync() methods
+			static CompletableFuture<Void>  runAsync(Runnable runnable)
+			static CompletableFuture<Void>  runAsync(Runnable runnable, Executor executor)
+			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
+			static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
+------------- Transforming and acting on a CompletableFuture
+		You can use thenApply() method to process and transform the result of a CompletableFuture when it arrives.
+		You can also write a sequence of transformations on the CompletableFuture by attaching a series of thenApply() callback methods.
+		If you don’t want to return anything from your callback function and just want to run some piece of code after the completion of the Future, then you can use thenAccept() and thenRun() methods. 
+			These methods are consumers and are often used as the last callback in the callback chain.
+		// thenApply() variants
+			<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)
+			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn)
+			<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
+		// thenRun() example
+			CompletableFuture.supplyAsync(() -> {
+				// Run some computation  
+			}).thenRun(() -> {
+				// Computation Finished.
+			});
+------------- Combining two CompletableFutures together
+		Combine two dependent futures using thenCompose() 
+			So, Rule of thumb here - If your callback function returns a CompletableFuture, and you want a flattened result from the CompletableFuture chain (which in most cases you would), then use thenCompose().
+		Combine two independent futures using thenCombine() 
+			While thenCompose() is used to combine two Futures where one future is dependent on the other, thenCombine() is used when you want two Futures to run independently and do something after both are complete.
+			
+		CompletableFuture.allOf is used in scenarios when you have a List of independent futures that you want to run in parallel and do something after all of them are complete.
+		CompletableFuture.anyOf() as the name suggests, returns a new CompletableFuture which is completed when any of the given CompletableFutures complete, with the same result.
+		
+		The exceptionally() callback gives you a chance to recover from errors generated from the original Future. You can log the exception here and return a default value.
+		The API also provides a more generic method - handle() to recover from exceptions. It is called whether or not an exception occurs. 
+			If an exception occurs, then the res argument will be null, otherwise, the ex argument will be null.
+------------- ForkJoinPool.commonPool(https://stackoverflow.com/questions/45460577/default-forkjoinpool-executor-taking-long-time) 
+		Runtime.getRuntime().availableProcessors() - 1
+------------- Stream Processing with CompletableFuture and Flow in Java 9 (https://speakerdeck.com/trayan/stream-processing-with-completablefuture-and-flow-in-java-9,
+			https://www.linkedin.com/pulse/asynchronous-programming-java-completablefuture-aliaksandr-liakh/,
+			https://habr.com/ru/articles/327460/)
+------------- Push\Pull (https://softwareengineering.stackexchange.com/questions/253398/the-observer-pattern-using-the-pulling-mechanism)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	completablefuture vs reactive(https://itsobes.ru/JavaSobes/chem-completablefuture-otlichaetsia-ot-future/)
+	How Java Is Used for Asynchronous Non-blocking Programming (https://www.alibabacloud.com/blog/how-java-is-used-for-asynchronous-non-blocking-programming_597808)
+	Java – the difference between thread per connection vs thread per request (https://itecnote.com/tecnote/java-the-difference-between-thread-per-connection-vs-thread-per-request/#google_vignette)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java Concurrency: Understanding Thread Pool and Executors (http://www.codejava.net/java-core/concurrency/java-concurrency-understanding-thread-pool-and-executors)
@@ -213,6 +298,7 @@ Collections.synchronizedList
 		2.6.2 LongAdder - This class is usually preferable over atomic numbers when updates from multiple threads are more common than reads.
 		2.6.3 LongAccumulator - more generalized version of LongAdder. Instead of performing simple add operations it builds around a lambda expression of type LongBinaryOperator
 			  
+		
 3. Arrays.sort vs Arrays.parallelSort
 		Arrays.parallelSort - uses Fork/Join framework. Sorts primites faster then Arrays.sort
 		

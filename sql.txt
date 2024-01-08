@@ -151,6 +151,8 @@ CAP theorem(https://en.wikipedia.org/wiki/CAP_theorem)
 			A foreign key is one table which can be related to the primary key of another table. 
 			Relationship needs to be created between two tables by referencing foreign key with the primary key of another table.
 			
+-- ------------------------------------------------ The difference between the mysql index, primary key, specific index, and standard index (https://pankajconnect.medium.com/the-difference-between-the-mysql-index-primary-key-specific-index-and-standard-index-cce640d9d73)
+-- ------------------------------------------------ Транзакции (https://javarush.com/quests/lectures/questhibernate.level16.lecture03, https://www.javaguides.net/2018/12/hibernate-transaction-management-tutorial.html)
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 What is a join?. (https://career.guru99.com/top-50-sql-question-answers/, http://stevestedman.com/2015/05/tsql-join-types-poster-version-4-1/) 

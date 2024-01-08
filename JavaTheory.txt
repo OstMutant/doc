@@ -6,7 +6,16 @@
 		Устойчивыми (Resilient) — система остается отзывчивой в условиях сбоя
 		Эластичными (Elastic) — система остается отзывчивой при различной рабочей нагрузке
 		Ориентированными на обмен сообщениями (Message Driven)
-
+		
+		------------ (https://www.linkedin.com/pulse/reactive-services-manifesto-microservices-rick-hightower/)
+		The Reactive Manifesto outlines qualities of Reactive Systems based on four principles: Responsive, Resilient, Elastic and Message Driven.
+			Responsiveness means the service should respond in a timely manner, and never let clients or upstream services hang.
+			Resilience goes in line with responsiveness, the system should respond even in the face of failure and errors in a timely fashion.
+			Elasticity works with resilience. The ability to spin up new services and for downstream and upstream services and clients 
+				to find the new instances is vital to both the resilience of the system as well as the elasticity of the system.
+			Message Driven: Reactive Systems rely on asynchronous message passing. 
+				This established boundaries between services (in-proc and out of proc) which allows for loose coupling (publish/subscribe or async streams or async calls), 
+				isolation (one failure does not ripple through to upstream services and clients), and improved responsive error handling
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Programming paradigms (https://en.wikipedia.org/wiki/Programming_paradigm)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -134,7 +143,7 @@ https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cp1v/index.html)
                 Well, this constraint is optional. Most of the time you will be sending the static representations of resources in form of XML or JSON. 
                 But when you need to, you are free to return executable code to support a part of your application e.g. clients may call your API to get a UI widget rendering code.
 
--- Uniform interface (https://en.wikipedia.org/wiki/Representational_state_transfer, https://habrahabr.ru/post/319984/)
+-- Uniform interface (https://en.wikipedia.org/wiki/Representational_state_transfer, https://habrahabr.ru/post/319984/, https://medium.com/@andr.ivas12/rest-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC-%D1%8F%D0%B7%D1%8B%D0%BA%D0%BE%D0%BC-90a0bca0bc78)
 		The uniform interface constraint is fundamental to the design of any REST service. It simplifies and decouples the architecture, which enables each part to evolve independently.
 			The four constraints for this uniform interface are:
 

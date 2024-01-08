@@ -1,4 +1,5 @@
-﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+﻿
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AOP (https://www.baeldung.com/spring-aop-annotation)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	AOP stands for aspect orientated programming. Essentially, it is a way for adding behavior to existing code without modifying that code.
@@ -337,6 +338,15 @@ Spring Framework
 			SimpleMappingExceptionResolver is the default implementation class, it allows us to configure exceptionMappings where we can specify which resource to use for a particular exception.
 			We can also override it to create our own global handler with our application specific changes, such as logging of exception messages.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Flux (https://medium.com/sysco-labs/reactive-programming-in-java-8d1f5c648012, https://www.tatvasoft.com/blog/java-reactive-programming/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Reactive Transactions with Spring(https://spring.io/blog/2019/05/16/reactive-transactions-with-spring/)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Основные отличия Java IO и Java NIO (https://habr.com/ru/articles/235585/, https://www.baeldung.com/java-nio-vs-nio-2)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Spring Boot Batch
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Spring Batch Introduction(https://docs.spring.io/spring-batch/docs/current/reference/html/index-single.html#transactions)
@@ -507,7 +517,7 @@ Hibernate
 		3. ManyToOne (связь многие к одному, обратная связь для OneToMany),
 		4. ManyToMany (связь многие ко многим)Каждую из которых можно разделить ещё на два вида:
 
-	Какие три типа стратегии наследования мапинга (Inheritance Mapping Strategies) описаны в JPA?
+	Какие три типа стратегии наследования мапинга (Inheritance Mapping Strategies) описаны в JPA? (https://www.baeldung.com/hibernate-inheritance)
 		1) одна таблица на всю иерархию наследования (a single table per class hierarchy) 
 		2) объединяющая стратегия (joined subclass strategy) 
 		3) одна таблица для каждого класса (table per concrete class strategy)
@@ -528,7 +538,14 @@ Hibernate
 		4) removed — объект создан, управляется JPA, но будет удален после commit’a транзакции.
 	https://howtodoinjava.com/hibernate/hibernate-entity-persistence-lifecycle-states/
 
-
+-------------------- DTO, DAO and Repository Patterns https://www.baeldung.com/java-dao-vs-repository
+-------------------- The Java™ Transaction API (JTA) 
+	The Java™ Transaction API (JTA) allows applications to perform distributed transactions, that is, 
+		transactions that access and update data on two or more networked computer resources.(https://www.progress.com/tutorials/jdbc/understanding-jta)
+	Spring Data JPA vs Hibernate(Repository Patterns) https://medium.com/@burakkocakeu/spring-data-jpa-vs-hibernate-1dde8f2a1113
+	Transaction Propagation and Isolation in Spring @Transactional (https://www.baeldung.com/spring-transactional-propagation-isolation)
+		Propagation defines our business logic’s transaction boundary. Spring manages to start and pause a transaction according to our propagation setting.
+		Isolation is one of the common ACID properties: Atomicity, Consistency, Isolation, and Durability. Isolation describes how changes applied by concurrent transactions are visible to each other.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
