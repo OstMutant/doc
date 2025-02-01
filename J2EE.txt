@@ -1,4 +1,73 @@
 ﻿-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Oracle (https://www.convert-in.com/oracle-vs-mysql.htm, https://www.educba.com/what-is-oracle/, https://www.linkedin.com/pulse/difference-between-mysql-oracle-ipspecialistofficial/, )
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Oracle is a product from Oracle Corporation that provides a relational database management system. RDBMS supports any kind of data model. 
+		It has different product editions, including Standard Edition, Enterprise Edition, Express Edition, and Personal Edition. The products are scalable and secure, with high-performance ability.
+	
+	PL/SQL (Procedural Language for SQL) is Oracle Corporation's procedural extension for SQL and the Oracle relational database.(https://en.wikipedia.org/wiki/PL/SQL, https://www.tutorialspoint.com/plsql/plsql_overview.htm)
+	Following are certain notable facts about PL/SQL −
+		PL/SQL is a completely portable, high-performance transaction-processing language.
+		PL/SQL provides a built-in, interpreted and OS independent programming environment.
+		PL/SQL can also directly be called from the command-line SQL*Plus interface.
+		Direct call can also be made from external programming language calls to database.
+		PL/SQL's general syntax is based on that of ADA and Pascal programming language.
+		Apart from Oracle, PL/SQL is available in TimesTen in-memory database and IBM DB2.
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+jQuery (https://en.wikipedia.org/wiki/JQuery)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animations, and Ajax.[3] 
+		It is free, open-source software using the permissive MIT License.[4] As of August 2022, jQuery is used by 77% of the 10 million most popular websites.[5] 
+		Web analysis indicates that it is the most widely deployed JavaScript library by a large margin, having at least three to four times more usage than any other JavaScript library.[5][6]
+
+	Ajax (also AJAX /ˈeɪdʒæks/; short for "Asynchronous JavaScript and XML" or "Asynchronous JavaScript transfer (x-fer)"[1][2]) (https://en.wikipedia.org/wiki/Ajax_(programming))
+		is a set of web development techniques that uses various web technologies on the client-side to create asynchronous web applications. 
+		With Ajax, web applications can send and retrieve data from a server asynchronously (in the background) without interfering with the display and behaviour of the existing page. 
+		By decoupling the data interchange layer from the presentation layer, Ajax allows web pages and, by extension, web applications, to change content dynamically without the need to reload the entire page.[3] 
+		In practice, modern implementations commonly utilize JSON instead of XML.
+
+--	The Document Object Model (DOM)(https://en.wikipedia.org/wiki/Document_Object_Model) is a cross-platform and language-independent interface that treats an HTML or XML document as a tree structure wherein each node is an object representing a part of the document.
+		The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects. 
+		DOM methods allow programmatic access to the tree; with them one can change the structure, style or content of a document.[2] 
+		Nodes can have event handlers (also known as event listeners) attached to them. Once an event is triggered, the event handlers get executed.[3]
+	In HTML DOM (Document Object Model), every element is a node:[4]
+		A document is a document node.
+		All HTML elements are element nodes.
+		All HTML attributes are attribute nodes.
+		Text inserted into HTML elements are text nodes.
+		Comments are comment nodes.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Apache Ant (https://ru.wikipedia.org/wiki/Apache_Ant, https://habr.com/ru/articles/323204/, https://www.codejava.net/frameworks/struts/introduction-to-struts-2-framework)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Apache Ant (англ. ant — муравей и акроним — «Another Neat Tool») — утилита для автоматизации процесса сборки программного продукта. 
+		Является кросс-платформенным аналогом утилиты make, где все команды записываются в XML-формате.
+	Ant был создан в рамках проекта Jakarta, сегодня — самостоятельный проект первого уровня Apache Software Foundation.
+	Первая версия была разработана инженером Sun Microsystems Джеймсом Дэвидсоном (James Davidson  (англ.)рус.), 
+		который нуждался в утилите, подобной make, разрабатывая первую референтную реализацию J2EE.
+	Ant, в отличие от другого сборщика проектов Apache Maven, обеспечивает императивную, а не декларативную сборку проекта.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Struts (https://www.roseindia.net/struts/how-struts-works.shtml?expand_article=1, https://career.guru99.com/ru/top-50-struts-interview-questions/)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Why is Struts so useful? (https://www.mygreatlearning.com/blog/introduction-to-struts-in-java/)
+		Structural separation of data presentation and business logic
+		  Easy separation of development tasks(web design, database…)
+		  Increases maintainability and extensibility(new views!)
+		  Increases reusability of code
+		Struts provides a controller that manages the control flow
+		 Changes in the flow can all be done in struts-config.xml
+		 Abstraction from (hard coded) filenames (forwards)
+		Easy localization ( internationalization is more important than ever)
+		Based on standard Java technologies ( JSP, Servlets, Javabeans)
+		 Thus running on all kinds of JSP/ Servlet containers
+		Open-source
+		 Affordable
+		No dependence on external companies
+		Robustness ( due to freely accessible source code)
+		Very vivid open-source project with growing developer community.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Apache Tomcat Versions (https://tomcat.apache.org/whichversion.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Jakarta Servlet (https://en.wikipedia.org/wiki/Jakarta_Servlet)
@@ -64,14 +133,60 @@ Cookies
 URL Rewriting
 Session Management API
 
-
-
-
 Cookie - это небольшие блоки текстовой информации, которые сервер посылает
 клиенту для сохранения в файлах cookies. 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-JSP : (https://www.journaldev.com/2110/jsp-interview-questions-and-answers?utm_source=website&utm_medium=menubar&utm_campaign=Top-Menu-Bar)
+Servlet (https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%80%D0%B2%D0%BB%D0%B5%D1%82_(Java), https://stackoverflow.com/questions/3106452/how-do-servlets-work-instantiation-sessions-shared-variables-and-multithreadi/3106909#3106909
+	https://docs.oracle.com/javaee%2F7%2Fapi%2F%2F/javax/servlet/http/HttpServlet.html)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Сервлет является интерфейсом Java, реализация которого расширяет функциональные возможности сервера. Сервлет взаимодействует с клиентами посредством принципа запрос-ответ.
+	Хотя сервлеты могут обслуживать любые запросы, они обычно используются для расширения веб-серверов. Для таких приложений технология Java Servlet определяет HTTP-специфичные сервлет классы.
+	Пакеты javax.servlet и javax.servlet.http обеспечивают интерфейсы и классы для создания сервлетов.
+	
+	Жизненный цикл сервлета состоит из следующих шагов:
+
+	В случае отсутствия сервлета в контейнере.
+		Класс сервлета загружается контейнером.
+		Контейнер создаёт экземпляр класса сервлета.
+		Контейнер вызывает метод init(). Этот метод инициализирует сервлет и вызывается в первую очередь, до того, как сервлет сможет обслуживать запросы. За весь жизненный цикл метод init() вызывается только один раз.
+	Обслуживание клиентского запроса. Каждый запрос обрабатывается в своём отдельном потоке. Контейнер вызывает метод service() для каждого запроса. Этот метод определяет тип пришедшего запроса и распределяет его в соответствующий этому типу метод для обработки запроса. Разработчик сервлета должен предоставить реализацию для этих методов. Если поступил запрос, метод для которого не реализован, вызывается метод родительского класса и обычно завершается возвращением ошибки инициатору запроса.
+	В случае если контейнеру необходимо удалить сервлет, он вызывает метод destroy(), который снимает сервлет из эксплуатации. Подобно методу init(), этот метод тоже вызывается единожды за весь цикл сервлета.
+
+	Servlet Redirect vs Forward (https://www.baeldung.com/servlet-redirect-forward)
+	Forward:
+		The request will be further processed on the server side
+		The client isn’t impacted by forward, URL in a browser stays the same
+		Request and response objects will remain the same object after forwarding. Request-scope objects will be still available
+	Redirect:
+		The request is redirected to a different resource
+		The client will see the URL change after the redirect
+		A new request is created
+		Redirect is normally used within Post/Redirect/Get web development pattern
+	
+	What is the difference between JSF, Servlet and JSP?(https://stackoverflow.com/questions/2095397/what-is-the-difference-between-jsf-servlet-and-jsp)
+	
+	-- Servlet Filters and Event Listeners (https://docs.oracle.com/cd/B14099_19/web.1012/b14017/filters.htm, https://www.digitalocean.com/community/tutorials/servletcontextlistener-servlet-listener-example)
+		A common scenario for a filter is one in which you want to apply preprocessing or postprocessing to requests or responses for a group of servlets, not just a single servlet. 
+			If you need to modify the request or response for just one servlet, there is no need to create a filter—just do what is required directly in the servlet itself.
+			Note that filters are not servlets. They do not implement and override HttpServlet methods such as doGet() or doPost(). Rather, a filter implements the methods of the javax.servlet.Filter interface. The methods are:
+				init(), destroy(), doFilter()
+		Event Listeners
+			The servlet specification includes the capability to track key events in your Web applications through event listeners. 
+			This functionality allows more efficient resource management and automated processing based on event status.
+			
+		There are two levels of servlet events:
+			Servlet context-level (application-level) event
+			This event involves resources or state held at the level of the application servlet context object.
+			Session-level event
+		This event involves resources or state associated with the series of requests from a single user session; that is, associated with the HTTP session object.
+			Each of these two levels has two event categories:
+				Lifecycle changes
+				Attribute changes
+				
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JSP : (https://www.journaldev.com/2110/jsp-interview-questions-and-answers?utm_source=website&utm_medium=menubar&utm_campaign=Top-Menu-Bar, https://ru.wikipedia.org/wiki/JavaServer_Pages)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 	JSP stands for JavaServer Pages. JSP is java server side technology to create dynamic web pages. 
@@ -128,7 +243,12 @@ JSP : (https://www.journaldev.com/2110/jsp-interview-questions-and-answers?utm_s
 	Tags in JSP are like the HTML tags. These tags are used for doing specific tasks in a JSP page. (https://www.roseindia.net/jsp/jsp-tags.shtml)
 		Each tag has its own functionality. Tags in JSP, like the HTML tags, are written within the characters '<' and '>' however, different types of tags uses additional characters within '<' and '>' characters.
 	
-
+	-- User-defined tags are known as custom tags. In this tutorial we will see how to create a custom tag and use it in JSP.
+		(https://beginnersbook.com/2014/01/jsp-custom-tags-with-example-jsp-tutorial/, https://www.techguruspeaks.com/jsp-custom-tag-libraries/)
+		To create a custom tag we need three things:
+			1) Tag handler class: In this class we specify what our custom tag will do when it is used in a JSP page.
+			2) TLD file: Tag descriptor file where we will specify our tag name, tag handler class and tag attributes.
+			3) JSP page: A JSP page where we will be using our custom tag.
 
 -- ------------------------------------------------ Enterprise Java Bean : https://www.javatpoint.com/ejb-interview-questions
 -- Types of Enterprise Java Bean

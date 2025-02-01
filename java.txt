@@ -673,6 +673,9 @@ Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrappin
 
 	Finally
 		You can attach a finally-clause to a try-catch block. The code inside the finally clause will always be executed, even if an exception is thrown from within the try or catch block.
+		Приховування оригінального винятку: Якщо виняток виникає в блоках try або catch і потім в блоці finally теж виникає виняток, виняток з finally переважає. 
+		 Це означає, що оригінальний виняток, який був викинутий у try або catch, буде "прихований" винятком з finally. В результаті програма втрачає інформацію про первинний виняток.
+		
 	Propagating Exceptions
 		You don't have to catch exceptions thrown from other methods. If you cannot do anything about the exception where the method throwing it is called, 
 			you can just let the method propagate the exception up the call stack to the method that called this method.
@@ -705,6 +708,10 @@ Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrappin
 		When the try block finishes the FileInputStream will be closed automatically. 
 			This is possible because FileInputStream implements the Java interface java.lang.AutoCloseable. 
 			All classes implementing this interface can be used inside the try-with-resources construct.
+		
+		The finalize method, closeable interface, and try-with-resources statement (https://codegym.cc/quests/lectures/questmultithreading.level01.lecture09)
+			finalize() був оголошений застарілим (deprecated) починаючи з Java 9 - і finalize виконується в іншому потоці
+			Заміна finalize() на try-with-resources або на java.lang.ref.Cleaner конструкції забезпечує більш контрольоване та безпечне управління ресурсами
 
 	Catching Multiple Exceptions in Java 7
 		In Java 7 it was made possible to catch multiple different exceptions in the same catch block. This is also known as multi catch.
@@ -746,6 +753,8 @@ Exceptions(http://tutorials.jenkov.com/java-exception-handling/exception-wrappin
 
 	Java Exception Interview Questions 
 		https://www.digitalocean.com/community/tutorials/java-exception-interview-questions-and-answers
+		
+	
 			
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Difference between URL and URI(https://prateekvjoshi.com/2014/02/22/url-vs-uri-vs-urn/, http://www.baeldung.com/java-url-vs-uri, https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn)
@@ -829,7 +838,7 @@ Memory Management in Java
 		JVM uses TWO different Garbage Collectors for Young and Old Generations. https://stackoverflow.com/questions/16549066/java-major-and-minor-garbage-collections
 		HotSpot(https://stackoverflow.com/questions/16568253/difference-between-jvm-and-hotspot) is an an implementation of the JVM concept. It was originally developed by Sun and now it is owned by Oracle. 
 			There are other implementations of the JVM specification, like JRockit, IBM J9, among many others.
-    ------------------- JIT(https://www.quora.com/What-is-JIT-Compiler-In-Java)
+    ------------------- JIT(https://www.quora.com/What-is-JIT-Compiler-In-Java, https://javarush.com/groups/posts/2256-kompiljacija-i-ispolnenie-java-prilozheniy-pod-kapotom)
 	--- The Just-In-Time (JIT) compiler (https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_overview.html) is a component of the Java™ Runtime Environment 
 		that improves the performance of Java applications at run time. In the Java programming language and environment, a just-in-time (JIT) compiler is a program that turns Java bytecode 
 		(a program that contains instructions that must be interpreted) into instructions that can be sent directly to the processor. 
@@ -916,3 +925,5 @@ Memory Management in Java
 			Сам объект при этом не будет удален из памяти до тех пор, пока на него существует фантомная ссылка или данная фантомная ссылка не очищена с помощью вызова метода clear(). 
 			Так же стоит заметить, что метод get() фантомной ссылки всегда возвращает null.
 			Phantom references are great if we need to implement some finalization logic, and they’re considerably more reliable and flexible than the finalize method.
+			
+-- ------------------------------------------------ Java 8, 9, 10 to 21 new key features and enhancements (https://www.aegissofttech.com/articles/java-8-9-10-11-new-key-features-and-enhancements.html#link38)

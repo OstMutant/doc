@@ -59,6 +59,8 @@ Threads
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	StampedLock vs ReentrantLock vs ReadWriteLock (https://javagyansite.com/2023/06/26/stampedlock-vs-reentrantlock-vs-readwritelock/, https://flex4java.blogspot.com/2015/02/lock-reentrantlock-reentrantreadwritelo.html)
+	
+	StampedLock 
 		Writing. Method writeLock() possibly blocks waiting for exclusive access, returning a stamp that can be used in method unlockWrite(long) to release the lock. Untimed and timed versions of tryWriteLock are also provided.
 		When the lock is held in write mode, no read locks may be obtained, and all optimistic read validations will fail.
 		Reading. Method readLock() possibly blocks waiting for non-exclusive access, returning a stamp that can be used in method unlockRead(long) to release the lock. Untimed and timed versions of tryReadLock are also provided.
@@ -77,6 +79,35 @@ Threads
 		2. Deadlock Safety: Since atomic variables don’t use locks, they are immune to deadlocks — a significant problem in multi-threaded programming.
 		3. Visibility: Atomic variables have built-in visibility features. When a variable is shared between multiple threads, changes made by one thread are immediately visible to other threads.
 
+========================================================================================
+		How does CopyOnWriteArrayList works?
+			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.
+			That means the read operations (get, iterator, listIterator, etc) work on a different copy.
+		
+		https://tproger.ru/translations/java8-concurrency-tutorial-2/; http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+		Класс ReentrantLock реализует то же поведение, что и обычные неявные блокировки. 
+		Интерфейс ReadWriteLock предлагает другой тип блокировок — отдельную для чтения, и отдельную для записи. 
+			Этот интерфейс был добавлен из соображения, что считывать данные (любому количеству потоков) безопасно до тех пор, пока ни один из них не изменяет переменную. 
+		В Java 8 появился новый тип блокировок — StampedLock. Так же, как и в предыдущих примерах, он поддерживает разделение на readLock() и writeLock(). 
+			Однако, в отличие от ReadWriteLock, метод блокировки StampedLock возвращает «штамп» — значение типа long.
+		Семафоры — отличный способ ограничить количество потоков, которые одновременно работают над одним и тем же ресурсом
+
+
+		https://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
+		
+		ExecutorService executor = Executors.newSingleThreadExecutor();
+		executor.submit(() -> {
+			String threadName = Thread.currentThread().getName();
+			System.out.println("Hello " + threadName);
+		});
+
+
+work-stealing algorithm ( ForkJoinPool implements )
+wait-free algorithm ( Non-blocking algorithm )
+compare-and-swap (CAS)
+context switching
+Collections.synchronizedList
+	
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java CompletableFuture (https://www.callicoder.com/java-8-completablefuture-tutorial/, https://www.baeldung.com/java-completablefuture-threadpool)
@@ -198,35 +229,6 @@ https://www.baeldung.com/java-concurrency-interview-questions
 ??????????????????????????????????????????
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-========================================================================================
-		How does CopyOnWriteArrayList works?
-			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.
-			That means the read operations (get, iterator, listIterator, etc) work on a different copy.
-		
-		https://tproger.ru/translations/java8-concurrency-tutorial-2/; http://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
-		Класс ReentrantLock реализует то же поведение, что и обычные неявные блокировки. 
-		Интерфейс ReadWriteLock предлагает другой тип блокировок — отдельную для чтения, и отдельную для записи. 
-			Этот интерфейс был добавлен из соображения, что считывать данные (любому количеству потоков) безопасно до тех пор, пока ни один из них не изменяет переменную. 
-		В Java 8 появился новый тип блокировок — StampedLock. Так же, как и в предыдущих примерах, он поддерживает разделение на readLock() и writeLock(). 
-			Однако, в отличие от ReadWriteLock, метод блокировки StampedLock возвращает «штамп» — значение типа long.
-		Семафоры — отличный способ ограничить количество потоков, которые одновременно работают над одним и тем же ресурсом
-
-
-		https://winterbe.com/posts/2015/04/07/java8-concurrency-tutorial-thread-executor-examples/
-		
-		ExecutorService executor = Executors.newSingleThreadExecutor();
-		executor.submit(() -> {
-			String threadName = Thread.currentThread().getName();
-			System.out.println("Hello " + threadName);
-		});
-
-
-work-stealing algorithm ( ForkJoinPool implements )
-wait-free algorithm ( Non-blocking algorithm )
-compare-and-swap (CAS)
-context switching
-Collections.synchronizedList
-	
 
 ========================================================================================
 

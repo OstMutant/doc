@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Elasticsearch (https://www.knowi.com/blog/what-is-elastic-search/, https://habr.com/ru/articles/280488/) 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Elasticsearch — поисковый движок с json rest api, использующий Lucene и написанный на Java. Описание всех преимуществ этого движка доступно на официальном сайте. Далее по тексту будем называть Elasticsearch как ES.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Guava Cache (https://www.baeldung.com/guava-cache) 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	Docs:
@@ -20,6 +24,40 @@ What is: Multifactor Authentication(https://support.microsoft.com/en-us/topic/wh
 		Something you know - Like a password, or a memorized PIN. 
 		Something you have - Like a smartphone, or a secure USB key. 
 		Something you are - Like a fingerprint, or facial recognition. 
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MongoDB (https://kinsta.com/knowledgebase/what-is-mongodb/#elements-of-mongodb, https://dev.to/damcosset/mongodb-normalization-vs-denormalization)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	MongoDB is a source-available cross-platform document-oriented database program. It's classified as a NoSQL database due to the way it handles data storage and retrieval, 
+		which is quite different from traditional relational databases that use SQL to query data.
+	Key points of MongoDB:
+		1. **Document-Oriented** - Data in MongoDB is stored in a flexible, JSON-like format called BSON (Binary JSON). 
+			This means that each record in a MongoDB database is a document consisting of key-value pairs. These documents are analogous to rows in a relational database.
+		2. **Schema-less Design** - Since MongoDB is a NoSQL database, it doesn't require a fixed schema and can store records that have different sets of fields. This allows for a more flexible data model.
+		3. **Scalability** - MongoDB was designed with scalability in mind. It supports horizontal scaling through sharding, which involves breaking up a single database across multiple systems.
+		4. **Performance** - MongoDB's document model is efficient for read and write operations, and it supports several powerful and flexible mechanisms for querying data.
+		5. **High Availability** - MongoDB provides high availability with replica sets. A replica set consists of two or more MongoDB instances. 
+			Each replica set member may act in the role of primary or secondary replica at any time. 
+
+	
+	Elements of MongoDB
+		Document: A single individual object in a data store, analogous to a record or row in a SQL database table.
+		Field: A single item of data within a document, such as a name or telephone number, analogous to a SQL field or table column.
+		Collection: A set of similar documents, analogous to a SQL table. While you could put all your documents into a single collection, 
+			it’s usually more practical to group them into specific types. In a contact address book you could have a collection for people and a collection for companies.
+		Database: A collection of related data, identical in meaning to a SQL database.
+		Schema: A schema defines data structures. In SQL databases you must define table definitions with associated fields and types before you can store data. 
+			This is not necessary in MongoDB although it is possible to create a schema which validates documents before they can be added to a collection.
+		Index: A data structure used to improve querying performance, identical in meaning to SQL indexes.
+		Primary Key: A unique identifier for every document. MongoDB automatically adds a unique and indexed _id field to every document in a collection.
+		Denormalization: In SQL databases, “normalization” is a technique used to organize data and eliminate duplication. 
+			In MongoDB, “denormalization” is encouraged. You actively repeat data and a single document could contain all the information it requires.
+		Joins: SQL provides a JOIN operator so data can be retrieved from multiple normalized tables in a single query. 
+			Joining was not possible in MongoDB until version 3.6 and limitations remain. This is another reason why data should be denormalized into self-contained documents.
+		Transactions: When an update changes two or more values on a single document, MongoDB ensures they all succeed or they all fail. 
+			Updates across two or more documents must be wrapped in a transaction. MongoDB has supported transactions since version 4.0 but a multi-server replica set or sharded cluster is required. The example installations below use a single server so transactions are not possible.
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Apache Kafka (https://habr.com/ru/company/piter/blog/352978/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -219,7 +257,8 @@ Apache Hadoop (https://uk.wikipedia.org/wiki/Apache_Hadoop)
 		Hadoop Distributed File System (HDFS) — розподілена файлова система, яка зберігає дані на звичайних машинах, надаючи дуже високу загальну пропускну здатність на кластері загалом;
 		Hadoop YARN — платформа що відповідає за керування обчислювальними ресурсами в кластерах і їх використання для користувацьких завдань.
 		Hadoop MapReduce — реалізація моделі програмування MapReduce для обробки великих об'ємів даних.
-		
+	
+	Hadoop vs Spark (https://aws.amazon.com/ru/compare/the-difference-between-hadoop-vs-spark/)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Apache Spark (https://ru.wikipedia.org/wiki/Apache_Spark)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

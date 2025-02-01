@@ -315,7 +315,7 @@ What are streams? (http://ocpj8.javastudyguide.com/ch12.html)
 			Collectors.toMap() ToMap collector can be used to collect Stream elements into a Map instance.
 			Collectors.joining() Joining collector can be used for joining Stream<String> elements.
 			
-			
+		The Java 8 Stream API Tutorial (https://www.baeldung.com/java-8-streams)
 ------------- 
 	Primitive Type Streams in Java (https://howtodoinjava.com/java/stream/primitive-type-streams/)
 			The stream API has inbuilt support for representing primitive streams using the following specialized classes. All these classes support the sequential and parallel aggregate operations on stream items.
