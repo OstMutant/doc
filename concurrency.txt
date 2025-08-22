@@ -56,29 +56,99 @@ Threads
 		Concurrency vs. Parallelism (http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html)
 			Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.
 			Concurrency means that an application is making progress on more than one task at the same time (concurrently).
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	StampedLock vs ReentrantLock vs ReadWriteLock (https://javagyansite.com/2023/06/26/stampedlock-vs-reentrantlock-vs-readwritelock/, https://flex4java.blogspot.com/2015/02/lock-reentrantlock-reentrantreadwritelo.html)
-	
-	StampedLock 
-		Writing. Method writeLock() possibly blocks waiting for exclusive access, returning a stamp that can be used in method unlockWrite(long) to release the lock. Untimed and timed versions of tryWriteLock are also provided.
-		When the lock is held in write mode, no read locks may be obtained, and all optimistic read validations will fail.
-		Reading. Method readLock() possibly blocks waiting for non-exclusive access, returning a stamp that can be used in method unlockRead(long) to release the lock. Untimed and timed versions of tryReadLock are also provided.
-		Optimistic Reading. Method tryOptimisticRead() returns a non-zero stamp only if the lock is not currently held in write mode. 
-			Method validate(long) returns true if the lock has not been acquired in write mode since obtaining a given stamp. 
-			This mode can be thought of as an extremely weak version of a read-lock, that can be broken by a writer at any time. 
-			The use of optimistic mode for short read-only code segments often reduces contention and improves throughput. 
-			However, its use is inherently fragile. Optimistic read sections should only read fields and hold them in local variables for later use after validation. 
 			
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	Atomic variables come with several benefits(https://andreibaptista.medium.com/taming-concurrency-understanding-atomic-variables-in-java-dc296424dd5d,
-	 https://ioflood.com/blog/java-volatile/, https://javarush.com/groups/posts/4151-kofe-breyk-240-chto-takoe-atomarnihe-peremennihe-v-java-intellij-idea-poleznihe-priemih-i-plagi, 
-	 https://itsobes.ru/JavaSobes/kak-ustroeny-atomiki/)
-		1. Performance: Atomic variables are more efficient than synchronized blocks or methods. 
-			This is because they rely on hardware-level support for atomicity (e.g., compare-and-swap (CAS) instructions) rather than expensive lock-based techniques.
-		2. Deadlock Safety: Since atomic variables don’t use locks, they are immune to deadlocks — a significant problem in multi-threaded programming.
-		3. Visibility: Atomic variables have built-in visibility features. When a variable is shared between multiple threads, changes made by one thread are immediately visible to other threads.
+		У сучасній Java-розробці ви, як правило, проектуєте для Concurrency (розбиваючи програму на незалежні задачі, які можуть виконуватися асинхронно та безпечно працювати зі спільними даними). 
+			А потім, якщо доступно апаратне забезпечення з кількома ядрами, ви отримуєте Parallelism як побічний продукт цього concurrent-дизайну, що прискорює виконання ваших завдань. 
+			Java надає багатий набір інструментів для реалізації обох концепцій.
+		
+========================================================================================
+		Optimistic Locking—підхід, коли потоки працюють із даними без блокування і перевіряють, чи дані не змінилися перед збереженням. 
+			Якщо дані змінилися, потік має повторити операцію. Використовується, коли конфлікти рідкісні, і дозволяє уникнути зайвого блокування.
 
+		Pessimistic Locking—підхід, коли потік блокує ресурс перед його зміною, гарантуючи, що ніхто інший його не змінить. 
+			Використовується, коли конфлікти є ймовірними і потрібен строгий контроль доступу.
+		
+		
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		StampedLock vs ReentrantLock vs ReadWriteLock (https://javagyansite.com/2023/06/26/stampedlock-vs-reentrantlock-vs-readwritelock/, https://flex4java.blogspot.com/2015/02/lock-reentrantlock-reentrantreadwritelo.html)
+		
+		StampedLock 
+			Writing. Method writeLock() possibly blocks waiting for exclusive access, returning a stamp that can be used in method unlockWrite(long) to release the lock. Untimed and timed versions of tryWriteLock are also provided.
+			When the lock is held in write mode, no read locks may be obtained, and all optimistic read validations will fail.
+			Reading. Method readLock() possibly blocks waiting for non-exclusive access, returning a stamp that can be used in method unlockRead(long) to release the lock. Untimed and timed versions of tryReadLock are also provided.
+			Optimistic Reading. Method tryOptimisticRead() returns a non-zero stamp only if the lock is not currently held in write mode. 
+				Method validate(long) returns true if the lock has not been acquired in write mode since obtaining a given stamp. 
+				This mode can be thought of as an extremely weak version of a read-lock, that can be broken by a writer at any time. 
+				The use of optimistic mode for short read-only code segments often reduces contention and improves throughput. 
+				However, its use is inherently fragile. Optimistic read sections should only read fields and hold them in local variables for later use after validation. 
+			
+		Механізми реалізації в Java:
+		(Pessimistic Locking) Ключове слово synchronized: Найпростіший і найпоширеніший спосіб. Можна синхронізувати метод або блок коду.
+		class Counter {
+			private int count = 0;
+			public synchronized void increment() { // Метод заблоковано
+				count++;
+			}
+			public void decrement() {
+				synchronized (this) { // Блок коду заблоковано на об'єкті 'this'
+					count--;
+				}
+			}
+		}
+		Коли потік входить у синхронізований метод або блок, він отримує моніторний лок на об'єкт. Жоден інший потік не може отримати той самий лок, доки перший потік його не звільнить.
+
+		(Pessimistic Locking) Явні локи (Explicit Locks) з java.util.concurrent.locks.ReentrantLock: Більш гнучкий та потужний механізм, ніж synchronized. Дозволяє:
+		Спробувати отримати лок (tryLock())
+		Отримати лок з таймаутом
+		Отримати лок з можливістю переривання
+		Керувати чергою потоків, що чекають
+		import java.util.concurrent.locks.ReentrantLock;
+		class SafeCounter {
+			private int count = 0;
+			private final ReentrantLock lock = new ReentrantLock();
+			public void increment() {
+				lock.lock(); // Отримуємо лок
+				try {
+					count++;
+				} finally {
+					lock.unlock(); // Завжди звільняємо лок
+				}
+			}
+		}
+		
+		Блокування запису в StampedLock (для read-write сценаріїв): Хоча StampedLock є гібридним (дозволяє оптимістичне читання), його write-lock (блок запису) є песимістичним.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		Atomic variables come with several benefits(https://andreibaptista.medium.com/taming-concurrency-understanding-atomic-variables-in-java-dc296424dd5d,
+		 https://ioflood.com/blog/java-volatile/, https://javarush.com/groups/posts/4151-kofe-breyk-240-chto-takoe-atomarnihe-peremennihe-v-java-intellij-idea-poleznihe-priemih-i-plagi, 
+		 https://itsobes.ru/JavaSobes/kak-ustroeny-atomiki/)
+			1. Performance: Atomic variables are more efficient than synchronized blocks or methods. 
+				This is because they rely on hardware-level support for atomicity (e.g., compare-and-swap (CAS) instructions) rather than expensive lock-based techniques.
+			2. Deadlock Safety: Since atomic variables don’t use locks, they are immune to deadlocks — a significant problem in multi-threaded programming.
+			3. Visibility: Atomic variables have built-in visibility features. When a variable is shared between multiple threads, changes made by one thread are immediately visible to other threads.
+			
+		Атомарні змінні (java.util.concurrent.atomic): Це основний спосіб реалізації оптимістичного блокування в Java. Класи, такі як AtomicInteger, AtomicLong, AtomicReference, використовують низькорівневі, ефективні операції CPU, які називаються CAS (Compare-And-Swap).
+		CAS: Операція CAS атомарно (за одну неподільну операцію процесора) робить три речі:
+		Зчитує поточне значення змінної.
+		Порівнює його з очікуваним старим значенням.
+		Якщо вони співпадають, записує нове значення.
+		Повертає true, якщо запис відбувся, або false, якщо ні (тобто, інший потік змінив значення). Потік, який використовує CAS, повторює операцію, доки CAS не вдасться.
+
+		import java.util.concurrent.atomic.AtomicInteger;
+		class AtomicCounter {
+			private AtomicInteger count = new AtomicInteger(0);
+			public void increment() {
+				int oldValue;
+				int newValue;
+				do {
+					oldValue = count.get(); // Зчитуємо поточне значення
+					newValue = oldValue + 1;
+				} while (!count.compareAndSet(oldValue, newValue)); // Спробуємо атомарно оновити
+				// Якщо CAS повернув false, означає, що oldValue змінилося іншим потоком, повторюємо
+			}
+		}
+		
+		Блокування читання в StampedLock: StampedLock дозволяє отримати оптимістичне блокування для читання (tryOptimisticRead()). 
+			Якщо під час читання відбувається запис, оптимістичне блокування стає недійсним (validate()), і потік повинен перейти до песимістичного блокування читання або повторити спробу.
 ========================================================================================
 		How does CopyOnWriteArrayList works?
 			The CopyOnWriteArrayList class uses a mechanism called copy-on-write which works like this: For every write operation (add, set, remove, etc) it makes a new copy of the elements in the list.

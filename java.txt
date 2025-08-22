@@ -328,6 +328,13 @@ Class and Operators(https://www.geeksforgeeks.org/java-ternary-operator-with-exa
 		Creating an immutable class seems at first to provide an elegant solution. 
 		However, whenever you do need a modified object of that new type you must suffer the overhead of a new object creation, as well as potentially causing more frequent garbage collections. 
 		The only real disadvantage of immutable classes is that they require a separate object for each distinct value.
+		
+	lombok
+	Використання @Value - це перший крок до створення immutable класів. Це простий та ефективний спосіб для більшості DTO та простих об'єктів.
+	Додайте @Builder, якщо ваш клас має багато полів, особливо якщо деякі з них є необов'язковими, щоб зробити створення об'єктів більш читабельним і безпечним.
+	Додайте @With, якщо вам потрібно часто створювати модифіковані копії immutable об'єктів.
+	Пам'ятайте про змінювані поля: Якщо у вашому @Value класі є поля типу List, Set, Map або інші змінювані об'єкти, вам потрібно самостійно подбати про їхню незмінність, 
+		створюючи захисні копії в конструкторі або використовуючи незмінні колекції.
 	
 -- ------------------------------------------------ Java Enum (http://tutorials.jenkov.com/java/enums.html, https://www.javapedia.net/Enum#qanda1686)
 		Java Enum was introduced in Java 1.5 as a new type whose fields consists of fixed set of constants.
@@ -359,6 +366,67 @@ String (https://www.digitalocean.com/community/tutorials/java-string-interview-q
 		String pool is an example of the Flyweight Design Pattern.
 		From Java 7 onwards, the Java String Pool is stored in the Heap space, which is garbage collected by the JVM. 
 			The advantage of this approach is the reduced risk of OutOfMemory error because unreferenced Strings will be removed from the pool, thereby releasing memory.
+			
+		-------------------------- gemini
+
+		+--------+
+		| STACK  |
+		+--------+
+		| s1 --->|--------+
+		|        |        |
+		| s2 --->|---+    |
+		+--------+   |    |
+					 |    |
+		+-----------------------------------+
+		|               HEAP                |
+		|                                   |
+		|   +---------------------------+   |
+		|   |       STRING POOL         |   |
+		|   |                           |   |
+		|   |  "Hello" (Object #A) <----+---+ s1
+		|   |                           |   |
+		|   +---------------------------+   |
+		|                                   |
+		|   new String("Hello") (Object #B) |<--+
+		|                                   |   | s2
+		|   (Об'єкт за межами пулу)         |   |
+		|                                   |   |
+		|   +---------------------------+   |   |
+		|   | char[]: ['H','e','l','l','o'] |<--+
+		|   | (Цей масив символів            ^   |
+		|   | спільний для #A та #B)        |   |
+		|   +---------------------------+   |   |
+		+-----------------------------------+
+
+		// Код:
+		// String s1 = "Hello";
+		// String s2 = new String("Hello");
+
+		ПОЯСНЕННЯ ДІАГРАМИ STRING POOL:
+
+		Ця ASCII-діаграма ілюструє, як Java керує рядками у пам'яті за допомогою String Pool.
+
+		1.  СТВОРЕННЯ РЯДКОВОГО ЛІТЕРАЛА (String s1 = "Hello";)
+			* **STACK (Стек):** Змінна `s1` створюється у стеці потоку виконання.
+			* **HEAP (Купа):**
+				* JVM спочатку перевіряє **STRING POOL** (який є частиною Heap), чи існує вже рядок з вмістом "Hello".
+				* Якщо "Hello" ще немає в пулі, JVM створює новий об'єкт `String` (`Object #A`) і поміщає його в String Pool.
+				* Змінна `s1` отримує посилання, яке вказує безпосередньо на цей об'єкт `String` (`Object #A`) всередині String Pool.
+
+		2.  СТВОРЕННЯ РЯДКА ЗА ДОПОМОГОЮ КОНСТРУКТОРА (String s2 = new String("Hello");)
+			* **STACK (Стек):** Змінна `s2` також створюється у стеці.
+			* **HEAP (Купа):**
+				* Оператор `new String("Hello")` ПОВИНЕН створити **новий, окремий об'єкт `String` (`Object #B`)** на Heap. Цей об'єкт створюється **поза** String Pool.
+				* Змінна `s2` отримує посилання, яке вказує на цей новий об'єкт `String` (`Object #B`).
+
+		3.  СПІЛЬНИЙ МАСИВ СИМВОЛІВ (char[]: ['H','e','l','l','o'])
+			* Для оптимізації пам'яті, обидва об'єкти `String` (`Object #A` з пулу та `Object #B`, створений за допомогою `new`) зазвичай посилаються на **один і той самий масив символів** (`char[]`), який фізично зберігає послідовність символів "Hello" на Heap. Це означає, що самі дані "Hello" дублюються лише один раз, навіть якщо є кілька об'єктів `String`, які на них посилаються.
+
+		**Висновок:**
+
+		* **`s1 == s2` буде `false`**, оскільки `s1` посилається на `Object #A` (у пулі), а `s2` посилається на `Object #B` (новий об'єкт на купі). Це два РІЗНІ об'єкти.
+		* **`s1.equals(s2)` буде `true`**, оскільки метод `equals()` порівнює вміст рядків, який в обох випадках є "Hello".
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides/collections/reference.html)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -476,6 +544,7 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 	According to the Java 7 API doc for objects:
 		The implementation was adapted from Tim Peters's list sort for Python ( TimSort). It uses techiques from Peter McIlroy's "Optimistic Sorting and Information Theoretic Complexity", 
 		 in Proceedings of the Fourth Annual ACM-SIAM Symposium on Discrete Algorithms, pp 467-474, January 1993.
+		 Collections.sort()
 			
 		Алгоритм Timsort(https://neerc.ifmo.ru/wiki/index.php?title=Timsort): 
 			Шаг 1. Входной массив разделяется на подмассивы фиксированной длины, вычисляемой определённым образом.
@@ -496,7 +565,8 @@ Java Collection Framework(https://docs.oracle.com/javase/8/docs/technotes/guides
 		
 -- ------------------------------------------------ Binary Search: https://in.indeed.com/career-advice/interviewing/binary-search-interview-questions
 		Binary search is a popular search technique. Its algorithm efficiently finds an element or an item from a list of items. 
-			Its working principle is that it divides the data in half and runs this process until it detects the desired value. It is also known as a logarithmic search.
+			Its working principle is that it divides the data in half and runs this process until it detects the desired value. It is also known as a logarithmic search. O(log N)
+			Потребує відсортованого масиву. 
 
 	
 -- ------------------------------------------------	Understanding Natural Ordering(https://www.codejava.net/java-core/collections/understanding-object-ordering-in-java-with-comparable-and-comparator)
@@ -798,6 +868,37 @@ JMX (Java Management Extensions) (https://www.codeflow.site/ru/article/java-mana
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Memory Management in Java 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	--- AI
+
+		1. JVM (Java Virtual Machine)
+			JVM — це віртуальна машина, яка виконує Java-програми. Вона є основою платформи Java і забезпечує незалежність від операційної системи (Write Once, Run Anywhere).
+			JVM бере байт-код (файл .class, який генерується компілятором Java) і виконує його.
+			Основні функції JVM:
+				Інтерпретація байт-коду: JVM перетворює байт-код у машинний код, який може виконуватися на конкретному процесорі.
+				Управління пам'яттю: JVM автоматично управляє пам'яттю через механізм Garbage Collection (збір сміття).
+				Безпека: JVM забезпечує безпечне виконання Java-коду через перевірку байт-коду.
+				Підтримка багатопоточності: JVM дозволяє створювати багатопотокові програми.
+				JIT-компілятор є частиною Execution Engine у JVM.
+					Він перетворює байт-код у машинний код під час виконання програми, що значно підвищує продуктивність.
+					JIT працює разом із інтерпретатором, забезпечуючи баланс між швидким стартом програми та її ефективністю.
+					JIT — це одна з ключових причин, чому Java-програми можуть бути швидкими, незважаючи на їхню платформонезалежність.
+		2. JRE (Java Runtime Environment)
+			JRE — це середовище виконання Java-програм. Воно включає JVM і стандартні бібліотеки Java (наприклад, java.lang, java.util).
+			JRE потрібне для запуску Java-додатків, але не для їх розробки.
+			Що входить до JRE?
+				JVM: Віртуальна машина для виконання байт-коду.
+				Стандартні бібліотеки: Набір класів і API, які використовуються Java-програмами (наприклад, колекції, багатопоточність, введення/виведення).
+				Інструменти: Файли, необхідні для виконання Java-програм.
+		3. JDK (Java Development Kit)
+			JDK — це набір інструментів для розробки Java-програм. Воно включає JRE, а також додаткові інструменти для компіляції, налагодження та створення Java-додатків.
+			Що входить до JDK?
+				JRE: Середовище виконання Java-програм.
+				Компилятор (javac): Перетворює Java-код у байт-код.
+				Інструменти для налагодження: Наприклад, jdb (Java Debugger).
+				Інструменти для моніторингу: Наприклад, jconsole, jvisualvm.
+				Інструменти для створення документації: Наприклад, javadoc.
+
+
 	--- (https://www.journaldev.com/2856/java-jvm-memory-model-memory-management-in-java)
 		Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
 		JVM memory is divided into separate parts. At broad level, JVM Heap memory is physically divided into two parts – Young Generation and Old Generation.
