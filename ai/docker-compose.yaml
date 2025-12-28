@@ -1,0 +1,132 @@
+version: "3.9"
+
+# =================================================================
+# 🚀 ПОВНИЙ АЛГОРИТМ ДІЙ: ВІД ЗАПУСКУ ДО ПЕРШОЇ ВІДПОВІДІ
+# =================================================================
+# 
+# 🛠 КРОК 1: ЗАПУСК У ТЕРМІНАЛІ
+#    1. Відкрийте PowerShell або WSL у папці з цим файлом.
+#    2. Введіть: docker compose up -d
+#
+# 📥 КРОК 2: МОНІТОРИНГ ЗАВАНТАЖЕННЯ (Важливо!)
+#    1. Введіть: docker logs -f ollama-init
+#    2. Дочекайтеся, поки всі 3 моделі (14b, 7b, nomic) завантажаться на 100%.
+#    3. Коли побачите, що контейнер ollama-init зупинився — все готово.
+#
+# 🌐 КРОК 3: ПЕРШИЙ ВХІД
+#    1. Відкрийте у браузері: http://localhost:3000
+#    2. Створіть акаунт. Перший створений акаунт автоматично стане АДМІНОМ.
+#
+# 🧠 КРОК 4: НАЛАШТУВАННЯ ПАМ'ЯТІ (Для RTX 5060 Ti 16GB)
+#    1. Натисніть на іконку профілю (знизу зліва) -> Settings.
+#    2. Оберіть вкладку "Models" у лівому меню.
+#    3. Біля моделі 'qwen2.5:14b' натисніть іконку олівця (Edit).
+#    4. Прокрутіть вниз до "Advanced Parameters".
+#    5. Знайдіть "Context Length" і змініть 2048 на 16384.
+#    6. Натисніть "Save" (Зберегти).
+#
+# 📂 КРОК 5: ЗАВАНТАЖЕННЯ ДОКУМЕНТІВ (RAG)
+#    1. У головному меню зліва оберіть "Workspace" -> "Documents".
+#    2. Натисніть "+" та завантажте папку 'doc/' або окремі .md файли.
+#    3. У чаті пишіть символ # і обирайте назву документа, щоб ШІ аналізував його.
+# =================================================================
+
+services:
+  # --- Двигун моделей (GPU) ---
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # --- Авто-інсталятор моделей ---
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: ollama-init
+    environment:
+      - OLLAMA_HOST=ollama:11434
+    volumes:
+      - ollama_models:/root/.ollama
+    depends_on:
+      ollama:
+        condition: service_healthy
+    command: >
+      sh -c "sleep 5 && 
+             ollama pull qwen2.5:14b && 
+             ollama pull qwen2.5-coder:7b && 
+             ollama pull nomic-embed-text"
+    restart: on-failure
+
+  # --- Векторна база даних ---
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant
+    restart: always
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    shm_size: "1gb"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # --- Інтерфейс користувача ---
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: openwebui
+    restart: always
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - VECTOR_DB_TYPE=qdrant
+      - VECTOR_DB_URL=http://qdrant:6333
+      - RAG_EMBEDDING_ENGINE=ollama
+      - RAG_EMBEDDING_MODEL=nomic-embed-text
+      - RAG_TOP_K=10
+      - RAG_RELEVANCE_THRESHOLD=0.4
+      - TEXT_SPLITTER_CHUNK_SIZE=800
+      - TEXT_SPLITTER_CHUNK_OVERLAP=80
+      - ENABLE_RAG_WEB_SEARCH=True
+      - WEBUI_SECRET_KEY=ost_secret_key_2025_strong
+      - WEBUI_AUTH=True
+      - DEFAULT_MODEL=qwen2.5:14b
+    volumes:
+      - openwebui_data:/app/data
+    depends_on:
+      ollama:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+    user: root
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  ollama_models:
+    name: ollama_models
+  openwebui_data:
+    name: openwebui_data
+  qdrant_data:
+    name: qdrant_data
