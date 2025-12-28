@@ -37,6 +37,9 @@ services:
     image: ollama/ollama:latest
     container_name: ollama
     restart: always
+    environment:
+      - OLLAMA_NUM_PARALLEL=4      # Щоб IDEA могла одночасно і чатитись, і код підказувати
+      - OLLAMA_MAX_LOADED_MODELS=2 # Щоб обидві моделі (14b і 7b) жили в пам'яті карти
     ports:
       - "11434:11434"
     volumes:
