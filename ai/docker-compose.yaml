@@ -26,8 +26,8 @@ services:
     container_name: ollama
     restart: always
     environment:
-      - OLLAMA_NUM_PARALLEL=4
-      - OLLAMA_MAX_LOADED_MODELS=2
+      - OLLAMA_NUM_PARALLEL=2
+      - OLLAMA_MAX_LOADED_MODELS=1
     ports:
       - "11434:11434"
     volumes:
@@ -52,8 +52,7 @@ services:
     volumes:
       - ollama_models:/root/.ollama
     depends_on:
-      ollama:
-        condition: service_healthy
+      - ollama
     entrypoint: ["/usr/bin/sh", "-c"]
     command:
       - |
@@ -75,12 +74,6 @@ services:
     volumes:
       - qdrant_data:/qdrant/storage
     shm_size: "1gb"
-    healthcheck:
-      test: ["CMD-SHELL", "wget -qO- http://localhost:6333/healthz | grep -q 'healthz check passed' || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
-      start_period: 15s
 
   # --- Інтерфейс користувача (RAG менеджер) ---
   openwebui:
@@ -104,10 +97,8 @@ services:
     volumes:
       - openwebui_data:/app/data
     depends_on:
-      ollama:
-        condition: service_healthy
-      qdrant:
-        condition: service_healthy
+      - ollama
+      - qdrant
     user: root
     logging:
       driver: "json-file"
