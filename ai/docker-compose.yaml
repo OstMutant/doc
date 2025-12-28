@@ -1,28 +1,22 @@
-version: "3.9"
-
 # =================================================================
 # 🚀 ПОВНИЙ АЛГОРИТМ ДІЙ: ВІД ЗАПУСКУ ДО РОБОТИ В IDE
 # =================================================================
 # 
 # 🛠 КРОК 1: ЗАПУСК У ТЕРМІНАЛІ
-#    1. Відкрийте PowerShell або WSL у папці з цим файлом.
-#    2. Введіть: docker compose up -d
+#    docker compose up -d
 #
 # 📥 КРОК 2: МОНІТОРИНГ ТА ПЕРЕВІРКА
-#    1. Введіть: docker logs -f ollama-init
-#    2. 🧪 Перевірка моделей: docker exec -it ollama ollama list
-#       (Має бути: qwen2.5:14b, qwen2.5-coder:7b, nomic-embed-text)
+#    docker logs -f ollama-init
+#    docker exec -it ollama ollama list
+#    docker exec -it ollama nvidia-smi
 #
-# 🌐 КРОК 3: ВХІД В OPEN WEBUI (Для документів .md)
-#    1. Відкрийте: http://localhost:3000
-#    2. Завантажуйте доки в "Workspace" -> "Documents".
+# 🌐 КРОК 3: ВХІД В OPEN WEBUI
+#    http://localhost:3000
 #
-# 💻 КРОК 4: ПІДКЛЮЧЕННЯ ДО INTELLIJ IDEA (Рідний AI Плагін)
-#    1. Settings -> Tools -> AI Assistant.
-#    2. Увімкніть "Enable Local Models" та оберіть провайдер "Ollama".
-#    3. Вкажіть адресу: http://localhost:11434
-#    4. Chat: qwen2.5:14b | Code Completion: qwen2.5-coder:7b
-#    5. ПРИМІТКА: Контекст 16384 вже вшитий у модель автоматично!
+# 💻 КРОК 4: ПІДКЛЮЧЕННЯ ДО INTELLIJ IDEA
+#    Settings -> Tools -> AI Assistant -> Enable Local Models
+#    Address: http://localhost:11434
+#    Chat: qwen2.5:14b | Code Completion: qwen2.5-coder:7b
 # =================================================================
 
 services:
@@ -55,21 +49,21 @@ services:
   ollama-init:
     image: ollama/ollama:latest
     container_name: ollama-init
-    environment:
-      - OLLAMA_HOST=ollama:11434
     volumes:
       - ollama_models:/root/.ollama
     depends_on:
       ollama:
         condition: service_healthy
-    command: >
-      sh -c "sleep 5 && 
-             ollama pull qwen2.5:14b && 
-             ollama pull qwen2.5-coder:7b && 
-             ollama pull nomic-embed-text && 
-             echo 'FROM qwen2.5:14b\nPARAMETER num_ctx 16384' > /tmp/Modelfile && 
-             ollama create qwen2.5:14b -f /tmp/Modelfile"
-    restart: on-failure
+    entrypoint: ["/usr/bin/sh", "-c"]
+    command:
+      - |
+        sleep 5
+        ollama pull qwen2.5:14b
+        ollama pull qwen2.5-coder:7b
+        ollama pull nomic-embed-text
+        echo 'FROM qwen2.5:14b\nPARAMETER num_ctx 8192' > /tmp/Modelfile
+        ollama create qwen2.5:14b -f /tmp/Modelfile
+    restart: "no"
 
   # --- Векторна база даних ---
   qdrant:
@@ -82,10 +76,11 @@ services:
       - qdrant_data:/qdrant/storage
     shm_size: "1gb"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      test: ["CMD-SHELL", "wget -qO- http://localhost:6333/healthz | grep -q 'healthz check passed' || exit 1"]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 3
+      start_period: 15s
 
   # --- Інтерфейс користувача (RAG менеджер) ---
   openwebui:
@@ -93,9 +88,8 @@ services:
     container_name: openwebui
     restart: always
     ports:
-      - "3000:3000"
+      - "3000:8080"  # мапимо 3000 на хості -> 8080 у контейнері
     environment:
-      - WEBUI_PORT=3000
       - OLLAMA_BASE_URL=http://ollama:11434
       - VECTOR_DB_TYPE=qdrant
       - VECTOR_DB_URL=http://qdrant:6333
