@@ -94,8 +94,9 @@ services:
     container_name: openwebui
     restart: always
     ports:
-      - "3000:8080"
+      - "3000:3000"  # Тепер порти співпадають явно
     environment:
+      - WEBUI_PORT=3000
       - OLLAMA_BASE_URL=http://ollama:11434
       - VECTOR_DB_TYPE=qdrant
       - VECTOR_DB_URL=http://qdrant:6333
@@ -115,11 +116,13 @@ services:
       qdrant:
         condition: service_healthy
     user: root
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   ollama_models:
-    name: ollama_models
   openwebui_data:
-    name: openwebui_data
   qdrant_data:
-    name: qdrant_data
